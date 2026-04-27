@@ -4,9 +4,8 @@ import sqlite3
 import uuid
 from datetime import datetime
 from typing import List, Dict, Any, Optional
-import faiss
-import numpy as np
-from sentence_transformers import SentenceTransformer
+# import faiss
+# from sentence_transformers import SentenceTransformer
 
 class DataService:
     def __init__(self, dataset_path: str = "dataset"):
@@ -27,11 +26,11 @@ class DataService:
         self.db_path = "travel_planner.db"
         self._init_sqlite()
         
-        # RAG / Vector DB Setup
-        self.model = SentenceTransformer('all-MiniLM-L6-v2')
-        self.index = None
-        self.vector_data = []
-        self._initialize_vector_db()
+        # RAG / Vector DB Setup (Disabled for speed/simplicity)
+        # self.model = SentenceTransformer('all-MiniLM-L6-v2')
+        # self.index = None
+        # self.vector_data = []
+        # self._initialize_vector_db()
 
     def _init_sqlite(self):
         conn = sqlite3.connect(self.db_path)

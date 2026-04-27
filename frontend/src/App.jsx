@@ -60,14 +60,17 @@ const TabNav = ({ activeTab, onTabChange }) => {
 
 const TransportTimeline = ({ transport, origin, destination, numPeople, totalCost }) => {
   if (!transport) return null;
+  const isCab = transport.mode?.toLowerCase() === 'cab' || transport.mode?.toLowerCase() === 'taxi';
+  const isBus = transport.mode?.toLowerCase() === 'bus';
+  
   return (
     <div className="transport-grid-dashboard">
       <div className="tg-card main-ticket">
         <div className="tg-header">
-          <Train size={24} color="var(--primary)" />
+          {isCab ? <Compass size={24} color="var(--primary)" /> : (isBus ? <Route size={24} color="var(--primary)" /> : <Train size={24} color="var(--primary)" />)}
           <div style={{ marginLeft: '12px' }}>
-            <div className="tg-name">{transport.train_name}</div>
-            <div className="tg-number">#{transport.train_number}</div>
+            <div className="tg-name">{transport.provider || transport.train_name}</div>
+            <div className="tg-number">{transport.train_number !== 'N/A' ? `#${transport.train_number}` : transport.type}</div>
           </div>
         </div>
         <div className="tg-timeline">
@@ -87,12 +90,12 @@ const TransportTimeline = ({ transport, origin, destination, numPeople, totalCos
       </div>
       <div className="tg-side-col">
         <div className="tg-card class-info">
-          <div className="tg-label">Seat Class</div>
-          <div className="tg-value">{transport.class}</div>
-          <div className="tg-classes">Available: {(transport.available_classes || ['Sleeper']).join(', ')}</div>
+          <div className="tg-label">Service Type</div>
+          <div className="tg-value">{transport.class || transport.type}</div>
+          <div className="tg-classes">{isCab ? "Private Service" : "Daily Frequency"}</div>
         </div>
         <div className="tg-card price-info">
-          <div className="tg-label">Est. Cost for {numPeople}</div>
+          <div className="tg-label">Total for {numPeople} (Round Trip)</div>
           <div className="tg-value">₹{totalCost?.toLocaleString()}</div>
         </div>
       </div>
@@ -279,7 +282,7 @@ const MediaCard = ({ item, type }) => {
 
 // High-End Tabular Itinerary & Budget Component
 const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
-  if (!itinerary || itinerary.status === 'gathering') return null;
+  if (!itinerary || !itinerary.costs || itinerary.status === 'gathering') return null;
 
   const renderContent = () => {
     switch (activeSubTab) {
@@ -289,11 +292,9 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
             <table className="itinerary-main-table">
               <thead>
                 <tr>
-                  <th>Day</th>
-                  <th>Morning Slot</th>
-                  <th>Afternoon Slot</th>
-                  <th>Evening Slot</th>
-                  <th>Meal & Stay</th>
+                  <th style={{ width: '80px' }}>Day</th>
+                  <th>Sightseeing & Activities</th>
+                  <th style={{ width: '220px' }}>Meal & Stay</th>
                 </tr>
               </thead>
               <tbody>
@@ -301,14 +302,11 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
                   <tr key={idx}>
                     <td className="day-cell">{day.day}</td>
                     <td className="slot-cell">
-                      <div className="slot-title">{day.morning}</div>
-                      <div className="slot-area">{day.area}</div>
-                    </td>
-                    <td className="slot-cell">
-                      <div className="slot-title">{day.afternoon}</div>
-                    </td>
-                    <td className="slot-cell">
-                      <div className="slot-title">{day.evening}</div>
+                      <div className="activities-list-container">
+                        {day.activities_list?.map((act, i) => (
+                          <div key={i} className="activity-item-row">• {act}</div>
+                        ))}
+                      </div>
                     </td>
                     <td className="stay-cell">
                       <div className="meal-name"><Utensils size={12} /> {day.meal}</div>
@@ -349,13 +347,17 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
             {/* Transport Card */}
             <div className="dashboard-card-row">
               <div className="col-cat">
-                <div className="cat-label"><Train size={16} /> Transport</div>
+                <div className="cat-label">
+                  {itinerary.selected_transport.mode?.toLowerCase() === 'cab' ? <Compass size={16} /> : 
+                   (itinerary.selected_transport.mode?.toLowerCase() === 'bus' ? <Route size={16} /> : <Train size={16} />)} 
+                  {" "}{itinerary.selected_transport.mode || "Transport"}
+                </div>
               </div>
               <div className="col-det">
-                <div className="det-title">Board {itinerary.selected_transport.train_name} from {itinerary.selected_transport.from_station} — {itinerary.selected_transport.class}</div>
-                <div className="det-sub">₹{itinerary.selected_transport.total_estimated_cost} x {itinerary.travellers} x 2 (Round Trip)</div>
+                <div className="det-title">Board {itinerary.selected_transport.provider || itinerary.selected_transport.train_name} from {itinerary.selected_transport.from_station} — {itinerary.selected_transport.class}</div>
+                <div className="det-sub">₹{(itinerary.selected_transport.total_estimated_cost || 0).toLocaleString()} x {itinerary.travellers} travellers x 2 (Round Trip)</div>
               </div>
-              <div className="col-cost">₹{itinerary.costs.transport.toLocaleString()}</div>
+              <div className="col-cost">₹{(itinerary.costs.transport || 0).toLocaleString()}</div>
             </div>
 
             {/* Stay Card */}
@@ -367,7 +369,7 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
                 <div className="det-title">{itinerary.selected_hotel.name} in {itinerary.selected_hotel.area} — {rooms} Rooms for {itinerary.travellers} People</div>
                 <div className="det-sub">₹{itinerary.selected_hotel.price_per_night} x {rooms} rooms x {itinerary.days} nights</div>
               </div>
-              <div className="col-cost">₹{itinerary.costs.hotel.toLocaleString()}</div>
+              <div className="col-cost">₹{(itinerary.costs.hotel || 0).toLocaleString()}</div>
             </div>
 
             {/* Dining & Activity Card */}
@@ -377,9 +379,9 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
               </div>
               <div className="col-det">
                 <div className="det-title">Meals at {itinerary.media_cards?.restaurants?.[0]?.name || "Local Eatery"} + Entry Fees</div>
-                <div className="det-sub">₹{foodEntrySum.toLocaleString()} combined estimate</div>
+                <div className="det-sub">₹{(foodEntrySum || 0).toLocaleString()} combined estimate</div>
               </div>
-              <div className="col-cost">₹{foodEntrySum.toLocaleString()}</div>
+              <div className="col-cost">₹{(foodEntrySum || 0).toLocaleString()}</div>
             </div>
 
             {/* KPI Footer */}
@@ -425,29 +427,29 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
         <div className="card-label">BUDGET SUMMARY</div>
         <div className="budget-grid">
           <div className="budget-item">
-            <span className="label">Transport ({itinerary.selected_transport.class})</span>
-            <span className="value">₹{itinerary.costs.transport.toLocaleString()}</span>
+            <span className="label">Transport ({itinerary.selected_transport?.class || "N/A"})</span>
+            <span className="value">₹{itinerary.costs?.transport?.toLocaleString() || "0"}</span>
           </div>
           <div className="budget-item">
-            <span className="label">Hotel Stay ({itinerary.selected_hotel.rating}★)</span>
-            <span className="value">₹{itinerary.costs.hotel.toLocaleString()}</span>
+            <span className="label">Hotel Stay ({itinerary.selected_hotel?.rating || "0"}★)</span>
+            <span className="value">₹{itinerary.costs?.hotel?.toLocaleString() || "0"}</span>
           </div>
           <div className="budget-item">
             <span className="label">Food preferred </span>
-            <span className="value">₹{itinerary.costs.food.toLocaleString()}</span>
+            <span className="value">₹{itinerary.costs?.food?.toLocaleString() || "0"}</span>
           </div>
           <div className="budget-item">
             <span className="label">Activities</span>
-            <span className="value">₹{itinerary.costs.activities.toLocaleString()}</span>
+            <span className="value">₹{itinerary.costs?.activities?.toLocaleString() || "0"}</span>
           </div>
           <div className="budget-total">
             <div className="total-row">
               <span className="label">Total Estimated</span>
-              <span className="value">₹{itinerary.costs.total.toLocaleString()}</span>
+              <span className="value">₹{itinerary.costs?.total?.toLocaleString() || "0"}</span>
             </div>
             <div className="remaining-row">
               <span className="label">Remaining Budget</span>
-              <span className="value highlight">₹{(itinerary.budget - itinerary.costs.total).toLocaleString()}</span>
+              <span className="value highlight">₹{((itinerary.budget || 0) - (itinerary.costs?.total || 0)).toLocaleString() || "0"}</span>
             </div>
           </div>
         </div>
@@ -893,7 +895,7 @@ function App() {
                 </div>
 
                 <div className="input-group">
-                  <label>TOTAL BUDGET (₹ {formData.budget.toLocaleString()})</label>
+                  <label>TOTAL BUDGET (₹ {(formData.budget || 0).toLocaleString()})</label>
                   <input type="range" name="budget" min="5000" max="100000" step="1000" value={formData.budget} onChange={handleInputChange} />
                 </div>
 
@@ -901,16 +903,16 @@ function App() {
                   <div className="kpi-dashboard">
                     <div className="kpi-card">
                       <div className="kpi-label">TOTAL</div>
-                      <div className="kpi-value">₹{itinerary.kpi.total_budget.toLocaleString()}</div>
+                      <div className="kpi-value">₹{(itinerary.kpi.total_budget || 0).toLocaleString()}</div>
                     </div>
                     <div className="kpi-card">
                       <div className="kpi-label">SPENT</div>
-                      <div className="kpi-value highlight">₹{itinerary.kpi.spent.toLocaleString()}</div>
+                      <div className="kpi-value highlight">₹{(itinerary.kpi.spent || 0).toLocaleString()}</div>
                     </div>
                     <div className="kpi-card">
                       <div className="kpi-label">REMAINING</div>
                       <div className={`kpi-value ${itinerary.kpi.remaining >= 0 ? 'positive' : 'negative'}`}>
-                        ₹{itinerary.kpi.remaining.toLocaleString()}
+                        ₹{(itinerary.kpi.remaining || 0).toLocaleString()}
                       </div>
                     </div>
                   </div>

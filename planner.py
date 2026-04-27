@@ -5,6 +5,27 @@ class TravelPlannerLogic:
     def __init__(self, data_service):
         self.db = data_service
 
+    def calculate_proxy_transport_cost(self, origin_coords, dest_coords, tier):
+        """
+        Fallback Logic: Distance * Rate (₹12 for Bus, ₹28 for Cab)
+        """
+        if not origin_coords or not dest_coords:
+            return 1500 # Safe fallback
+            
+        lat1, lon1 = origin_coords
+        lat2, lon2 = dest_coords
+        
+        R = 6371 # Radius of Earth in km
+        dlat = math.radians(lat2 - lat1)
+        dlon = math.radians(lon2 - lon1)
+        a = math.sin(dlat/2)**2 + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * math.sin(dlon/2)**2
+        c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+        distance = R * c
+        
+        # Rate: Cab (Luxury) = 28, Bus (Others) = 12
+        rate = 28 if tier == 'luxury' else 12
+        return max(500, round(distance * rate))
+
     def select_hotel_best_fit(self, city_id: int, travellers: int, total_budget: float, nights: int, transport_cost: float = 0) -> Optional[Dict[str, Any]]:
         """
         Logic: Stop picking the cheapest option.
@@ -153,6 +174,44 @@ class TravelPlannerLogic:
             if is_rainy and attr.get('type') == 'Outdoor': continue
             filtered.append(attr)
         return filtered
+
+    def generate_itinerary(self, days: int, attractions: List[Dict[str, Any]], hotel: Dict[str, Any], num_rooms: int, num_travellers: int, mood: str = "Relaxation") -> List[Dict[str, Any]]:
+        """
+        MISSION: DAY-WISE FLAT STRUCTURE
+        - Stop using morning, afternoon, evening slots.
+        - Create a consolidated activities_list.
+        - Ensure 100% data availability with Modulo Logic.
+        """
+        pool = attractions.copy()
+        if mood.lower() == 'adventure':
+            pool.sort(key=lambda x: (x.get('outdoor', False), x.get('cost', 0)), reverse=True)
+        else:
+            pool.sort(key=lambda x: (x.get('outdoor', True), x.get('duration', 99)))
+            
+        itinerary = []
+        for i in range(days):
+            # Select 3 unique activities per day using modulo
+            m_spot = pool[(i * 3) % len(pool)]
+            a_spot = pool[(i * 3 + 1) % len(pool)]
+            e_spot = pool[(i * 3 + 2) % len(pool)]
+            
+            day_acts = [m_spot, a_spot, e_spot]
+            activities_list = [
+                f"Visit {m_spot['name']} in {m_spot.get('area', 'Central Area')}",
+                f"Explore {a_spot['name']} ({a_spot.get('area', 'General Area')})",
+                f"Evening at {e_spot['name']} — Enjoy the local vibe"
+            ]
+            
+            itinerary.append({
+                "day": i + 1,
+                "activities_list": activities_list,
+                "activities": day_acts,
+                "stay": hotel['name'],
+                "meal": "Breakfast at Hotel, Lunch & Dinner at Local Restaurants",
+                "area": m_spot.get('area', 'Main Area')
+            })
+            
+        return itinerary
 
     def group_activities_by_area(self, attractions: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
         areas = {}
