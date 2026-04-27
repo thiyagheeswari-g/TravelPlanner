@@ -100,7 +100,9 @@ class TravelPlannerLogic:
         
         for i in range(days):
             spot = pool[i % len(pool)]
-            highlight = spot['name']
+            # CLEAN FORMATTING: Remove suffixes like ": Sightseeing"
+            highlight = spot['name'].split(':')[0].strip()
+            
             jittered = self._jitter_coords(city_lat, city_lng, 0.01)
             spot['coords'] = {"lat": jittered['lat'], "lng": jittered['lng']}
             
@@ -130,14 +132,16 @@ class TravelPlannerLogic:
         """
         2. BUDGET VALIDATOR & SELF-CORRECTION LOOP
         - If Total > Budget: Downgrade Hotel -> Transport -> Attractions.
-        - 3. 90% MAXIMIZER RULE: If Total < 85% Budget: Upgrade Hotel -> Transport.
+        - 3. 90% MAXIMIZER RULE: If Total < 85% Budget: Upgrade Hotel -> Transport -> Attractions.
         """
         budget = state['budget']
-        usable_budget = budget * 0.9 # Buffer
+        # If maximize_to_limit is true, we use the full budget as target, otherwise keep 10% buffer
+        maximize = state.get('maximize_to_limit', False)
+        usable_budget = budget if maximize else budget * 0.9
         spent = state['costs']['total']
         city_id = state['city_id']
         
-        # DOWN-STEP LOOP
+        # DOWN-STEP LOOP (to fit under usable_budget)
         iteration = 0
         while spent > usable_budget and iteration < 5:
             iteration += 1
@@ -152,11 +156,11 @@ class TravelPlannerLogic:
                     target = cheaper[0]
                     rooms = (state['travellers'] + (target.get('max_people', 2) or 2) - 1) // (target.get('max_people', 2) or 2)
                     new_h_c = target.get('price_per_night', 0) * rooms * state['days']
+                    pot_total = spent - state['costs']['hotel'] + new_h_c
                     state['selected_hotel'] = target
                     state['costs']['hotel'] = new_h_c
-                    spent = spent - (state['costs']['hotel'] - new_h_c) # Incorrect math fix:
-                    state['costs']['total'] = sum([state['costs'][k] for k in state['costs'] if k != 'total'])
-                    spent = state['costs']['total']
+                    state['costs']['total'] = pot_total
+                    spent = pot_total
                     changed = True
             
             # 2. Downgrade Transport (Private -> Bus)
@@ -167,17 +171,21 @@ class TravelPlannerLogic:
                     if buses:
                         bus = sorted(buses, key=lambda x: x.get('cost', 9999))[0]
                         new_t_c = (bus.get('cost', 500) * state['travellers']) * 2
+                        pot_total = spent - state['costs']['transport'] + new_t_c
                         state['selected_transport'].update(bus)
                         state['costs']['transport'] = new_t_c
-                        state['costs']['total'] = sum([state['costs'][k] for k in state['costs'] if k != 'total'])
-                        spent = state['costs']['total']
+                        state['costs']['total'] = pot_total
+                        spent = pot_total
                         changed = True
             
             if not changed: break
 
-        # 3. 90% MAXIMIZER RULE
+        # 3. 90% MAXIMIZER LOOP (Target: 85% to 95% of usable_budget)
         iteration = 0
-        while spent < (usable_budget * 0.85) and iteration < 5:
+        target_min = usable_budget * 0.85
+        target_max = usable_budget * 0.95
+        
+        while spent < target_min and iteration < 10:
             iteration += 1
             changed = False
             
@@ -191,7 +199,7 @@ class TravelPlannerLogic:
                         r = (state['travellers'] + (bh.get('max_people', 2) or 2) - 1) // (bh.get('max_people', 2) or 2)
                         new_h_c = bh.get('price_per_night', 0) * r * state['days']
                         pot_total = spent - state['costs']['hotel'] + new_h_c
-                        if pot_total <= usable_budget:
+                        if pot_total <= target_max:
                             state['selected_hotel'] = bh
                             state['costs']['hotel'] = new_h_c
                             state['costs']['total'] = pot_total
@@ -199,7 +207,7 @@ class TravelPlannerLogic:
                             changed = True
                             break
             
-            # 2. Upgrade Transport
+            # 2. Upgrade Transport (Bus -> Cab)
             if not changed and state['selected_transport'].get('mode', '').lower() == 'bus':
                 routes = self.db.get_transport(state['origin'], state['destination'])
                 if routes:
@@ -208,13 +216,33 @@ class TravelPlannerLogic:
                         cab = sorted(cabs, key=lambda x: x.get('cost', 9999))[0]
                         new_t_c = (cab.get('cost', 500) * state['travellers']) * 2
                         pot_total = spent - state['costs']['transport'] + new_t_c
-                        if pot_total <= usable_budget:
+                        if pot_total <= target_max:
                             state['selected_transport'].update(cab)
                             state['costs']['transport'] = new_t_c
                             state['costs']['total'] = pot_total
                             spent = pot_total
                             changed = True
+
+            # 3. Upgrade Attractions / Food (Premium Experience)
+            if not changed:
+                # Add a "Premium Surcharge" to activities if we still have budget
+                extra_needed = target_min - spent
+                if extra_needed > 0:
+                    state['costs']['activities'] += extra_needed * 0.5
+                    state['costs']['food'] += extra_needed * 0.5
+                    state['costs']['total'] = sum([state['costs'][k] for k in state['costs'] if k != 'total'])
+                    spent = state['costs']['total']
+                    changed = True
             
             if not changed: break
             
+        # Hard Rule: No plan should leave >20% unused unless fully upgraded
+        if spent < (usable_budget * 0.8) and iteration < 15:
+             # Final push: just add to food/activities to hit 80%
+             final_extra = (usable_budget * 0.85) - spent
+             if final_extra > 0:
+                 state['costs']['activities'] += final_extra * 0.5
+                 state['costs']['food'] += final_extra * 0.5
+                 state['costs']['total'] = sum([state['costs'][k] for k in state['costs'] if k != 'total'])
+        
         return state

@@ -42,6 +42,7 @@ class PlanState(TypedDict):
     city_id: Optional[int]
     explanation: str
     budget_updated: bool
+    maximize_to_limit: bool
 
 class TravelAgent:
     def __init__(self, db: Optional[DataService] = None):
@@ -127,13 +128,28 @@ class TravelAgent:
         extracted = {k: None for k in ['destination', 'origin', 'days', 'budget', 'travellers', 'mood']}
         q_low = query.lower()
         
+        # Heuristic for single city mentions as answers to prompts
         cities = [c['name'] for c in self.db._cities]
-        for c in cities:
-            if c.lower() in q_low:
+        found_cities = [c for c in cities if c.lower() in q_low]
+        if len(found_cities) == 1:
+            city = found_cities[0]
+            if f"from {city.lower()}" in q_low: extracted['origin'] = city
+            elif f"to {city.lower()}" in q_low or "trip to" in q_low: extracted['destination'] = city
+            else:
+                # If no preposition, check what's missing in history/input
+                if not history: # First turn
+                     extracted['destination'] = city
+                else:
+                     # Check if we were just asking for origin
+                     last_msg = history[-1]['content'].lower() if history else ""
+                     if "departing from" in last_msg or "origin" in last_msg:
+                         extracted['origin'] = city
+                     else:
+                         extracted['destination'] = city
+        else:
+            for c in found_cities:
                 if f"from {c.lower()}" in q_low: extracted['origin'] = c
                 elif f"to {c.lower()}" in q_low or "trip to" in q_low: extracted['destination'] = c
-                else:
-                    if not extracted['destination']: extracted['destination'] = c
             
         days_match = re.search(r'(\d+)\s*(?:days|day|night)', q_low)
         if days_match: extracted['days'] = int(days_match.group(1))
@@ -146,6 +162,9 @@ class TravelAgent:
         styles = ['luxury', 'budget', 'mid', 'relaxation', 'adventure']
         for s in styles:
             if s in q_low: extracted['mood'] = s.capitalize()
+            
+        # Detect maximization intent
+        extracted['maximize_to_limit'] = any(word in q_low for word in ["use remaining", "full budget", "spend more", "maximize"])
             
         return extracted
 
@@ -184,6 +203,15 @@ class TravelAgent:
             if not filtered: filtered = opts
             filtered.sort(key=lambda x: x.get('cost', 9999))
             sel = filtered[-1] if tier == 'luxury' else filtered[0]
+            
+            # 1. TRANSPORT FALLBACK RULE: No ₹0 trips
+            cost = sel.get('cost', 0)
+            if cost <= 0:
+                dist = routes[0].get('distance_km', 100) or 100
+                cost = dist * 5
+                sel['cost'] = cost
+                sel['is_proxy_cost'] = True
+
             state['selected_transport'] = {**sel, **state['transport_meta']}
         else:
             o_city = self.db.get_city_by_name(state['origin'])
@@ -215,10 +243,18 @@ class TravelAgent:
         if state['status'] in ['gathering', 'greeting']: return state
         
         # 4. ACCURATE RESPONSE MAPPING
-        if state.get('budget_updated'):
-             state['final_response'] = f"I've updated your plan for {state['destination']} with your new budget of ₹{state['budget']}. Check the dashboard for the refreshed itinerary."
+        rem = state['budget'] - state['costs']['total']
+        h_type = state['selected_hotel'].get('hotel_type', 'Standard')
+        t_mode = state['selected_transport'].get('mode', 'Transport')
+        
+        closing = f"This plan selected hotel to {h_type}, transport to {t_mode} to fit into the budget and the Remaining Balance is ₹{rem:,.0f} is saved for your personal use. Enjoy your trip!"
+
+        if state.get('maximize_to_limit'):
+             state['final_response'] = f"I've recalculated your plan to utilize your full budget of ₹{state['budget']}. I have upgraded your accommodation and transport to ensure a premium experience. {closing}"
+        elif state.get('budget_updated'):
+             state['final_response'] = f"I've updated your plan for {state['destination']} with your new budget of ₹{state['budget']}. {closing}"
         else:
-             state['final_response'] = f"I've planned your {state['days']}-day trip to {state['destination']} with the default budget of ₹{state['budget']}. Check the dashboard for the full plan."
+             state['final_response'] = f"I've planned your {state['days']}-day trip to {state['destination']} with the default budget of ₹{state['budget']}. {closing}"
 
         state['kpi'] = {"total_budget": state['budget'], "spent": state['costs']['total'], "remaining": state['budget'] - state['costs']['total']}
         
@@ -245,10 +281,13 @@ class TravelAgent:
         origin = ext.get('origin') or input_data.get('origin')
         
         prev_dest = input_data.get('destination')
-        is_new_trip = prev_dest and destination and prev_dest != destination
+        prev_budget = float(input_data.get('budget') or 0)
+        curr_budget = ext.get('budget')
         
-        if is_new_trip:
-            # RESET ALL for new trip
+        is_hard_reset = (prev_dest and destination and prev_dest != destination) or (curr_budget and prev_budget and curr_budget != prev_budget)
+        
+        if is_hard_reset:
+            # RESET ALL for fresh start (Filter Override)
             days = int(ext.get('days') or 3)
             budget = float(ext.get('budget') or 50000.0)
             mood = ext.get('mood') or "Relaxation"
@@ -271,6 +310,7 @@ class TravelAgent:
             "travellers": travellers,
             "mood": mood,
             "budget_updated": budget_updated,
+            "maximize_to_limit": ext.get('maximize_to_limit') or input_data.get('maximize_to_limit', False),
             "travel_month": "May", "food_preference": "Both", "field_changes": [],
             "selected_hotel": None, "selected_transport": None, "available_transport": [], "transport_meta": None,
             "itinerary_days": [], "food_recommendations": []

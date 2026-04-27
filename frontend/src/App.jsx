@@ -34,14 +34,11 @@ const API_BASE = "http://localhost:8000";
 function ChangeView({ center, zoom, cityId }) {
   const map = useMap();
   useEffect(() => {
-    if (center) {
-      map.flyTo(center, zoom, {
-        animate: true,
-        duration: 1.5
-      });
-      map.invalidateSize();
+    if (center && center[0] && center[1]) {
+      map.flyTo(center, zoom, { animate: true, duration: 1.2 });
+      setTimeout(() => map.invalidateSize(), 300);
     }
-  }, [cityId, map]); // Trigger on city change or map init
+  }, [center, map]); 
   return null;
 }
 
@@ -394,7 +391,7 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
               </div>
               <div className="col-det">
                 <div className="det-title">Board {itinerary.selected_transport.provider || itinerary.selected_transport.train_name} from {itinerary.selected_transport.from_station} — {itinerary.selected_transport.class}</div>
-                <div className="det-sub">₹{(itinerary.selected_transport.total_estimated_cost || 0).toLocaleString()} x {itinerary.travellers} travellers x 2 (Round Trip)</div>
+                <div className="det-sub">₹{(itinerary.selected_transport.cost || 0).toLocaleString()} x {itinerary.travellers} travellers x 2 (Round Trip)</div>
               </div>
               <div className="col-cost">₹{(itinerary.costs.transport || 0).toLocaleString()}</div>
             </div>
@@ -1042,7 +1039,12 @@ function App() {
       {/* Column 3: Live Map */}
       <section className="map-view-column">
         <div className="map-wrapper">
-          <MapContainer center={mapCenter} zoom={13} style={{ height: '100%', width: '100%' }}>
+          <MapContainer 
+            key={itinerary?.city_id || 'default-map'}
+            center={mapCenter} 
+            zoom={13} 
+            style={{ height: '100%', width: '100%' }}
+          >
             <TileLayer
               url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             />
@@ -1065,28 +1067,32 @@ function App() {
 
                 {/* 2. ATTRACTION MARKERS (YELLOW) */}
                 {itinerary.itinerary_days.map((day, idx) => (
-                  <Marker key={`att-${idx}`} position={[day.coords.lat, day.coords.lng]} icon={yellowIcon}>
-                    <Popup>
-                      <div className="popup-box">
-                        <div className="popup-type sightseeing">SIGHTSEEING - DAY {day.day}</div>
-                        <div className="popup-name" style={{ fontWeight: 'bold' }}>{day.daily_activity}</div>
-                        <div className="popup-area">{day.activities[0]?.area}</div>
-                      </div>
-                    </Popup>
-                  </Marker>
+                  day.coords && (
+                    <Marker key={`att-${idx}`} position={[day.coords.lat, day.coords.lng]} icon={yellowIcon}>
+                      <Popup>
+                        <div className="popup-box">
+                          <div className="popup-type sightseeing">SIGHTSEEING - DAY {day.day}</div>
+                          <div className="popup-name" style={{ fontWeight: 'bold' }}>{day.daily_activity}</div>
+                          <div className="popup-area">{day.activities[0]?.area}</div>
+                        </div>
+                      </Popup>
+                    </Marker>
+                  )
                 ))}
 
                 {/* 3. RESTAURANT MARKERS (GREEN) */}
                 {itinerary.media_cards?.restaurants?.map((res, idx) => (
-                  <Marker key={`res-${idx}`} position={[res.coords.lat, res.coords.lng]} icon={greenIcon}>
-                    <Popup>
-                      <div className="popup-box">
-                        <div className="popup-type food">DINING RECOMMENDATION</div>
-                        <div className="popup-name" style={{ fontWeight: 'bold' }}>{res.name}</div>
-                        <div className="popup-area">{res.cuisine} | {res.area}</div>
-                      </div>
-                    </Popup>
-                  </Marker>
+                  res.coords && (
+                    <Marker key={`res-${idx}`} position={[res.coords.lat, res.coords.lng]} icon={greenIcon}>
+                      <Popup>
+                        <div className="popup-box">
+                          <div className="popup-type food">DINING RECOMMENDATION</div>
+                          <div className="popup-name" style={{ fontWeight: 'bold' }}>{res.name}</div>
+                          <div className="popup-area">{res.cuisine} | {res.area}</div>
+                        </div>
+                      </Popup>
+                    </Marker>
+                  )
                 ))}
               </>
             )}
@@ -1118,56 +1124,92 @@ function App() {
         )}
       </section>
 
-      {/* Hidden Print Structure */}
+      {/* Hidden Print Structure - REDESIGNED AS PROFESSIONAL VOUCHER */}
       {itinerary && itinerary.status === 'done' && (
         <div className="printable-pdf-content">
-          <h1>{itinerary.destination} Adventure</h1>
-          <p><strong>Date Generated:</strong> {new Date().toLocaleDateString()}</p>
-          <p><strong>Travel Mood:</strong> {formData.travel_mood ? moodData.travel_moods.find(m => m.mood_id === formData.travel_mood)?.name || formData.travel_mood : 'General'}</p>
+          <div className="pdf-header">
+            <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: '#1e293b' }}>Journey to {itinerary.destination}</h1>
+            <div style={{ display: 'flex', gap: '2rem', marginBottom: '2rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '1rem' }}>
+              <div><strong>Plan Summary:</strong></div>
+              <div>Budget: ₹{itinerary.budget?.toLocaleString()}</div>
+              <div>Duration: {itinerary.days} Days</div>
+              <div>Travelers: {itinerary.travellers} Adults</div>
+              <div>Mood: {formData.travel_mood ? moodData.travel_moods.find(m => m.mood_id === formData.travel_mood)?.name || formData.travel_mood : 'General'}</div>
+            </div>
+          </div>
 
-          <h2>Logistics</h2>
-          <table className="print-table">
-            <thead>
-              <tr><th>Type</th><th>Details</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Transport</strong></td>
-                <td>{itinerary.selected_transport.train_name} ({itinerary.selected_transport.train_number}) - Class: {itinerary.selected_transport.class} | Timing: {itinerary.selected_transport.departure_time} to {itinerary.selected_transport.arrival_time}</td>
-              </tr>
-              <tr>
-                <td><strong>Accommodation</strong></td>
-                <td>{itinerary.selected_hotel.name} ({itinerary.selected_hotel.rating}★) - {itinerary.selected_hotel.area} | Rooms: {Math.ceil(itinerary.travellers / itinerary.selected_hotel.max_people)}</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h2>Itinerary</h2>
-          <table className="print-table">
-            <thead>
-              <tr><th>Day</th><th>Morning</th><th>Afternoon</th><th>Evening</th><th>Meals & Stay</th></tr>
-            </thead>
-            <tbody>
-              {itinerary.itinerary_days.map((d, i) => (
-                <tr key={i}>
-                  <td>{d.day}</td>
-                  <td>{d.morning}</td>
-                  <td>{d.afternoon}</td>
-                  <td>{d.evening}</td>
-                  <td>{d.meal}<br />{d.stay}</td>
+          <div className="pdf-section">
+            <h2 style={{ borderLeft: '4px solid #6366f1', paddingLeft: '1rem', marginBottom: '1rem' }}>Travel Logistics</h2>
+            <table className="print-table">
+              <thead>
+                <tr>
+                  <th>From ➔ To Station</th>
+                  <th>Service (No.)</th>
+                  <th>Mode / Provider</th>
+                  <th>Departure</th>
+                  <th>Cost (Est.)</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{itinerary.selected_transport.from_station} ➔ {itinerary.selected_transport.to_station}</td>
+                  <td>{itinerary.selected_transport.train_name || 'N/A'} ({itinerary.selected_transport.train_number || 'N/A'})</td>
+                  <td>{itinerary.selected_transport.mode} / {itinerary.selected_transport.provider}</td>
+                  <td>{itinerary.selected_transport.departure_time}</td>
+                  <td>₹{itinerary.costs.transport?.toLocaleString()}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          <h2>Budget Summary</h2>
-          <table className="print-table" style={{ width: '50%' }}>
-            <tbody>
-              <tr><td><strong>Total Budget</strong></td><td>₹{itinerary.budget.toLocaleString()}</td></tr>
-              <tr><td><strong>Total Estimated Spent</strong></td><td>₹{itinerary.costs.total.toLocaleString()}</td></tr>
-              <tr><td><strong>Remaining</strong></td><td>₹{(itinerary.budget - itinerary.costs.total).toLocaleString()}</td></tr>
-            </tbody>
-          </table>
+          <div className="pdf-section">
+            <h2 style={{ borderLeft: '4px solid #6366f1', paddingLeft: '1rem', marginBottom: '1rem' }}>Daily Itinerary</h2>
+            <table className="print-table">
+              <thead>
+                <tr>
+                  <th style={{ width: '10%' }}>Day</th>
+                  <th style={{ width: '45%' }}>Planned Activity</th>
+                  <th style={{ width: '45%' }}>Meals & Accommodation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {itinerary.itinerary_days.map((d, i) => (
+                  <tr key={i}>
+                    <td style={{ fontWeight: 'bold' }}>Day {d.day}</td>
+                    <td>{d.daily_activity}</td>
+                    <td>
+                      <div style={{ fontSize: '0.9rem' }}>🍽️ {d.meal}</div>
+                      <div style={{ fontSize: '0.9rem', color: '#64748b' }}>🏨 {d.stay}</div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Page break before budget if itinerary is long */}
+          <div style={{ pageBreakBefore: itinerary.days > 4 ? 'always' : 'auto', marginTop: '2rem' }}>
+            <h2 style={{ borderLeft: '4px solid #10b981', paddingLeft: '1rem', marginBottom: '1rem' }}>Budget Breakdown (KPI)</h2>
+            <table className="print-table" style={{ width: '100%', maxWidth: '500px' }}>
+              <tbody>
+                <tr>
+                  <td><strong>Total Allocated Budget</strong></td>
+                  <td style={{ textAlign: 'right' }}>₹{itinerary.budget?.toLocaleString()}</td>
+                </tr>
+                <tr>
+                  <td><strong>Estimated Total Spent</strong></td>
+                  <td style={{ textAlign: 'right', fontWeight: 'bold', color: '#ef4444' }}>₹{itinerary.costs.total?.toLocaleString()}</td>
+                </tr>
+                <tr style={{ backgroundColor: '#f8fafc' }}>
+                  <td><strong>Remaining Balance</strong></td>
+                  <td style={{ textAlign: 'right', fontWeight: 'bold', color: '#10b981' }}>₹{(itinerary.budget - itinerary.costs.total).toLocaleString()}</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '1rem' }}>
+              Note: Remaining balance includes a 10% emergency buffer reserved for miscellaneous expenses.
+            </p>
+          </div>
         </div>
       )}
     </div>
