@@ -58,45 +58,77 @@ const TabNav = ({ activeTab, onTabChange }) => {
   );
 };
 
-const TransportTimeline = ({ transport, origin, destination, numPeople, totalCost }) => {
-  if (!transport) return null;
-  const isCab = transport.mode?.toLowerCase() === 'cab' || transport.mode?.toLowerCase() === 'taxi';
-  const isBus = transport.mode?.toLowerCase() === 'bus';
+const TransportLogisticsTable = ({ meta, options }) => {
+  if (!meta) return null;
   
   return (
-    <div className="transport-grid-dashboard">
-      <div className="tg-card main-ticket">
-        <div className="tg-header">
-          {isCab ? <Compass size={24} color="var(--primary)" /> : (isBus ? <Route size={24} color="var(--primary)" /> : <Train size={24} color="var(--primary)" />)}
-          <div style={{ marginLeft: '12px' }}>
-            <div className="tg-name">{transport.provider || transport.train_name}</div>
-            <div className="tg-number">{transport.train_number !== 'N/A' ? `#${transport.train_number}` : transport.type}</div>
-          </div>
-        </div>
-        <div className="tg-timeline">
-          <div className="tg-point">
-            <div className="tg-time">{transport.departure_time}</div>
-            <div className="tg-station">{transport.from_station || origin}</div>
-          </div>
-          <div className="tg-line">
-            <div className="tg-dur">{transport.duration_hours || "3.5"} Hrs</div>
-            <div className="line-bar"></div>
-          </div>
-          <div className="tg-point">
-            <div className="tg-time">{transport.arrival_time || "N/A"}</div>
-            <div className="tg-station">{transport.to_station || destination}</div>
-          </div>
+    <div className="transport-tabular-dashboard">
+      <div className="transport-section">
+        <div className="ts-header"><MapPin size={18} /> Transport Details</div>
+        <div className="ts-table-wrapper">
+          <table className="ts-main-table">
+            <thead>
+              <tr>
+                <th>From City</th>
+                <th>From Station (Code)</th>
+                <th>To City</th>
+                <th>To Station (Code)</th>
+                <th>Distance (km)</th>
+                <th>Distance Category</th>
+                <th>Area</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div className="city-pin"><MapPin size={14} color="var(--primary)" /> {meta?.from_city}</div></td>
+                <td>{meta?.from_station || "N/A"}</td>
+                <td><div className="city-pin"><MapPin size={14} color="var(--primary)" /> {meta?.to_city}</div></td>
+                <td>{meta?.to_station || "N/A"}</td>
+                <td>{meta?.distance_km || 0}</td>
+                <td><span className="dist-badge">{meta?.distance_category || "N/A"}</span></td>
+                <td>{meta?.area || "N/A"}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <div className="tg-side-col">
-        <div className="tg-card class-info">
-          <div className="tg-label">Service Type</div>
-          <div className="tg-value">{transport.class || transport.type}</div>
-          <div className="tg-classes">{isCab ? "Private Service" : "Daily Frequency"}</div>
-        </div>
-        <div className="tg-card price-info">
-          <div className="tg-label">Total for {numPeople} (Round Trip)</div>
-          <div className="tg-value">₹{totalCost?.toLocaleString()}</div>
+
+      <div className="transport-section" style={{ marginTop: '2rem' }}>
+        <div className="ts-header"><Train size={18} /> Travel Options</div>
+        <div className="ts-table-wrapper">
+          <table className="ts-main-table">
+            <thead>
+              <tr>
+                <th>Mode</th>
+                <th>Provider</th>
+                <th>Type</th>
+                <th>Train Name / Service</th>
+                <th>Train Number</th>
+                <th>Departure Time</th>
+                <th>Cost (₹)</th>
+                <th>Area / Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              {options?.map((opt, idx) => (
+                <tr key={idx}>
+                  <td>
+                    <div className="mode-icon-cell">
+                      {opt.mode?.toLowerCase() === 'train' ? <Train size={16} /> : <Route size={16} />}
+                      {" "}{opt.mode}
+                    </div>
+                  </td>
+                  <td>{opt.provider}</td>
+                  <td>{opt.type}</td>
+                  <td>{opt.train_name || "---"}</td>
+                  <td>{opt.train_number || "---"}</td>
+                  <td>{opt.departure_time}</td>
+                  <td className="price-cell">₹{(opt.cost || 0).toLocaleString() ?? "0"}</td>
+                  <td>{opt.area || meta?.area || "N/A"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -293,7 +325,7 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
               <thead>
                 <tr>
                   <th style={{ width: '80px' }}>Day</th>
-                  <th>Sightseeing & Activities</th>
+                  <th>Sightseeing Highlight</th>
                   <th style={{ width: '220px' }}>Meal & Stay</th>
                 </tr>
               </thead>
@@ -302,10 +334,8 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
                   <tr key={idx}>
                     <td className="day-cell">{day.day}</td>
                     <td className="slot-cell">
-                      <div className="activities-list-container">
-                        {day.activities_list?.map((act, i) => (
-                          <div key={i} className="activity-item-row">• {act}</div>
-                        ))}
+                      <div className="day-plan-text" style={{ whiteSpace: 'pre-line', fontSize: '0.9rem', lineHeight: '1.6' }}>
+                        {day.activities_list}
                       </div>
                     </td>
                     <td className="stay-cell">
@@ -319,7 +349,7 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
           </div>
         );
       case 'Transport':
-        return <TransportTimeline transport={itinerary.selected_transport} origin={itinerary.origin} destination={itinerary.destination} numPeople={itinerary.travellers} totalCost={itinerary.costs.transport} />;
+        return <TransportLogisticsTable meta={itinerary?.transport_meta} options={itinerary?.available_transport} />;
       case 'Stays & Restaurants':
         return (
           <div className="media-grid">
@@ -449,7 +479,7 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
             </div>
             <div className="remaining-row">
               <span className="label">Remaining Budget</span>
-              <span className="value highlight">₹{((itinerary.budget || 0) - (itinerary.costs?.total || 0)).toLocaleString() || "0"}</span>
+              <span className="value highlight">₹{((itinerary?.budget || 0) - (itinerary?.costs?.total || 0)).toLocaleString() ?? "0"}</span>
             </div>
           </div>
         </div>

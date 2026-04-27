@@ -211,9 +211,14 @@ class DataService:
         return self._cities
 
     def get_city_by_name(self, name: str) -> Optional[Dict[str, Any]]:
-        for city in self._cities:
-            if city['name'].lower() == name.lower():
-                return city
+        if not name: return None
+        for c in self._cities:
+            if c['name'].lower() == name.lower(): return c
+        return None
+
+    def get_city_by_id(self, city_id: int) -> Optional[Dict[str, Any]]:
+        for c in self._cities:
+            if c['city_id'] == city_id: return c
         return None
 
     def get_weather(self, city_id: int, month: str) -> Optional[Dict[str, Any]]:

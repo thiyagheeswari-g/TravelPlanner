@@ -6,217 +6,140 @@ class TravelPlannerLogic:
         self.db = data_service
 
     def calculate_proxy_transport_cost(self, origin_coords, dest_coords, tier):
-        """
-        Fallback Logic: Distance * Rate (₹12 for Bus, ₹28 for Cab)
-        """
         if not origin_coords or not dest_coords:
-            return 1500 # Safe fallback
-            
+            return 1500 
         lat1, lon1 = origin_coords
         lat2, lon2 = dest_coords
-        
-        R = 6371 # Radius of Earth in km
-        dlat = math.radians(lat2 - lat1)
-        dlon = math.radians(lon2 - lon1)
+        R = 6371 
+        dlat, dlon = math.radians(lat2 - lat1), math.radians(lon2 - lon1)
         a = math.sin(dlat/2)**2 + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * math.sin(dlon/2)**2
         c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
-        distance = R * c
-        
-        # Rate: Cab (Luxury) = 28, Bus (Others) = 12
-        rate = 28 if tier == 'luxury' else 12
-        return max(500, round(distance * rate))
+        return max(500, round(R * c * 15))
 
     def select_hotel_best_fit(self, city_id: int, travellers: int, total_budget: float, nights: int, transport_cost: float = 0) -> Optional[Dict[str, Any]]:
-        """
-        Logic: Stop picking the cheapest option.
-        If (Hotel + Transport) < 50% of the User Budget, automatically upgrade the hotel_type to 'luxury'.
-        """
         hotels = self.db.get_hotels(city_id)
+        location_name = None
+        
+        if not hotels:
+            city_data = self.db.get_city_by_id(city_id)
+            hub_name = city_data.get('parent_hub')
+            if hub_name:
+                hub_city = self.db.get_city_by_name(hub_name)
+                if hub_city:
+                    hotels = self.db.get_hotels(hub_city['city_id'])
+                    location_name = hub_city['name']
+        
         if not hotels: return None
         
-        # Calculate rooms needed
-        def get_rooms(h):
-            max_p = h.get('max_people', 2)
-            if not max_p or max_p <= 0: max_p = 2
-            return math.ceil(travellers / max_p)
-
-        # Separate by tier
-        luxury_hotels = [h for h in hotels if h.get('hotel_type', '').lower() == 'luxury']
-        mid_hotels = [h for h in hotels if h.get('hotel_type', '').lower() == 'mid']
-        budget_hotels = [h for h in hotels if h.get('hotel_type', '').lower() == 'budget']
-
-        # Rule: Check if we should force luxury
-        # Calculate baseline stay cost using a mid-tier hotel (or budget if mid is unavailable)
-        baseline_hotel = (mid_hotels + budget_hotels)[0] if (mid_hotels + budget_hotels) else hotels[0]
-        baseline_stay_cost = (baseline_hotel.get('price_per_night', 0) * get_rooms(baseline_hotel) * nights)
+        rem = total_budget - transport_cost - (400 * nights * travellers)
+        max_p_n = (rem / nights) if rem > 0 else 1000
         
-        # If the stay cost is under 40% of the user budget, force luxury to maximize value
-        force_luxury = False
-        if baseline_stay_cost < (total_budget * 0.4):
-            force_luxury = True
+        if max_p_n > 5000: target = [h for h in hotels if h.get('rating', 0) >= 4]
+        elif max_p_n > 2500: target = [h for h in hotels if h.get('rating', 0) >= 3]
+        else: target = sorted(hotels, key=lambda x: x.get('price_per_night', 9999))[:3]
+        
+        if not target: target = hotels
+        sel = sorted(target, key=lambda x: x.get('price_per_night', 9999))[0]
+        
+        if location_name:
+            sel = sel.copy()
+            sel['display_location'] = location_name
             
-        if force_luxury and luxury_hotels:
-            # Pick the best luxury hotel that fits the overall budget (including transport)
-            luxury_hotels.sort(key=lambda x: x.get('rating', 0), reverse=True)
-            for h in luxury_hotels:
-                h_total_stay = h.get('price_per_night', 0) * get_rooms(h) * nights
-                if (h_total_stay + transport_cost) <= total_budget:
-                    return h
+        return sel
+
+    def generate_itinerary(self, days: int, city_id: int, hotel: Dict[str, Any], num_rooms: int, num_travellers: int, mood: str = "Relaxation") -> List[Dict[str, Any]]:
+        """
+        STEP 4: BORROW & STRETCH
+        - One-Spot Rule: Only one unique attraction per day.
+        - Hub Borrowing: Pull from parent_hub if local exhausted.
+        """
+        local_pool = self.db.get_attractions(city_id)
+        pool = local_pool.copy()
         
-        # If not forcing luxury or no luxury fits, pick the best fit from others
-        # We want to use the budget, so we sort by stay cost DESCENDING within the affordable range
-        affordable = []
-        for h in hotels:
-            h_total_stay = h.get('price_per_night', 0) * get_rooms(h) * nights
-            if (h_total_stay + transport_cost) <= total_budget:
-                affordable.append(h)
-        
-        if affordable:
-            # Sort by total stay cost descending to maximize budget usage
-            affordable.sort(key=lambda x: (x.get('price_per_night', 0) * get_rooms(x) * nights), reverse=True)
-            return affordable[0]
+        # Linear Hub Borrowing
+        if len(pool) < days:
+            city_data = self.db.get_city_by_id(city_id)
+            hub_name = city_data.get('parent_hub')
+            if hub_name:
+                hub_city = self.db.get_city_by_name(hub_name)
+                if hub_city:
+                    hub_pool = self.db.get_attractions(hub_city['city_id'])
+                    pool.extend(hub_pool)
+                    
+        if not pool:
+            pool = [{"name": "Scenic Exploration", "description": "Take a moment to enjoy the local surroundings.", "area": "Local Area"}]
 
-        # Final fallback
-        hotels.sort(key=lambda x: x.get('price_per_night', 99999))
-        return hotels[0] if hotels else None
-
-    def maximize_plan(self, state: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Instruction: "If Total_Cost < 60% of Budget, upgrade the hotel tier (Budget -> Mid -> Luxury) 
-        and add premium attractions until the money is used up to 90%."
-        """
-        total_budget = state['budget']
-        costs = state.get('costs', {})
-        current_total = costs.get('total', 0)
-        travellers = state.get('travellers', 1)
-        days = state.get('days', 1)
-        city_id = state['city_id']
-
-        # If spent < 60%, we start upgrading aggressively
-        if current_total < (total_budget * 0.6):
-            # 1. Upgrade Food to Fine Dining
-            food_places = self.db.get_food_places(city_id)
-            if food_places:
-                # Filter for "Fine Dining" or high cost
-                fine_dining = [f for f in food_places if f.get('avg_cost', 0) >= 1000 or 'fine' in f.get('name', '').lower()]
-                if not fine_dining:
-                    fine_dining = sorted(food_places, key=lambda x: x.get('avg_cost', 0), reverse=True)
-                
-                # Replace existing recommendations with better ones
-                new_recs = []
-                for i in range(days * 2):
-                    f = fine_dining[i % len(fine_dining)]
-                    new_recs.append({
-                        **f,
-                        "detail": f"Fine Dining at {f['name']} — enjoy a premium culinary experience"
-                    })
-                state['food_recommendations'] = new_recs
-                
-                # Update food cost
-                total_f_cost = sum(f.get('avg_cost', 500) for f in new_recs) * travellers
-                costs['food'] = total_f_cost
-                
-            # 2. Add Premium Attractions
-            all_attractions = self.db.get_attractions(city_id)
-            if all_attractions:
-                # Sort by cost descending (Premium)
-                premium_acts = sorted(all_attractions, key=lambda x: x.get('cost', 0), reverse=True)
-                
-                # Iteratively add to itinerary until 90% budget is used
-                for day in state['itinerary_days']:
-                    for act in premium_acts:
-                        # Recalculate total spent
-                        current_spent = sum([v for k, v in costs.items() if k not in ['total', 'per_person']])
-                        if current_spent >= (total_budget * 0.9):
-                            break
-                        
-                        # Don't repeat activities
-                        already_in = False
-                        for d in state['itinerary_days']:
-                            if any(a.get('name') == act.get('name') for a in d.get('activities', [])):
-                                already_in = True
-                                break
-                        
-                        if not already_in:
-                            day['activities'].append(act)
-                            day['evening'] += f" | Nightcap: {act['name']} (Premium Experience)."
-                            costs['activities'] += act.get('cost', 100) * travellers
-                            
-                    if sum([v for k, v in costs.items() if k not in ['total', 'per_person']]) >= (total_budget * 0.9):
-                        break
-
-            # Recalculate total
-            costs['total'] = sum([v for k, v in costs.items() if k not in ['total', 'per_person']])
-            costs['per_person'] = costs['total'] / travellers if travellers > 0 else costs['total']
-            state['costs'] = costs
-            
-        return state
-
-    def score_months(self, weather_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        scored = []
-        for w in weather_list:
-            score = 0
-            temp_type = w.get('temperature_type', 'pleasant').lower()
-            is_rainy = w.get('rainy', False)
-            if temp_type == 'pleasant': score += 50
-            elif temp_type == 'cool': score += 30
-            elif temp_type == 'hot': score += 10
-            else: score += 20
-            if not is_rainy: score += 50
-            else: score += 10
-            scored.append({**w, "weather_score": score})
-        return sorted(scored, key=lambda x: x['weather_score'], reverse=True)
-
-    def filter_attractions(self, attractions: List[Dict[str, Any]], weather: Dict[str, Any], preferences: Dict[str, Any]) -> List[Dict[str, Any]]:
-        is_rainy = weather.get('condition', '').lower() in ['rainy', 'heavy rain', 'monsoon']
-        filtered = []
-        for attr in attractions:
-            if is_rainy and attr.get('type') == 'Outdoor': continue
-            filtered.append(attr)
-        return filtered
-
-    def generate_itinerary(self, days: int, attractions: List[Dict[str, Any]], hotel: Dict[str, Any], num_rooms: int, num_travellers: int, mood: str = "Relaxation") -> List[Dict[str, Any]]:
-        """
-        MISSION: DAY-WISE FLAT STRUCTURE
-        - Stop using morning, afternoon, evening slots.
-        - Create a consolidated activities_list.
-        - Ensure 100% data availability with Modulo Logic.
-        """
-        pool = attractions.copy()
-        if mood.lower() == 'adventure':
-            pool.sort(key=lambda x: (x.get('outdoor', False), x.get('cost', 0)), reverse=True)
-        else:
-            pool.sort(key=lambda x: (x.get('outdoor', True), x.get('duration', 99)))
+        if mood.lower() == 'adventure': pool.sort(key=lambda x: x.get('outdoor', False), reverse=True)
+        else: pool.sort(key=lambda x: x.get('outdoor', True))
             
         itinerary = []
         for i in range(days):
-            # Select 3 unique activities per day using modulo
-            m_spot = pool[(i * 3) % len(pool)]
-            a_spot = pool[(i * 3 + 1) % len(pool)]
-            e_spot = pool[(i * 3 + 2) % len(pool)]
+            # One-Spot Rule: ensures we pick exactly one unique spot
+            spot = pool[i % len(pool)]
             
-            day_acts = [m_spot, a_spot, e_spot]
-            activities_list = [
-                f"Visit {m_spot['name']} in {m_spot.get('area', 'Central Area')}",
-                f"Explore {a_spot['name']} ({a_spot.get('area', 'General Area')})",
-                f"Evening at {e_spot['name']} — Enjoy the local vibe"
-            ]
+            # Format as single string for "Sightseeing Highlight"
+            highlight = f"{spot['name']}: {spot.get('description', 'Sightseeing')}"
             
             itinerary.append({
                 "day": i + 1,
-                "activities_list": activities_list,
-                "activities": day_acts,
-                "stay": hotel['name'],
-                "meal": "Breakfast at Hotel, Lunch & Dinner at Local Restaurants",
-                "area": m_spot.get('area', 'Main Area')
+                "activities_list": highlight,
+                "activities": [spot],
+                "stay": f"Staying at {hotel['name']} in {hotel.get('display_location', 'Local Area')}",
+                "meal": "Recommended: Local Specialty"
             })
-            
         return itinerary
 
-    def group_activities_by_area(self, attractions: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
-        areas = {}
-        for attr in attractions:
-            area = attr.get('area', 'General')
-            if area not in areas: areas[area] = []
-            areas[area].append(attr)
-        return areas
+    def maximize_budget(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        budget = state['budget']
+        spent = state['costs']['total']
+        city_id = state['city_id']
+        
+        iteration = 0
+        while spent < (budget * 0.9) and iteration < 5:
+            iteration += 1
+            changed = False
+            
+            # 1. Upgrade Hotel
+            hotels = self.db.get_hotels(city_id)
+            if not hotels: 
+                city_data = self.db.get_city_by_id(city_id)
+                hub_name = city_data.get('parent_hub')
+                if hub_name:
+                    hub_city = self.db.get_city_by_name(hub_name)
+                    if hub_city: hotels = self.db.get_hotels(hub_city['city_id'])
+            
+            if hotels:
+                better = [h for h in hotels if h.get('price_per_night', 0) > state['selected_hotel'].get('price_per_night', 0)]
+                if better:
+                    better.sort(key=lambda x: x.get('price_per_night', 0))
+                    for bh in better:
+                        r = (state['travellers'] + (bh.get('max_people', 2) or 2) - 1) // (bh.get('max_people', 2) or 2)
+                        new_h_c = bh.get('price_per_night', 0) * r * state['days']
+                        pot_total = spent - state['costs']['hotel'] + new_h_c
+                        if pot_total <= budget:
+                            state['selected_hotel'] = bh
+                            state['costs']['hotel'] = new_h_c
+                            state['costs']['total'] = pot_total
+                            spent = pot_total
+                            changed = True
+                            break
+            
+            # 2. Upgrade Transport
+            if state['selected_transport'].get('mode', '').lower() == 'bus':
+                routes = self.db.get_transport(state['origin'], state['destination'])
+                if routes:
+                    cabs = [o for o in routes[0].get('options', []) if 'cab' in o.get('type','').lower() or 'sedan' in o.get('type','').lower()]
+                    if cabs:
+                        cab = sorted(cabs, key=lambda x: x.get('cost', 9999))[0]
+                        new_t_c = (cab.get('cost', 500) * state['travellers']) * 2
+                        pot_total = spent - state['costs']['transport'] + new_t_c
+                        if pot_total <= budget:
+                            state['selected_transport'].update(cab)
+                            state['costs']['transport'] = new_t_c
+                            state['costs']['total'] = pot_total
+                            spent = pot_total
+                            changed = True
+            
+            if not changed: break
+            
+        return state
