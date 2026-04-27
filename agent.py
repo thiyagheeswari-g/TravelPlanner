@@ -75,7 +75,8 @@ class TravelAgent:
             self.should_continue,
             {
                 "continue": "planner",
-                "ask": "formatter"
+                "ask": "formatter",
+                "greet": "formatter"
             }
         )
         builder.add_edge("planner", "formatter")
@@ -83,19 +84,27 @@ class TravelAgent:
         return builder.compile()
 
     def should_continue(self, state: PlanState) -> str:
+        if state['status'] == 'greeting': return "greet"
         if state['status'] == 'gathering': return "ask"
         return "continue"
 
     def check_missing_node(self, state: PlanState) -> PlanState:
+        # 2. GREETING FIX: Bypass checks for simple greetings
+        greetings = ["hi", "hello", "hey", "good morning", "good afternoon", "good evening"]
+        q_clean = state['query'].lower().strip().replace("!", "").replace(".", "").replace("?", "")
+        if q_clean in greetings:
+            state['status'] = 'greeting'
+            state['final_response'] = "Hello! I'm Antigravity AI. Where are we heading today? I can help with transport, hotels, and a unique daily plan."
+            return state
+
         if not state.get('destination'):
             state['status'] = 'gathering'
-            state['final_response'] = "I'd love to plan a trip for you! Which destination are you thinking of?"
+            state['final_response'] = "I'd love to plan a trip for you! Which destination are you thinking of? (e.g., Ooty, Chennai)"
             return state
             
-        # MANDATORY ORIGIN CHECK
         if not state.get('origin'):
             state['status'] = 'gathering'
-            state['final_response'] = "To calculate your transport table, please let me know your departure city."
+            state['final_response'] = f"I'd love to plan your trip to {state['destination']}! To find the best transport options, could you tell me where you'll be departing from?"
             return state
             
         state['status'] = 'ready'
@@ -121,7 +130,7 @@ class TravelAgent:
         for c in cities:
             if c.lower() in q_low:
                 if f"from {c.lower()}" in q_low: extracted['origin'] = c
-                elif f"to {c.lower()}" in q_low: extracted['destination'] = c
+                elif f"to {c.lower()}" in q_low or "trip to" in q_low: extracted['destination'] = c
                 else:
                     if not extracted['destination']: extracted['destination'] = c
             
@@ -137,47 +146,19 @@ class TravelAgent:
         for s in styles:
             if s in q_low: extracted['mood'] = s.capitalize()
             
-        if self.llm:
-            hist_str = "\n".join([f"{m['role']}: {m['content']}" for m in history[-3:]])
-            prompt = f"Extract trip details as JSON: '{query}'. History: {hist_str}. If 'from [city]' is present, map to 'origin'."
-            try:
-                resp = self.llm.invoke([HumanMessage(content=prompt)])
-                json_match = re.search(r'\{.*\}', resp.content, re.DOTALL)
-                if json_match:
-                    data = json.loads(json_match.group())
-                    for k in extracted:
-                        if extracted[k] is None: extracted[k] = data.get(k)
-            except: pass
         return extracted
 
     def planner_node(self, state: PlanState) -> PlanState:
         city = self.db.get_city_by_name(state['destination'])
         if not city:
             state['status'] = 'gathering'
-            state['final_response'] = f"I couldn't find {state['destination']}."
+            state['final_response'] = f"I couldn't find {state['destination']} in my database."
             return state
         state['city_id'] = city['city_id']
         
-        # BUDGET-MODE RULE
         routes = self.db.get_transport(state['origin'], state['destination'])
         if routes:
             opts = routes[0].get('options', [])
-            per_person_day = state['budget'] / (state['travellers'] * state['days'])
-            
-            # Tier Logic
-            if per_person_day > 5000: # Luxury
-                targets = ["Cab", "Sedan", "1AC", "First Class"]
-            elif per_person_day > 2500: # Mid
-                targets = ["2AC", "3AC", "AC Deluxe", "Sleeper"]
-            else: # Budget
-                targets = ["Non-AC", "Unreserved", "General Bus", "Sleeper"]
-                
-            filtered = [o for o in opts if any(t.lower() in (o.get('type','') + o.get('mode','')).lower() for t in targets)]
-            if not filtered: filtered = opts
-            filtered.sort(key=lambda x: x.get('cost', 9999))
-            sel = filtered[-1] if per_person_day > 5000 else filtered[0]
-            
-            # FULL OBJECT PAYLOAD
             state['transport_meta'] = {
                 "from_city": routes[0].get('from_city'),
                 "from_station": routes[0].get('from_station'),
@@ -188,6 +169,20 @@ class TravelAgent:
                 "area": routes[0].get('area')
             }
             state['available_transport'] = opts
+            
+            per_person_day = state['budget'] / (state['travellers'] * state['days'])
+            tier = 'luxury' if per_person_day > 5000 else ('mid' if per_person_day > 2500 else 'budget')
+            
+            targets = {
+                'luxury': ["Cab", "Sedan", "1AC", "First Class"],
+                'mid': ["2AC", "3AC", "AC Deluxe", "Sleeper"],
+                'budget': ["Non-AC", "Unreserved", "General Bus", "Sleeper"]
+            }[tier]
+            
+            filtered = [o for o in opts if any(t.lower() in (o.get('type','') + o.get('mode','')).lower() for t in targets)]
+            if not filtered: filtered = opts
+            filtered.sort(key=lambda x: x.get('cost', 9999))
+            sel = filtered[-1] if tier == 'luxury' else filtered[0]
             state['selected_transport'] = {**sel, **state['transport_meta']}
         else:
             o_city = self.db.get_city_by_name(state['origin'])
@@ -214,7 +209,8 @@ class TravelAgent:
         return state
 
     def formatter_node(self, state: PlanState) -> PlanState:
-        if state['status'] == 'gathering': return state
+        if state['status'] in ['gathering', 'greeting']: return state
+        state['final_response'] = f"I've planned your {state['days']}-day trip to {state['destination']}! Check the dashboard for the full plan."
         state['kpi'] = {"total_budget": state['budget'], "spent": state['costs']['total'], "remaining": state['budget'] - state['costs']['total']}
         state['media_cards'] = {"stays": [state['selected_hotel']], "restaurants": self.db.get_food_places(state['city_id'])[:4]}
         return state
@@ -224,15 +220,21 @@ class TravelAgent:
         history = input_data.get("chat_history") or []
         ext = self.extract_info(query, history)
         
+        destination = ext.get('destination') or input_data.get('destination')
+        origin = ext.get('origin') or input_data.get('origin')
+        
+        # 4. BUDGET CONTEXT RESET RULE
+        # If destination changes, reset budget to ₹50k (Initial Input)
         prev_dest = input_data.get('destination')
-        new_dest = ext.get('destination') or prev_dest
-        budget = ext.get('budget') or input_data.get('budget') or 20000
-        if prev_dest and new_dest and prev_dest != new_dest and not ext.get('budget'): budget = 20000
+        if prev_dest and destination and prev_dest != destination:
+            budget = 50000.0
+        else:
+            budget = ext.get('budget') or input_data.get('budget') or 50000.0
 
         state: PlanState = {
             "query": query, "chat_history": history,
-            "destination": new_dest,
-            "origin": ext.get('origin') or input_data.get('origin'),
+            "destination": destination,
+            "origin": origin,
             "days": int(ext.get('days') or input_data.get('days') or 3),
             "budget": float(budget),
             "travellers": int(ext.get('travellers') or input_data.get('travellers') or 2),

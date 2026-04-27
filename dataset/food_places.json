@@ -8,7 +8,9 @@
       "avg_cost": 150,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Charing Cross",
       "dietary_label": "Pure Veg"
@@ -20,8 +22,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 500,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Charing Cross",
       "dietary_label": "Multi-cuisine"
@@ -33,8 +37,10 @@
       "cuisine": "Continental",
       "avg_cost": 1800,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Sylks Road",
       "dietary_label": "Non-Veg"
@@ -47,7 +53,9 @@
       "avg_cost": 180,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Anna Salai",
       "dietary_label": "Pure Veg"
@@ -59,8 +67,10 @@
       "cuisine": "Bakery & Cafe",
       "avg_cost": 450,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "PT Road",
       "dietary_label": "Multi-cuisine"
@@ -72,8 +82,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 1500,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Lake Road",
       "dietary_label": "Non-Veg"
@@ -86,7 +98,9 @@
       "avg_cost": 220,
       "suitable_for": [
         "solo",
-        "friends"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Shore Temple Road",
       "dietary_label": "Non-Veg"
@@ -98,8 +112,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 550,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "East Raja Street",
       "dietary_label": "Multi-cuisine"
@@ -111,7 +127,9 @@
       "cuisine": "Seafood & Continental",
       "avg_cost": 1400,
       "suitable_for": [
+        "solo",
         "family",
+        "friends",
         "couple"
       ],
       "area": "Covelong Road",
@@ -125,7 +143,9 @@
       "avg_cost": 160,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "White Town",
       "dietary_label": "Pure Veg"
@@ -137,8 +157,10 @@
       "cuisine": "French & Indian",
       "avg_cost": 600,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "White Town",
       "dietary_label": "Multi-cuisine"
@@ -150,8 +172,10 @@
       "cuisine": "French & Seafood",
       "avg_cost": 1800,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Nehru Street",
       "dietary_label": "Non-Veg"
@@ -164,7 +188,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "West Masi Street",
       "dietary_label": "Pure Veg"
@@ -176,8 +202,10 @@
       "cuisine": "Chettinad",
       "avg_cost": 400,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Town Hall Road",
       "dietary_label": "Non-Veg"
@@ -189,8 +217,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 2000,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Pasumalai",
       "dietary_label": "Multi-cuisine"
@@ -203,7 +233,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Car Street",
       "dietary_label": "Pure Veg"
@@ -215,8 +247,10 @@
       "cuisine": "Chettinad & South Indian",
       "avg_cost": 450,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Rameswaram Bazaar",
       "dietary_label": "Multi-cuisine"
@@ -228,8 +262,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 1200,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Pamban Road",
       "dietary_label": "Non-Veg"
@@ -242,7 +278,9 @@
       "avg_cost": 140,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Lake Road",
       "dietary_label": "Pure Veg"
@@ -254,8 +292,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 500,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Shevaroy Hills",
       "dietary_label": "Multi-cuisine"
@@ -267,7 +307,9 @@
       "cuisine": "Continental & Indian",
       "avg_cost": 1300,
       "suitable_for": [
+        "solo",
         "family",
+        "friends",
         "couple"
       ],
       "area": "Shevaroy Hills",
@@ -281,7 +323,9 @@
       "avg_cost": 110,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Main Road",
       "dietary_label": "Pure Veg"
@@ -293,8 +337,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 480,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Beach Road",
       "dietary_label": "Multi-cuisine"
@@ -306,8 +352,10 @@
       "cuisine": "Seafood & Indian",
       "avg_cost": 1600,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kovalam Road",
       "dietary_label": "Non-Veg"
@@ -320,7 +368,9 @@
       "avg_cost": 150,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Gandhipuram",
       "dietary_label": "Pure Veg"
@@ -332,8 +382,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 550,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "RS Puram",
       "dietary_label": "Multi-cuisine"
@@ -345,8 +397,10 @@
       "cuisine": "Continental & Grills",
       "avg_cost": 1400,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Avinashi Road",
       "dietary_label": "Non-Veg"
@@ -359,7 +413,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Triplicane",
       "dietary_label": "Pure Veg"
@@ -371,8 +427,10 @@
       "cuisine": "Chettinad",
       "avg_cost": 480,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Egmore",
       "dietary_label": "Non-Veg"
@@ -384,8 +442,10 @@
       "cuisine": "Multi-cuisine Fine Dining",
       "avg_cost": 2500,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Anna Salai",
       "dietary_label": "Multi-cuisine"
@@ -398,7 +458,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Chinthamani",
       "dietary_label": "Pure Veg"
@@ -410,8 +472,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 450,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Junction Road",
       "dietary_label": "Multi-cuisine"
@@ -423,7 +487,9 @@
       "cuisine": "Continental & Indian",
       "avg_cost": 1400,
       "suitable_for": [
+        "solo",
         "family",
+        "friends",
         "couple"
       ],
       "area": "Collector's Office Road",
@@ -437,7 +503,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Near Big Temple",
       "dietary_label": "Pure Veg"
@@ -449,8 +517,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 500,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Grand Anaicut Road",
       "dietary_label": "Multi-cuisine"
@@ -462,7 +532,9 @@
       "cuisine": "Chettinad & North Indian",
       "avg_cost": 1200,
       "suitable_for": [
+        "solo",
         "family",
+        "friends",
         "couple"
       ],
       "area": "Medical College Road",
@@ -476,7 +548,9 @@
       "avg_cost": 140,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Yelagiri Bazaar",
       "dietary_label": "Pure Veg"
@@ -488,8 +562,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 480,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Nature's Park Road",
       "dietary_label": "Multi-cuisine"
@@ -501,7 +577,9 @@
       "cuisine": "Continental & Indian",
       "avg_cost": 1300,
       "suitable_for": [
+        "solo",
         "family",
+        "friends",
         "couple"
       ],
       "area": "Hilltop",
@@ -515,7 +593,9 @@
       "avg_cost": 110,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Sarangapani Street",
       "dietary_label": "Pure Veg"
@@ -527,8 +607,10 @@
       "cuisine": "Chettinad & Multi-cuisine",
       "avg_cost": 420,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Ayikulam Road",
       "dietary_label": "Multi-cuisine"
@@ -540,7 +622,9 @@
       "cuisine": "South Indian & North Indian",
       "avg_cost": 1100,
       "suitable_for": [
+        "solo",
         "family",
+        "friends",
         "couple"
       ],
       "area": "TSR Big Street",
@@ -554,7 +638,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Main Falls Road",
       "dietary_label": "Pure Veg"
@@ -579,7 +665,9 @@
       "cuisine": "Kerala & South Indian",
       "avg_cost": 1100,
       "suitable_for": [
+        "solo",
         "family",
+        "friends",
         "couple"
       ],
       "area": "Five Falls Road",
@@ -593,7 +681,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Valparai Town",
       "dietary_label": "Pure Veg"
@@ -618,7 +708,9 @@
       "cuisine": "Continental & Indian",
       "avg_cost": 1500,
       "suitable_for": [
+        "solo",
         "family",
+        "friends",
         "couple"
       ],
       "area": "Pollachi Road",
@@ -632,7 +724,9 @@
       "avg_cost": 140,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Bedford",
       "dietary_label": "Pure Veg"
@@ -644,8 +738,10 @@
       "cuisine": "Bakery & Cafe",
       "avg_cost": 500,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Upper Coonoor",
       "dietary_label": "Multi-cuisine"
@@ -657,8 +753,10 @@
       "cuisine": "Continental & Indian",
       "avg_cost": 2000,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Orange Grove Road",
       "dietary_label": "Non-Veg"
@@ -671,8 +769,10 @@
       "avg_cost": 200,
       "suitable_for": [
         "solo",
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Virupapura Gadde",
       "dietary_label": "Pure Veg"
@@ -685,7 +785,9 @@
       "avg_cost": 450,
       "suitable_for": [
         "solo",
-        "friends"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Hampi Bazaar",
       "dietary_label": "Multi-cuisine"
@@ -697,8 +799,10 @@
       "cuisine": "Continental & Indian",
       "avg_cost": 1200,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kamalapuram",
       "dietary_label": "Non-Veg"
@@ -711,7 +815,9 @@
       "avg_cost": 150,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Gandhi Square",
       "dietary_label": "Pure Veg"
@@ -723,8 +829,10 @@
       "cuisine": "South Indian",
       "avg_cost": 420,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Nazarbad",
       "dietary_label": "Pure Veg"
@@ -736,8 +844,10 @@
       "cuisine": "Continental & Indian",
       "avg_cost": 2200,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Lalitha Mahal Road",
       "dietary_label": "Multi-cuisine"
@@ -750,7 +860,9 @@
       "avg_cost": 200,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Madikeri Town",
       "dietary_label": "Non-Veg"
@@ -762,8 +874,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 550,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Madikeri",
       "dietary_label": "Multi-cuisine"
@@ -775,8 +889,10 @@
       "cuisine": "Kodava & Continental",
       "avg_cost": 2000,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kushalnagar Road",
       "dietary_label": "Non-Veg"
@@ -789,7 +905,9 @@
       "avg_cost": 200,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Lalbagh Road",
       "dietary_label": "Pure Veg"
@@ -814,8 +932,10 @@
       "cuisine": "Coastal Karnataka",
       "avg_cost": 2500,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Residency Road",
       "dietary_label": "Non-Veg"
@@ -828,7 +948,9 @@
       "avg_cost": 150,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Gokarna Town",
       "dietary_label": "Pure Veg"
@@ -853,8 +975,10 @@
       "cuisine": "Coastal & Continental",
       "avg_cost": 2000,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Om Beach Road",
       "dietary_label": "Non-Veg"
@@ -867,7 +991,9 @@
       "avg_cost": 160,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Coffee Board Layout",
       "dietary_label": "Pure Veg"
@@ -879,8 +1005,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 580,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "M.G. Road",
       "dietary_label": "Multi-cuisine"
@@ -892,8 +1020,10 @@
       "cuisine": "Malnad & Continental",
       "avg_cost": 1800,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Mudigere Road",
       "dietary_label": "Non-Veg"
@@ -906,7 +1036,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Court Road",
       "dietary_label": "Pure Veg"
@@ -918,8 +1050,10 @@
       "cuisine": "Mangalorean & South Indian",
       "avg_cost": 450,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Car Street",
       "dietary_label": "Non-Veg"
@@ -931,8 +1065,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 1100,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Manipal",
       "dietary_label": "Multi-cuisine"
@@ -945,7 +1081,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Badami Bus Stand",
       "dietary_label": "Pure Veg"
@@ -957,8 +1095,10 @@
       "cuisine": "North & South Indian",
       "avg_cost": 420,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Station Road",
       "dietary_label": "Multi-cuisine"
@@ -970,8 +1110,10 @@
       "cuisine": "Continental & Indian",
       "avg_cost": 1300,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Ramdurg Road",
       "dietary_label": "Non-Veg"
@@ -984,7 +1126,9 @@
       "avg_cost": 180,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Balmatta Road",
       "dietary_label": "Non-Veg"
@@ -996,8 +1140,10 @@
       "cuisine": "Coastal Karnataka",
       "avg_cost": 500,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Hampankatta",
       "dietary_label": "Non-Veg"
@@ -1009,8 +1155,10 @@
       "cuisine": "Seafood & Continental",
       "avg_cost": 2000,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "KS Rao Road",
       "dietary_label": "Non-Veg"
@@ -1023,7 +1171,9 @@
       "avg_cost": 180,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Dandeli Town",
       "dietary_label": "Pure Veg"
@@ -1048,8 +1198,10 @@
       "cuisine": "Continental & Indian",
       "avg_cost": 1500,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kali River Bank",
       "dietary_label": "Non-Veg"
@@ -1062,7 +1214,9 @@
       "avg_cost": 140,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Jog Falls Road",
       "dietary_label": "Pure Veg"
@@ -1074,8 +1228,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 420,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Near Jog Falls View Point",
       "dietary_label": "Multi-cuisine"
@@ -1087,7 +1243,9 @@
       "cuisine": "Karnataka & Continental",
       "avg_cost": 1100,
       "suitable_for": [
+        "solo",
         "family",
+        "friends",
         "couple"
       ],
       "area": "Jog Falls",
@@ -1101,7 +1259,9 @@
       "avg_cost": 140,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Munnar Town",
       "dietary_label": "Pure Veg"
@@ -1113,8 +1273,10 @@
       "cuisine": "Kerala & Multi-cuisine",
       "avg_cost": 500,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Bazaar Road",
       "dietary_label": "Non-Veg"
@@ -1126,8 +1288,10 @@
       "cuisine": "Kerala & Continental",
       "avg_cost": 1600,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Mattupetty Road",
       "dietary_label": "Non-Veg"
@@ -1140,7 +1304,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Thekkady Town",
       "dietary_label": "Pure Veg"
@@ -1152,8 +1318,10 @@
       "cuisine": "Kerala & Multi-cuisine",
       "avg_cost": 550,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kumily Road",
       "dietary_label": "Multi-cuisine"
@@ -1165,8 +1333,10 @@
       "cuisine": "Kerala Fine Dining",
       "avg_cost": 2200,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kumily",
       "dietary_label": "Non-Veg"
@@ -1179,7 +1349,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Station Road",
       "dietary_label": "Pure Veg"
@@ -1191,8 +1363,10 @@
       "cuisine": "Karnataka & Multi-cuisine",
       "avg_cost": 460,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Anand Mahal Road",
       "dietary_label": "Multi-cuisine"
@@ -1204,8 +1378,10 @@
       "cuisine": "Multi-cuisine Fine Dining",
       "avg_cost": 1300,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Nidagundi Road",
       "dietary_label": "Non-Veg"
@@ -1218,7 +1394,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Hanamkonda",
       "dietary_label": "Pure Veg"
@@ -1230,8 +1408,10 @@
       "cuisine": "Andhra & Multi-cuisine",
       "avg_cost": 450,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Main Road",
       "dietary_label": "Multi-cuisine"
@@ -1243,8 +1423,10 @@
       "cuisine": "Multi-cuisine Fine Dining",
       "avg_cost": 1300,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Station Road",
       "dietary_label": "Non-Veg"
@@ -1257,7 +1439,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Lepakshi Village",
       "dietary_label": "Pure Veg"
@@ -1269,8 +1453,10 @@
       "cuisine": "Andhra & Karnataka",
       "avg_cost": 430,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Temple Road",
       "dietary_label": "Multi-cuisine"
@@ -1282,8 +1468,10 @@
       "cuisine": "Multi-cuisine Fine Dining",
       "avg_cost": 1200,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Hindupur Road",
       "dietary_label": "Non-Veg"
@@ -1296,7 +1484,9 @@
       "avg_cost": 110,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Temple Road",
       "dietary_label": "Pure Veg"
@@ -1308,8 +1498,10 @@
       "cuisine": "Malnad & Multi-cuisine",
       "avg_cost": 430,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Sringeri Town",
       "dietary_label": "Multi-cuisine"
@@ -1321,8 +1513,10 @@
       "cuisine": "Malnad Fine Dining",
       "avg_cost": 1400,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "River Bank Road",
       "dietary_label": "Non-Veg"
@@ -1335,7 +1529,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Shivanasamudra Road",
       "dietary_label": "Pure Veg"
@@ -1347,8 +1543,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 440,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Falls Viewpoint",
       "dietary_label": "Multi-cuisine"
@@ -1360,8 +1558,10 @@
       "cuisine": "Karnataka Fine Dining",
       "avg_cost": 1400,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Cauvery River Bank",
       "dietary_label": "Non-Veg"
@@ -1374,7 +1574,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Bellary Road",
       "dietary_label": "Pure Veg"
@@ -1386,8 +1588,10 @@
       "cuisine": "Andhra & Multi-cuisine",
       "avg_cost": 440,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "RTC Bus Stand Road",
       "dietary_label": "Multi-cuisine"
@@ -1399,8 +1603,10 @@
       "cuisine": "Andhra Fine Dining",
       "avg_cost": 1300,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "College Road",
       "dietary_label": "Non-Veg"
@@ -1413,7 +1619,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Horsley Hills Top",
       "dietary_label": "Pure Veg"
@@ -1425,8 +1633,10 @@
       "cuisine": "Andhra & Multi-cuisine",
       "avg_cost": 450,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Hilltop Road",
       "dietary_label": "Multi-cuisine"
@@ -1438,8 +1648,10 @@
       "cuisine": "Continental & Andhra",
       "avg_cost": 1400,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Madanapalle Road",
       "dietary_label": "Non-Veg"
@@ -1452,7 +1664,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Gandhi Nagar",
       "dietary_label": "Pure Veg"
@@ -1464,8 +1678,10 @@
       "cuisine": "Andhra & Multi-cuisine",
       "avg_cost": 440,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Subash Road",
       "dietary_label": "Multi-cuisine"
@@ -1477,8 +1693,10 @@
       "cuisine": "Multi-cuisine Fine Dining",
       "avg_cost": 1300,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kanaganapalli Road",
       "dietary_label": "Non-Veg"
@@ -1491,7 +1709,9 @@
       "avg_cost": 110,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Temple Premises",
       "dietary_label": "Pure Veg"
@@ -1503,8 +1723,10 @@
       "cuisine": "Andhra & Multi-cuisine",
       "avg_cost": 440,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Main Road",
       "dietary_label": "Multi-cuisine"
@@ -1516,8 +1738,10 @@
       "cuisine": "Andhra Fine Dining",
       "avg_cost": 1300,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Dam Road",
       "dietary_label": "Non-Veg"
@@ -1530,7 +1754,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Trunk Road",
       "dietary_label": "Pure Veg"
@@ -1542,8 +1768,10 @@
       "cuisine": "Andhra & Multi-cuisine",
       "avg_cost": 450,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "GT Road",
       "dietary_label": "Multi-cuisine"
@@ -1555,8 +1783,10 @@
       "cuisine": "Andhra Fine Dining",
       "avg_cost": 1300,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Pogathota",
       "dietary_label": "Non-Veg"
@@ -1569,7 +1799,9 @@
       "avg_cost": 110,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Temple Road",
       "dietary_label": "Pure Veg"
@@ -1581,8 +1813,10 @@
       "cuisine": "Andhra & Telangana",
       "avg_cost": 430,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Main Bazaar",
       "dietary_label": "Multi-cuisine"
@@ -1594,8 +1828,10 @@
       "cuisine": "Andhra Fine Dining",
       "avg_cost": 1300,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Godavari Bank",
       "dietary_label": "Non-Veg"
@@ -1608,7 +1844,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Wyra Road",
       "dietary_label": "Pure Veg"
@@ -1620,8 +1858,10 @@
       "cuisine": "Andhra & Multi-cuisine",
       "avg_cost": 440,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Main Road",
       "dietary_label": "Multi-cuisine"
@@ -1633,8 +1873,10 @@
       "cuisine": "Multi-cuisine Fine Dining",
       "avg_cost": 1300,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Balaji Nagar",
       "dietary_label": "Non-Veg"
@@ -1647,7 +1889,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Bus Stand Road",
       "dietary_label": "Non-Veg"
@@ -1659,8 +1903,10 @@
       "cuisine": "Telangana & Multi-cuisine",
       "avg_cost": 440,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Main Road",
       "dietary_label": "Multi-cuisine"
@@ -1672,8 +1918,10 @@
       "cuisine": "Multi-cuisine Fine Dining",
       "avg_cost": 1200,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kadam Project Road",
       "dietary_label": "Non-Veg"
@@ -1686,7 +1934,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Main Road",
       "dietary_label": "Pure Veg"
@@ -1698,8 +1948,10 @@
       "cuisine": "Telangana & Multi-cuisine",
       "avg_cost": 440,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Hyderabad Road",
       "dietary_label": "Multi-cuisine"
@@ -1711,8 +1963,10 @@
       "cuisine": "Multi-cuisine Fine Dining",
       "avg_cost": 1300,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Beside Bus Stand",
       "dietary_label": "Non-Veg"
@@ -1725,7 +1979,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Sirpur Town",
       "dietary_label": "Pure Veg"
@@ -1750,8 +2006,10 @@
       "cuisine": "Multi-cuisine Fine Dining",
       "avg_cost": 1200,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Forest Edge Road",
       "dietary_label": "Non-Veg"
@@ -1764,7 +2022,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "friends"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kuntala Falls Road",
       "dietary_label": "Non-Veg"
@@ -1789,8 +2049,10 @@
       "cuisine": "Telangana Fine Dining",
       "avg_cost": 1200,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Adilabad Road",
       "dietary_label": "Non-Veg"
@@ -1803,7 +2065,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Honnemaradu Village",
       "dietary_label": "Pure Veg"
@@ -1828,8 +2092,10 @@
       "cuisine": "Malnad Fine Dining",
       "avg_cost": 1400,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Reservoir Road",
       "dietary_label": "Non-Veg"
@@ -1842,7 +2108,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Town Hall Road",
       "dietary_label": "Pure Veg"
@@ -1854,8 +2122,10 @@
       "cuisine": "Tulu Nadu & Multi-cuisine",
       "avg_cost": 440,
       "suitable_for": [
+        "solo",
         "family",
-        "friends"
+        "friends",
+        "couple"
       ],
       "area": "Main Bazaar",
       "dietary_label": "Multi-cuisine"
@@ -1867,8 +2137,10 @@
       "cuisine": "Coastal Karnataka Fine Dining",
       "avg_cost": 1400,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Udupi Road",
       "dietary_label": "Non-Veg"
@@ -1881,7 +2153,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kemmangundi Town",
       "dietary_label": "Pure Veg"
@@ -1906,8 +2180,10 @@
       "cuisine": "Malnad Fine Dining",
       "avg_cost": 1500,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Forest Edge",
       "dietary_label": "Non-Veg"
@@ -1920,7 +2196,9 @@
       "avg_cost": 150,
       "suitable_for": [
         "solo",
-        "friends"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Tibetan Colony",
       "dietary_label": "Pure Veg"
@@ -1932,8 +2210,10 @@
       "cuisine": "Tibetan & Multi-cuisine",
       "avg_cost": 450,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Namdroling Monastery Road",
       "dietary_label": "Pure Veg"
@@ -1945,8 +2225,10 @@
       "cuisine": "Tibetan Fine Dining",
       "avg_cost": 1200,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Monastery Complex",
       "dietary_label": "Pure Veg"
@@ -1959,7 +2241,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Bannerghatta Road",
       "dietary_label": "Pure Veg"
@@ -1984,8 +2268,10 @@
       "cuisine": "Multi-cuisine Fine Dining",
       "avg_cost": 2200,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Bannerghatta Road",
       "dietary_label": "Non-Veg"
@@ -1998,7 +2284,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Nilambur Town",
       "dietary_label": "Non-Veg"
@@ -2023,8 +2311,10 @@
       "cuisine": "Kerala Fine Dining",
       "avg_cost": 1400,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Chaliyar River Bank",
       "dietary_label": "Non-Veg"
@@ -2037,7 +2327,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Wadakkanchery Town",
       "dietary_label": "Pure Veg"
@@ -2049,8 +2341,10 @@
       "cuisine": "Kerala & Multi-cuisine",
       "avg_cost": 430,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Market Road",
       "dietary_label": "Multi-cuisine"
@@ -2062,8 +2356,10 @@
       "cuisine": "Kerala Fine Dining",
       "avg_cost": 1300,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "NH 544 Road",
       "dietary_label": "Non-Veg"
@@ -2076,7 +2372,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Ponmudi Hills",
       "dietary_label": "Pure Veg"
@@ -2101,8 +2399,10 @@
       "cuisine": "Kerala Fine Dining",
       "avg_cost": 1400,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Hilltop",
       "dietary_label": "Non-Veg"
@@ -2115,7 +2415,9 @@
       "avg_cost": 140,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kalpetta Town",
       "dietary_label": "Pure Veg"
@@ -2127,8 +2429,10 @@
       "cuisine": "Kerala & Multi-cuisine",
       "avg_cost": 460,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Ambalavayal Road",
       "dietary_label": "Multi-cuisine"
@@ -2140,8 +2444,10 @@
       "cuisine": "Kerala Fine Dining",
       "avg_cost": 1800,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Sultan Bathery Road",
       "dietary_label": "Non-Veg"
@@ -2154,7 +2460,9 @@
       "avg_cost": 140,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Vagamon Town",
       "dietary_label": "Pure Veg"
@@ -2166,8 +2474,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 460,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Thangalppara",
       "dietary_label": "Multi-cuisine"
@@ -2179,8 +2489,10 @@
       "cuisine": "Kerala Fine Dining",
       "avg_cost": 1800,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kurisumala Road",
       "dietary_label": "Non-Veg"
@@ -2193,7 +2505,9 @@
       "avg_cost": 150,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Pachmarhi Town",
       "dietary_label": "Pure Veg"
@@ -2205,8 +2519,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 480,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Pachmarhi Hill",
       "dietary_label": "Multi-cuisine"
@@ -2218,8 +2534,10 @@
       "cuisine": "Continental & Indian Fine Dining",
       "avg_cost": 1600,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Mahadeo Road",
       "dietary_label": "Non-Veg"
@@ -2232,7 +2550,9 @@
       "avg_cost": 140,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Coonoor Bazaar",
       "dietary_label": "Pure Veg"
@@ -2244,8 +2564,10 @@
       "cuisine": "French & Multi-cuisine",
       "avg_cost": 550,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Upper Coonoor",
       "dietary_label": "Multi-cuisine"
@@ -2257,8 +2579,10 @@
       "cuisine": "Continental Fine Dining",
       "avg_cost": 2000,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Orange Grove Road",
       "dietary_label": "Non-Veg"
@@ -2271,7 +2595,9 @@
       "avg_cost": 130,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Boat House Road",
       "dietary_label": "Pure Veg"
@@ -2283,8 +2609,10 @@
       "cuisine": "Seafood & Multi-cuisine",
       "avg_cost": 450,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Canal Road",
       "dietary_label": "Non-Veg"
@@ -2296,8 +2624,10 @@
       "cuisine": "Chettinad Fine Dining",
       "avg_cost": 1600,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Forest Road",
       "dietary_label": "Non-Veg"
@@ -2310,7 +2640,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Beach Road",
       "dietary_label": "Pure Veg"
@@ -2322,8 +2654,10 @@
       "cuisine": "Seafood & Multi-cuisine",
       "avg_cost": 480,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "East Car Street",
       "dietary_label": "Non-Veg"
@@ -2335,8 +2669,10 @@
       "cuisine": "Seafood Fine Dining",
       "avg_cost": 1800,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Kovalam Road",
       "dietary_label": "Non-Veg"
@@ -2349,7 +2685,9 @@
       "avg_cost": 120,
       "suitable_for": [
         "solo",
-        "family"
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Katpadi Road",
       "dietary_label": "Pure Veg"
@@ -2361,8 +2699,10 @@
       "cuisine": "Multi-cuisine",
       "avg_cost": 460,
       "suitable_for": [
-        "couple",
-        "friends"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Long Bazaar",
       "dietary_label": "Multi-cuisine"
@@ -2374,8 +2714,10 @@
       "cuisine": "Continental & South Indian Fine Dining",
       "avg_cost": 1600,
       "suitable_for": [
-        "couple",
-        "family"
+        "solo",
+        "family",
+        "friends",
+        "couple"
       ],
       "area": "Sathuvachari",
       "dietary_label": "Non-Veg"

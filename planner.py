@@ -49,14 +49,13 @@ class TravelPlannerLogic:
 
     def generate_itinerary(self, days: int, city_id: int, hotel: Dict[str, Any], num_rooms: int, num_travellers: int, mood: str = "Relaxation") -> List[Dict[str, Any]]:
         """
-        STEP 4: BORROW & STRETCH
-        - One-Spot Rule: Only one unique attraction per day.
-        - Hub Borrowing: Pull from parent_hub if local exhausted.
+        NEW RULE: ONE-SPOT-PER-DAY ITINERARY LOGIC
+        - Dynamic Dining: Cycle through local food places.
+        - Varied Stay: Daily descriptions for the hotel stay.
         """
         local_pool = self.db.get_attractions(city_id)
         pool = local_pool.copy()
         
-        # Linear Hub Borrowing
         if len(pool) < days:
             city_data = self.db.get_city_by_id(city_id)
             hub_name = city_data.get('parent_hub')
@@ -64,28 +63,48 @@ class TravelPlannerLogic:
                 hub_city = self.db.get_city_by_name(hub_name)
                 if hub_city:
                     hub_pool = self.db.get_attractions(hub_city['city_id'])
-                    pool.extend(hub_pool)
+                    existing_names = {a['name'] for a in pool}
+                    for a in hub_pool:
+                        if a['name'] not in existing_names:
+                            pool.append(a)
                     
         if not pool:
             pool = [{"name": "Scenic Exploration", "description": "Take a moment to enjoy the local surroundings.", "area": "Local Area"}]
+
+        # Food logic
+        food_list = self.db.get_food_places(city_id)
+        if not food_list:
+            food_list = [{"name": "Local Restaurant", "cuisine": "Local", "area": "Nearby"}]
 
         if mood.lower() == 'adventure': pool.sort(key=lambda x: x.get('outdoor', False), reverse=True)
         else: pool.sort(key=lambda x: x.get('outdoor', True))
             
         itinerary = []
+        hotel_name = hotel['name']
+        print(f"DEBUG: Generating {days} days for city {city_id} (Pool size: {len(pool)})")
+        
         for i in range(days):
-            # One-Spot Rule: ensures we pick exactly one unique spot
+            # 1. ONE UNIQUE ATTRACTION
             spot = pool[i % len(pool)]
+            highlight = spot['name']
+            print(f"DEBUG: Day {i+1} activity: {highlight}")
             
-            # Format as single string for "Sightseeing Highlight"
-            highlight = f"{spot['name']}: {spot.get('description', 'Sightseeing')}"
+            # DINING CYCLE
+            res = food_list[i % len(food_list)]
+            meal_desc = f"Lunch/Dinner at {res['name']} ({res['cuisine']}) in {res.get('area', 'Local Area')}."
+            
+            # STAY VARIETY
+            if i == 0: stay_desc = f"Check-in and relax at {hotel_name}."
+            elif i == 1: stay_desc = f"Enjoy breakfast and morning views at {hotel_name}."
+            else: stay_desc = f"Evening leisure at {hotel_name}."
             
             itinerary.append({
                 "day": i + 1,
                 "activities_list": highlight,
+                "daily_activity": highlight,
                 "activities": [spot],
-                "stay": f"Staying at {hotel['name']} in {hotel.get('display_location', 'Local Area')}",
-                "meal": "Recommended: Local Specialty"
+                "stay": stay_desc,
+                "meal": meal_desc
             })
         return itinerary
 

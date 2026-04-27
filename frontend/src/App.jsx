@@ -4,7 +4,7 @@ import {
   Plane, MapPin, Calendar, Wallet, Users, Utensils,
   Sun, Send, CloudRain, Star, Hotel, Train, Trash2, ChevronRight,
   ChevronDown, ChevronUp, Download, Map as MapIcon, Filter, Route, Search,
-  Info, Clock, Compass, Sparkles, CheckCircle, Menu, History, X
+  Info, Clock, Compass, Sparkles, CheckCircle, CheckCircle2, Menu, History, X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
@@ -58,9 +58,9 @@ const TabNav = ({ activeTab, onTabChange }) => {
   );
 };
 
-const TransportLogisticsTable = ({ meta, options }) => {
+const TransportLogisticsTable = ({ meta, options, selected }) => {
   if (!meta) return null;
-  
+
   return (
     <div className="transport-tabular-dashboard">
       <div className="transport-section">
@@ -110,23 +110,27 @@ const TransportLogisticsTable = ({ meta, options }) => {
               </tr>
             </thead>
             <tbody>
-              {options?.map((opt, idx) => (
-                <tr key={idx}>
-                  <td>
-                    <div className="mode-icon-cell">
-                      {opt.mode?.toLowerCase() === 'train' ? <Train size={16} /> : <Route size={16} />}
-                      {" "}{opt.mode}
-                    </div>
-                  </td>
-                  <td>{opt.provider}</td>
-                  <td>{opt.type}</td>
-                  <td>{opt.train_name || "---"}</td>
-                  <td>{opt.train_number || "---"}</td>
-                  <td>{opt.departure_time}</td>
-                  <td className="price-cell">₹{(opt.cost || 0).toLocaleString() ?? "0"}</td>
-                  <td>{opt.area || meta?.area || "N/A"}</td>
-                </tr>
-              ))}
+              {options?.map((opt, idx) => {
+                const isSelected = opt.train_number === selected?.train_number && opt.provider === selected?.provider;
+                return (
+                  <tr key={idx} className={isSelected ? "selected-row" : ""}>
+                    <td>
+                      <div className="mode-icon-cell">
+                        {opt.mode?.toLowerCase() === 'train' ? <Train size={16} /> : <Route size={16} />}
+                        {" "}{opt.mode}
+                        {isSelected && <CheckCircle2 size={14} style={{ marginLeft: '4px' }} />}
+                      </div>
+                    </td>
+                    <td>{opt.provider}</td>
+                    <td>{opt.type}</td>
+                    <td>{opt.train_name || "---"}</td>
+                    <td>{opt.train_number || "---"}</td>
+                    <td>{opt.departure_time}</td>
+                    <td className="price-cell">₹{(opt.cost || 0).toLocaleString() ?? "0"}</td>
+                    <td>{opt.area || meta?.area || "N/A"}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
@@ -325,7 +329,7 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
               <thead>
                 <tr>
                   <th style={{ width: '80px' }}>Day</th>
-                  <th>Sightseeing Highlight</th>
+                  <th>Plans of the Day</th>
                   <th style={{ width: '220px' }}>Meal & Stay</th>
                 </tr>
               </thead>
@@ -334,8 +338,8 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
                   <tr key={idx}>
                     <td className="day-cell">{day.day}</td>
                     <td className="slot-cell">
-                      <div className="day-plan-text" style={{ whiteSpace: 'pre-line', fontSize: '0.9rem', lineHeight: '1.6' }}>
-                        {day.activities_list}
+                      <div className="day-plan-text" style={{ fontSize: '0.95rem', fontWeight: '500', color: 'var(--text-main)' }}>
+                        {day.daily_activity || day.activities_list}
                       </div>
                     </td>
                     <td className="stay-cell">
@@ -349,7 +353,7 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
           </div>
         );
       case 'Transport':
-        return <TransportLogisticsTable meta={itinerary?.transport_meta} options={itinerary?.available_transport} />;
+        return <TransportLogisticsTable meta={itinerary?.transport_meta} options={itinerary?.available_transport} selected={itinerary?.selected_transport} />;
       case 'Stays & Restaurants':
         return (
           <div className="media-grid">
@@ -378,8 +382,8 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
             <div className="dashboard-card-row">
               <div className="col-cat">
                 <div className="cat-label">
-                  {itinerary.selected_transport.mode?.toLowerCase() === 'cab' ? <Compass size={16} /> : 
-                   (itinerary.selected_transport.mode?.toLowerCase() === 'bus' ? <Route size={16} /> : <Train size={16} />)} 
+                  {itinerary.selected_transport.mode?.toLowerCase() === 'cab' ? <Compass size={16} /> :
+                    (itinerary.selected_transport.mode?.toLowerCase() === 'bus' ? <Route size={16} /> : <Train size={16} />)}
                   {" "}{itinerary.selected_transport.mode || "Transport"}
                 </div>
               </div>
