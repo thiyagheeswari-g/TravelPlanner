@@ -14,14 +14,16 @@ load_dotenv()
 class PlanState(TypedDict):
     # Inputs
     query: str
+    chat_history: List[Dict[str, str]]
     destination: Optional[str]
     origin: Optional[str]
     days: Optional[int]
     budget: Optional[float]
     travel_month: Optional[str]
-    trip_type: Optional[str]
+    trip_style: Optional[str] # Changed from trip_type to match instruction
+    mood: Optional[str] # New field
     travellers: Optional[int]
-    food_preference: Optional[str] # New field
+    food_preference: Optional[str]
     
     # Processed Data
     city_id: Optional[int]
@@ -38,6 +40,7 @@ class PlanState(TypedDict):
     costs: Optional[Dict[str, float]]
     missing_fields: List[str]
     budget_tier: str # luxury, mid, budget
+    field_changes: List[str] # To track what changed for stateful feedback
     
     # Outputs
     final_response: str
@@ -115,142 +118,128 @@ class TravelAgent:
 
         return builder.compile()
 
-    # Node 1: Parser
+    # Helper for budget parsing
+    def parse_budget(self, text):
+        if not text: return None
+        text = str(text).lower().replace(",", "")
+        match = re.search(r'(\d+)\s*k', text)
+        if match:
+            return float(match.group(1)) * 1000
+        numbers = re.findall(r'\d+', text)
+        return float(numbers[0]) if numbers else None
+
+    # Node 1: Parser (Extraction Engine Wrapper)
     def parser(self, state: PlanState) -> PlanState:
-        query = state.get('query', '').lower().strip()
-        
-        # PRIORITIZE EXPLICIT INPUTS (from sidebar/frontend)
-        # This prevents "hallucinations" of the wrong city when Vellore is selected.
-        if state.get('destination'):
-            state['destination'] = state['destination']
-        if state.get('origin'):
-            state['origin'] = state['origin']
-        
-        # Handle Greetings
-        greetings = ["hi", "hello", "hey", "greetings", "good morning", "good evening"]
-        if any(query == g for g in greetings):
-            state['status'] = 'greeting'
-            state['final_response'] = "Hi there! I'm your professional travel assistant. I can help you plan trips across Tamil Nadu, Kerala, Karnataka, Andhra Pradesh, and Telangana. Where would you like to go?"
-            return state
-
-        # Dynamic Extraction using cities.json + Common Origins
-        cities = self.db.get_all_cities()
-        common_origins = ["chennai", "bangalore", "mumbai", "delhi", "hyderabad", "kochi", "coimbatore", "madurai", "vizag", "visakhapatnam"]
-        
-        # 1. Identify Destination (Only if missing)
-        if not state.get('destination'):
-            for city in cities:
-                if city['name'].lower() in query:
-                    state['destination'] = city['name']
-                    break
-        
-        # 2. Identify Origin (Only if missing)
-        if not state.get('origin'):
-            # Check against cities.json first
-            for city in cities:
-                if city['name'].lower() in query and city['name'] != state.get('destination'):
-                    state['origin'] = city['name']
-                    break
-        
-            # Fallback for common origins not in our destination dataset
-            if not state.get('origin'):
-                for city in common_origins:
-                    if city in query:
-                        state['origin'] = city.capitalize()
-                        break
-        
-        # 3. Days extraction
-        match_days = re.search(r'(\d+)\s*(-)?\s*day', query)
-        if match_days: 
-            state['days'] = int(match_days.group(1))
-            
-        # 4. Budget extraction
-        match_budget = re.search(r'(?:budget|under|₹|rs\.?)\s*(\d+)(k|000)?', query)
-        if not match_budget:
-            match_budget = re.search(r'(\d+)\s*(k|000)', query)
-            
-        if match_budget:
-            val = int(match_budget.group(1))
-            suffix = match_budget.group(2)
-            if suffix == 'k': val *= 1000
-            elif suffix == '000': val = val 
-            if val > 1000: state['budget'] = float(val)
-
-        # 5. Month extraction
-        months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december',
-                  'jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
-        for m in months:
-            if f" {m}" in f" {query}" or f"{m} " in f"{query} ":
-                # Map full names to short names if needed, but our weather.json uses short? 
-                # Let's check weather.json again. It uses Jan, Feb, etc.
-                short_m = m[:3].capitalize()
-                state['travel_month'] = short_m
-                break
-
-        # 6. Trip type extraction
-        if "solo" in query: state['trip_type'] = "solo"
-        elif any(w in query for w in ["couple", "partner", "romantic", "honeymoon"]): state['trip_type'] = "couple"
-        elif "family" in query: state['trip_type'] = "family"
-        elif any(w in query for w in ["friends", "group"]): state['trip_type'] = "friends"
-
-        # LLM Overwrite/Fill (if available)
-        if self.llm:
-            prompt = f"<s>[INST] Extract travel intent from: '{query}'. Return ONLY raw JSON: {{\"destination\": string, \"origin\": string, \"days\": int, \"budget\": float, \"travel_month\": string, \"trip_type\": \"solo\"|\"couple\"|\"family\"|\"friends\", \"travellers\": int}}. Use null for missing. [/INST]</s>"
-            try:
-                res = self.llm.invoke(prompt)
-                match = re.search(r'\{.*\}', res, re.DOTALL)
-                if match:
-                    extracted = json.loads(match.group())
-                    for k, v in extracted.items():
-                        if v: state[k] = v # Prioritize LLM extraction
-            except Exception as e:
-                print(f"Parser LLM Error: {e}")
-
+        # Since run() now does the extraction, this node ensures 
+        # any missing fields that might have been skipped are caught
+        # or it can just be a pass-through if run() is thorough.
         return state
 
-    # Node 2: Missing Fields
+    def extract_info(self, query: str, history: List[Dict[str, str]]) -> Dict[str, Any]:
+        """
+        Hybrid Extraction: LLM + Regex Safety Net
+        """
+        extracted = {
+            'destination': None,
+            'origin': None,
+            'days': None,
+            'budget': None,
+            'travellers': None,
+            'trip_style': None,
+            'mood': None
+        }
+
+        # 1. LLM Extraction
+        if self.llm:
+            history_str = "\n".join([f"{m.get('role', 'user').capitalize()}: {m.get('content', '')}" for m in history[-5:]])
+            
+            prompt = f"""Extract trip details (destination, origin, days, budget, travellers) as a JSON object. 
+            If the user mentions a new value, update it. If they don't mention a field, check the history and keep the old value.
+            Use null if unknown.
+
+            Chat History:
+            {history_str}
+
+            User Query: '{query}'"""
+            
+            try:
+                # Use HumanMessage as requested
+                response = self.llm.invoke([HumanMessage(content=prompt)])
+                content = response.content if hasattr(response, 'content') else str(response)
+                
+                # NEW FIX: Extract JSON using Regex in case the LLM adds chatter
+                json_match = re.search(r'\{.*\}', content, re.DOTALL)
+                if json_match:
+                    llm_data = json.loads(json_match.group())
+                    for k in extracted.keys():
+                        if llm_data.get(k) is not None:
+                            extracted[k] = llm_data[k]
+                else:
+                    print("DEBUG: No JSON found in LLM response")
+            except Exception as e:
+                print(f"Extraction Error: {e}")
+
+        # 2. Safety Net (Regex & Keyword Scanner) - Fallback for LLM failure
+        query_lower = query.lower()
+        
+        # Days: Match any number followed by 'day' or 'days' (e.g., "3 days")
+        if extracted['days'] is None:
+            days_match = re.search(r'(\d+)\s*(?:day|days)', query, re.IGNORECASE)
+            if days_match:
+                extracted['days'] = int(days_match.group(1))
+
+        # Budget: Use parse_budget helper
+        if extracted['budget'] is None:
+            extracted['budget'] = self.parse_budget(query_lower)
+
+        # Destination: Keyword match against cities.json
+        if extracted['destination'] is None:
+            cities = self.db.get_all_cities()
+            for city in cities:
+                if city['name'].lower() in query_lower:
+                    extracted['destination'] = city['name']
+                    break
+        
+        # Travellers fallback: Scan for "X people" or similar
+        if extracted['travellers'] is None:
+            match = re.search(r'(\d+)\s*(people|travellers|person|members)', query_lower)
+            if match:
+                extracted['travellers'] = int(match.group(1))
+
+        return extracted
+
+    # Node 2: Missing Fields (Validation)
     def check_missing(self, state: PlanState) -> PlanState:
         if state.get('status') == 'greeting':
             return state
 
-        required = ['origin', 'destination', 'travel_month', 'trip_type', 'days', 'budget']
-        missing = [f for f in required if not state.get(f)]
-        
-        if missing:
-            state['missing_fields'] = missing
+        # Mandatory field check - Only Destination is strictly required now
+        if not state.get('destination'):
+            state['missing_fields'] = ['destination']
             state['status'] = 'gathering'
-            
-            dest = state.get('destination')
-            if dest:
-                msg = f"{dest} is a fantastic choice! To plan the best route and activities, could you please tell me "
-                parts = []
-                if 'origin' in missing: parts.append("which city you'll be traveling from")
-                if 'travel_month' in missing: parts.append("which month you're planning for")
-                if 'trip_type' in missing: parts.append("if this is a solo trip, or if you're traveling with a partner or friends")
-                if 'days' in missing: parts.append("how many days you'd like to spend there")
-                if 'budget' in missing: parts.append("what your total budget is")
-                
-                if len(parts) > 1:
-                    msg += ", ".join(parts[:-1]) + " and " + parts[-1] + "?"
-                elif parts:
-                    msg += parts[0] + "?"
-                else:
-                    msg = f"I'm excited to help! I just need a few more details: {', '.join(missing)}."
-            else:
-                msg = "Hi! I'd love to help you plan a trip. Which beautiful destination in South India are you considering?"
-            
-            state['final_response'] = msg
-        else:
-            state['status'] = 'planning'
+            state['final_response'] = "I'm excited to help! Which destination are you thinking of for your next trip?"
+            return state
+
+        # DEFAULT VALUES: If destination is present, fill missing fields with defaults
+        if not state.get('days'): state['days'] = 3
+        if not state.get('budget'): state['budget'] = 20000
+        if not state.get('travellers'): state['travellers'] = 2
+        
+        # NO-ASK RULE: Fill secondary defaults
+        if not state.get('origin'): state['origin'] = "Chennai"
+        if not state.get('travel_month'): state['travel_month'] = "May" 
+        if not state.get('trip_style'): state['trip_style'] = "Relaxation"
+        if not state.get('mood'): state['mood'] = "Relaxation"
+        
+        state['status'] = 'planning'
             
         # Resolve City ID
-        if state.get('destination'):
-            city = self.db.get_city_by_name(state['destination'])
-            if city:
-                state['city_id'] = city['city_id']
-            else:
-                state['status'] = 'gathering'
-                state['final_response'] = f"I'm sorry, I couldn't find {state['destination']} in our registry. We cover major cities in Tamil Nadu, Kerala, Karnataka, Andhra Pradesh, and Telangana."
+        city = self.db.get_city_by_name(state['destination'])
+        if city:
+            state['city_id'] = city['city_id']
+        else:
+            state['status'] = 'gathering'
+            state['final_response'] = f"I'm sorry, I couldn't find {state['destination']} in our registry. We cover major cities in Tamil Nadu, Kerala, Karnataka, Andhra Pradesh, and Telangana."
                 
         return state
 
@@ -359,68 +348,21 @@ class TravelAgent:
 
     # Node 4: Hotel Selector
     def hotel_selector(self, state: PlanState) -> PlanState:
-        hotels = self.db.get_hotels(state['city_id'])
-        if not hotels:
-            state['selected_hotel'] = {"name": "Comfort Inn", "price_per_night": 2500, "rating": 4.0, "area": "City Center", "max_people": 2}
-            return state
-
-        # Tiered Selection: Set budget_tier based on budget per person (if not already locked by self-correction)
-        if not state.get('budget_tier'):
-            budget_per_person = state['budget'] / max(state.get('travellers', 1), 1)
-            if budget_per_person < 5000:
-                state['budget_tier'] = 'budget'
-            elif budget_per_person > 10000:
-                state['budget_tier'] = 'luxury'
-            else:
-                state['budget_tier'] = 'mid'
-            
-        # Hard Budget Cap: (Hotel Price x Rooms x Nights) + (Transport Cost x People x 2) <= 70% of total budget
-        import math
-        num_travellers = state.get('travellers', 1)
-        nights = state['days']
-        total_budget = state['budget']
+        num_travellers = state.get('travellers', 2)
+        nights = state.get('days', 3)
+        total_budget = state.get('budget', 20000)
         
-        # Pull Transport Cost for the check
-        transport = state.get('selected_transport', {})
-        t_cost_total = (transport.get('total_estimated_cost', 0) * num_travellers) * 2
+        # Calculate transport cost for the group (round trip)
+        t_cost = state['selected_transport'].get('total_estimated_cost', 0) * num_travellers * 2
         
-        cap = total_budget * 0.7
+        best_hotel = self.logic.select_hotel_best_fit(state['city_id'], num_travellers, total_budget, nights, t_cost)
         
-        best_hotel = None
-        current_tier = state.get('budget_tier', 'luxury')
-        tiers_to_try = ['luxury', 'mid', 'budget']
-        
-        # Start from current tier or higher
-        if current_tier in tiers_to_try:
-            start_idx = tiers_to_try.index(current_tier)
-            tiers_to_try = tiers_to_try[start_idx:]
-            
-        for t in tiers_to_try:
-            tier_hotels = [h for h in hotels if h.get('hotel_type') == t]
-            if not tier_hotels: continue
-            
-            # Sort by price within tier
-            tier_hotels.sort(key=lambda x: x.get('price_per_night', 99999))
-            
-            for h in tier_hotels:
-                max_p = h.get('max_people', 2)
-                rooms = math.ceil(num_travellers / max_p)
-                h_total = h.get('price_per_night', 0) * rooms * nights
-                
-                if (h_total + t_cost_total) <= cap:
-                    best_hotel = h
-                    state['budget_tier'] = t
-                    break
-            
-            if best_hotel: break
-            
         if not best_hotel:
-            # Fallback to the absolute cheapest across all tiers if none fit the 60% cap
-            hotels.sort(key=lambda x: x.get('price_per_night', 99999))
-            best_hotel = hotels[0]
-            # DO NOT reset budget_tier here to avoid recursion loops with self_correction
-
-        state['selected_hotel'] = best_hotel
+            state['selected_hotel'] = {"name": "Comfort Inn", "price_per_night": 2500, "rating": 4.0, "area": "City Center", "max_people": 2}
+        else:
+            state['selected_hotel'] = best_hotel
+            state['budget_tier'] = best_hotel.get('hotel_type', 'mid')
+            
         return state
 
     # Node 6: Food Selector
@@ -446,7 +388,7 @@ class TravelAgent:
             if local_food:
                 food = local_food
         
-        if state['trip_type'] == 'couple':
+        if state['trip_style'] == 'couple':
             food.sort(key=lambda x: x.get('rating', 0), reverse=True)
             
         # Rule 4 Formatting: "Lunch at [name] — enjoy authentic [cuisine] cuisine"
@@ -577,7 +519,10 @@ class TravelAgent:
             "per_person": total / num_travellers if num_travellers > 0 else total
         }
         
-        if total > state['budget']: state['status'] = 'correcting'
+        # GAP FILLING: Maximize budget if remaining > 20%
+        state = self.logic.maximize_plan(state)
+        
+        if state['costs']['total'] > state['budget']: state['status'] = 'correcting'
         else: state['status'] = 'done'
         return state
 
@@ -661,12 +606,18 @@ class TravelAgent:
             "remaining": state['budget'] - costs['total']
         }
 
-        # Fetch coords from city object if available, else fallback to predefined
-        city_obj = self.db.get_city_by_name(city)
-        if city_obj and 'lat' in city_obj and 'lng' in city_obj:
-            city_center = [city_obj['lat'], city_obj['lng']]
+        # Response Formatting
+        changes = state.get('field_changes', [])
+        if changes:
+            if 'travellers' in changes:
+                summary = f"Updated! I've adjusted the plan for {state['travellers']} people. This includes an extra room and updated transport costs.\n\n"
+            else:
+                summary = f"Updated! I've adjusted your plan based on the new {changes[0].capitalize()} preference.\n\n"
         else:
-            city_center = self.db.get_coordinates('city', state.get('city_id', 100))
+            summary = f"Got it! Generating your {state['days']}-day {city} trip for {num_travellers} people with a ₹{state['budget']:,} budget.\n\n"
+        
+        summary += f"Dates: {month} | Weather: {'Rainy' if state.get('is_rainy') else 'Clear'}\n"
+        summary += f"Logistics: {transport_summary}\n"
         
         state['location'] = {
             "city": city,
@@ -708,15 +659,28 @@ class TravelAgent:
         return state
 
     def run(self, input_data: Dict[str, Any]):
+        """
+        FINAL CORE UPGRADE: Logic: Rewrite the run() function. 
+        Before doing anything, it must pass the query and chat_history through an extraction step.
+        """
+        query = input_data.get("query", "")
+        history = input_data.get("chat_history") or input_data.get("history") or []
+        
+        # 1. Extraction Step
+        extracted = self.extract_info(query, history)
+        
+        # 2. Build State
         state: PlanState = {
-            "query": input_data.get("query", ""),
-            "destination": input_data.get("destination"),
-            "origin": input_data.get("origin"),
-            "days": int(input_data.get("days", 3)),
-            "budget": float(input_data.get("budget", 20000)),
-            "travel_month": input_data.get("travel_month"),
-            "trip_type": input_data.get("trip_type"),
-            "travellers": int(input_data.get("travellers", 1)),
+            "query": query,
+            "chat_history": history,
+            "destination": extracted.get('destination') or input_data.get('destination'),
+            "origin": extracted.get('origin') or input_data.get('origin'),
+            "days": extracted.get('days') or input_data.get('days'),
+            "budget": extracted.get('budget') or input_data.get('budget'),
+            "travel_month": input_data.get("travel_month") or "Suggest by AI",
+            "trip_style": extracted.get('trip_style') or input_data.get('trip_style') or input_data.get('trip_type'),
+            "mood": extracted.get('mood') or input_data.get('mood'),
+            "travellers": extracted.get('travellers') or input_data.get('travellers', 2),
             "food_preference": input_data.get("food_preference", "Both"),
             "city_id": None,
             "weather_data": None,
@@ -728,6 +692,7 @@ class TravelAgent:
             "costs": {},
             "missing_fields": [],
             "budget_tier": None,
+            "field_changes": [],
             "final_response": "",
             "status": "gathering",
             "explanation": "",
@@ -736,5 +701,17 @@ class TravelAgent:
             "map_config": None,
             "media_cards": None
         }
+
+        # Track changes for stateful feedback
+        # If we have a previous turn, compare extracted vs history-based state
+        # (This is simplified; a real system would compare against a stored session state)
+        for field in ['days', 'travellers', 'budget', 'destination']:
+            old_val = input_data.get(field)
+            new_val = state.get(field)
+            if old_val and new_val and str(old_val) != str(new_val):
+                state['field_changes'].append(field)
+
+        # Debugging: Final Merged State (Brain of the AI)
+        print(f"DEBUG: Final Merged State -> {{'dest': state['destination'], 'days': state['days'], 'budget': state['budget'], 'people': state['travellers']}}")
 
         return self.workflow.invoke(state)

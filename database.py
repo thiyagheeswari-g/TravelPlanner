@@ -172,7 +172,19 @@ class DataService:
         return results
 
     def get_coordinates(self, type: str, id: int) -> List[float]:
-        # Predefined mapping for demo - ideally this should be in the dataset
+        # Priority 1: Check in-memory JSON data (most accurate)
+        if type == 'city':
+            for city in self._cities:
+                if city['city_id'] == id:
+                    if 'lat' in city and 'lng' in city:
+                        return [float(city['lat']), float(city['lng'])]
+        elif type == 'attraction':
+            for attr in self._attractions:
+                if attr.get('att_id') == id:
+                    if 'lat' in attr and 'lng' in attr:
+                        return [float(attr['lat']), float(attr['lng'])]
+        
+        # Priority 2: Predefined mapping for demo / legacy support
         city_coords = {
             1: [11.4100, 76.7000],   # Ooty
             29: [10.0889, 77.0595],  # Munnar
@@ -186,12 +198,10 @@ class DataService:
             90: [11.9416, 79.8083],  # Pondicherry
         }
         
-        # Attraction coordinates
         attr_coords = {
             9: [10.0912, 77.0610],   # Tea Museum (Munnar)
             18: [15.3350, 76.4600],  # Virupaksha Temple (Hampi)
             100: [12.9165, 79.1325], # Jalakandeswarar Fort (Vellore)
-            # Add more as needed
         }
         
         if type == 'city':

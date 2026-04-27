@@ -24,13 +24,14 @@ agent = TravelAgent(db)
 
 class TripRequest(BaseModel):
     query: str
+    chat_history: Optional[List[Dict[str, Any]]] = []
     destination: Optional[str] = None
     origin: Optional[str] = None
     days: Optional[int] = None
     budget: Optional[float] = None
     travel_month: Optional[str] = None
     trip_type: Optional[str] = None
-    travellers: Optional[int] = 1
+    travellers: Optional[int] = 2
     food_preference: Optional[str] = None
     weather_preference: Optional[str] = None
 
@@ -105,7 +106,7 @@ async def delete_session(session_id: str):
 
 @app.get("/weather")
 async def get_live_weather(city: str):
-    api_key = os.getenv("OPENWEATHER_API_KEY", "b6907d289e10d714a6e88b30761fae22") # fallback key for testing
+    api_key = os.getenv("OPENWEATHER_API_KEY") # fallback key for testing
     if not api_key:
         return {"temp": 25, "condition": "Clear Sky", "icon": "01d"}
     try:

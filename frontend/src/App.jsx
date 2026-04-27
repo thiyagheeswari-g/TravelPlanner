@@ -429,11 +429,11 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
             <span className="value">₹{itinerary.costs.transport.toLocaleString()}</span>
           </div>
           <div className="budget-item">
-            <span className="label">Hotel ({itinerary.selected_hotel.rating}★)</span>
+            <span className="label">Hotel Stay ({itinerary.selected_hotel.rating}★)</span>
             <span className="value">₹{itinerary.costs.hotel.toLocaleString()}</span>
           </div>
           <div className="budget-item">
-            <span className="label">Local Food</span>
+            <span className="label">Food preferred </span>
             <span className="value">₹{itinerary.costs.food.toLocaleString()}</span>
           </div>
           <div className="budget-item">
@@ -475,12 +475,12 @@ function App() {
     destination: '',
     travel_month_mode: 'Choose',
     travel_month: 'Choose a month',
-    days: '0',
+    days: 0,
     budget: 0,
-    trip_type: '',
+    trip_type: 'Choose',
     travellers: 0,
     food_preference: 'Both',
-    travel_mood: ''
+    travel_mood: 'Choose'
   });
 
   const [moodData, setMoodData] = useState({ travel_moods: [], city_mood_mapping: {} });
@@ -492,7 +492,7 @@ function App() {
   const [accordions, setAccordions] = useState({ accommodation: true, food: false });
   const scrollRef = useRef(null);
 
-  const [mapCenter, setMapCenter] = useState([15.335, 76.462]); // Default to Hampi instead of Vellore
+  const [mapCenter, setMapCenter] = useState([12.9716, 77.5946]); // Default to Bangalore (central to South India)
 
   const [allCities, setAllCities] = useState([]);
 
@@ -563,7 +563,10 @@ function App() {
           days: res.data.plan_metadata.days || prev.days,
           budget: res.data.plan_metadata.budget || prev.budget,
           travel_month: res.data.plan_metadata.travel_month || prev.travel_month,
-          travellers: res.data.plan_metadata.travellers || prev.travellers
+          travellers: res.data.plan_metadata.travellers || prev.travellers,
+          trip_type: res.data.plan_metadata.trip_type || prev.trip_type,
+          from_hub: res.data.plan_metadata.origin || prev.from_hub,
+          from_state: res.data.plan_metadata.from_state || prev.from_state
         }));
       }
     } catch (err) { console.error(err); }
@@ -626,8 +629,10 @@ function App() {
 
   const processResponse = async (data, currentMsgs = []) => {
     setItinerary(data);
-    if (data.location && data.location.coords) {
-      setMapCenter(data.map_config?.center || data.location?.coords);
+    if (data.map_config && data.map_config.center) {
+      setMapCenter([...data.map_config.center]);
+    } else if (data.location && data.location.coords) {
+      setMapCenter([...data.location.coords]);
     }
 
     // Clean text of [MAP_CONFIG]
@@ -688,7 +693,7 @@ function App() {
     try {
       const monthParam = formData.travel_month_mode === 'Suggest by AI' ? 'Suggest by AI' : formData.travel_month;
       const userQuery = `Plan a ${formData.days} day trip to ${formData.destination} from ${formData.from_hub} in ${monthParam}`;
-      
+
       const msgsWithUser = [...messages, { role: 'user', content: userQuery }];
       setMessages(msgsWithUser);
 
@@ -797,6 +802,7 @@ function App() {
                       <div className="input-group">
                         <label>TRIP STYLE</label>
                         <select name="trip_type" value={formData.trip_type} onChange={handleInputChange}>
+                          <option value="solo">Select Trip Style</option>
                           <option value="solo">Solo Adventure</option>
                           <option value="couple">Romantic Couple</option>
                           <option value="family">Family Gathering</option>
@@ -922,8 +928,8 @@ function App() {
                         {new Date(s.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}, {new Date(s.created_at).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })}
                       </div>
                     </div>
-                    <button 
-                      className="delete-history-btn" 
+                    <button
+                      className="delete-history-btn"
                       onClick={(e) => handleDeleteSession(e, s.session_id)}
                       title="Delete Journey"
                     >
@@ -984,7 +990,7 @@ function App() {
                   animate={{ opacity: [0.4, 1, 0.4] }}
                   transition={{ repeat: Infinity, duration: 1.5 }}
                 >
-                  Analyzing travel data and local attractions...
+                  ...
                 </motion.div>
               </div>
             )}
