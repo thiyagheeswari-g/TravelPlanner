@@ -1,0 +1,6209 @@
+{
+  "transport_routes": [
+    {
+      "route_id": "CBE_OTY_01",
+      "city_id": 1,
+      "from_city": "Coimbatore",
+      "from_station": "CBE",
+      "to_city": "Ooty",
+      "to_station": "UAM",
+      "distance_km": 86,
+      "distance_category": "medium",
+      "area": "Charring Cross, Ooty",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Nilgiri Mountain Railway (UNESCO)",
+          "type": "First Class",
+          "train_name": "Nilgiri Express",
+          "train_number": "12671",
+          "departure_time": "07:10",
+          "arrival_time": "12:00",
+          "duration_hours": 5,
+          "cost": 205,
+          "area": "Ooty RS (Charring Cross)"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:00",
+          "arrival_time": "08:45",
+          "duration_hours": 2.75,
+          "cost": 95,
+          "area": "Ooty Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "AC Deluxe",
+          "departure_time": "07:30",
+          "arrival_time": "10:15",
+          "duration_hours": 2.75,
+          "cost": 185,
+          "area": "Ooty Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.5,
+          "cost": 1800,
+          "note": "Per cab, seats 4",
+          "area": "Ooty Town"
+        }
+      ]
+    },
+    {
+      "route_id": "MDU_KODAI_01",
+      "city_id": 2,
+      "from_city": "Madurai",
+      "from_station": "MDU",
+      "to_city": "Kodaikanal",
+      "to_station": "KDK_BUS",
+      "distance_km": 120,
+      "distance_category": "medium",
+      "area": "Kodaikanal Bus Stand",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30",
+          "arrival_time": "10:00",
+          "duration_hours": 3.5,
+          "cost": 120,
+          "area": "Kodaikanal Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "arrival_time": "02:00",
+          "duration_hours": 4,
+          "cost": 350,
+          "area": "Kodaikanal Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KPN Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:30",
+          "arrival_time": "01:30",
+          "duration_hours": 4,
+          "cost": 700,
+          "area": "Kodaikanal Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 3,
+          "cost": 2500,
+          "note": "Per cab, seats 4",
+          "area": "Kodaikanal Town"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_MBLPM_01",
+      "city_id": 3,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Mahabalipuram",
+      "to_station": "MBP_BUS",
+      "distance_km": 58,
+      "distance_category": "short",
+      "area": "Shore Temple Road, Mahabalipuram",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "MTC / TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 06:00",
+          "duration_hours": 1.75,
+          "cost": 55,
+          "area": "Mahabalipuram Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC AC",
+          "type": "AC Seater",
+          "departure_time": "07:30",
+          "duration_hours": 1.5,
+          "cost": 120,
+          "area": "Mahabalipuram Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola / Uber Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1.5,
+          "cost": 1200,
+          "note": "Per cab, seats 4",
+          "area": "Shore Temple Road"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "East Coast Express (partial)",
+          "train_number": "Any MRTS + Local",
+          "departure_time": "06:50",
+          "duration_hours": 2,
+          "cost": 60,
+          "note": "MRTS to Chengalpattu + share cab",
+          "area": "Mahabalipuram Town"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_PONDY_01",
+      "city_id": 4,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Pondicherry",
+      "to_station": "PDY",
+      "distance_km": 165,
+      "distance_category": "medium",
+      "area": "Pondicherry Bus Stand / White Town",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Chennai–Villupuram Exp",
+          "train_number": "16177",
+          "departure_time": "06:10",
+          "arrival_time": "09:35",
+          "duration_hours": 3.5,
+          "cost": 180,
+          "area": "Villupuram Jn → cab to Pondy"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC / PRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:30",
+          "duration_hours": 3,
+          "cost": 110,
+          "area": "Pondicherry Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "PRTC",
+          "type": "AC Sleeper",
+          "departure_time": "22:30",
+          "duration_hours": 3.5,
+          "cost": 380,
+          "area": "Pondicherry Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:00",
+          "duration_hours": 3,
+          "cost": 750,
+          "area": "White Town, Pondicherry"
+        }
+      ]
+    },
+    {
+      "route_id": "MDU_MDU_01",
+      "city_id": 5,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Madurai",
+      "to_station": "MDU",
+      "distance_km": 465,
+      "distance_category": "long",
+      "area": "Madurai Junction",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Pandian Express",
+          "train_number": "12637",
+          "departure_time": "21:00",
+          "arrival_time": "05:00",
+          "duration_hours": 8,
+          "cost": 310,
+          "area": "Madurai Jn"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "3AC (3A)",
+          "train_name": "Pandian Express",
+          "train_number": "12637",
+          "departure_time": "21:00",
+          "arrival_time": "05:00",
+          "duration_hours": 8,
+          "cost": 820,
+          "area": "Madurai Jn"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC",
+          "type": "Non-AC Seater",
+          "departure_time": "22:00",
+          "duration_hours": 9,
+          "cost": 280,
+          "area": "Madurai Central Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KPN Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 8.5,
+          "cost": 650,
+          "area": "Madurai Central Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SRS / Parveen Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "20:00",
+          "duration_hours": 8,
+          "cost": 1100,
+          "area": "Madurai Central Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "MDU_RMS_01",
+      "city_id": 6,
+      "from_city": "Madurai",
+      "from_station": "MDU",
+      "to_city": "Rameswaram",
+      "to_station": "RMM",
+      "distance_km": 175,
+      "distance_category": "medium",
+      "area": "Rameswaram Temple / Agni Theertham",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Rameswaram Express",
+          "train_number": "16101",
+          "departure_time": "07:30",
+          "arrival_time": "12:00",
+          "duration_hours": 4.5,
+          "cost": 165,
+          "area": "Rameswaram Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Sethu Express",
+          "train_number": "12661",
+          "departure_time": "14:00",
+          "arrival_time": "18:30",
+          "duration_hours": 4.5,
+          "cost": 310,
+          "area": "Rameswaram Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:00",
+          "duration_hours": 4,
+          "cost": 130,
+          "area": "Rameswaram Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC",
+          "type": "AC Sleeper",
+          "departure_time": "22:30",
+          "duration_hours": 4.5,
+          "cost": 420,
+          "area": "Rameswaram Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Parveen Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:00",
+          "duration_hours": 4,
+          "cost": 750,
+          "area": "Rameswaram Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "SLM_YERCAUD_01",
+      "city_id": 7,
+      "from_city": "Salem",
+      "from_station": "SA",
+      "to_city": "Yercaud",
+      "to_station": "YRC_BUS",
+      "distance_km": 32,
+      "distance_category": "short",
+      "area": "Yercaud Bus Stand / Lady's Seat",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "TNSTC Local",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 45 min from 06:00",
+          "duration_hours": 1.25,
+          "cost": 35,
+          "area": "Yercaud Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "AC Seater",
+          "departure_time": "07:30",
+          "duration_hours": 1.25,
+          "cost": 80,
+          "area": "Yercaud Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1,
+          "cost": 700,
+          "note": "Per cab, seats 4",
+          "area": "Yercaud Town"
+        },
+        {
+          "mode": "Auto",
+          "provider": "Salem New Bus Stand Autos",
+          "type": "Shared Auto",
+          "departure_time": "Flexible",
+          "duration_hours": 1.25,
+          "cost": 50,
+          "area": "Yercaud Foothills"
+        }
+      ]
+    },
+    {
+      "route_id": "TVC_KNK_01",
+      "city_id": 8,
+      "from_city": "Trivandrum",
+      "from_station": "TVC",
+      "to_city": "Kanyakumari",
+      "to_station": "CAPE",
+      "distance_km": 85,
+      "distance_category": "medium",
+      "area": "Kanyakumari Temple / Vivekananda Rock",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Kanyakumari Express",
+          "train_number": "16381",
+          "departure_time": "06:35",
+          "arrival_time": "09:10",
+          "duration_hours": 2.5,
+          "cost": 185,
+          "area": "Kanyakumari Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Kanyakumari Express",
+          "train_number": "16381",
+          "departure_time": "06:35",
+          "arrival_time": "09:10",
+          "duration_hours": 2.5,
+          "cost": 110,
+          "area": "Kanyakumari Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC / TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:00",
+          "duration_hours": 2.25,
+          "cost": 85,
+          "area": "Kanyakumari Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Sleeper",
+          "departure_time": "21:00",
+          "duration_hours": 2.5,
+          "cost": 280,
+          "area": "Kanyakumari Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_CBE_01",
+      "city_id": 9,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Coimbatore",
+      "to_station": "CBE",
+      "distance_km": 500,
+      "distance_category": "long",
+      "area": "Coimbatore Gandhipuram Bus Stand / CBE Junction",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Kovai Express",
+          "train_number": "12675",
+          "departure_time": "06:10",
+          "arrival_time": "14:05",
+          "duration_hours": 8,
+          "cost": 290,
+          "area": "Coimbatore Jn"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "3AC (3A)",
+          "train_name": "Shatabdi / Nilagiri SF",
+          "train_number": "12671",
+          "departure_time": "21:05",
+          "arrival_time": "06:15",
+          "duration_hours": 9,
+          "cost": 950,
+          "area": "Coimbatore Jn"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC / SETC",
+          "type": "Non-AC Seater",
+          "departure_time": "21:00",
+          "duration_hours": 9,
+          "cost": 320,
+          "area": "Gandhipuram Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KPN Travels",
+          "type": "AC Sleeper",
+          "departure_time": "20:30",
+          "duration_hours": 8.5,
+          "cost": 750,
+          "area": "Gandhipuram Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SRS / Parveen",
+          "type": "Luxury Volvo",
+          "departure_time": "21:30",
+          "duration_hours": 8,
+          "cost": 1200,
+          "area": "Gandhipuram Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "BLR_MAS_01",
+      "city_id": 10,
+      "from_city": "Bangalore",
+      "from_station": "SBC",
+      "to_city": "Chennai",
+      "to_station": "MAS",
+      "distance_km": 346,
+      "distance_category": "long",
+      "area": "Chennai Central / CMBT Bus Stand",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Shatabdi Express",
+          "train_number": "12027",
+          "departure_time": "06:00",
+          "arrival_time": "11:00",
+          "duration_hours": 5,
+          "cost": 1055,
+          "area": "Chennai Central"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Lalbagh Express",
+          "train_number": "12607",
+          "departure_time": "21:30",
+          "arrival_time": "06:00",
+          "duration_hours": 8.5,
+          "cost": 260,
+          "area": "Chennai Central"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "22:30",
+          "duration_hours": 6.5,
+          "cost": 350,
+          "area": "CMBT Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SRS Travels",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 6,
+          "cost": 800,
+          "area": "CMBT Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL / Orange Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:00",
+          "duration_hours": 5.5,
+          "cost": 1400,
+          "area": "CMBT Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "MS_TCY_01",
+      "city_id": 11,
+      "from_city": "Chennai",
+      "from_station": "MS",
+      "to_city": "Trichy",
+      "to_station": "TPJ",
+      "distance_km": 330,
+      "distance_category": "long",
+      "area": "Trichy Junction / Central Bus Stand",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Rock Fort Express",
+          "train_number": "12179",
+          "departure_time": "22:00",
+          "arrival_time": "05:30",
+          "duration_hours": 7.5,
+          "cost": 265,
+          "area": "Trichy Junction"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "3AC (3A)",
+          "train_name": "Rock Fort Express",
+          "train_number": "12179",
+          "departure_time": "22:00",
+          "arrival_time": "05:30",
+          "duration_hours": 7.5,
+          "cost": 720,
+          "area": "Trichy Junction"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Cholan Express",
+          "train_number": "12163",
+          "departure_time": "06:20",
+          "arrival_time": "12:10",
+          "duration_hours": 5.8,
+          "cost": 350,
+          "area": "Trichy Junction"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC",
+          "type": "Non-AC Seater",
+          "departure_time": "22:00",
+          "duration_hours": 7,
+          "cost": 220,
+          "area": "Trichy Central Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KPN Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 6.5,
+          "cost": 580,
+          "area": "Trichy Central Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Parveen Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "22:30",
+          "duration_hours": 6,
+          "cost": 1000,
+          "area": "Trichy Central Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "TPJ_TJ_01",
+      "city_id": 12,
+      "from_city": "Trichy",
+      "from_station": "TPJ",
+      "to_city": "Thanjavur",
+      "to_station": "TJ",
+      "distance_km": 57,
+      "distance_category": "short",
+      "area": "Thanjavur Big Temple / Railway Station",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Trichy–Thanjavur Passenger",
+          "train_number": "56705",
+          "departure_time": "08:30",
+          "arrival_time": "10:00",
+          "duration_hours": 1.5,
+          "cost": 55,
+          "area": "Thanjavur Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC Local",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 20 min from 06:00",
+          "duration_hours": 1.5,
+          "cost": 45,
+          "area": "Thanjavur New Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC AC",
+          "type": "AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 1.5,
+          "cost": 95,
+          "area": "Thanjavur New Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1.25,
+          "cost": 900,
+          "note": "Per cab, seats 4",
+          "area": "Thanjavur Town"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_YELAGIRI_01",
+      "city_id": 13,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Yelagiri",
+      "to_station": "VN",
+      "distance_km": 225,
+      "distance_category": "medium",
+      "area": "Yelagiri Hills / Nilavoor Lake",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Brindavan Express",
+          "train_number": "12639",
+          "departure_time": "07:50",
+          "arrival_time": "11:50",
+          "duration_hours": 4,
+          "cost": 255,
+          "note": "Alight at Vaniyambadi, then cab 30 km",
+          "area": "Vaniyambadi → Yelagiri"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:00",
+          "duration_hours": 5,
+          "cost": 160,
+          "area": "Yelagiri Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 5.5,
+          "cost": 450,
+          "area": "Yelagiri Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Parveen Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:30",
+          "duration_hours": 5,
+          "cost": 850,
+          "area": "Yelagiri Hills"
+        }
+      ]
+    },
+    {
+      "route_id": "TPJ_KMB_01",
+      "city_id": 14,
+      "from_city": "Trichy",
+      "from_station": "TPJ",
+      "to_city": "Kumbakonam",
+      "to_station": "KMU",
+      "distance_km": 95,
+      "distance_category": "medium",
+      "area": "Kumbakonam Temple Town / Mahamaham Tank",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Kumbakonam Express",
+          "train_number": "16183",
+          "departure_time": "09:15",
+          "arrival_time": "11:00",
+          "duration_hours": 1.75,
+          "cost": 110,
+          "area": "Kumbakonam Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Thanjavur–Chennai Exp",
+          "train_number": "16853",
+          "departure_time": "07:10",
+          "arrival_time": "09:00",
+          "duration_hours": 1.75,
+          "cost": 75,
+          "area": "Kumbakonam Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:30",
+          "duration_hours": 2.5,
+          "cost": 65,
+          "area": "Kumbakonam Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2,
+          "cost": 1500,
+          "note": "Per cab, seats 4",
+          "area": "Kumbakonam Temple Street"
+        }
+      ]
+    },
+    {
+      "route_id": "TEN_COURTALLAM_01",
+      "city_id": 15,
+      "from_city": "Tirunelveli",
+      "from_station": "TEN",
+      "to_city": "Courtallam",
+      "to_station": "KLTM",
+      "distance_km": 38,
+      "distance_category": "short",
+      "area": "Courtallam Main Falls",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "TNSTC Local",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 06:00",
+          "duration_hours": 1.25,
+          "cost": 38,
+          "area": "Courtallam Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 1.25,
+          "cost": 80,
+          "area": "Courtallam Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1,
+          "cost": 700,
+          "note": "Per cab, seats 4",
+          "area": "Courtallam Main Falls"
+        },
+        {
+          "mode": "Auto",
+          "provider": "Tirunelveli Autos",
+          "type": "Shared Auto",
+          "departure_time": "Flexible",
+          "duration_hours": 1.25,
+          "cost": 50,
+          "area": "Courtallam Town"
+        }
+      ]
+    },
+    {
+      "route_id": "CBE_VLP_01",
+      "city_id": 16,
+      "from_city": "Coimbatore",
+      "from_station": "CBE",
+      "to_city": "Valparai",
+      "to_station": "VLP_BUS",
+      "distance_km": 102,
+      "distance_category": "medium",
+      "area": "Valparai Town / Sholayar Dam",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30",
+          "arrival_time": "09:30",
+          "duration_hours": 3,
+          "cost": 90,
+          "area": "Valparai Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "AC Seater",
+          "departure_time": "07:00",
+          "duration_hours": 3,
+          "cost": 180,
+          "area": "Valparai Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.75,
+          "cost": 2200,
+          "note": "Per cab, seats 4. Hairpin bends — Innova preferred",
+          "area": "Valparai Town"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Innova Taxi",
+          "type": "SUV",
+          "departure_time": "Flexible",
+          "duration_hours": 2.75,
+          "cost": 2800,
+          "note": "Per cab, seats 6",
+          "area": "Valparai Tea Estates"
+        }
+      ]
+    },
+    {
+      "route_id": "OTY_CNR_01",
+      "city_id": 17,
+      "from_city": "Ooty",
+      "from_station": "UAM",
+      "to_city": "Coonoor",
+      "to_station": "CNR",
+      "distance_km": 19,
+      "distance_category": "short",
+      "area": "Coonoor RS / Sim's Park",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Nilgiri Mountain Railway (UNESCO)",
+          "type": "First Class",
+          "train_name": "NMR Mountain Train",
+          "train_number": "56136",
+          "departure_time": "09:10",
+          "arrival_time": "10:05",
+          "duration_hours": 0.92,
+          "cost": 205,
+          "area": "Coonoor RS"
+        },
+        {
+          "mode": "Train",
+          "provider": "Nilgiri Mountain Railway (UNESCO)",
+          "type": "Second Class",
+          "train_name": "NMR Mountain Train",
+          "train_number": "56136",
+          "departure_time": "09:10",
+          "arrival_time": "10:05",
+          "duration_hours": 0.92,
+          "cost": 30,
+          "area": "Coonoor RS"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC Local",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 06:00",
+          "duration_hours": 0.75,
+          "cost": 22,
+          "area": "Bedford Circle, Coonoor"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 0.5,
+          "cost": 400,
+          "note": "Per cab, seats 4",
+          "area": "Coonoor Town"
+        }
+      ]
+    },
+    {
+      "route_id": "SBC_HAMPI_01",
+      "city_id": 18,
+      "from_city": "Bangalore",
+      "from_station": "SBC",
+      "to_city": "Hampi",
+      "to_station": "HPT",
+      "distance_km": 350,
+      "distance_category": "long",
+      "area": "Hampi Bazaar / Virupaksha Temple",
+      "interchange_required": true,
+      "interchange_note": "Train arrives at Hosapete (HPT). Take local bus (15 min, ₹20) or auto (₹100) to Hampi Bazaar.",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Hampi Express",
+          "train_number": "16592",
+          "departure_time": "22:00",
+          "arrival_time": "06:40",
+          "duration_hours": 8.7,
+          "cost": 280,
+          "area": "Hosapete Jn → Hampi Bazaar (local bus/auto)"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "3AC (3A)",
+          "train_name": "Hampi Express",
+          "train_number": "16592",
+          "departure_time": "22:00",
+          "arrival_time": "06:40",
+          "duration_hours": 8.7,
+          "cost": 750,
+          "area": "Hosapete Jn → Hampi Bazaar (local bus/auto)"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Vijayanagara Express",
+          "train_number": "17307",
+          "departure_time": "07:00",
+          "arrival_time": "14:30",
+          "duration_hours": 7.5,
+          "cost": 340,
+          "area": "Hosapete Jn → Hampi Bazaar (local bus/auto)"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "21:00",
+          "duration_hours": 8,
+          "cost": 380,
+          "area": "Hampi Bazaar Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SRS Travels",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 8,
+          "cost": 900,
+          "area": "Hampi Bazaar Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:30",
+          "duration_hours": 7.5,
+          "cost": 1400,
+          "area": "Hosapete / Hampi Bazaar"
+        }
+      ]
+    },
+    {
+      "route_id": "SBC_MYS_01",
+      "city_id": 19,
+      "from_city": "Bangalore",
+      "from_station": "SBC",
+      "to_city": "Mysore",
+      "to_station": "MYS",
+      "distance_km": 143,
+      "distance_category": "medium",
+      "area": "Mysore Palace / Devaraja Market",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Mysore Shatabdi",
+          "train_number": "12007",
+          "departure_time": "11:00",
+          "arrival_time": "13:00",
+          "duration_hours": 2,
+          "cost": 450,
+          "area": "Mysore Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Executive Chair Car (EC)",
+          "train_name": "Mysore Shatabdi",
+          "train_number": "12007",
+          "departure_time": "11:00",
+          "arrival_time": "13:00",
+          "duration_hours": 2,
+          "cost": 920,
+          "area": "Mysore Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Chamundi Express",
+          "train_number": "16215",
+          "departure_time": "06:20",
+          "arrival_time": "09:20",
+          "duration_hours": 3,
+          "cost": 120,
+          "area": "Mysore Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Rajahamsa",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:30",
+          "duration_hours": 3,
+          "cost": 190,
+          "area": "Mysore Central Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Airavata",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 3,
+          "cost": 500,
+          "area": "Mysore Central Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Club Class",
+          "type": "Luxury Volvo",
+          "departure_time": "07:00",
+          "duration_hours": 2.75,
+          "cost": 800,
+          "area": "Mysore Central Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "MYS_COORG_01",
+      "city_id": 20,
+      "from_city": "Mysore",
+      "from_station": "MYS",
+      "to_city": "Coorg",
+      "to_station": "MDK_BUS",
+      "distance_km": 120,
+      "distance_category": "medium",
+      "area": "Madikeri Town / Raja's Seat",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "arrival_time": "10:00",
+          "duration_hours": 3,
+          "cost": 130,
+          "area": "Madikeri Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "08:30",
+          "duration_hours": 3,
+          "cost": 260,
+          "area": "Madikeri Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SRS / VRL",
+          "type": "Luxury Volvo",
+          "departure_time": "20:30",
+          "duration_hours": 3,
+          "cost": 700,
+          "area": "Madikeri Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.75,
+          "cost": 2400,
+          "note": "Per cab, seats 4",
+          "area": "Raja's Seat, Madikeri"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_BLR_01",
+      "city_id": 21,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Bangalore",
+      "to_station": "SBC",
+      "distance_km": 346,
+      "distance_category": "long",
+      "area": "Bangalore City / Majestic Bus Stand",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Shatabdi Express",
+          "train_number": "12027",
+          "departure_time": "06:00",
+          "arrival_time": "11:00",
+          "duration_hours": 5,
+          "cost": 1055,
+          "area": "KSR Bangalore City Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Lalbagh Express",
+          "train_number": "12607",
+          "departure_time": "21:30",
+          "arrival_time": "06:00",
+          "duration_hours": 8.5,
+          "cost": 260,
+          "area": "KSR Bangalore City Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "3AC (3A)",
+          "train_name": "Bangalore Mail",
+          "train_number": "12623",
+          "departure_time": "22:00",
+          "arrival_time": "05:30",
+          "duration_hours": 7.5,
+          "cost": 780,
+          "area": "KSR Bangalore City Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Rajahamsa",
+          "type": "Non-AC Seater",
+          "departure_time": "22:00",
+          "duration_hours": 6.5,
+          "cost": 350,
+          "area": "Majestic Bus Stand (KSRTC)"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 6,
+          "cost": 850,
+          "area": "Majestic Bus Stand (KSRTC)"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "22:30",
+          "duration_hours": 5.5,
+          "cost": 1400,
+          "area": "Majestic Bus Stand (KSRTC)"
+        }
+      ]
+    },
+    {
+      "route_id": "HBL_GOKARNA_01",
+      "city_id": 22,
+      "from_city": "Hubli",
+      "from_station": "UBL",
+      "to_city": "Gokarna",
+      "to_station": "GOK",
+      "distance_km": 155,
+      "distance_category": "medium",
+      "area": "Gokarna Town / Om Beach",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Karwar Express",
+          "train_number": "16524",
+          "departure_time": "08:30",
+          "arrival_time": "13:10",
+          "duration_hours": 4.7,
+          "cost": 180,
+          "area": "Gokarna Road Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "3AC (3A)",
+          "train_name": "Karwar Express",
+          "train_number": "16524",
+          "departure_time": "08:30",
+          "arrival_time": "13:10",
+          "duration_hours": 4.7,
+          "cost": 510,
+          "area": "Gokarna Road Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Amaravathi Express",
+          "train_number": "18047",
+          "departure_time": "06:15",
+          "arrival_time": "11:00",
+          "duration_hours": 4.75,
+          "cost": 280,
+          "area": "Gokarna Road Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "duration_hours": 4,
+          "cost": 170,
+          "area": "Gokarna Bus Stand / Om Beach"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SRS Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 4.5,
+          "cost": 550,
+          "area": "Gokarna Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "20:30",
+          "duration_hours": 4,
+          "cost": 950,
+          "area": "Gokarna Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "MAQ_CMG_01",
+      "city_id": 23,
+      "from_city": "Mangalore",
+      "from_station": "MAQ",
+      "to_city": "Chikmagalur",
+      "to_station": "CKM_BUS",
+      "distance_km": 150,
+      "distance_category": "medium",
+      "area": "Chikmagalur Town / Coffee Estate Road",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:30",
+          "arrival_time": "11:00",
+          "duration_hours": 3.5,
+          "cost": 160,
+          "area": "Chikmagalur Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "09:00",
+          "duration_hours": 3.5,
+          "cost": 310,
+          "area": "Chikmagalur Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:00",
+          "duration_hours": 3.5,
+          "cost": 750,
+          "area": "Chikmagalur Bus Stand"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Mangalore–Hassan Express",
+          "train_number": "17306",
+          "departure_time": "07:00",
+          "arrival_time": "10:30",
+          "duration_hours": 3.5,
+          "cost": 155,
+          "note": "Alight at Kadur, cab 40 km to Chikmagalur",
+          "area": "Kadur → Chikmagalur (cab)"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 3.25,
+          "cost": 2800,
+          "note": "Per cab, seats 4",
+          "area": "Coffee Day Square, Chikmagalur"
+        }
+      ]
+    },
+    {
+      "route_id": "MAQ_UDU_01",
+      "city_id": 24,
+      "from_city": "Mangalore",
+      "from_station": "MAQ",
+      "to_city": "Udupi",
+      "to_station": "UD",
+      "distance_km": 58,
+      "distance_category": "short",
+      "area": "Udupi Krishna Temple / Car Street",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Matsyagandha Express",
+          "train_number": "12619",
+          "departure_time": "08:20",
+          "arrival_time": "09:30",
+          "duration_hours": 1.17,
+          "cost": 100,
+          "area": "Udupi Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Parasuram Express",
+          "train_number": "16523",
+          "departure_time": "07:10",
+          "arrival_time": "08:20",
+          "duration_hours": 1.17,
+          "cost": 65,
+          "area": "Udupi Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Local",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 20 min from 05:30",
+          "duration_hours": 1.5,
+          "cost": 52,
+          "area": "Udupi Bus Stand / Car Street"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1,
+          "cost": 900,
+          "note": "Per cab, seats 4",
+          "area": "Udupi Krishna Temple"
+        }
+      ]
+    },
+    {
+      "route_id": "HBL_BADAMI_01",
+      "city_id": 25,
+      "from_city": "Hubli",
+      "from_station": "UBL",
+      "to_city": "Badami",
+      "to_station": "BAD",
+      "distance_km": 105,
+      "distance_category": "medium",
+      "area": "Badami Cave Temples / Agastya Lake",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Hubli–Gadag Passenger",
+          "train_number": "56905",
+          "departure_time": "07:30",
+          "arrival_time": "09:45",
+          "duration_hours": 2.25,
+          "cost": 95,
+          "area": "Badami Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Basava Express",
+          "train_number": "17307",
+          "departure_time": "10:00",
+          "arrival_time": "12:15",
+          "duration_hours": 2.25,
+          "cost": 175,
+          "area": "Badami Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30",
+          "duration_hours": 2.5,
+          "cost": 110,
+          "area": "Badami Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 2.5,
+          "cost": 220,
+          "area": "Badami Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.25,
+          "cost": 2200,
+          "note": "Per cab, seats 4",
+          "area": "Badami Cave Temples"
+        }
+      ]
+    },
+    {
+      "route_id": "SBC_MAQ_01",
+      "city_id": 26,
+      "from_city": "Bangalore",
+      "from_station": "SBC",
+      "to_city": "Mangalore",
+      "to_station": "MAQ",
+      "distance_km": 352,
+      "distance_category": "long",
+      "area": "Mangalore Central / Hampankatta",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Matsyagandha Express",
+          "train_number": "12619",
+          "departure_time": "22:15",
+          "arrival_time": "07:30",
+          "duration_hours": 9.25,
+          "cost": 295,
+          "area": "Mangalore Central Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "3AC (3A)",
+          "train_name": "Matsyagandha Express",
+          "train_number": "12619",
+          "departure_time": "22:15",
+          "arrival_time": "07:30",
+          "duration_hours": 9.25,
+          "cost": 790,
+          "area": "Mangalore Central Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Mangalore Express",
+          "train_number": "12133",
+          "departure_time": "07:30",
+          "arrival_time": "15:30",
+          "duration_hours": 8,
+          "cost": 420,
+          "area": "Mangalore Central Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Rajahansa",
+          "type": "Non-AC Seater",
+          "departure_time": "21:30",
+          "duration_hours": 8,
+          "cost": 420,
+          "area": "Mangalore KSRTC Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL Travels",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 7.5,
+          "cost": 900,
+          "area": "Mangalore KSRTC Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SRS Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:00",
+          "duration_hours": 7,
+          "cost": 1350,
+          "area": "Hampankatta, Mangalore"
+        }
+      ]
+    },
+    {
+      "route_id": "HBL_DANDELI_01",
+      "city_id": 27,
+      "from_city": "Hubli",
+      "from_station": "UBL",
+      "to_city": "Dandeli",
+      "to_station": "DNLI_BUS",
+      "distance_km": 75,
+      "distance_category": "medium",
+      "area": "Dandeli Adventure Camp / Kali River",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Local",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "arrival_time": "09:30",
+          "duration_hours": 2.5,
+          "cost": 80,
+          "area": "Dandeli Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "AC Seater",
+          "departure_time": "09:00",
+          "duration_hours": 2.5,
+          "cost": 160,
+          "area": "Dandeli Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2,
+          "cost": 1600,
+          "note": "Per cab, seats 4",
+          "area": "Dandeli Kali River Camp"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Innova Taxi",
+          "type": "SUV",
+          "departure_time": "Flexible",
+          "duration_hours": 2,
+          "cost": 2200,
+          "note": "Per cab, seats 6–7",
+          "area": "Dandeli Forest Entry Gate"
+        }
+      ]
+    },
+    {
+      "route_id": "HBL_JOGFALLS_01",
+      "city_id": 28,
+      "from_city": "Hubli",
+      "from_station": "UBL",
+      "to_city": "Jog Falls",
+      "to_station": "SJPR_BUS",
+      "distance_km": 165,
+      "distance_category": "medium",
+      "area": "Jog Falls Viewpoint / Karnataka PWD Bungalow",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "arrival_time": "11:30",
+          "duration_hours": 4.5,
+          "cost": 175,
+          "area": "Jog Falls Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "08:30",
+          "duration_hours": 4.5,
+          "cost": 340,
+          "area": "Jog Falls Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "20:30",
+          "duration_hours": 5,
+          "cost": 800,
+          "area": "Jog Falls Bus Stand"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Hubli–Shimoga Passenger",
+          "train_number": "56906",
+          "departure_time": "06:45",
+          "arrival_time": "11:00",
+          "duration_hours": 4.25,
+          "cost": 160,
+          "note": "Alight at Sagar, cab 30 km to Jog Falls",
+          "area": "Sagar Station → Jog Falls (cab)"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 4,
+          "cost": 3200,
+          "note": "Per cab, seats 4",
+          "area": "Jog Falls Viewpoint"
+        }
+      ]
+    },
+    {
+      "route_id": "ERS_MUNNAR_01",
+      "city_id": 29,
+      "from_city": "Kochi",
+      "from_station": "ERS",
+      "to_city": "Munnar",
+      "to_station": "MNR_BUS",
+      "distance_km": 130,
+      "distance_category": "medium",
+      "area": "Munnar Town / Mattupetty Dam",
+      "interchange_required": true,
+      "interchange_note": "Train to Aluva (AWY), then KSRTC/cab 110 km to Munnar. No direct rail.",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Ernakulam–Aluva Local",
+          "train_number": "56303",
+          "departure_time": "07:00",
+          "arrival_time": "07:30",
+          "duration_hours": 0.5,
+          "cost": 25,
+          "note": "Then KSRTC bus (₹140) or cab (₹2200) Aluva→Munnar",
+          "area": "Aluva Station → Munnar"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Kerala",
+          "type": "Non-AC Seater",
+          "departure_time": "07:30",
+          "arrival_time": "12:30",
+          "duration_hours": 5,
+          "cost": 155,
+          "area": "Munnar KSRTC Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 5,
+          "cost": 310,
+          "area": "Munnar KSRTC Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 5.5,
+          "cost": 700,
+          "area": "Munnar Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Kerala Tourism Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 4.5,
+          "cost": 2800,
+          "note": "Per cab, seats 4",
+          "area": "Munnar Town / Tea Museum"
+        }
+      ]
+    },
+    {
+      "route_id": "ERS_ALLP_01",
+      "city_id": 30,
+      "from_city": "Kochi",
+      "from_station": "ERS",
+      "to_city": "Alleppey",
+      "to_station": "ALLP",
+      "distance_km": 55,
+      "distance_category": "short",
+      "area": "Alleppey Boat Jetty / Houseboat Wharf",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Jan Shatabdi",
+          "train_number": "12075",
+          "departure_time": "17:25",
+          "arrival_time": "18:25",
+          "duration_hours": 1,
+          "cost": 280,
+          "area": "Alleppey Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Venad Express",
+          "train_number": "16301",
+          "departure_time": "08:35",
+          "arrival_time": "09:50",
+          "duration_hours": 1.25,
+          "cost": 75,
+          "area": "Alleppey Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Kerala",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 06:00",
+          "duration_hours": 1.5,
+          "cost": 58,
+          "area": "Alleppey Bus Stand / Boat Jetty"
+        },
+        {
+          "mode": "Ferry",
+          "provider": "SWTD Kerala Water Transport",
+          "type": "Public Ferry",
+          "departure_time": "07:30",
+          "arrival_time": "12:30",
+          "duration_hours": 5,
+          "cost": 25,
+          "note": "Scenic backwater ferry — slow but iconic",
+          "area": "Alleppey Boat Jetty"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola / Uber",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1.25,
+          "cost": 1100,
+          "note": "Per cab, seats 4",
+          "area": "Alleppey Houseboat Wharf"
+        }
+      ]
+    },
+    {
+      "route_id": "MDU_THEKKADY_01",
+      "city_id": 31,
+      "from_city": "Madurai",
+      "from_station": "MDU",
+      "to_city": "Thekkady",
+      "to_station": "TKDY_BUS",
+      "distance_km": 145,
+      "distance_category": "medium",
+      "area": "Kumily Bus Stand / Periyar Lake",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "TNSTC / KSRTC Kerala",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30",
+          "arrival_time": "10:30",
+          "duration_hours": 4,
+          "cost": 145,
+          "area": "Kumily Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC",
+          "type": "AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 4,
+          "cost": 290,
+          "area": "Kumily Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 4.5,
+          "cost": 650,
+          "area": "Kumily Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Parveen Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:00",
+          "duration_hours": 4,
+          "cost": 1100,
+          "area": "Kumily / Periyar Lake Gate"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Kerala Tourism Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 3.5,
+          "cost": 2800,
+          "note": "Per cab, seats 4",
+          "area": "Periyar Tiger Reserve Gate"
+        }
+      ]
+    },
+    {
+      "route_id": "CLT_WAYANAD_01",
+      "city_id": 32,
+      "from_city": "Kozhikode",
+      "from_station": "CLT",
+      "to_city": "Wayanad",
+      "to_station": "KLP_BUS",
+      "distance_km": 75,
+      "distance_category": "medium",
+      "area": "Kalpetta Town / Banasura Sagar Dam",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Kerala",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 45 min from 06:00",
+          "duration_hours": 2.5,
+          "cost": 80,
+          "area": "Kalpetta Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "07:30",
+          "duration_hours": 2.5,
+          "cost": 160,
+          "area": "Kalpetta Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada Travels",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 3,
+          "cost": 500,
+          "area": "Kalpetta Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2,
+          "cost": 1600,
+          "note": "Per cab, seats 4. Scenic Ghat road.",
+          "area": "Kalpetta / Vythiri"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL / Paulo Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:00",
+          "duration_hours": 2.5,
+          "cost": 750,
+          "area": "Kalpetta Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "TVC_KOCHI_01",
+      "city_id": 33,
+      "from_city": "Trivandrum",
+      "from_station": "TVC",
+      "to_city": "Kochi",
+      "to_station": "ERS",
+      "distance_km": 220,
+      "distance_category": "long",
+      "area": "Ernakulam Junction / Fort Kochi",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Jan Shatabdi Express",
+          "train_number": "12076",
+          "departure_time": "05:30",
+          "arrival_time": "09:20",
+          "duration_hours": 3.8,
+          "cost": 480,
+          "area": "Ernakulam Junction"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Venad Express",
+          "train_number": "16302",
+          "departure_time": "19:40",
+          "arrival_time": "23:30",
+          "duration_hours": 3.8,
+          "cost": 145,
+          "area": "Ernakulam Junction"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "3AC (3A)",
+          "train_name": "Rajdhani Express",
+          "train_number": "12431",
+          "departure_time": "17:10",
+          "arrival_time": "21:00",
+          "duration_hours": 3.8,
+          "cost": 890,
+          "area": "Ernakulam Junction"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Kerala",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:00",
+          "duration_hours": 4.5,
+          "cost": 185,
+          "area": "Ernakulam KSRTC Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Garuda",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 4,
+          "cost": 580,
+          "area": "Ernakulam KSRTC Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada / Paulo Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:30",
+          "duration_hours": 4,
+          "cost": 950,
+          "area": "Ernakulam Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "TVC_VARKALA_01",
+      "city_id": 34,
+      "from_city": "Trivandrum",
+      "from_station": "TVC",
+      "to_city": "Varkala",
+      "to_station": "VAK",
+      "distance_km": 51,
+      "distance_category": "short",
+      "area": "Varkala Cliff / North Cliff Beach",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Kanyakumari Express",
+          "train_number": "16381",
+          "departure_time": "09:40",
+          "arrival_time": "10:35",
+          "duration_hours": 0.92,
+          "cost": 80,
+          "area": "Varkala Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Parasuram Express",
+          "train_number": "16523",
+          "departure_time": "08:15",
+          "arrival_time": "09:10",
+          "duration_hours": 0.92,
+          "cost": 50,
+          "area": "Varkala Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Kerala",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 06:00",
+          "duration_hours": 1.5,
+          "cost": 48,
+          "area": "Varkala Bus Stand / Cliff"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola / Uber",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1,
+          "cost": 900,
+          "note": "Per cab, seats 4",
+          "area": "Varkala North Cliff"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_TVC_01",
+      "city_id": 35,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Trivandrum",
+      "to_station": "TVC",
+      "distance_km": 726,
+      "distance_category": "long",
+      "area": "Trivandrum Central / East Fort",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Chennai–Trivandrum Mail",
+          "train_number": "12623",
+          "departure_time": "19:00",
+          "arrival_time": "09:30",
+          "duration_hours": 14.5,
+          "cost": 430,
+          "area": "Trivandrum Central"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "3AC (3A)",
+          "train_name": "Chennai–Trivandrum Mail",
+          "train_number": "12623",
+          "departure_time": "19:00",
+          "arrival_time": "09:30",
+          "duration_hours": 14.5,
+          "cost": 1145,
+          "area": "Trivandrum Central"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Nagercoil SF Express",
+          "train_number": "22627",
+          "departure_time": "06:00",
+          "arrival_time": "19:30",
+          "duration_hours": 13.5,
+          "cost": 610,
+          "area": "Trivandrum Central"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC",
+          "type": "Non-AC Seater",
+          "departure_time": "18:00",
+          "duration_hours": 14,
+          "cost": 520,
+          "area": "Trivandrum KSRTC Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada Travels",
+          "type": "AC Sleeper",
+          "departure_time": "19:00",
+          "duration_hours": 13,
+          "cost": 1050,
+          "area": "Trivandrum KSRTC Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Paulo / SRS Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "19:30",
+          "duration_hours": 12.5,
+          "cost": 1600,
+          "area": "Trivandrum East Fort"
+        }
+      ]
+    },
+    {
+      "route_id": "TVC_KOVALAM_01",
+      "city_id": 36,
+      "from_city": "Trivandrum",
+      "from_station": "TVC",
+      "to_city": "Kovalam",
+      "to_station": "KVL_BUS",
+      "distance_km": 16,
+      "distance_category": "short",
+      "area": "Kovalam Lighthouse Beach",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Local",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 20 min from 06:00",
+          "duration_hours": 0.75,
+          "cost": 18,
+          "area": "Kovalam Lighthouse Beach"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 0.75,
+          "cost": 40,
+          "area": "Kovalam Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola / Uber",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 0.5,
+          "cost": 350,
+          "note": "Per cab, seats 4",
+          "area": "Kovalam Lighthouse Beach"
+        },
+        {
+          "mode": "Auto",
+          "provider": "Trivandrum Autos",
+          "type": "Shared Auto",
+          "departure_time": "Flexible",
+          "duration_hours": 0.75,
+          "cost": 40,
+          "area": "Kovalam Town"
+        }
+      ]
+    },
+    {
+      "route_id": "ERS_KUMARAKOM_01",
+      "city_id": 37,
+      "from_city": "Kochi",
+      "from_station": "ERS",
+      "to_city": "Kumarakom",
+      "to_station": "KMRM_BUS",
+      "distance_km": 75,
+      "distance_category": "medium",
+      "area": "Kumarakom Lake Resort / Bird Sanctuary",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Ernakulam–Kottayam Passenger",
+          "train_number": "56302",
+          "departure_time": "08:00",
+          "arrival_time": "09:30",
+          "duration_hours": 1.5,
+          "cost": 55,
+          "note": "Alight at Kottayam, cab 15 km to Kumarakom",
+          "area": "Kottayam → Kumarakom (cab)"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Kerala",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "duration_hours": 2,
+          "cost": 72,
+          "area": "Kumarakom Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "09:00",
+          "duration_hours": 2,
+          "cost": 145,
+          "area": "Kumarakom Bus Stand"
+        },
+        {
+          "mode": "Ferry",
+          "provider": "SWTD Kerala Water Transport",
+          "type": "Public Ferry",
+          "departure_time": "08:30",
+          "duration_hours": 2.5,
+          "cost": 20,
+          "note": "Backwater ferry via Vembanad Lake — scenic route",
+          "area": "Kumarakom Ferry Jetty"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Kerala Tourism Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1.75,
+          "cost": 1600,
+          "note": "Per cab, seats 4",
+          "area": "Kumarakom Lake Resort"
+        }
+      ]
+    },
+    {
+      "route_id": "MAQ_CLT_01",
+      "city_id": 38,
+      "from_city": "Mangalore",
+      "from_station": "MAQ",
+      "to_city": "Kozhikode",
+      "to_station": "CLT",
+      "distance_km": 185,
+      "distance_category": "medium",
+      "area": "Kozhikode Railway Station / Calicut Beach",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Malabar Express",
+          "train_number": "16629",
+          "departure_time": "08:10",
+          "arrival_time": "12:00",
+          "duration_hours": 3.8,
+          "cost": 290,
+          "area": "Kozhikode Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Parasuram Express",
+          "train_number": "16523",
+          "departure_time": "06:00",
+          "arrival_time": "09:50",
+          "duration_hours": 3.8,
+          "cost": 175,
+          "area": "Kozhikode Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "3AC (3A)",
+          "train_name": "Netravati Express",
+          "train_number": "16345",
+          "departure_time": "09:30",
+          "arrival_time": "13:20",
+          "duration_hours": 3.8,
+          "cost": 590,
+          "area": "Kozhikode Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Kerala",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:30",
+          "duration_hours": 4,
+          "cost": 195,
+          "area": "Kozhikode KSRTC Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada Travels",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 4,
+          "cost": 600,
+          "area": "Kozhikode Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL / Paulo Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:00",
+          "duration_hours": 3.5,
+          "cost": 950,
+          "area": "Kozhikode Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_HYD_01",
+      "city_id": 39,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Hyderabad",
+      "to_station": "SC",
+      "distance_km": 625,
+      "distance_category": "long",
+      "area": "Secunderabad / Majestic MGBS Bus Stand",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Charminar Express",
+          "train_number": "12759",
+          "departure_time": "18:40",
+          "arrival_time": "06:00",
+          "duration_hours": 11.3,
+          "cost": 360,
+          "area": "Secunderabad Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Charminar Express",
+          "train_number": "12759",
+          "departure_time": "18:40",
+          "arrival_time": "06:00",
+          "duration_hours": 11.3,
+          "cost": 960,
+          "area": "Secunderabad Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Golconda Express",
+          "train_number": "12163",
+          "departure_time": "06:10",
+          "arrival_time": "16:30",
+          "duration_hours": 10.3,
+          "cost": 520,
+          "area": "Hyderabad Deccan (Nampally)"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "20:00",
+          "duration_hours": 11,
+          "cost": 480,
+          "area": "MGBS Hyderabad"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:00",
+          "duration_hours": 10,
+          "cost": 1100,
+          "area": "MGBS Hyderabad"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL / SRS Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "20:30",
+          "duration_hours": 9.5,
+          "cost": 1600,
+          "area": "MGBS / Jubilee Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "SC_WGL_01",
+      "city_id": 40,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Warangal",
+      "to_station": "WL",
+      "distance_km": 148,
+      "distance_category": "medium",
+      "area": "Warangal Station / Thousand Pillar Temple",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Godavari Express",
+          "train_number": "12727",
+          "departure_time": "06:25",
+          "arrival_time": "08:55",
+          "duration_hours": 2.5,
+          "cost": 225,
+          "area": "Warangal Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Falaknuma Express",
+          "train_number": "12701",
+          "departure_time": "07:30",
+          "arrival_time": "10:00",
+          "duration_hours": 2.5,
+          "cost": 130,
+          "area": "Warangal Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Godavari Express",
+          "train_number": "12727",
+          "departure_time": "06:25",
+          "arrival_time": "08:55",
+          "duration_hours": 2.5,
+          "cost": 545,
+          "area": "Warangal Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:30",
+          "duration_hours": 3,
+          "cost": 145,
+          "area": "Warangal TSRTC Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC Garuda AC",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 3,
+          "cost": 380,
+          "area": "Warangal Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.5,
+          "cost": 2800,
+          "note": "Per cab, seats 4",
+          "area": "Thousand Pillar Temple, Warangal"
+        }
+      ]
+    },
+    {
+      "route_id": "SC_NGSAG_01",
+      "city_id": 41,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Nagarjunasagar",
+      "to_station": "NGSAG_BUS",
+      "distance_km": 165,
+      "distance_category": "medium",
+      "area": "Nagarjunasagar Dam / Ethipothala Falls",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30",
+          "arrival_time": "10:00",
+          "duration_hours": 3.5,
+          "cost": 165,
+          "area": "Nagarjunasagar Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC Garuda AC",
+          "type": "AC Seater",
+          "departure_time": "07:30",
+          "duration_hours": 3.5,
+          "cost": 320,
+          "area": "Nagarjunasagar Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 4,
+          "cost": 650,
+          "area": "Nagarjunasagar Bus Stand"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Macherla Passenger",
+          "train_number": "57477",
+          "departure_time": "07:15",
+          "arrival_time": "11:30",
+          "duration_hours": 4.25,
+          "cost": 145,
+          "note": "Alight at Macherla, cab 30 km to dam",
+          "area": "Macherla → Nagarjunasagar (cab)"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 3.25,
+          "cost": 3200,
+          "note": "Per cab, seats 4",
+          "area": "Nagarjunasagar Dam Gate"
+        }
+      ]
+    },
+    {
+      "route_id": "SC_VSKP_01",
+      "city_id": 42,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Visakhapatnam",
+      "to_station": "VSKP",
+      "distance_km": 625,
+      "distance_category": "long",
+      "area": "Visakhapatnam Station / RK Beach",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Vande Bharat Express",
+          "train_number": "20834",
+          "departure_time": "15:00",
+          "arrival_time": "23:30",
+          "duration_hours": 8.5,
+          "cost": 1720,
+          "area": "Visakhapatnam Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Godavari Express",
+          "train_number": "12727",
+          "departure_time": "06:25",
+          "arrival_time": "18:40",
+          "duration_hours": 12.25,
+          "cost": 380,
+          "area": "Visakhapatnam Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "East Coast Express",
+          "train_number": "18045",
+          "departure_time": "21:00",
+          "arrival_time": "10:30",
+          "duration_hours": 13.5,
+          "cost": 1020,
+          "area": "Visakhapatnam Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC Garuda",
+          "type": "Non-AC Seater",
+          "departure_time": "20:00",
+          "duration_hours": 12,
+          "cost": 580,
+          "area": "Visakhapatnam APSRTC Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Travels",
+          "type": "AC Sleeper",
+          "departure_time": "19:30",
+          "duration_hours": 11.5,
+          "cost": 1200,
+          "area": "Visakhapatnam Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL / SRS Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "20:30",
+          "duration_hours": 11,
+          "cost": 1800,
+          "area": "RK Beach Road, Visakhapatnam"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_TPTY_01",
+      "city_id": 43,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Tirupati",
+      "to_station": "TPTY",
+      "distance_km": 145,
+      "distance_category": "medium",
+      "area": "Tirupati Station / Alipiri Footpath",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Sapthagiri Express",
+          "train_number": "16057",
+          "departure_time": "06:25",
+          "arrival_time": "09:40",
+          "duration_hours": 3.25,
+          "cost": 350,
+          "area": "Tirupati Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Rayalaseema Express",
+          "train_number": "12797",
+          "departure_time": "22:00",
+          "arrival_time": "03:30",
+          "duration_hours": 5.5,
+          "cost": 180,
+          "area": "Tirupati Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "3AC (3A)",
+          "train_name": "Sapthagiri Express",
+          "train_number": "16057",
+          "departure_time": "06:25",
+          "arrival_time": "09:40",
+          "duration_hours": 3.25,
+          "cost": 720,
+          "area": "Tirupati Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "APSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:00",
+          "duration_hours": 3.5,
+          "cost": 160,
+          "area": "Tirupati Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "APSRTC Indra AC",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 3.5,
+          "cost": 480,
+          "area": "Tirupati Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KPN / SRS Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "22:00",
+          "duration_hours": 3,
+          "cost": 850,
+          "area": "Tirupati Alipiri"
+        }
+      ]
+    },
+    {
+      "route_id": "VSKP_ARAKU_01",
+      "city_id": 44,
+      "from_city": "Visakhapatnam",
+      "from_station": "VSKP",
+      "to_city": "Araku Valley",
+      "to_station": "ARKU",
+      "distance_km": 115,
+      "distance_category": "medium",
+      "area": "Araku Valley Station / Borra Caves",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "East Coast Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Kirandul Passenger (Scenic Ghat Train)",
+          "train_number": "58501",
+          "departure_time": "06:40",
+          "arrival_time": "11:30",
+          "duration_hours": 4.8,
+          "cost": 85,
+          "area": "Araku Valley Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "East Coast Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Visakha Express",
+          "train_number": "17015",
+          "departure_time": "07:00",
+          "arrival_time": "11:45",
+          "duration_hours": 4.75,
+          "cost": 145,
+          "area": "Araku Valley Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "APSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:00",
+          "arrival_time": "10:30",
+          "duration_hours": 4.5,
+          "cost": 110,
+          "area": "Araku Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "APSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "07:30",
+          "duration_hours": 4.5,
+          "cost": 220,
+          "area": "Araku Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 3.5,
+          "cost": 2500,
+          "note": "Per cab, seats 4. Scenic ghat road.",
+          "area": "Araku Valley / Borra Caves"
+        }
+      ]
+    },
+    {
+      "route_id": "SC_VJA_01",
+      "city_id": 45,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Vijayawada",
+      "to_station": "BZA",
+      "distance_km": 275,
+      "distance_category": "long",
+      "area": "Vijayawada Junction / Kanaka Durga Temple",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Vande Bharat Express",
+          "train_number": "20701",
+          "departure_time": "06:00",
+          "arrival_time": "09:30",
+          "duration_hours": 3.5,
+          "cost": 1245,
+          "area": "Vijayawada Junction"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Godavari Express",
+          "train_number": "12727",
+          "departure_time": "06:25",
+          "arrival_time": "10:30",
+          "duration_hours": 4,
+          "cost": 235,
+          "area": "Vijayawada Junction"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Konark Express",
+          "train_number": "11019",
+          "departure_time": "20:30",
+          "arrival_time": "01:00",
+          "duration_hours": 4.5,
+          "cost": 720,
+          "area": "Vijayawada Junction"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC / APSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:00",
+          "duration_hours": 5,
+          "cost": 280,
+          "area": "Vijayawada APSRTC Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Travels",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 5,
+          "cost": 750,
+          "area": "Vijayawada Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL / Parveen Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:30",
+          "duration_hours": 4.5,
+          "cost": 1200,
+          "area": "Vijayawada Pandit Nehru Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "TPTY_GDKT_01",
+      "city_id": 46,
+      "from_city": "Tirupati",
+      "from_station": "TPTY",
+      "to_city": "Gandikota",
+      "to_station": "GDKT_BUS",
+      "distance_km": 195,
+      "distance_category": "medium",
+      "area": "Gandikota Fort / Penna River Gorge",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "APSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:00",
+          "arrival_time": "10:30",
+          "duration_hours": 4.5,
+          "cost": 195,
+          "note": "Via Jammalamadugu",
+          "area": "Gandikota Village Bus Stop"
+        },
+        {
+          "mode": "Bus",
+          "provider": "APSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "07:30",
+          "duration_hours": 4.5,
+          "cost": 390,
+          "area": "Gandikota Bus Stop"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Tirupati–Kurnool Express",
+          "train_number": "17417",
+          "departure_time": "08:00",
+          "arrival_time": "13:00",
+          "duration_hours": 5,
+          "cost": 195,
+          "note": "Alight at Jammalamadugu, cab 35 km to Gandikota",
+          "area": "Jammalamadugu → Gandikota (cab)"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Parveen Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:00",
+          "duration_hours": 5,
+          "cost": 650,
+          "area": "Gandikota Fort Entry"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 4,
+          "cost": 3500,
+          "note": "Per cab, seats 4",
+          "area": "Gandikota Fort / Canyon Viewpoint"
+        }
+      ]
+    },
+    {
+      "route_id": "SBC_LPKSH_01",
+      "city_id": 47,
+      "from_city": "Bangalore",
+      "from_station": "SBC",
+      "to_city": "Lepakshi",
+      "to_station": "LPKSH_BUS",
+      "distance_km": 120,
+      "distance_category": "medium",
+      "area": "Lepakshi Temple / Hanging Pillar",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "APSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "arrival_time": "10:00",
+          "duration_hours": 3,
+          "cost": 120,
+          "note": "Via Hindupur",
+          "area": "Lepakshi Bus Stop"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "AC Seater",
+          "departure_time": "08:30",
+          "duration_hours": 3,
+          "cost": 240,
+          "area": "Lepakshi Temple Road"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Bangalore–Dharmavaram Express",
+          "train_number": "17603",
+          "departure_time": "07:15",
+          "arrival_time": "10:00",
+          "duration_hours": 2.75,
+          "cost": 175,
+          "note": "Alight at Hindupur, cab 15 km to Lepakshi",
+          "area": "Hindupur → Lepakshi (cab)"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 3,
+          "cost": 580,
+          "area": "Lepakshi Bus Stop"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.5,
+          "cost": 2400,
+          "note": "Per cab, seats 4",
+          "area": "Lepakshi Veerabhadra Temple"
+        }
+      ]
+    },
+    {
+      "route_id": "CBE_POLLACHI_01",
+      "city_id": 48,
+      "from_city": "Coimbatore",
+      "from_station": "CBE",
+      "to_city": "Pollachi",
+      "to_station": "POY",
+      "distance_km": 40,
+      "distance_category": "short",
+      "area": "Pollachi Town / Anamalai Tiger Reserve",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Pollachi Passenger",
+          "train_number": "56710",
+          "departure_time": "07:30",
+          "arrival_time": "08:45",
+          "duration_hours": 1.25,
+          "cost": 45,
+          "area": "Pollachi Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC Local",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 20 min from 05:30",
+          "duration_hours": 1,
+          "cost": 38,
+          "area": "Pollachi Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC AC",
+          "type": "AC Seater",
+          "departure_time": "07:00",
+          "duration_hours": 1,
+          "cost": 80,
+          "area": "Pollachi Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 0.75,
+          "cost": 700,
+          "note": "Per cab, seats 4",
+          "area": "Pollachi Town / Top Station Road"
+        }
+      ]
+    },
+    {
+      "route_id": "SA_ERODE_01",
+      "city_id": 49,
+      "from_city": "Salem",
+      "from_station": "SA",
+      "to_city": "Erode",
+      "to_station": "ED",
+      "distance_km": 60,
+      "distance_category": "short",
+      "area": "Erode Junction / Bhavani Sangamam",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Coimbatore Express",
+          "train_number": "12676",
+          "departure_time": "07:10",
+          "arrival_time": "08:10",
+          "duration_hours": 1,
+          "cost": 75,
+          "area": "Erode Junction"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Erode Passenger",
+          "train_number": "56706",
+          "departure_time": "06:30",
+          "arrival_time": "07:45",
+          "duration_hours": 1.25,
+          "cost": 45,
+          "area": "Erode Junction"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC Local",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 20 min from 05:30",
+          "duration_hours": 1.25,
+          "cost": 52,
+          "area": "Erode Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1,
+          "cost": 900,
+          "note": "Per cab, seats 4",
+          "area": "Erode Town"
+        }
+      ]
+    },
+    {
+      "route_id": "SA_KOLLI_01",
+      "city_id": 50,
+      "from_city": "Salem",
+      "from_station": "SA",
+      "to_city": "Kolli Hills",
+      "to_station": "KOLLI_BUS",
+      "distance_km": 68,
+      "distance_category": "medium",
+      "area": "Kolli Hills / Arapaleeswarar Temple",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "arrival_time": "09:30",
+          "duration_hours": 2.5,
+          "cost": 68,
+          "note": "70 hairpin bends — scenic ghat road",
+          "area": "Kolli Hills Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC AC",
+          "type": "AC Seater",
+          "departure_time": "08:30",
+          "duration_hours": 2.5,
+          "cost": 135,
+          "area": "Kolli Hills Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2,
+          "cost": 1400,
+          "note": "Per cab, seats 4. SUV recommended for ghat road.",
+          "area": "Kolli Hills / Agaya Gangai Falls"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Innova Taxi",
+          "type": "SUV",
+          "departure_time": "Flexible",
+          "duration_hours": 2,
+          "cost": 1900,
+          "note": "Per cab, seats 6. Best for hairpin bends.",
+          "area": "Kolli Hills Top"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_CHIDAMBARAM_01",
+      "city_id": 51,
+      "from_city": "Chennai",
+      "from_station": "MS",
+      "to_city": "Chidambaram",
+      "to_station": "CDM",
+      "distance_km": 235,
+      "distance_category": "long",
+      "area": "Chidambaram Nataraja Temple / Car Street",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Cholan Express",
+          "train_number": "12163",
+          "departure_time": "06:20",
+          "arrival_time": "11:00",
+          "duration_hours": 4.7,
+          "cost": 280,
+          "area": "Chidambaram Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Thanjavur Express",
+          "train_number": "16853",
+          "departure_time": "22:15",
+          "arrival_time": "04:30",
+          "duration_hours": 6.25,
+          "cost": 175,
+          "area": "Chidambaram Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "3AC (3A)",
+          "train_name": "Cholan Express",
+          "train_number": "12163",
+          "departure_time": "06:20",
+          "arrival_time": "11:00",
+          "duration_hours": 4.7,
+          "cost": 680,
+          "area": "Chidambaram Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC / SETC",
+          "type": "Non-AC Seater",
+          "departure_time": "21:30",
+          "duration_hours": 5.5,
+          "cost": 220,
+          "area": "Chidambaram Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KPN Travels",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 5,
+          "cost": 580,
+          "area": "Chidambaram Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Parveen Travels",
+          "type": "Luxury Volvo",
+          "departure_time": "21:00",
+          "duration_hours": 4.5,
+          "cost": 950,
+          "area": "Chidambaram Nataraja Temple Road"
+        }
+      ]
+    },
+    {
+      "route_id": "TPJ_NGP_01",
+      "city_id": 52,
+      "from_city": "Trichy",
+      "from_station": "TPJ",
+      "to_city": "Nagapattinam",
+      "to_station": "NGT",
+      "distance_km": 130,
+      "distance_category": "medium",
+      "area": "Nagapattinam Lighthouse Beach / Velankanni",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Nagapattinam Express",
+          "train_number": "16187",
+          "departure_time": "08:00",
+          "arrival_time": "11:30",
+          "duration_hours": 3.5,
+          "cost": 165,
+          "area": "Nagapattinam Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Nagapattinam Express",
+          "train_number": "16187",
+          "departure_time": "08:00",
+          "arrival_time": "11:30",
+          "duration_hours": 3.5,
+          "cost": 95,
+          "area": "Nagapattinam Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "3AC (3A)",
+          "train_name": "Cauvery Express",
+          "train_number": "16177",
+          "departure_time": "10:15",
+          "arrival_time": "13:45",
+          "duration_hours": 3.5,
+          "cost": 420,
+          "area": "Nagapattinam Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 45 min from 06:00",
+          "duration_hours": 3,
+          "cost": 115,
+          "area": "Nagapattinam Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC AC",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 3.5,
+          "cost": 380,
+          "area": "Nagapattinam Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.5,
+          "cost": 2400,
+          "note": "Per cab, seats 4",
+          "area": "Velankanni / Nagapattinam Beach"
+        }
+      ]
+    },
+    {
+      "route_id": "MDU_PALANI_01",
+      "city_id": 53,
+      "from_city": "Madurai",
+      "from_station": "MDU",
+      "to_city": "Palani",
+      "to_station": "PAU",
+      "distance_km": 100,
+      "distance_category": "medium",
+      "area": "Palani Murugan Temple / Rope Car",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Palani Express",
+          "train_number": "16734",
+          "departure_time": "07:30",
+          "arrival_time": "10:00",
+          "duration_hours": 2.5,
+          "cost": 155,
+          "area": "Palani Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Palani Express",
+          "train_number": "16734",
+          "departure_time": "07:30",
+          "arrival_time": "10:00",
+          "duration_hours": 2.5,
+          "cost": 90,
+          "area": "Palani Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "3AC (3A)",
+          "train_name": "Nagercoil Express",
+          "train_number": "16731",
+          "departure_time": "09:00",
+          "arrival_time": "11:30",
+          "duration_hours": 2.5,
+          "cost": 380,
+          "area": "Palani Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 06:00",
+          "duration_hours": 2.5,
+          "cost": 95,
+          "area": "Palani Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC AC",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 3,
+          "cost": 320,
+          "area": "Palani Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2,
+          "cost": 2000,
+          "note": "Per cab, seats 4",
+          "area": "Palani Murugan Temple Entrance"
+        }
+      ]
+    },
+    {
+      "route_id": "MDU_DHANUSH_01",
+      "city_id": 54,
+      "from_city": "Madurai",
+      "from_station": "MDU",
+      "to_city": "Dhanushkodi",
+      "to_station": "RMM",
+      "distance_km": 215,
+      "distance_category": "long",
+      "area": "Dhanushkodi Ghost Town / Land's End",
+      "interchange_required": true,
+      "interchange_note": "Train to Rameswaram (RMM), then shared jeep 20 km to Dhanushkodi (₹50–80 per person).",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Rameswaram Express",
+          "train_number": "16101",
+          "departure_time": "20:30",
+          "arrival_time": "03:30",
+          "duration_hours": 7,
+          "cost": 195,
+          "note": "Then shared jeep to Dhanushkodi (₹60)",
+          "area": "Rameswaram → Dhanushkodi (jeep)"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Sethu Express",
+          "train_number": "12661",
+          "departure_time": "14:00",
+          "arrival_time": "19:00",
+          "duration_hours": 5,
+          "cost": 340,
+          "note": "Then shared jeep to Dhanushkodi (₹60)",
+          "area": "Rameswaram → Dhanushkodi (jeep)"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:00",
+          "duration_hours": 5.5,
+          "cost": 195,
+          "note": "Bus goes to Rameswaram. Jeep to Dhanushkodi ₹60.",
+          "area": "Rameswaram Bus Stand → Dhanushkodi Jeep Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC AC",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 5.5,
+          "cost": 550,
+          "area": "Rameswaram Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 4.5,
+          "cost": 4200,
+          "note": "Direct to Dhanushkodi Land's End. 4WD preferred on beach stretch.",
+          "area": "Dhanushkodi Land's End"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_TRANQUEBAR_01",
+      "city_id": 55,
+      "from_city": "Chennai",
+      "from_station": "MS",
+      "to_city": "Tranquebar",
+      "to_station": "TNQ_BUS",
+      "distance_km": 285,
+      "distance_category": "long",
+      "area": "Tranquebar Danish Fort / Masilamani Nathar Temple",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Cholan Express",
+          "train_number": "12163",
+          "departure_time": "06:20",
+          "arrival_time": "12:30",
+          "duration_hours": 6.2,
+          "cost": 310,
+          "note": "Alight at Sirkazhi, cab 25 km to Tranquebar",
+          "area": "Sirkazhi → Tranquebar (cab)"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Thanjavur Express",
+          "train_number": "16853",
+          "departure_time": "22:15",
+          "arrival_time": "05:30",
+          "duration_hours": 7.25,
+          "cost": 195,
+          "note": "Alight at Sirkazhi, cab 25 km to Tranquebar",
+          "area": "Sirkazhi → Tranquebar (cab)"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30",
+          "duration_hours": 6,
+          "cost": 245,
+          "note": "Via Chidambaram and Karaikal",
+          "area": "Tranquebar Bus Stop"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC AC",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 6,
+          "cost": 620,
+          "area": "Tranquebar Bus Stop"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 5,
+          "cost": 4800,
+          "note": "Per cab, seats 4. Day trip possible from Chennai.",
+          "area": "Tranquebar Danish Fort"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_PICHAVARAM_01",
+      "city_id": 56,
+      "from_city": "Chennai",
+      "from_station": "MS",
+      "to_city": "Pichavaram",
+      "to_station": "PCH_BUS",
+      "distance_km": 245,
+      "distance_category": "long",
+      "area": "Pichavaram Mangrove Forest / Boat House",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Cholan Express",
+          "train_number": "12163",
+          "departure_time": "06:20",
+          "arrival_time": "11:45",
+          "duration_hours": 5.4,
+          "cost": 295,
+          "note": "Alight at Chidambaram, cab 15 km to Pichavaram",
+          "area": "Chidambaram → Pichavaram (cab/auto)"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Thanjavur Express",
+          "train_number": "16853",
+          "departure_time": "22:15",
+          "arrival_time": "04:50",
+          "duration_hours": 6.6,
+          "cost": 185,
+          "note": "Alight at Chidambaram, cab/auto to Pichavaram",
+          "area": "Chidambaram → Pichavaram (cab)"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:00",
+          "duration_hours": 5.5,
+          "cost": 210,
+          "note": "Via Villupuram and Chidambaram",
+          "area": "Pichavaram Boat House Junction"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KPN Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 5.5,
+          "cost": 580,
+          "area": "Chidambaram → Pichavaram (local auto)"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 4.5,
+          "cost": 4200,
+          "note": "Per cab, seats 4. Best for day trip.",
+          "area": "Pichavaram Mangrove Boat House"
+        }
+      ]
+    },
+    {
+      "route_id": "ERS_VAGAMON_01",
+      "city_id": 57,
+      "from_city": "Kochi",
+      "from_station": "ERS",
+      "to_city": "Vagamon",
+      "to_station": "VGM_BUS",
+      "distance_km": 110,
+      "distance_category": "medium",
+      "area": "Vagamon Meadows / Pine Forest",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Kerala",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "arrival_time": "10:30",
+          "duration_hours": 3.5,
+          "cost": 110,
+          "note": "Via Kottayam",
+          "area": "Vagamon Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "08:30",
+          "duration_hours": 3.5,
+          "cost": 220,
+          "area": "Vagamon Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 4,
+          "cost": 620,
+          "area": "Vagamon Bus Stand"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Ernakulam–Kottayam Passenger",
+          "train_number": "56302",
+          "departure_time": "08:00",
+          "arrival_time": "09:30",
+          "duration_hours": 1.5,
+          "cost": 55,
+          "note": "Alight Kottayam, KSRTC bus/cab 55 km to Vagamon",
+          "area": "Kottayam → Vagamon (bus/cab)"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Kerala Tourism Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 3,
+          "cost": 2400,
+          "note": "Per cab, seats 4",
+          "area": "Vagamon Pine Forest / Meadows"
+        }
+      ]
+    },
+    {
+      "route_id": "MAQ_BEKAL_01",
+      "city_id": 58,
+      "from_city": "Mangalore",
+      "from_station": "MAQ",
+      "to_city": "Bekal",
+      "to_station": "BKUL",
+      "distance_km": 70,
+      "distance_category": "medium",
+      "area": "Bekal Fort / Kappil Beach",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Malabar Express",
+          "train_number": "16629",
+          "departure_time": "08:10",
+          "arrival_time": "10:00",
+          "duration_hours": 1.8,
+          "cost": 120,
+          "area": "Bekal Fort Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Parasuram Express",
+          "train_number": "16523",
+          "departure_time": "06:00",
+          "arrival_time": "07:45",
+          "duration_hours": 1.75,
+          "cost": 75,
+          "area": "Bekal Fort Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "3AC (3A)",
+          "train_name": "Netravati Express",
+          "train_number": "16345",
+          "departure_time": "09:30",
+          "arrival_time": "11:15",
+          "duration_hours": 1.75,
+          "cost": 380,
+          "area": "Bekal Fort Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Kerala",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 06:00",
+          "duration_hours": 2,
+          "cost": 72,
+          "area": "Kasaragod / Bekal Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1.5,
+          "cost": 1400,
+          "note": "Per cab, seats 4",
+          "area": "Bekal Fort Entrance"
+        }
+      ]
+    },
+    {
+      "route_id": "ERS_ATHIRAPPILLY_01",
+      "city_id": 59,
+      "from_city": "Kochi",
+      "from_station": "ERS",
+      "to_city": "Athirappilly",
+      "to_station": "ATHR_BUS",
+      "distance_km": 75,
+      "distance_category": "medium",
+      "area": "Athirappilly Falls / Vazhachal Forest",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Kerala",
+          "type": "Non-AC Seater",
+          "departure_time": "07:30",
+          "arrival_time": "10:00",
+          "duration_hours": 2.5,
+          "cost": 75,
+          "note": "Via Chalakudy",
+          "area": "Athirappilly Bus Stop"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "08:30",
+          "duration_hours": 2.5,
+          "cost": 150,
+          "area": "Athirappilly Bus Stop"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Ernakulam–Shoranur Passenger",
+          "train_number": "56304",
+          "departure_time": "07:15",
+          "arrival_time": "08:15",
+          "duration_hours": 1,
+          "cost": 35,
+          "note": "Alight at Chalakudy, KSRTC bus/cab 25 km to Falls",
+          "area": "Chalakudy → Athirappilly (bus/cab)"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 3,
+          "cost": 500,
+          "area": "Chalakudy → Athirappilly"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Kerala Tourism Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2,
+          "cost": 1800,
+          "note": "Per cab, seats 4. Best for day trip from Kochi.",
+          "area": "Athirappilly Falls Entry Gate"
+        }
+      ]
+    },
+    {
+      "route_id": "ERS_GURUVAYUR_01",
+      "city_id": 60,
+      "from_city": "Kochi",
+      "from_station": "ERS",
+      "to_city": "Guruvayur",
+      "to_station": "GUV",
+      "distance_km": 90,
+      "distance_category": "medium",
+      "area": "Guruvayur Krishna Temple / Elephant Sanctuary",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Guruvayur Express",
+          "train_number": "16307",
+          "departure_time": "08:30",
+          "arrival_time": "11:00",
+          "duration_hours": 2.5,
+          "cost": 145,
+          "area": "Guruvayur Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Guruvayur Express",
+          "train_number": "16307",
+          "departure_time": "08:30",
+          "arrival_time": "11:00",
+          "duration_hours": 2.5,
+          "cost": 85,
+          "area": "Guruvayur Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "3AC (3A)",
+          "train_name": "Sabari Express",
+          "train_number": "16343",
+          "departure_time": "10:00",
+          "arrival_time": "12:30",
+          "duration_hours": 2.5,
+          "cost": 395,
+          "area": "Guruvayur Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Kerala",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:30",
+          "duration_hours": 2.5,
+          "cost": 88,
+          "area": "Guruvayur Bus Stand / Temple East Nada"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Garuda AC",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 3,
+          "cost": 380,
+          "area": "Guruvayur Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Kerala Tourism Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2,
+          "cost": 1900,
+          "note": "Per cab, seats 4",
+          "area": "Guruvayur Temple East Nada"
+        }
+      ]
+    },
+    {
+      "route_id": "MYS_MANDYA_01",
+      "city_id": 61,
+      "from_city": "Mysore",
+      "from_station": "MYS",
+      "to_city": "Mandya",
+      "to_station": "MYA",
+      "distance_km": 45,
+      "distance_category": "short",
+      "area": "Mandya Town / KRS Dam",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 20 min from 05:30",
+          "duration_hours": 1.2,
+          "cost": 55,
+          "area": "Mandya Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Rajahamsa AC",
+          "type": "AC Seater",
+          "departure_time": "07:00",
+          "duration_hours": 1.0,
+          "cost": 120,
+          "area": "Mandya Bus Stand"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Tippu Express",
+          "train_number": "16021",
+          "departure_time": "08:00",
+          "arrival_time": "09:05",
+          "duration_hours": 1.1,
+          "cost": 50,
+          "area": "Mandya Railway Station"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 0.9,
+          "cost": 900,
+          "note": "Per cab, seats 4",
+          "area": "Mandya / KRS Dam Gate"
+        }
+      ]
+    },
+    {
+      "route_id": "MNG_UDUPI_COASTAL_01",
+      "city_id": 62,
+      "from_city": "Mangalore",
+      "from_station": "MAQ",
+      "to_city": "Udupi (Coastal)",
+      "to_station": "UD",
+      "distance_km": 55,
+      "distance_category": "short",
+      "area": "Kaup / Byndoor Beach Area",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 06:00",
+          "duration_hours": 1.5,
+          "cost": 65,
+          "area": "Kaup / Byndoor Bus Stop"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Private AC",
+          "type": "AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 1.3,
+          "cost": 140,
+          "area": "Byndoor Beach Road"
+        },
+        {
+          "mode": "Train",
+          "provider": "Konkan Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Matsyagandha Express",
+          "train_number": "12619",
+          "departure_time": "07:45",
+          "arrival_time": "09:10",
+          "duration_hours": 1.4,
+          "cost": 70,
+          "area": "Udupi Railway Station"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1.0,
+          "cost": 1100,
+          "note": "Per cab, seats 4",
+          "area": "Kaup Beach / Byndoor"
+        }
+      ]
+    },
+    {
+      "route_id": "BLR_CHITRADURGA_01",
+      "city_id": 63,
+      "from_city": "Bangalore",
+      "from_station": "SBC",
+      "to_city": "Chitradurga",
+      "to_station": "CTA",
+      "distance_km": 202,
+      "distance_category": "long",
+      "area": "Chitradurga Fort Area",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Hampi Express",
+          "train_number": "16591",
+          "departure_time": "22:00",
+          "arrival_time": "02:30",
+          "duration_hours": 4.5,
+          "cost": 210,
+          "area": "Chitradurga Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "3AC (3A)",
+          "train_name": "Hampi Express",
+          "train_number": "16591",
+          "departure_time": "22:00",
+          "arrival_time": "02:30",
+          "duration_hours": 4.5,
+          "cost": 580,
+          "area": "Chitradurga Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30",
+          "duration_hours": 4.0,
+          "cost": 220,
+          "area": "Chitradurga Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Airavat Club Class",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 4.0,
+          "cost": 500,
+          "area": "Chitradurga Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 3.5,
+          "cost": 3200,
+          "note": "Per cab, seats 4",
+          "area": "Chitradurga Fort Road"
+        }
+      ]
+    },
+    {
+      "route_id": "HAS_HALEBIDU_01",
+      "city_id": 64,
+      "from_city": "Hassan",
+      "from_station": "HAS",
+      "to_city": "Halebidu",
+      "to_station": "HBD_BUS",
+      "distance_km": 32,
+      "distance_category": "short",
+      "area": "Hoysaleshwara Temple, Halebidu",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Local",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 1h from 06:30",
+          "duration_hours": 0.8,
+          "cost": 35,
+          "area": "Halebidu Bus Stop"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Private Minibus",
+          "type": "Non-AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 0.7,
+          "cost": 50,
+          "area": "Halebidu Temple Gate"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Hassan Taxi Union",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 0.6,
+          "cost": 700,
+          "note": "Per cab, seats 4. Day trip combo with Belur.",
+          "area": "Halebidu Temple"
+        }
+      ]
+    },
+    {
+      "route_id": "PNQ_BELGAUM_01",
+      "city_id": 65,
+      "from_city": "Pune",
+      "from_station": "PUNE",
+      "to_city": "Belgaum",
+      "to_station": "BGM",
+      "distance_km": 330,
+      "distance_category": "long",
+      "area": "Belgaum / Belagavi City",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Goa Express",
+          "train_number": "12779",
+          "departure_time": "06:30",
+          "arrival_time": "14:00",
+          "duration_hours": 7.5,
+          "cost": 320,
+          "area": "Belgaum Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Goa Express",
+          "train_number": "12779",
+          "departure_time": "06:30",
+          "arrival_time": "14:00",
+          "duration_hours": 7.5,
+          "cost": 890,
+          "area": "Belgaum Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "duration_hours": 7.0,
+          "cost": 380,
+          "area": "Belgaum Central Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:00",
+          "duration_hours": 7.0,
+          "cost": 750,
+          "area": "Belgaum Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Tours (Scania)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "22:00",
+          "duration_hours": 6.5,
+          "cost": 1100,
+          "area": "Belgaum Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "HBL_DAVANGERE_01",
+      "city_id": 66,
+      "from_city": "Hubli",
+      "from_station": "UBL",
+      "to_city": "Davangere",
+      "to_station": "DVG",
+      "distance_km": 74,
+      "distance_category": "medium",
+      "area": "Davangere City",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Hubli-Bangalore Express",
+          "train_number": "16589",
+          "departure_time": "07:15",
+          "arrival_time": "09:00",
+          "duration_hours": 1.8,
+          "cost": 80,
+          "area": "Davangere Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Hubli-Bangalore Express",
+          "train_number": "16589",
+          "departure_time": "07:15",
+          "arrival_time": "09:00",
+          "duration_hours": 1.8,
+          "cost": 135,
+          "area": "Davangere Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:30",
+          "duration_hours": 2.0,
+          "cost": 90,
+          "area": "Davangere Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "08:30",
+          "duration_hours": 1.8,
+          "cost": 190,
+          "area": "Davangere Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1.5,
+          "cost": 1400,
+          "note": "Per cab, seats 4",
+          "area": "Davangere City Centre"
+        }
+      ]
+    },
+    {
+      "route_id": "HYD_BELLARY_01",
+      "city_id": 67,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Bellary",
+      "to_station": "BAY",
+      "distance_km": 302,
+      "distance_category": "long",
+      "area": "Bellary / Vijayanagara District",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Hampi Express",
+          "train_number": "17226",
+          "departure_time": "20:30",
+          "arrival_time": "05:30",
+          "duration_hours": 9.0,
+          "cost": 310,
+          "area": "Bellary Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Hampi Express",
+          "train_number": "17226",
+          "departure_time": "20:30",
+          "arrival_time": "05:30",
+          "duration_hours": 9.0,
+          "cost": 850,
+          "area": "Bellary Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "duration_hours": 6.5,
+          "cost": 340,
+          "area": "Bellary Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Tours (Volvo)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "21:30",
+          "duration_hours": 6.5,
+          "cost": 850,
+          "area": "Bellary Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "SUV",
+          "departure_time": "Flexible",
+          "duration_hours": 5.5,
+          "cost": 5200,
+          "note": "Per cab, seats 6",
+          "area": "Bellary City"
+        }
+      ]
+    },
+    {
+      "route_id": "HBL_BAGALKOT_01",
+      "city_id": 68,
+      "from_city": "Hubli",
+      "from_station": "UBL",
+      "to_city": "Bagalkot",
+      "to_station": "BGK",
+      "distance_km": 100,
+      "distance_category": "medium",
+      "area": "Bagalkot / Pattadakal Road",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Bijapur Express",
+          "train_number": "16535",
+          "departure_time": "08:15",
+          "arrival_time": "10:30",
+          "duration_hours": 2.3,
+          "cost": 110,
+          "area": "Bagalkot Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Bijapur Express",
+          "train_number": "16535",
+          "departure_time": "08:15",
+          "arrival_time": "10:30",
+          "duration_hours": 2.3,
+          "cost": 160,
+          "area": "Bagalkot Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "duration_hours": 2.5,
+          "cost": 120,
+          "area": "Bagalkot Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "09:00",
+          "duration_hours": 2.2,
+          "cost": 240,
+          "area": "Bagalkot Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.0,
+          "cost": 2000,
+          "note": "Per cab, seats 4",
+          "area": "Bagalkot / Pattadakal"
+        }
+      ]
+    },
+    {
+      "route_id": "KOP_SANGLI_01",
+      "city_id": 69,
+      "from_city": "Kolhapur",
+      "from_station": "KOP",
+      "to_city": "Sangli",
+      "to_station": "SLI",
+      "distance_km": 55,
+      "distance_category": "short",
+      "area": "Sangli City",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "MSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 06:00",
+          "duration_hours": 1.3,
+          "cost": 65,
+          "area": "Sangli Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "MSRTC Shivneri AC",
+          "type": "AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 1.1,
+          "cost": 130,
+          "area": "Sangli Bus Stand"
+        },
+        {
+          "mode": "Train",
+          "provider": "Central Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Mahalaxmi Express",
+          "train_number": "11004",
+          "departure_time": "07:30",
+          "arrival_time": "08:45",
+          "duration_hours": 1.25,
+          "cost": 65,
+          "area": "Sangli Railway Station"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1.0,
+          "cost": 1100,
+          "note": "Per cab, seats 4",
+          "area": "Sangli City Centre"
+        }
+      ]
+    },
+    {
+      "route_id": "SBC_BIJAPUR_01",
+      "city_id": 70,
+      "from_city": "Bangalore",
+      "from_station": "SBC",
+      "to_city": "Bijapur",
+      "to_station": "BJP",
+      "distance_km": 530,
+      "distance_category": "long",
+      "area": "Bijapur / Vijayapura Heritage Zone",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Bijapur Express",
+          "train_number": "16535",
+          "departure_time": "21:30",
+          "arrival_time": "07:00",
+          "duration_hours": 9.5,
+          "cost": 300,
+          "area": "Bijapur Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "3AC (3A)",
+          "train_name": "Bijapur Express",
+          "train_number": "16535",
+          "departure_time": "21:30",
+          "arrival_time": "07:00",
+          "duration_hours": 9.5,
+          "cost": 870,
+          "area": "Bijapur Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "2AC (2A)",
+          "train_name": "Bijapur Express",
+          "train_number": "16535",
+          "departure_time": "21:30",
+          "arrival_time": "07:00",
+          "duration_hours": 9.5,
+          "cost": 1250,
+          "area": "Bijapur Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:30",
+          "duration_hours": 9.0,
+          "cost": 580,
+          "area": "Bijapur Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:00",
+          "duration_hours": 9.0,
+          "cost": 1100,
+          "area": "Bijapur Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Tours (Scania)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "22:00",
+          "duration_hours": 8.5,
+          "cost": 1600,
+          "area": "Bijapur Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "HYD_WARANGAL_01",
+      "city_id": 71,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Warangal",
+      "to_station": "WL",
+      "distance_km": 148,
+      "distance_category": "medium",
+      "area": "Warangal / Hanamkonda",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Godavari Express",
+          "train_number": "12727",
+          "departure_time": "06:25",
+          "arrival_time": "08:45",
+          "duration_hours": 2.3,
+          "cost": 145,
+          "area": "Warangal Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Godavari Express",
+          "train_number": "12727",
+          "departure_time": "06:25",
+          "arrival_time": "08:45",
+          "duration_hours": 2.3,
+          "cost": 185,
+          "area": "Warangal Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Godavari Express",
+          "train_number": "12727",
+          "departure_time": "06:25",
+          "arrival_time": "08:45",
+          "duration_hours": 2.3,
+          "cost": 520,
+          "area": "Warangal Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:30",
+          "duration_hours": 3.0,
+          "cost": 160,
+          "area": "Warangal Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC Garuda AC",
+          "type": "AC Seater",
+          "departure_time": "07:00",
+          "duration_hours": 2.5,
+          "cost": 320,
+          "area": "Warangal Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Tours (Volvo)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "22:00",
+          "duration_hours": 2.5,
+          "cost": 550,
+          "area": "Warangal Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.5,
+          "cost": 2800,
+          "note": "Per cab, seats 4",
+          "area": "Warangal / Hanamkonda"
+        }
+      ]
+    },
+    {
+      "route_id": "BLR_LEPAKSHI_01",
+      "city_id": 72,
+      "from_city": "Bangalore",
+      "from_station": "SBC",
+      "to_city": "Lepakshi",
+      "to_station": "HDP_BUS",
+      "distance_km": 120,
+      "distance_category": "medium",
+      "area": "Lepakshi Temple / Veerabhadra Swamy",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30",
+          "arrival_time": "09:00",
+          "duration_hours": 2.5,
+          "cost": 130,
+          "note": "Alight at Hindupur, local auto/cab 15 km to Lepakshi",
+          "area": "Hindupur Bus Stand → Lepakshi"
+        },
+        {
+          "mode": "Bus",
+          "provider": "APSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "duration_hours": 2.8,
+          "cost": 140,
+          "note": "Direct Bangalore–Hindupur service",
+          "area": "Hindupur → Lepakshi auto"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Bangalore–Dharmavaram Express",
+          "train_number": "17603",
+          "departure_time": "06:10",
+          "arrival_time": "09:00",
+          "duration_hours": 2.8,
+          "cost": 130,
+          "note": "Alight at Hindupur, cab 15 km",
+          "area": "Hindupur Station → Lepakshi"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:00",
+          "duration_hours": 2.5,
+          "cost": 450,
+          "area": "Hindupur → Lepakshi"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.2,
+          "cost": 2400,
+          "note": "Per cab, seats 4. Direct to temple.",
+          "area": "Lepakshi Temple Gate"
+        }
+      ]
+    },
+    {
+      "route_id": "MNG_SRINGERI_01",
+      "city_id": 73,
+      "from_city": "Mangalore",
+      "from_station": "MAQ",
+      "to_city": "Sringeri",
+      "to_station": "SRG_BUS",
+      "distance_km": 100,
+      "distance_category": "medium",
+      "area": "Sringeri Sharada Peetham",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "arrival_time": "09:45",
+          "duration_hours": 2.75,
+          "cost": 115,
+          "area": "Sringeri Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Private AC",
+          "type": "AC Seater",
+          "departure_time": "08:30",
+          "duration_hours": 2.5,
+          "cost": 230,
+          "area": "Sringeri Town"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 2.75,
+          "cost": 420,
+          "area": "Sringeri Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Mangalore Taxi Union",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.3,
+          "cost": 2000,
+          "note": "Per cab, seats 4. Scenic Ghats route.",
+          "area": "Sringeri Temple"
+        }
+      ]
+    },
+    {
+      "route_id": "MYS_SHIVANASAMUDRA_01",
+      "city_id": 74,
+      "from_city": "Mysore",
+      "from_station": "MYS",
+      "to_city": "Shivanasamudra",
+      "to_station": "SSM_BUS",
+      "distance_km": 85,
+      "distance_category": "medium",
+      "area": "Gaganachukki / Barachukki Falls",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "arrival_time": "09:15",
+          "duration_hours": 2.25,
+          "cost": 95,
+          "note": "Alight at Malavalli, auto/cab 18 km to Falls",
+          "area": "Malavalli → Shivanasamudra"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "08:30",
+          "duration_hours": 2.0,
+          "cost": 190,
+          "area": "Malavalli Bus Stand"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Mysore–Bangalore Passenger",
+          "train_number": "56214",
+          "departure_time": "07:10",
+          "arrival_time": "08:45",
+          "duration_hours": 1.6,
+          "cost": 55,
+          "note": "Alight at Malavalli, cab 18 km to Falls",
+          "area": "Malavalli Station → Shivanasamudra"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.0,
+          "cost": 1800,
+          "note": "Per cab, seats 4. Best for day trip.",
+          "area": "Gaganachukki Falls Gate"
+        }
+      ]
+    },
+    {
+      "route_id": "HYD_KURNOOL_01",
+      "city_id": 75,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Kurnool",
+      "to_station": "KRNT",
+      "distance_km": 215,
+      "distance_category": "long",
+      "area": "Kurnool City / Belum Caves Area",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Kurnool City Express",
+          "train_number": "17429",
+          "departure_time": "07:15",
+          "arrival_time": "11:30",
+          "duration_hours": 4.25,
+          "cost": 225,
+          "area": "Kurnool City Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Kurnool City Express",
+          "train_number": "17429",
+          "departure_time": "07:15",
+          "arrival_time": "11:30",
+          "duration_hours": 4.25,
+          "cost": 630,
+          "area": "Kurnool City Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "2AC (2A)",
+          "train_name": "Kurnool City Express",
+          "train_number": "17429",
+          "departure_time": "07:15",
+          "arrival_time": "11:30",
+          "duration_hours": 4.25,
+          "cost": 950,
+          "area": "Kurnool City Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:00",
+          "duration_hours": 4.5,
+          "cost": 240,
+          "area": "Kurnool Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC Garuda AC",
+          "type": "AC Seater",
+          "departure_time": "07:30",
+          "duration_hours": 4.0,
+          "cost": 480,
+          "area": "Kurnool Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Tours (Volvo)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "22:30",
+          "duration_hours": 4.0,
+          "cost": 750,
+          "area": "Kurnool Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 3.5,
+          "cost": 3800,
+          "note": "Per cab, seats 4",
+          "area": "Kurnool City"
+        }
+      ]
+    },
+    {
+      "route_id": "BLR_HORSLEYHILLS_01",
+      "city_id": 76,
+      "from_city": "Bangalore",
+      "from_station": "SBC",
+      "to_city": "Horsley Hills",
+      "to_station": "MDN_BUS",
+      "distance_km": 160,
+      "distance_category": "long",
+      "area": "Horsley Hills / Madanapalle",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30",
+          "arrival_time": "10:00",
+          "duration_hours": 3.5,
+          "cost": 175,
+          "note": "Alight at Madanapalle, cab 20 km to Horsley Hills",
+          "area": "Madanapalle Bus Stand → Horsley Hills"
+        },
+        {
+          "mode": "Bus",
+          "provider": "APSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "duration_hours": 3.5,
+          "cost": 180,
+          "area": "Madanapalle → Horsley Hills"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Airavat",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 3.5,
+          "cost": 550,
+          "area": "Madanapalle Bus Stand"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Bangalore–Tirupati Express",
+          "train_number": "16526",
+          "departure_time": "06:05",
+          "arrival_time": "09:30",
+          "duration_hours": 3.4,
+          "cost": 170,
+          "note": "Alight at Madanapalle Road, cab 30 km",
+          "area": "Madanapalle Road Station → Horsley Hills"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 3.0,
+          "cost": 3000,
+          "note": "Per cab, seats 4. Direct to hilltop.",
+          "area": "Horsley Hills Viewpoint"
+        }
+      ]
+    },
+    {
+      "route_id": "HYD_ANANTAPUR_01",
+      "city_id": 77,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Anantapur",
+      "to_station": "ATP",
+      "distance_km": 305,
+      "distance_category": "long",
+      "area": "Anantapur City",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Rayalaseema Express",
+          "train_number": "12733",
+          "departure_time": "18:55",
+          "arrival_time": "00:30",
+          "duration_hours": 5.6,
+          "cost": 315,
+          "area": "Anantapur Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Rayalaseema Express",
+          "train_number": "12733",
+          "departure_time": "18:55",
+          "arrival_time": "00:30",
+          "duration_hours": 5.6,
+          "cost": 880,
+          "area": "Anantapur Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "2AC (2A)",
+          "train_name": "Rayalaseema Express",
+          "train_number": "12733",
+          "departure_time": "18:55",
+          "arrival_time": "00:30",
+          "duration_hours": 5.6,
+          "cost": 1280,
+          "area": "Anantapur Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:00",
+          "duration_hours": 6.0,
+          "cost": 340,
+          "area": "Anantapur Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "APSRTC Garuda AC",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 5.5,
+          "cost": 750,
+          "area": "Anantapur Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada Travels (Volvo)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "22:30",
+          "duration_hours": 5.0,
+          "cost": 1100,
+          "area": "Anantapur Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 5.0,
+          "cost": 5400,
+          "note": "Per cab, seats 4",
+          "area": "Anantapur City Centre"
+        }
+      ]
+    },
+    {
+      "route_id": "HYD_SRISAILAM_01",
+      "city_id": 78,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Srisailam",
+      "to_station": "SSL_BUS",
+      "distance_km": 232,
+      "distance_category": "long",
+      "area": "Srisailam Temple / Dam",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:00",
+          "arrival_time": "11:00",
+          "duration_hours": 5.0,
+          "cost": 260,
+          "area": "Srisailam Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC Garuda AC",
+          "type": "AC Seater",
+          "departure_time": "07:30",
+          "duration_hours": 4.5,
+          "cost": 520,
+          "area": "Srisailam Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Tours (Volvo)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "22:00",
+          "duration_hours": 4.5,
+          "cost": 850,
+          "area": "Srisailam Bus Stand"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Nandyal Passenger",
+          "train_number": "57477",
+          "departure_time": "07:00",
+          "arrival_time": "13:30",
+          "duration_hours": 6.5,
+          "cost": 245,
+          "note": "Alight at Nandyal, APSRTC bus 80 km to Srisailam",
+          "area": "Nandyal Station → Srisailam"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Nandyal Express",
+          "train_number": "17429",
+          "departure_time": "09:00",
+          "arrival_time": "15:30",
+          "duration_hours": 6.5,
+          "cost": 690,
+          "note": "Alight at Nandyal, cab to Srisailam",
+          "area": "Nandyal → Srisailam"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "SUV",
+          "departure_time": "Flexible",
+          "duration_hours": 4.5,
+          "cost": 4200,
+          "note": "Per cab, seats 6. Direct to temple.",
+          "area": "Srisailam Temple Gate"
+        }
+      ],
+      "interchange_required": false
+    },
+    {
+      "route_id": "MAS_NELLORE_01",
+      "city_id": 79,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Nellore",
+      "to_station": "NLR",
+      "distance_km": 175,
+      "distance_category": "long",
+      "area": "Nellore City / Pulicat Lake",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Chennai–Hyderabad Express",
+          "train_number": "12603",
+          "departure_time": "06:10",
+          "arrival_time": "09:05",
+          "duration_hours": 2.9,
+          "cost": 175,
+          "area": "Nellore Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Chennai–Hyderabad Express",
+          "train_number": "12603",
+          "departure_time": "06:10",
+          "arrival_time": "09:05",
+          "duration_hours": 2.9,
+          "cost": 215,
+          "area": "Nellore Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "3AC (3A)",
+          "train_name": "Chennai–Hyderabad Express",
+          "train_number": "12603",
+          "departure_time": "06:10",
+          "arrival_time": "09:05",
+          "duration_hours": 2.9,
+          "cost": 600,
+          "area": "Nellore Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:00",
+          "duration_hours": 4.0,
+          "cost": 200,
+          "area": "Nellore Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "APSRTC Garuda AC",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 3.5,
+          "cost": 580,
+          "area": "Nellore Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada Travels (Scania)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "21:30",
+          "duration_hours": 3.5,
+          "cost": 900,
+          "area": "Nellore Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 3.0,
+          "cost": 3200,
+          "note": "Per cab, seats 4",
+          "area": "Nellore City"
+        }
+      ]
+    },
+    {
+      "route_id": "HYD_BHADRACHALAM_01",
+      "city_id": 80,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Bhadrachalam",
+      "to_station": "BDC_BUS",
+      "distance_km": 310,
+      "distance_category": "long",
+      "area": "Bhadrachalam Temple / Godavari Ghat",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:00",
+          "arrival_time": "13:00",
+          "duration_hours": 7.0,
+          "cost": 350,
+          "area": "Bhadrachalam Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC Garuda AC",
+          "type": "AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 6.5,
+          "cost": 700,
+          "area": "Bhadrachalam Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Tours (Volvo)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "22:00",
+          "duration_hours": 6.5,
+          "cost": 1050,
+          "area": "Bhadrachalam Bus Stand"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Sabari Express",
+          "train_number": "18645",
+          "departure_time": "15:30",
+          "arrival_time": "23:00",
+          "duration_hours": 7.5,
+          "cost": 320,
+          "note": "Alight at Kothagudem, cab 40 km to Bhadrachalam",
+          "area": "Kothagudem → Bhadrachalam"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Sabari Express",
+          "train_number": "18645",
+          "departure_time": "15:30",
+          "arrival_time": "23:00",
+          "duration_hours": 7.5,
+          "cost": 900,
+          "note": "Alight at Kothagudem, cab 40 km",
+          "area": "Kothagudem → Bhadrachalam"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "SUV",
+          "departure_time": "Flexible",
+          "duration_hours": 6.0,
+          "cost": 5500,
+          "note": "Per cab, seats 6. Direct to Godavari Ghat.",
+          "area": "Bhadrachalam Temple Ghat"
+        }
+      ]
+    },
+    {
+      "route_id": "HYD_KHAMMAM_01",
+      "city_id": 81,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Khammam",
+      "to_station": "KMT",
+      "distance_km": 195,
+      "distance_category": "long",
+      "area": "Khammam City",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Godavari Express",
+          "train_number": "12727",
+          "departure_time": "06:25",
+          "arrival_time": "09:30",
+          "duration_hours": 3.1,
+          "cost": 195,
+          "area": "Khammam Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Godavari Express",
+          "train_number": "12727",
+          "departure_time": "06:25",
+          "arrival_time": "09:30",
+          "duration_hours": 3.1,
+          "cost": 235,
+          "area": "Khammam Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Godavari Express",
+          "train_number": "12727",
+          "departure_time": "06:25",
+          "arrival_time": "09:30",
+          "duration_hours": 3.1,
+          "cost": 660,
+          "area": "Khammam Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:30",
+          "duration_hours": 4.0,
+          "cost": 215,
+          "area": "Khammam Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC Garuda AC",
+          "type": "AC Seater",
+          "departure_time": "07:30",
+          "duration_hours": 3.5,
+          "cost": 430,
+          "area": "Khammam Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada Travels (Volvo)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "22:00",
+          "duration_hours": 3.5,
+          "cost": 700,
+          "area": "Khammam Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 3.0,
+          "cost": 3500,
+          "note": "Per cab, seats 4",
+          "area": "Khammam City"
+        }
+      ]
+    },
+    {
+      "route_id": "HYD_ADILABAD_01",
+      "city_id": 82,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Adilabad",
+      "to_station": "ADB",
+      "distance_km": 300,
+      "distance_category": "long",
+      "area": "Adilabad / Kuntala Falls Area",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Adilabad Express",
+          "train_number": "17063",
+          "departure_time": "21:45",
+          "arrival_time": "06:30",
+          "duration_hours": 8.75,
+          "cost": 310,
+          "area": "Adilabad Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Adilabad Express",
+          "train_number": "17063",
+          "departure_time": "21:45",
+          "arrival_time": "06:30",
+          "duration_hours": 8.75,
+          "cost": 870,
+          "area": "Adilabad Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "2AC (2A)",
+          "train_name": "Adilabad Express",
+          "train_number": "17063",
+          "departure_time": "21:45",
+          "arrival_time": "06:30",
+          "duration_hours": 8.75,
+          "cost": 1250,
+          "area": "Adilabad Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30",
+          "duration_hours": 6.5,
+          "cost": 340,
+          "area": "Adilabad Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC Garuda AC",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 6.0,
+          "cost": 720,
+          "area": "Adilabad Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Tours (Volvo)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "21:30",
+          "duration_hours": 6.0,
+          "cost": 1050,
+          "area": "Adilabad Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "SUV",
+          "departure_time": "Flexible",
+          "duration_hours": 5.5,
+          "cost": 5400,
+          "note": "Per cab, seats 6",
+          "area": "Adilabad City"
+        }
+      ]
+    },
+    {
+      "route_id": "HYD_NIZAMABAD_01",
+      "city_id": 83,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Nizamabad",
+      "to_station": "NZB",
+      "distance_km": 173,
+      "distance_category": "long",
+      "area": "Nizamabad City",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Nizamabad Intercity",
+          "train_number": "17017",
+          "departure_time": "06:15",
+          "arrival_time": "09:30",
+          "duration_hours": 3.25,
+          "cost": 175,
+          "area": "Nizamabad Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Nizamabad Intercity",
+          "train_number": "17017",
+          "departure_time": "06:15",
+          "arrival_time": "09:30",
+          "duration_hours": 3.25,
+          "cost": 215,
+          "area": "Nizamabad Railway Station"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Nizamabad Intercity",
+          "train_number": "17017",
+          "departure_time": "06:15",
+          "arrival_time": "09:30",
+          "duration_hours": 3.25,
+          "cost": 600,
+          "area": "Nizamabad Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 05:30",
+          "duration_hours": 3.5,
+          "cost": 190,
+          "area": "Nizamabad Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC Garuda AC",
+          "type": "AC Seater",
+          "departure_time": "07:30",
+          "duration_hours": 3.0,
+          "cost": 380,
+          "area": "Nizamabad Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Kallada Travels (Volvo)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "22:00",
+          "duration_hours": 3.0,
+          "cost": 620,
+          "area": "Nizamabad Bus Stand"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.75,
+          "cost": 3100,
+          "note": "Per cab, seats 4",
+          "area": "Nizamabad City Centre"
+        }
+      ]
+    },
+    {
+      "route_id": "HYD_SIRPUR_01",
+      "city_id": 84,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Sirpur",
+      "to_station": "SPU_BUS",
+      "distance_km": 280,
+      "distance_category": "long",
+      "area": "Sirpur Wildlife Sanctuary",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30",
+          "duration_hours": 6.0,
+          "cost": 315,
+          "note": "Via Adilabad. Alight at Sirpur Town.",
+          "area": "Sirpur Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC Garuda AC",
+          "type": "AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 5.5,
+          "cost": 630,
+          "area": "Sirpur Town"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Private AC Sleeper",
+          "type": "AC Sleeper",
+          "departure_time": "21:30",
+          "duration_hours": 5.5,
+          "cost": 900,
+          "area": "Sirpur Bus Stand"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Adilabad Express",
+          "train_number": "17063",
+          "departure_time": "21:45",
+          "arrival_time": "05:30",
+          "duration_hours": 7.75,
+          "cost": 295,
+          "note": "Alight at Adilabad, TSRTC bus/cab 45 km to Sirpur",
+          "area": "Adilabad → Sirpur"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Adilabad Express",
+          "train_number": "17063",
+          "departure_time": "21:45",
+          "arrival_time": "05:30",
+          "duration_hours": 7.75,
+          "cost": 830,
+          "note": "Alight at Adilabad, cab to Sirpur",
+          "area": "Adilabad → Sirpur"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "SUV",
+          "departure_time": "Flexible",
+          "duration_hours": 5.0,
+          "cost": 5000,
+          "note": "Per cab, seats 6. Direct to sanctuary gate.",
+          "area": "Sirpur Wildlife Sanctuary Gate"
+        }
+      ]
+    },
+    {
+      "route_id": "HYD_KUNTALA_01",
+      "city_id": 85,
+      "from_city": "Hyderabad",
+      "from_station": "SC",
+      "to_city": "Kuntala Falls",
+      "to_station": "KNT_BUS",
+      "distance_km": 265,
+      "distance_category": "long",
+      "area": "Kuntala Waterfall / Adilabad District",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "TSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30",
+          "duration_hours": 6.0,
+          "cost": 295,
+          "note": "Via Nirmal/Adilabad. Alight at Kuntala village.",
+          "area": "Kuntala Falls Road"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TSRTC Garuda AC",
+          "type": "AC Seater",
+          "departure_time": "07:30",
+          "duration_hours": 5.5,
+          "cost": 590,
+          "area": "Kuntala Village Stop"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Orange Tours (Volvo)",
+          "type": "Luxury Volvo/Scania",
+          "departure_time": "22:00",
+          "duration_hours": 5.5,
+          "cost": 900,
+          "note": "Alight at Nirmal, cab 40 km to Falls",
+          "area": "Nirmal → Kuntala Falls"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "Sleeper (SL)",
+          "train_name": "Adilabad Express",
+          "train_number": "17063",
+          "departure_time": "21:45",
+          "arrival_time": "05:00",
+          "duration_hours": 7.25,
+          "cost": 280,
+          "note": "Alight at Nirmal Road, cab 40 km to Kuntala",
+          "area": "Nirmal → Kuntala Falls"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Central Railway",
+          "type": "3AC (3A)",
+          "train_name": "Adilabad Express",
+          "train_number": "17063",
+          "departure_time": "21:45",
+          "arrival_time": "05:00",
+          "duration_hours": 7.25,
+          "cost": 790,
+          "area": "Nirmal → Kuntala Falls"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation",
+          "type": "SUV",
+          "departure_time": "Flexible",
+          "duration_hours": 5.0,
+          "cost": 4800,
+          "note": "Per cab, seats 6. Best for day trip groups.",
+          "area": "Kuntala Falls Entry Point"
+        }
+      ]
+    },
+    {
+      "route_id": "HBL_HONNEMARADU_01",
+      "city_id": 86,
+      "from_city": "Hubli",
+      "from_station": "UBL",
+      "to_city": "Honnemaradu",
+      "to_station": "HNM_BUS",
+      "distance_km": 110,
+      "distance_category": "medium",
+      "area": "Sharavathi Backwaters / Honnemaradu",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:00",
+          "duration_hours": 2.75,
+          "cost": 125,
+          "note": "Alight at Linganamakki, auto 8 km to Honnemaradu",
+          "area": "Linganamakki → Honnemaradu"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "08:30",
+          "duration_hours": 2.5,
+          "cost": 250,
+          "area": "Linganamakki → Honnemaradu"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL Travels",
+          "type": "AC Sleeper",
+          "departure_time": "21:00",
+          "duration_hours": 2.75,
+          "cost": 500,
+          "area": "Shimoga → Honnemaradu"
+        },
+        {
+          "mode": "Train",
+          "provider": "Konkan Railway / South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Matsyagandha Express",
+          "train_number": "12619",
+          "departure_time": "07:30",
+          "arrival_time": "10:00",
+          "duration_hours": 2.5,
+          "cost": 120,
+          "note": "Alight at Shimoga, bus/cab 60 km to Honnemaradu",
+          "area": "Shimoga → Honnemaradu"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Hubli Taxi Union",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 2.5,
+          "cost": 2200,
+          "note": "Per cab, seats 4. Scenic backwater route.",
+          "area": "Honnemaradu Waterfront"
+        }
+      ]
+    },
+    {
+      "route_id": "MNG_KARKALA_01",
+      "city_id": 87,
+      "from_city": "Mangalore",
+      "from_station": "MAQ",
+      "to_city": "Karkala",
+      "to_station": "KKL_BUS",
+      "distance_km": 50,
+      "distance_category": "short",
+      "area": "Karkala Gomatesh / Heritage Zone",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min from 06:00",
+          "duration_hours": 1.5,
+          "cost": 60,
+          "area": "Karkala Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Private AC Minibus",
+          "type": "AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 1.25,
+          "cost": 130,
+          "area": "Karkala Town Centre"
+        },
+        {
+          "mode": "Train",
+          "provider": "Konkan Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Netravati Express",
+          "train_number": "16345",
+          "departure_time": "08:15",
+          "arrival_time": "09:30",
+          "duration_hours": 1.25,
+          "cost": 65,
+          "note": "Alight at Bantwal / Uppinangady, cab 20 km",
+          "area": "Bantwal → Karkala"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1.0,
+          "cost": 1000,
+          "note": "Per cab, seats 4",
+          "area": "Karkala Gomatesh Statue"
+        }
+      ]
+    },
+    {
+      "route_id": "CKM_KEMMANGUNDI_01",
+      "city_id": 88,
+      "from_city": "Chikmagalur",
+      "from_station": "CKM_BUS",
+      "to_city": "Kemmangundi",
+      "to_station": "KMG_BUS",
+      "distance_km": 55,
+      "distance_category": "short",
+      "area": "Kemmangundi Hill Station / Z Point",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:30",
+          "arrival_time": "09:30",
+          "duration_hours": 2.0,
+          "cost": 65,
+          "area": "Kemmangundi Bus Stop"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Private Ghat Bus",
+          "type": "Non-AC Seater",
+          "departure_time": "09:00",
+          "duration_hours": 2.0,
+          "cost": 80,
+          "area": "Kemmangundi Town"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Private AC",
+          "type": "AC Seater",
+          "departure_time": "08:00",
+          "duration_hours": 1.75,
+          "cost": 160,
+          "area": "Kemmangundi Hill Top"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Local Taxi / Chikmagalur Taxi Union",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1.5,
+          "cost": 1100,
+          "note": "Per cab, seats 4. Ghats road — scenic.",
+          "area": "Kemmangundi Z Point Viewpoint"
+        }
+      ]
+    },
+    {
+      "route_id": "MYS_BYLAKUPPE_01",
+      "city_id": 89,
+      "from_city": "Mysore",
+      "from_station": "MYS",
+      "to_city": "Bylakuppe",
+      "to_station": "BYL_BUS",
+      "distance_km": 80,
+      "distance_category": "medium",
+      "area": "Namdroling Monastery / Golden Temple",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:30",
+          "arrival_time": "09:30",
+          "duration_hours": 2.0,
+          "cost": 90,
+          "area": "Bylakuppe / Kushalnagar Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC AC",
+          "type": "AC Seater",
+          "departure_time": "09:00",
+          "duration_hours": 1.75,
+          "cost": 180,
+          "area": "Kushalnagar Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "VRL Travels",
+          "type": "AC Sleeper",
+          "departure_time": "22:00",
+          "duration_hours": 2.0,
+          "cost": 380,
+          "area": "Kushalnagar → Bylakuppe"
+        },
+        {
+          "mode": "Train",
+          "provider": "South Western Railway",
+          "type": "Chair Car (CC)",
+          "train_name": "Mysore–Mangalore Express",
+          "train_number": "16235",
+          "departure_time": "07:45",
+          "arrival_time": "09:30",
+          "duration_hours": 1.75,
+          "cost": 95,
+          "note": "Alight at Kushalnagar, auto 5 km to Bylakuppe",
+          "area": "Kushalnagar Station → Bylakuppe"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola Outstation / Local Taxi",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 1.5,
+          "cost": 1600,
+          "note": "Per cab, seats 4. Direct to monastery gate.",
+          "area": "Namdroling Monastery"
+        }
+      ]
+    },
+    {
+      "route_id": "SBC_BANNERGHATTA_01",
+      "city_id": 90,
+      "from_city": "Bangalore",
+      "from_station": "SBC",
+      "to_city": "Bannerghatta",
+      "to_station": "BNG_BUS",
+      "distance_km": 22,
+      "distance_category": "short",
+      "area": "Bannerghatta National Park / Butterfly Park",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "BMTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 20 min from 06:00",
+          "duration_hours": 0.9,
+          "cost": 35,
+          "area": "Bannerghatta Park Gate"
+        },
+        {
+          "mode": "Bus",
+          "provider": "BMTC Volvo City",
+          "type": "AC Seater",
+          "departure_time": "Every 30 min from 07:00",
+          "duration_hours": 0.75,
+          "cost": 75,
+          "area": "Bannerghatta Road"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Private AC",
+          "type": "AC Seater",
+          "departure_time": "08:30",
+          "duration_hours": 0.75,
+          "cost": 100,
+          "area": "Bannerghatta National Park"
+        },
+        {
+          "mode": "Cab",
+          "provider": "Ola / Uber City",
+          "type": "Sedan",
+          "departure_time": "Flexible",
+          "duration_hours": 0.6,
+          "cost": 350,
+          "note": "Per cab, seats 4. City ride from Bangalore.",
+          "area": "Bannerghatta Park Main Gate"
+        }
+      ]
+    },
+    {
+      "route_id": "CLT_NIL_01",
+      "city_id": 91,
+      "from_city": "Kozhikode",
+      "from_station": "CLT",
+      "to_city": "Nilambur",
+      "to_station": "NIL",
+      "distance_km": 72,
+      "distance_category": "medium",
+      "area": "Teak Forest / Conolly's Plot",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Indian Railways",
+          "type": "Passenger/Sleeper",
+          "train_name": "Rajya Rani Exp",
+          "train_number": "16350",
+          "departure_time": "21:30",
+          "cost": 145,
+          "area": "Nilambur Road Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 30 min",
+          "cost": 90,
+          "area": "Nilambur Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "COK_WAD_01",
+      "city_id": 92,
+      "from_city": "Kochi",
+      "from_station": "ERS",
+      "to_city": "Wadakkanchery",
+      "to_station": "WKI",
+      "distance_km": 85,
+      "distance_category": "medium",
+      "area": "Puzhayoram / Thrissur Border",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Indian Railways",
+          "type": "Unreserved/2S",
+          "train_name": "Parasuram Exp",
+          "train_number": "16650",
+          "departure_time": "11:00",
+          "cost": 65,
+          "area": "Wadakkanchery Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Fast Passenger",
+          "departure_time": "Every 1 hour",
+          "cost": 110,
+          "area": "Wadakkanchery Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "TRV_PON_01",
+      "city_id": 93,
+      "from_city": "Trivandrum",
+      "from_station": "TVC",
+      "to_city": "Ponmudi",
+      "to_station": "PNM_BUS",
+      "distance_km": 55,
+      "distance_category": "short",
+      "area": "Golden Peak / Hill Top",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "06:30, 08:30, 11:00",
+          "cost": 85,
+          "area": "Ponmudi Bus Stop"
+        },
+        {
+          "mode": "Taxi",
+          "provider": "Local Kerala",
+          "type": "Private Hatchback",
+          "departure_time": "On Demand",
+          "cost": 1800,
+          "area": "Door-to-door Hill Station"
+        }
+      ]
+    },
+    {
+      "route_id": "CLT_KAL_01",
+      "city_id": 94,
+      "from_city": "Kozhikode",
+      "from_station": "CLT",
+      "to_city": "Kalpetta",
+      "to_station": "KPT_BUS",
+      "distance_km": 75,
+      "distance_category": "medium",
+      "area": "Wayanad / Pookode Lake",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC Swift",
+          "type": "AC Seater",
+          "departure_time": "Every 1 hour",
+          "cost": 220,
+          "area": "Kalpetta Bus Stand"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 20 min",
+          "cost": 120,
+          "area": "Kalpetta Old Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "COK_VAG_01",
+      "city_id": 95,
+      "from_city": "Kochi",
+      "from_station": "ERS",
+      "to_city": "Vagamon",
+      "to_station": "VGM_BUS",
+      "distance_km": 102,
+      "distance_category": "medium",
+      "area": "Pine Forest / Meadows",
+      "options": [
+        {
+          "mode": "Bus",
+          "provider": "KSRTC",
+          "type": "Non-AC Seater",
+          "departure_time": "07:15, 12:45",
+          "cost": 160,
+          "area": "Vagamon Town"
+        },
+        {
+          "mode": "Bus",
+          "provider": "Private AC",
+          "type": "AC Seater",
+          "departure_time": "08:30",
+          "cost": 350,
+          "area": "Vagamon Meadows Entry"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_PAC_01",
+      "city_id": 96,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Pachmarhi",
+      "to_station": "PIP",
+      "distance_category": "long",
+      "area": "Bee Falls / Jata Shankar",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Indian Railways",
+          "type": "3AC",
+          "train_name": "Sanghamitra Exp",
+          "train_number": "12295",
+          "departure_time": "15:40",
+          "cost": 1450,
+          "area": "Pipariya Station (Local Jeep required)"
+        },
+        {
+          "mode": "Train",
+          "provider": "Indian Railways",
+          "type": "Sleeper (SL)",
+          "train_name": "Ganga Kaveri Exp",
+          "train_number": "12669",
+          "departure_time": "17:40",
+          "cost": 550,
+          "area": "Pipariya RS"
+        }
+      ]
+    },
+    {
+      "route_id": "CBE_CNR_01",
+      "city_id": 97,
+      "from_city": "Coimbatore",
+      "from_station": "CBE",
+      "to_city": "Coonoor",
+      "to_station": "ONR",
+      "distance_km": 68,
+      "distance_category": "short",
+      "area": "Sim's Park / Bedford",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Nilgiri Mountain Railway",
+          "type": "First Class",
+          "train_name": "Toy Train",
+          "train_number": "06136",
+          "departure_time": "07:10",
+          "cost": 205,
+          "area": "Coonoor Railway Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 15 min",
+          "cost": 75,
+          "area": "Coonoor Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_PIC_01",
+      "city_id": 98,
+      "from_city": "Chennai",
+      "from_station": "MS",
+      "to_city": "Pichavaram",
+      "to_station": "CDM_BUS",
+      "distance_km": 230,
+      "distance_category": "medium",
+      "area": "Mangrove Forest / Boating",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Indian Railways",
+          "type": "AC Chair Car (CC)",
+          "train_name": "Cholan Express",
+          "train_number": "16795",
+          "departure_time": "07:15",
+          "cost": 415,
+          "area": "Chidambaram Station"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC AC",
+          "type": "AC Deluxe",
+          "departure_time": "06:00, 22:30",
+          "cost": 380,
+          "area": "Pichavaram Boat House"
+        }
+      ]
+    },
+    {
+      "route_id": "TRV_KAN_01",
+      "city_id": 99,
+      "from_city": "Trivandrum",
+      "from_station": "TVC",
+      "to_city": "Kanyakumari",
+      "to_station": "CAPE",
+      "distance_km": 90,
+      "distance_category": "short",
+      "area": "Vivekananda Rock / Sunset View",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Indian Railways",
+          "type": "Unreserved/2S",
+          "train_name": "TVC-CAPE Passenger",
+          "train_number": "56305",
+          "departure_time": "14:15",
+          "cost": 45,
+          "area": "Kanyakumari Terminus"
+        },
+        {
+          "mode": "Bus",
+          "provider": "KSRTC / TNSTC",
+          "type": "Non-AC Seater",
+          "departure_time": "Every 20 min",
+          "cost": 95,
+          "area": "Kanyakumari Bus Stand"
+        }
+      ]
+    },
+    {
+      "route_id": "MAS_VEL_01",
+      "city_id": 100,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Vellore",
+      "to_station": "KPD",
+      "distance_km": 138,
+      "distance_category": "medium",
+      "area": "Golden Temple / Katpadi",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Indian Railways",
+          "type": "AC Chair Car (CC)",
+          "train_name": "Sapthagiri Exp",
+          "train_number": "16057",
+          "departure_time": "06:25",
+          "cost": 350,
+          "area": "Katpadi Junction"
+        },
+        {
+          "mode": "Bus",
+          "provider": "TNSTC",
+          "type": "AC Deluxe",
+          "departure_time": "Every 30 min",
+          "cost": 220,
+          "area": "Vellore New Bus Stand"
+        }
+      ]
+    }
+  ]
+}

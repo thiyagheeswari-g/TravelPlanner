@@ -1,0 +1,2384 @@
+{
+  "food_places": [
+    {
+      "food_id": 1,
+      "city_id": 1,
+      "name": "Ooty Varsha Hotel",
+      "cuisine": "South Indian",
+      "avg_cost": 150,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Charing Cross",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 2,
+      "city_id": 1,
+      "name": "Nahar's Sidewalk Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 500,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Charing Cross",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 3,
+      "city_id": 1,
+      "name": "Savoy Hotel Restaurant",
+      "cuisine": "Continental",
+      "avg_cost": 1800,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Sylks Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 4,
+      "city_id": 2,
+      "name": "Hotel Punjab",
+      "cuisine": "North Indian",
+      "avg_cost": 180,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Anna Salai",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 5,
+      "city_id": 2,
+      "name": "Pastry Corner",
+      "cuisine": "Bakery & Cafe",
+      "avg_cost": 450,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "PT Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 6,
+      "city_id": 2,
+      "name": "Carlton Hotel Restaurant",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 1500,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Lake Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 7,
+      "city_id": 3,
+      "name": "Moonrakers Restaurant",
+      "cuisine": "Seafood",
+      "avg_cost": 220,
+      "suitable_for": [
+        "solo",
+        "friends"
+      ],
+      "area": "Shore Temple Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 8,
+      "city_id": 3,
+      "name": "Gecko Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 550,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "East Raja Street",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 9,
+      "city_id": 3,
+      "name": "Ideal Beach Resort Restaurant",
+      "cuisine": "Seafood & Continental",
+      "avg_cost": 1400,
+      "suitable_for": [
+        "family",
+        "couple"
+      ],
+      "area": "Covelong Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 10,
+      "city_id": 4,
+      "name": "Satsanga Restaurant",
+      "cuisine": "South Indian",
+      "avg_cost": 160,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "White Town",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 11,
+      "city_id": 4,
+      "name": "Cafe des Arts",
+      "cuisine": "French & Indian",
+      "avg_cost": 600,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "White Town",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 12,
+      "city_id": 4,
+      "name": "Villa Shanti",
+      "cuisine": "French & Seafood",
+      "avg_cost": 1800,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Nehru Street",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 13,
+      "city_id": 5,
+      "name": "Murugan Idli Shop",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "West Masi Street",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 14,
+      "city_id": 5,
+      "name": "Amma Mess",
+      "cuisine": "Chettinad",
+      "avg_cost": 400,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Town Hall Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 15,
+      "city_id": 5,
+      "name": "Taj Garden Retreat Restaurant",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 2000,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Pasumalai",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 16,
+      "city_id": 6,
+      "name": "Sri Saravana Bhavan",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Car Street",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 17,
+      "city_id": 6,
+      "name": "Hotel Sri Ganesh",
+      "cuisine": "Chettinad & South Indian",
+      "avg_cost": 450,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Rameswaram Bazaar",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 18,
+      "city_id": 6,
+      "name": "Hyatt Place Restaurant",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 1200,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Pamban Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 19,
+      "city_id": 7,
+      "name": "Yercaud Lakeside Mess",
+      "cuisine": "South Indian",
+      "avg_cost": 140,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Lake Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 20,
+      "city_id": 7,
+      "name": "Sterling Yercaud Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 500,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Shevaroy Hills",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 21,
+      "city_id": 7,
+      "name": "Hotel Shevaroy Restaurant",
+      "cuisine": "Continental & Indian",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "family",
+        "couple"
+      ],
+      "area": "Shevaroy Hills",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 22,
+      "city_id": 8,
+      "name": "Hotel Saravana Bhavan Kanyakumari",
+      "cuisine": "South Indian",
+      "avg_cost": 110,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Main Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 23,
+      "city_id": 8,
+      "name": "Sangam Hotel Restaurant",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 480,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Beach Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 24,
+      "city_id": 8,
+      "name": "Hotel Sparsa Resort Restaurant",
+      "cuisine": "Seafood & Indian",
+      "avg_cost": 1600,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Kovalam Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 25,
+      "city_id": 9,
+      "name": "Annapoorna Hotel",
+      "cuisine": "South Indian",
+      "avg_cost": 150,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Gandhipuram",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 26,
+      "city_id": 9,
+      "name": "Feasteria",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 550,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "RS Puram",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 27,
+      "city_id": 9,
+      "name": "The Fat Chef",
+      "cuisine": "Continental & Grills",
+      "avg_cost": 1400,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Avinashi Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 28,
+      "city_id": 10,
+      "name": "Ratna Cafe",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Triplicane",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 29,
+      "city_id": 10,
+      "name": "Ponnusamy Hotel",
+      "cuisine": "Chettinad",
+      "avg_cost": 480,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Egmore",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 30,
+      "city_id": 10,
+      "name": "The Flying Elephant - Park Hyatt",
+      "cuisine": "Multi-cuisine Fine Dining",
+      "avg_cost": 2500,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Anna Salai",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 31,
+      "city_id": 11,
+      "name": "Vasanta Bhavan",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Chinthamani",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 32,
+      "city_id": 11,
+      "name": "Mathura Restaurant",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 450,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Junction Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 33,
+      "city_id": 11,
+      "name": "Hotel Sangam Restaurant",
+      "cuisine": "Continental & Indian",
+      "avg_cost": 1400,
+      "suitable_for": [
+        "family",
+        "couple"
+      ],
+      "area": "Collector's Office Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 34,
+      "city_id": 12,
+      "name": "Sree Venkatramana Mess",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Near Big Temple",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 35,
+      "city_id": 12,
+      "name": "Ideal River View Resort Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 500,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Grand Anaicut Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 36,
+      "city_id": 12,
+      "name": "Pagoda Restaurant",
+      "cuisine": "Chettinad & North Indian",
+      "avg_cost": 1200,
+      "suitable_for": [
+        "family",
+        "couple"
+      ],
+      "area": "Medical College Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 37,
+      "city_id": 13,
+      "name": "Yelagiri Hills Mess",
+      "cuisine": "South Indian",
+      "avg_cost": 140,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Yelagiri Bazaar",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 38,
+      "city_id": 13,
+      "name": "Nature's Park Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 480,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Nature's Park Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 39,
+      "city_id": 13,
+      "name": "Yelagiri Resort Restaurant",
+      "cuisine": "Continental & Indian",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "family",
+        "couple"
+      ],
+      "area": "Hilltop",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 40,
+      "city_id": 14,
+      "name": "Saraswathi Mess",
+      "cuisine": "South Indian",
+      "avg_cost": 110,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Sarangapani Street",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 41,
+      "city_id": 14,
+      "name": "Hotel Raya's",
+      "cuisine": "Chettinad & Multi-cuisine",
+      "avg_cost": 420,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Ayikulam Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 42,
+      "city_id": 14,
+      "name": "Pandian Hotel Restaurant",
+      "cuisine": "South Indian & North Indian",
+      "avg_cost": 1100,
+      "suitable_for": [
+        "family",
+        "couple"
+      ],
+      "area": "TSR Big Street",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 43,
+      "city_id": 15,
+      "name": "Ambika Mess",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Main Falls Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 44,
+      "city_id": 15,
+      "name": "Courtallam Waterfall Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 400,
+      "suitable_for": [
+        "friends",
+        "couple"
+      ],
+      "area": "Main Falls Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 45,
+      "city_id": 15,
+      "name": "Hotel Devi Residency Restaurant",
+      "cuisine": "Kerala & South Indian",
+      "avg_cost": 1100,
+      "suitable_for": [
+        "family",
+        "couple"
+      ],
+      "area": "Five Falls Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 46,
+      "city_id": 16,
+      "name": "Valparai Cooperative Canteen",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Valparai Town",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 47,
+      "city_id": 16,
+      "name": "Monkey Falls Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 450,
+      "suitable_for": [
+        "friends",
+        "couple"
+      ],
+      "area": "Monkey Falls Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 48,
+      "city_id": 16,
+      "name": "Tea County Resort Restaurant",
+      "cuisine": "Continental & Indian",
+      "avg_cost": 1500,
+      "suitable_for": [
+        "family",
+        "couple"
+      ],
+      "area": "Pollachi Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 49,
+      "city_id": 17,
+      "name": "Coonoor Dhabba",
+      "cuisine": "South Indian",
+      "avg_cost": 140,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Bedford",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 50,
+      "city_id": 17,
+      "name": "The Honey Pot Cafe",
+      "cuisine": "Bakery & Cafe",
+      "avg_cost": 500,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Upper Coonoor",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 51,
+      "city_id": 17,
+      "name": "Taj Vivanta Coonoor Restaurant",
+      "cuisine": "Continental & Indian",
+      "avg_cost": 2000,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Orange Grove Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 52,
+      "city_id": 18,
+      "name": "Mango Tree Restaurant",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 200,
+      "suitable_for": [
+        "solo",
+        "couple",
+        "friends"
+      ],
+      "area": "Virupapura Gadde",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 53,
+      "city_id": 18,
+      "name": "Laughing Buddha Cafe",
+      "cuisine": "Israeli & Indian",
+      "avg_cost": 450,
+      "suitable_for": [
+        "solo",
+        "friends"
+      ],
+      "area": "Hampi Bazaar",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 54,
+      "city_id": 18,
+      "name": "Mowgli Restaurant",
+      "cuisine": "Continental & Indian",
+      "avg_cost": 1200,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Kamalapuram",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 55,
+      "city_id": 19,
+      "name": "Hotel RRR",
+      "cuisine": "South Indian",
+      "avg_cost": 150,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Gandhi Square",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 56,
+      "city_id": 19,
+      "name": "Vinayaka Mylari",
+      "cuisine": "South Indian",
+      "avg_cost": 420,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Nazarbad",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 57,
+      "city_id": 19,
+      "name": "Lalitha Mahal Palace Restaurant",
+      "cuisine": "Continental & Indian",
+      "avg_cost": 2200,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Lalitha Mahal Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 58,
+      "city_id": 20,
+      "name": "Coorg Cuisine Corner",
+      "cuisine": "Kodava",
+      "avg_cost": 200,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Madikeri Town",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 59,
+      "city_id": 20,
+      "name": "Capitol Village Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 550,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Madikeri",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 60,
+      "city_id": 20,
+      "name": "Amanvana Spa Resort Restaurant",
+      "cuisine": "Kodava & Continental",
+      "avg_cost": 2000,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Kushalnagar Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 61,
+      "city_id": 21,
+      "name": "MTR - Mavalli Tiffin Room",
+      "cuisine": "South Indian",
+      "avg_cost": 200,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Lalbagh Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 62,
+      "city_id": 21,
+      "name": "Toit Brewpub",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 700,
+      "suitable_for": [
+        "friends",
+        "couple"
+      ],
+      "area": "Indiranagar",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 63,
+      "city_id": 21,
+      "name": "Karavalli - Gateway Hotel",
+      "cuisine": "Coastal Karnataka",
+      "avg_cost": 2500,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Residency Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 64,
+      "city_id": 22,
+      "name": "Pai Hotel Gokarna",
+      "cuisine": "South Indian",
+      "avg_cost": 150,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Gokarna Town",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 65,
+      "city_id": 22,
+      "name": "Namaste Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 500,
+      "suitable_for": [
+        "friends",
+        "couple"
+      ],
+      "area": "Om Beach",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 66,
+      "city_id": 22,
+      "name": "SwaSwara Resort Restaurant",
+      "cuisine": "Coastal & Continental",
+      "avg_cost": 2000,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Om Beach Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 67,
+      "city_id": 23,
+      "name": "Siri Hotel Chikmagalur",
+      "cuisine": "South Indian",
+      "avg_cost": 160,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Coffee Board Layout",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 68,
+      "city_id": 23,
+      "name": "The Planters' Court Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 580,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "M.G. Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 69,
+      "city_id": 23,
+      "name": "Devasthali Rainforest Retreat Restaurant",
+      "cuisine": "Malnad & Continental",
+      "avg_cost": 1800,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Mudigere Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 70,
+      "city_id": 24,
+      "name": "Woodlands Hotel Udupi",
+      "cuisine": "Udupi Vegetarian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Court Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 71,
+      "city_id": 24,
+      "name": "Kediyoor Hotel",
+      "cuisine": "Mangalorean & South Indian",
+      "avg_cost": 450,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Car Street",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 72,
+      "city_id": 24,
+      "name": "Manipal Treat Restaurant",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 1100,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Manipal",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 73,
+      "city_id": 25,
+      "name": "Geeta Darshini",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Badami Bus Stand",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 74,
+      "city_id": 25,
+      "name": "Sanman Hotel Restaurant",
+      "cuisine": "North & South Indian",
+      "avg_cost": 420,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Station Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 75,
+      "city_id": 25,
+      "name": "Badami Court Hotel Restaurant",
+      "cuisine": "Continental & Indian",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Ramdurg Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 76,
+      "city_id": 26,
+      "name": "Janatha Deluxe Hotel",
+      "cuisine": "Mangalorean",
+      "avg_cost": 180,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Balmatta Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 77,
+      "city_id": 26,
+      "name": "Shetty's Lunch Home",
+      "cuisine": "Coastal Karnataka",
+      "avg_cost": 500,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Hampankatta",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 78,
+      "city_id": 26,
+      "name": "Ocean Pearl Restaurant",
+      "cuisine": "Seafood & Continental",
+      "avg_cost": 2000,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "KS Rao Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 79,
+      "city_id": 27,
+      "name": "Kali River Camp Canteen",
+      "cuisine": "South Indian",
+      "avg_cost": 180,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Dandeli Town",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 80,
+      "city_id": 27,
+      "name": "Jungle Inn Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 480,
+      "suitable_for": [
+        "friends",
+        "couple"
+      ],
+      "area": "Forest Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 81,
+      "city_id": 27,
+      "name": "Old Magazine House Restaurant",
+      "cuisine": "Continental & Indian",
+      "avg_cost": 1500,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Kali River Bank",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 82,
+      "city_id": 28,
+      "name": "Sharavati Valley Dhaba",
+      "cuisine": "South Indian",
+      "avg_cost": 140,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Jog Falls Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 83,
+      "city_id": 28,
+      "name": "Tushara Hotel Restaurant",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 420,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Near Jog Falls View Point",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 84,
+      "city_id": 28,
+      "name": "KSTDC Mayura Gerusoppa",
+      "cuisine": "Karnataka & Continental",
+      "avg_cost": 1100,
+      "suitable_for": [
+        "family",
+        "couple"
+      ],
+      "area": "Jog Falls",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 85,
+      "city_id": 29,
+      "name": "Saravana Bhavan Munnar",
+      "cuisine": "South Indian",
+      "avg_cost": 140,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Munnar Town",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 86,
+      "city_id": 29,
+      "name": "Rapsy Restaurant",
+      "cuisine": "Kerala & Multi-cuisine",
+      "avg_cost": 500,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Bazaar Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 87,
+      "city_id": 29,
+      "name": "Eastend Hotel Restaurant",
+      "cuisine": "Kerala & Continental",
+      "avg_cost": 1600,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Mattupetty Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 88,
+      "city_id": 30,
+      "name": "Pai Dosa Camp",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Thekkady Town",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 89,
+      "city_id": 30,
+      "name": "Pepper Garden Restaurant",
+      "cuisine": "Kerala & Multi-cuisine",
+      "avg_cost": 550,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Kumily Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 90,
+      "city_id": 30,
+      "name": "Spice Village CGH Earth Restaurant",
+      "cuisine": "Kerala Fine Dining",
+      "avg_cost": 2200,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Kumily",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 208,
+      "city_id": 70,
+      "name": "Kamat Hotel Bijapur",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Station Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 209,
+      "city_id": 70,
+      "name": "Hotel Mayura Adil Shahi Bijapur",
+      "cuisine": "Karnataka & Multi-cuisine",
+      "avg_cost": 460,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Anand Mahal Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 210,
+      "city_id": 70,
+      "name": "Hotel Pearl Bijapur Restaurant",
+      "cuisine": "Multi-cuisine Fine Dining",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Nidagundi Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 211,
+      "city_id": 71,
+      "name": "Sree Venkatesh Mess Warangal",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Hanamkonda",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 212,
+      "city_id": 71,
+      "name": "Hotel Ashoka Warangal",
+      "cuisine": "Andhra & Multi-cuisine",
+      "avg_cost": 450,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Main Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 213,
+      "city_id": 71,
+      "name": "Hotel Ratna Warangal Restaurant",
+      "cuisine": "Multi-cuisine Fine Dining",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Station Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 214,
+      "city_id": 72,
+      "name": "Sri Sai Krishna Bhavan Lepakshi",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Lepakshi Village",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 215,
+      "city_id": 72,
+      "name": "Hotel Mayura Lepakshi",
+      "cuisine": "Andhra & Karnataka",
+      "avg_cost": 430,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Temple Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 216,
+      "city_id": 72,
+      "name": "Lepakshi Heritage Restaurant",
+      "cuisine": "Multi-cuisine Fine Dining",
+      "avg_cost": 1200,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Hindupur Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 217,
+      "city_id": 73,
+      "name": "Sringeri Prasad Canteen",
+      "cuisine": "South Indian",
+      "avg_cost": 110,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Temple Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 218,
+      "city_id": 73,
+      "name": "Hotel Sharada Sringeri",
+      "cuisine": "Malnad & Multi-cuisine",
+      "avg_cost": 430,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Sringeri Town",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 219,
+      "city_id": 73,
+      "name": "Sringeri Valley Resort Restaurant",
+      "cuisine": "Malnad Fine Dining",
+      "avg_cost": 1400,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "River Bank Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 220,
+      "city_id": 74,
+      "name": "Gaganachukki Dhaba",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Shivanasamudra Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 221,
+      "city_id": 74,
+      "name": "Island Cafe Shivanasamudra",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 440,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Falls Viewpoint",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 222,
+      "city_id": 74,
+      "name": "Cauvery River Resort Restaurant",
+      "cuisine": "Karnataka Fine Dining",
+      "avg_cost": 1400,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Cauvery River Bank",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 223,
+      "city_id": 75,
+      "name": "Sri Venkateshwara Mess Kurnool",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Bellary Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 224,
+      "city_id": 75,
+      "name": "Hotel Srinivasa Kurnool",
+      "cuisine": "Andhra & Multi-cuisine",
+      "avg_cost": 440,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "RTC Bus Stand Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 225,
+      "city_id": 75,
+      "name": "Mourya Hotel Kurnool Restaurant",
+      "cuisine": "Andhra Fine Dining",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "College Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 226,
+      "city_id": 76,
+      "name": "Horsley Hills Canteen",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Horsley Hills Top",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 227,
+      "city_id": 76,
+      "name": "Haritha Hotel Horsley Hills",
+      "cuisine": "Andhra & Multi-cuisine",
+      "avg_cost": 450,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Hilltop Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 228,
+      "city_id": 76,
+      "name": "Horsley Hills Resort Restaurant",
+      "cuisine": "Continental & Andhra",
+      "avg_cost": 1400,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Madanapalle Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 229,
+      "city_id": 77,
+      "name": "Sri Balaji Bhavan Anantapur",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Gandhi Nagar",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 230,
+      "city_id": 77,
+      "name": "Hotel Rajahamsa Anantapur",
+      "cuisine": "Andhra & Multi-cuisine",
+      "avg_cost": 440,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Subash Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 231,
+      "city_id": 77,
+      "name": "Hotel Minerva Grand Anantapur",
+      "cuisine": "Multi-cuisine Fine Dining",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Kanaganapalli Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 232,
+      "city_id": 78,
+      "name": "Annadanam Canteen Srisailam",
+      "cuisine": "South Indian",
+      "avg_cost": 110,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Temple Premises",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 233,
+      "city_id": 78,
+      "name": "Haritha Srisailam Restaurant",
+      "cuisine": "Andhra & Multi-cuisine",
+      "avg_cost": 440,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Main Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 234,
+      "city_id": 78,
+      "name": "Srisailam Dam View Resort Restaurant",
+      "cuisine": "Andhra Fine Dining",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Dam Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 235,
+      "city_id": 79,
+      "name": "Sree Lakshmi Mess Nellore",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Trunk Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 236,
+      "city_id": 79,
+      "name": "Hotel Bhavani Nellore",
+      "cuisine": "Andhra & Multi-cuisine",
+      "avg_cost": 450,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "GT Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 237,
+      "city_id": 79,
+      "name": "Vijaya Krishna Restaurant Nellore",
+      "cuisine": "Andhra Fine Dining",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Pogathota",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 238,
+      "city_id": 80,
+      "name": "Annapoorna Mess Bhadrachalam",
+      "cuisine": "South Indian",
+      "avg_cost": 110,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Temple Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 239,
+      "city_id": 80,
+      "name": "Hotel Pooja Bhadrachalam",
+      "cuisine": "Andhra & Telangana",
+      "avg_cost": 430,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Main Bazaar",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 240,
+      "city_id": 80,
+      "name": "Godavari River View Resort Restaurant",
+      "cuisine": "Andhra Fine Dining",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Godavari Bank",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 241,
+      "city_id": 81,
+      "name": "Sri Sai Bhavan Khammam",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Wyra Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 242,
+      "city_id": 81,
+      "name": "Hotel Sudarshan Khammam",
+      "cuisine": "Andhra & Multi-cuisine",
+      "avg_cost": 440,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Main Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 243,
+      "city_id": 81,
+      "name": "Khammam Grand Hotel Restaurant",
+      "cuisine": "Multi-cuisine Fine Dining",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Balaji Nagar",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 244,
+      "city_id": 82,
+      "name": "Tribal Dhaba Adilabad",
+      "cuisine": "Telangana Street Food",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Bus Stand Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 245,
+      "city_id": 82,
+      "name": "Hotel Priya Adilabad",
+      "cuisine": "Telangana & Multi-cuisine",
+      "avg_cost": 440,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Main Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 246,
+      "city_id": 82,
+      "name": "Kadam River Resort Restaurant",
+      "cuisine": "Multi-cuisine Fine Dining",
+      "avg_cost": 1200,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Kadam Project Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 247,
+      "city_id": 83,
+      "name": "Sri Sai Hotel Nizamabad",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Main Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 248,
+      "city_id": 83,
+      "name": "Hotel Srinivasa Nizamabad",
+      "cuisine": "Telangana & Multi-cuisine",
+      "avg_cost": 440,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Hyderabad Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 249,
+      "city_id": 83,
+      "name": "Nizamabad Grand Restaurant",
+      "cuisine": "Multi-cuisine Fine Dining",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Beside Bus Stand",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 250,
+      "city_id": 84,
+      "name": "Forest Canteen Sirpur",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Sirpur Town",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 251,
+      "city_id": 84,
+      "name": "Pranahita River Cafe",
+      "cuisine": "Telangana & Multi-cuisine",
+      "avg_cost": 430,
+      "suitable_for": [
+        "friends",
+        "couple"
+      ],
+      "area": "River Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 252,
+      "city_id": 84,
+      "name": "Sirpur Wildlife Resort Restaurant",
+      "cuisine": "Multi-cuisine Fine Dining",
+      "avg_cost": 1200,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Forest Edge Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 253,
+      "city_id": 85,
+      "name": "Waterfall Dhaba Kuntala",
+      "cuisine": "Telangana Street Food",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "friends"
+      ],
+      "area": "Kuntala Falls Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 254,
+      "city_id": 85,
+      "name": "Mettu Cafe Kuntala",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 420,
+      "suitable_for": [
+        "friends",
+        "couple"
+      ],
+      "area": "Near Falls Viewpoint",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 255,
+      "city_id": 85,
+      "name": "Kuntala Valley Resort Restaurant",
+      "cuisine": "Telangana Fine Dining",
+      "avg_cost": 1200,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Adilabad Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 256,
+      "city_id": 86,
+      "name": "Linganamakki Dhaba Honnemaradu",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Honnemaradu Village",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 257,
+      "city_id": 86,
+      "name": "Backwater Breeze Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 440,
+      "suitable_for": [
+        "friends",
+        "couple"
+      ],
+      "area": "Sharavathi Backwaters",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 258,
+      "city_id": 86,
+      "name": "Sharavathi Valley Resort Restaurant",
+      "cuisine": "Malnad Fine Dining",
+      "avg_cost": 1400,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Reservoir Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 259,
+      "city_id": 87,
+      "name": "Gomatesh Hotel Karkala",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Town Hall Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 260,
+      "city_id": 87,
+      "name": "Hotel Gomata Karkala",
+      "cuisine": "Tulu Nadu & Multi-cuisine",
+      "avg_cost": 440,
+      "suitable_for": [
+        "family",
+        "friends"
+      ],
+      "area": "Main Bazaar",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 261,
+      "city_id": 87,
+      "name": "Karkala Heritage Resort Restaurant",
+      "cuisine": "Coastal Karnataka Fine Dining",
+      "avg_cost": 1400,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Udupi Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 262,
+      "city_id": 88,
+      "name": "Bhadra Canteen Kemmangundi",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Kemmangundi Town",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 263,
+      "city_id": 88,
+      "name": "Z Point Cafe Kemmangundi",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 440,
+      "suitable_for": [
+        "friends",
+        "couple"
+      ],
+      "area": "Z Point Viewpoint",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 264,
+      "city_id": 88,
+      "name": "Bhadra Forest Resort Restaurant",
+      "cuisine": "Malnad Fine Dining",
+      "avg_cost": 1500,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Forest Edge",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 265,
+      "city_id": 89,
+      "name": "Tibetan Kitchen Bylakuppe",
+      "cuisine": "Tibetan Street Food",
+      "avg_cost": 150,
+      "suitable_for": [
+        "solo",
+        "friends"
+      ],
+      "area": "Tibetan Colony",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 266,
+      "city_id": 89,
+      "name": "Tashi Cafe Bylakuppe",
+      "cuisine": "Tibetan & Multi-cuisine",
+      "avg_cost": 450,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Namdroling Monastery Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 267,
+      "city_id": 89,
+      "name": "Golden Temple Restaurant Bylakuppe",
+      "cuisine": "Tibetan Fine Dining",
+      "avg_cost": 1200,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Monastery Complex",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 268,
+      "city_id": 90,
+      "name": "Forest Gate Canteen Bannerghatta",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Bannerghatta Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 269,
+      "city_id": 90,
+      "name": "Jungle Beats Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 460,
+      "suitable_for": [
+        "friends",
+        "couple"
+      ],
+      "area": "Bannerghatta National Park Gate",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 270,
+      "city_id": 90,
+      "name": "ITC Gardenia Bangalore Bannerghatta Restaurant",
+      "cuisine": "Multi-cuisine Fine Dining",
+      "avg_cost": 2200,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Bannerghatta Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 271,
+      "city_id": 91,
+      "name": "Kerala Mess Nilambur",
+      "cuisine": "Kerala South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Nilambur Town",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 272,
+      "city_id": 91,
+      "name": "Teak Forest Cafe Nilambur",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 440,
+      "suitable_for": [
+        "friends",
+        "couple"
+      ],
+      "area": "Teak Museum Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 273,
+      "city_id": 91,
+      "name": "Nilambur River Retreat Restaurant",
+      "cuisine": "Kerala Fine Dining",
+      "avg_cost": 1400,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Chaliyar River Bank",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 274,
+      "city_id": 92,
+      "name": "Koottala Mess Wadakkanchery",
+      "cuisine": "Kerala South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Wadakkanchery Town",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 275,
+      "city_id": 92,
+      "name": "Thiruvathira Cafe",
+      "cuisine": "Kerala & Multi-cuisine",
+      "avg_cost": 430,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Market Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 276,
+      "city_id": 92,
+      "name": "Palghat Heritage Restaurant",
+      "cuisine": "Kerala Fine Dining",
+      "avg_cost": 1300,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "NH 544 Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 277,
+      "city_id": 93,
+      "name": "Trivandrum Hills Canteen Ponmudi",
+      "cuisine": "Kerala South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Ponmudi Hills",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 278,
+      "city_id": 93,
+      "name": "Golden Valley Cafe Ponmudi",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 440,
+      "suitable_for": [
+        "friends",
+        "couple"
+      ],
+      "area": "Meenmutty Falls Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 279,
+      "city_id": 93,
+      "name": "Ponmudi Hill Resort Restaurant",
+      "cuisine": "Kerala Fine Dining",
+      "avg_cost": 1400,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Hilltop",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 280,
+      "city_id": 94,
+      "name": "Wayanad Sadhya Stall Kalpetta",
+      "cuisine": "Kerala Sadhya",
+      "avg_cost": 140,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Kalpetta Town",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 281,
+      "city_id": 94,
+      "name": "Pepper Vine Cafe Kalpetta",
+      "cuisine": "Kerala & Multi-cuisine",
+      "avg_cost": 460,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Ambalavayal Road",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 282,
+      "city_id": 94,
+      "name": "Wayanad Wild Resort Restaurant",
+      "cuisine": "Kerala Fine Dining",
+      "avg_cost": 1800,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Sultan Bathery Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 283,
+      "city_id": 95,
+      "name": "Vagamon Hilltop Dhaba",
+      "cuisine": "Kerala South Indian",
+      "avg_cost": 140,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Vagamon Town",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 284,
+      "city_id": 95,
+      "name": "Meadow Mist Cafe Vagamon",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 460,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Thangalppara",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 285,
+      "city_id": 95,
+      "name": "Vagamon Resort & Spa Restaurant",
+      "cuisine": "Kerala Fine Dining",
+      "avg_cost": 1800,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Kurisumala Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 286,
+      "city_id": 96,
+      "name": "Pachmarhi Canteen",
+      "cuisine": "North & South Indian",
+      "avg_cost": 150,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Pachmarhi Town",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 287,
+      "city_id": 96,
+      "name": "Rock End Manor Cafe",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 480,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Pachmarhi Hill",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 288,
+      "city_id": 96,
+      "name": "Highlands Hotel Pachmarhi Restaurant",
+      "cuisine": "Continental & Indian Fine Dining",
+      "avg_cost": 1600,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Mahadeo Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 289,
+      "city_id": 97,
+      "name": "Coonoor Bazaar Mess",
+      "cuisine": "South Indian",
+      "avg_cost": 140,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Coonoor Bazaar",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 290,
+      "city_id": 97,
+      "name": "La Belle Vie Coonoor",
+      "cuisine": "French & Multi-cuisine",
+      "avg_cost": 550,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Upper Coonoor",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 291,
+      "city_id": 97,
+      "name": "Vivanta Coonoor Restaurant",
+      "cuisine": "Continental Fine Dining",
+      "avg_cost": 2000,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Orange Grove Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 292,
+      "city_id": 98,
+      "name": "Pichavaram Boat House Canteen",
+      "cuisine": "South Indian",
+      "avg_cost": 130,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Boat House Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 293,
+      "city_id": 98,
+      "name": "Mangrove Cafe Pichavaram",
+      "cuisine": "Seafood & Multi-cuisine",
+      "avg_cost": 450,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Canal Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 294,
+      "city_id": 98,
+      "name": "CGH Earth Pichavaram Restaurant",
+      "cuisine": "Chettinad Fine Dining",
+      "avg_cost": 1600,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Forest Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 295,
+      "city_id": 99,
+      "name": "Hotel Tamil Nadu Kanyakumari",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Beach Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 296,
+      "city_id": 99,
+      "name": "Seashore Restaurant Kanyakumari",
+      "cuisine": "Seafood & Multi-cuisine",
+      "avg_cost": 480,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "East Car Street",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 297,
+      "city_id": 99,
+      "name": "Sparsa Resort Restaurant Kanyakumari",
+      "cuisine": "Seafood Fine Dining",
+      "avg_cost": 1800,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Kovalam Road",
+      "dietary_label": "Non-Veg"
+    },
+    {
+      "food_id": 298,
+      "city_id": 100,
+      "name": "Sri Annapoorna Mess Vellore",
+      "cuisine": "South Indian",
+      "avg_cost": 120,
+      "suitable_for": [
+        "solo",
+        "family"
+      ],
+      "area": "Katpadi Road",
+      "dietary_label": "Pure Veg"
+    },
+    {
+      "food_id": 299,
+      "city_id": 100,
+      "name": "Hotel Darling Residency Vellore",
+      "cuisine": "Multi-cuisine",
+      "avg_cost": 460,
+      "suitable_for": [
+        "couple",
+        "friends"
+      ],
+      "area": "Long Bazaar",
+      "dietary_label": "Multi-cuisine"
+    },
+    {
+      "food_id": 300,
+      "city_id": 100,
+      "name": "Vayal Restaurant Vellore",
+      "cuisine": "Continental & South Indian Fine Dining",
+      "avg_cost": 1600,
+      "suitable_for": [
+        "couple",
+        "family"
+      ],
+      "area": "Sathuvachari",
+      "dietary_label": "Non-Veg"
+    }
+  ]
+}

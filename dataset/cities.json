@@ -1,0 +1,1523 @@
+{
+  "cities": [
+    {
+      "city_id": 1,
+      "name": "Ooty",
+      "state": "Tamil Nadu",
+      "lat": 11.41,
+      "lng": 76.71,
+      "type": "hill_station",
+      "parent_hub": "Coimbatore",
+      "best_months": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Oct"
+      ]
+    },
+    {
+      "city_id": 2,
+      "name": "Kodaikanal",
+      "state": "Tamil Nadu",
+      "lat": 10.23,
+      "lng": 77.48,
+      "type": "hill_station",
+      "parent_hub": "Madurai",
+      "best_months": [
+        "Apr",
+        "May",
+        "Jun",
+        "Sep",
+        "Oct"
+      ]
+    },
+    {
+      "city_id": 3,
+      "name": "Mahabalipuram",
+      "state": "Tamil Nadu",
+      "lat": 12.62,
+      "lng": 80.19,
+      "type": "heritage",
+      "parent_hub": "Chennai",
+      "best_months": [
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 4,
+      "name": "Pondicherry",
+      "state": "Tamil Nadu",
+      "lat": 11.94,
+      "lng": 79.81,
+      "type": "beach",
+      "parent_hub": "Chennai",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 5,
+      "name": "Madurai",
+      "state": "Tamil Nadu",
+      "lat": 9.92,
+      "lng": 78.12,
+      "type": "heritage",
+      "parent_hub": "Madurai",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 6,
+      "name": "Rameswaram",
+      "state": "Tamil Nadu",
+      "lat": 9.28,
+      "lng": 79.31,
+      "type": "pilgrimage",
+      "parent_hub": "Madurai",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 7,
+      "name": "Yercaud",
+      "state": "Tamil Nadu",
+      "lat": 11.77,
+      "lng": 78.21,
+      "type": "hill_station",
+      "parent_hub": "Salem",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 8,
+      "name": "Kanyakumari",
+      "state": "Tamil Nadu",
+      "lat": 8.08,
+      "lng": 77.53,
+      "type": "beach",
+      "parent_hub": "Trivandrum",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 9,
+      "name": "Coimbatore",
+      "state": "Tamil Nadu",
+      "lat": 11.01,
+      "lng": 76.95,
+      "type": "metro",
+      "parent_hub": "Coimbatore",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 10,
+      "name": "Chennai",
+      "state": "Tamil Nadu",
+      "lat": 13.08,
+      "lng": 80.27,
+      "type": "metro",
+      "parent_hub": "Chennai",
+      "best_months": [
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 11,
+      "name": "Trichy",
+      "state": "Tamil Nadu",
+      "lat": 10.79,
+      "lng": 78.7,
+      "type": "heritage",
+      "parent_hub": "Trichy",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 12,
+      "name": "Thanjavur",
+      "state": "Tamil Nadu",
+      "lat": 10.78,
+      "lng": 79.13,
+      "type": "heritage",
+      "parent_hub": "Trichy",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 13,
+      "name": "Yelagiri",
+      "state": "Tamil Nadu",
+      "lat": 12.61,
+      "lng": 78.63,
+      "type": "hill_station",
+      "parent_hub": "Chennai",
+      "best_months": [
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 14,
+      "name": "Kumbakonam",
+      "state": "Tamil Nadu",
+      "lat": 10.96,
+      "lng": 79.38,
+      "type": "pilgrimage",
+      "parent_hub": "Trichy",
+      "best_months": [
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 15,
+      "name": "Courtallam",
+      "state": "Tamil Nadu",
+      "lat": 8.93,
+      "lng": 77.26,
+      "type": "nature",
+      "parent_hub": "Tirunelveli",
+      "best_months": [
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep"
+      ]
+    },
+    {
+      "city_id": 16,
+      "name": "Valparai",
+      "state": "Tamil Nadu",
+      "lat": 10.32,
+      "lng": 76.95,
+      "type": "hill_station",
+      "parent_hub": "Coimbatore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 17,
+      "name": "Coonoor",
+      "state": "Tamil Nadu",
+      "lat": 11.35,
+      "lng": 76.79,
+      "type": "hill_station",
+      "parent_hub": "Coimbatore",
+      "best_months": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Oct"
+      ]
+    },
+    {
+      "city_id": 18,
+      "name": "Hampi",
+      "state": "Karnataka",
+      "lat": 15.33,
+      "lng": 76.46,
+      "type": "heritage",
+      "parent_hub": "Bangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 19,
+      "name": "Mysore",
+      "state": "Karnataka",
+      "lat": 12.29,
+      "lng": 76.63,
+      "type": "heritage",
+      "parent_hub": "Bangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 20,
+      "name": "Coorg",
+      "state": "Karnataka",
+      "lat": 12.42,
+      "lng": 75.73,
+      "type": "hill_station",
+      "parent_hub": "Mysore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 21,
+      "name": "Bangalore",
+      "state": "Karnataka",
+      "lat": 12.97,
+      "lng": 77.59,
+      "type": "metro",
+      "parent_hub": "Bangalore",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 22,
+      "name": "Gokarna",
+      "state": "Karnataka",
+      "lat": 14.54,
+      "lng": 74.31,
+      "type": "beach",
+      "parent_hub": "Hubli",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 23,
+      "name": "Chikmagalur",
+      "state": "Karnataka",
+      "lat": 13.31,
+      "lng": 75.77,
+      "type": "hill_station",
+      "parent_hub": "Mangalore",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 24,
+      "name": "Udupi",
+      "state": "Karnataka",
+      "lat": 13.34,
+      "lng": 74.74,
+      "type": "beach",
+      "parent_hub": "Mangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 25,
+      "name": "Badami",
+      "state": "Karnataka",
+      "lat": 15.91,
+      "lng": 75.67,
+      "type": "heritage",
+      "parent_hub": "Hubli",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 26,
+      "name": "Mangalore",
+      "state": "Karnataka",
+      "lat": 12.91,
+      "lng": 74.85,
+      "type": "metro",
+      "parent_hub": "Mangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 27,
+      "name": "Dandeli",
+      "state": "Karnataka",
+      "lat": 15.23,
+      "lng": 74.61,
+      "type": "wildlife",
+      "parent_hub": "Hubli",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 28,
+      "name": "Jog Falls",
+      "state": "Karnataka",
+      "lat": 14.22,
+      "lng": 74.81,
+      "type": "nature",
+      "parent_hub": "Hubli",
+      "best_months": [
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct"
+      ]
+    },
+    {
+      "city_id": 29,
+      "name": "Munnar",
+      "state": "Kerala",
+      "lat": 10.08,
+      "lng": 77.05,
+      "type": "hill_station",
+      "parent_hub": "Kochi",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 30,
+      "name": "Alleppey",
+      "state": "Kerala",
+      "lat": 9.49,
+      "lng": 76.33,
+      "type": "backwater",
+      "parent_hub": "Kochi",
+      "best_months": [
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 31,
+      "name": "Thekkady",
+      "state": "Kerala",
+      "lat": 9.6,
+      "lng": 77.16,
+      "type": "wildlife",
+      "parent_hub": "Madurai",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 32,
+      "name": "Wayanad",
+      "state": "Kerala",
+      "lat": 11.68,
+      "lng": 76.13,
+      "type": "hill_station",
+      "parent_hub": "Kozhikode",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 33,
+      "name": "Kochi",
+      "state": "Kerala",
+      "lat": 9.93,
+      "lng": 76.26,
+      "type": "metro",
+      "parent_hub": "Kochi",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 34,
+      "name": "Varkala",
+      "state": "Kerala",
+      "lat": 8.73,
+      "lng": 76.7,
+      "type": "beach",
+      "parent_hub": "Trivandrum",
+      "best_months": [
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 35,
+      "name": "Trivandrum",
+      "state": "Kerala",
+      "lat": 8.52,
+      "lng": 76.93,
+      "type": "metro",
+      "parent_hub": "Trivandrum",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 36,
+      "name": "Kovalam",
+      "state": "Kerala",
+      "lat": 8.4,
+      "lng": 76.97,
+      "type": "beach",
+      "parent_hub": "Trivandrum",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 37,
+      "name": "Kumarakom",
+      "state": "Kerala",
+      "lat": 9.59,
+      "lng": 76.42,
+      "type": "backwater",
+      "parent_hub": "Kochi",
+      "best_months": [
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 38,
+      "name": "Kozhikode",
+      "state": "Kerala",
+      "lat": 11.25,
+      "lng": 75.78,
+      "type": "city",
+      "parent_hub": "Kozhikode",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 39,
+      "name": "Hyderabad",
+      "state": "Telangana",
+      "lat": 17.38,
+      "lng": 78.48,
+      "type": "metro",
+      "parent_hub": "Hyderabad",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 40,
+      "name": "Warangal",
+      "state": "Telangana",
+      "lat": 17.96,
+      "lng": 79.59,
+      "type": "heritage",
+      "parent_hub": "Hyderabad",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 41,
+      "name": "Nagarjunasagar",
+      "state": "Telangana",
+      "lat": 16.58,
+      "lng": 79.31,
+      "type": "nature",
+      "parent_hub": "Hyderabad",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 42,
+      "name": "Visakhapatnam",
+      "state": "Andhra Pradesh",
+      "lat": 17.68,
+      "lng": 83.21,
+      "type": "beach",
+      "parent_hub": "Visakhapatnam",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 43,
+      "name": "Tirupati",
+      "state": "Andhra Pradesh",
+      "lat": 13.62,
+      "lng": 79.41,
+      "type": "pilgrimage",
+      "parent_hub": "Chennai",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 44,
+      "name": "Araku Valley",
+      "state": "Andhra Pradesh",
+      "lat": 18.33,
+      "lng": 82.86,
+      "type": "hill_station",
+      "parent_hub": "Visakhapatnam",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 45,
+      "name": "Vijayawada",
+      "state": "Andhra Pradesh",
+      "lat": 16.5,
+      "lng": 80.64,
+      "type": "city",
+      "parent_hub": "Vijayawada",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 46,
+      "name": "Gandikota",
+      "state": "Andhra Pradesh",
+      "lat": 14.81,
+      "lng": 78.28,
+      "type": "heritage",
+      "parent_hub": "Tirupati",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 47,
+      "name": "Lepakshi",
+      "state": "Andhra Pradesh",
+      "lat": 13.8,
+      "lng": 77.61,
+      "type": "heritage",
+      "parent_hub": "Bangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 48,
+      "name": "Pollachi",
+      "state": "Tamil Nadu",
+      "lat": 10.66,
+      "lng": 77.0,
+      "type": "nature",
+      "parent_hub": "Coimbatore",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 49,
+      "name": "Erode",
+      "state": "Tamil Nadu",
+      "lat": 11.34,
+      "lng": 77.71,
+      "type": "city",
+      "parent_hub": "Erode",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 50,
+      "name": "Kolli Hills",
+      "state": "Tamil Nadu",
+      "lat": 11.24,
+      "lng": 78.33,
+      "type": "hill_station",
+      "parent_hub": "Salem",
+      "best_months": [
+        "Feb",
+        "Mar",
+        "Apr",
+        "May"
+      ]
+    },
+    {
+      "city_id": 51,
+      "name": "Chidambaram",
+      "state": "Tamil Nadu",
+      "lat": 11.39,
+      "lng": 79.69,
+      "type": "heritage",
+      "parent_hub": "Chennai",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 52,
+      "name": "Nagapattinam",
+      "state": "Tamil Nadu",
+      "lat": 10.76,
+      "lng": 79.84,
+      "type": "beach",
+      "parent_hub": "Trichy",
+      "best_months": [
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 53,
+      "name": "Palani",
+      "state": "Tamil Nadu",
+      "lat": 10.45,
+      "lng": 77.51,
+      "type": "pilgrimage",
+      "parent_hub": "Madurai",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 54,
+      "name": "Dhanushkodi",
+      "state": "Tamil Nadu",
+      "lat": 9.14,
+      "lng": 79.44,
+      "type": "nature",
+      "parent_hub": "Madurai",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 55,
+      "name": "Tranquebar",
+      "state": "Tamil Nadu",
+      "lat": 11.03,
+      "lng": 79.85,
+      "type": "heritage",
+      "parent_hub": "Chennai",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 56,
+      "name": "Pichavaram",
+      "state": "Tamil Nadu",
+      "lat": 11.43,
+      "lng": 79.77,
+      "type": "nature",
+      "parent_hub": "Chennai",
+      "best_months": [
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 57,
+      "name": "Vagamon",
+      "state": "Kerala",
+      "lat": 9.68,
+      "lng": 76.9,
+      "type": "hill_station",
+      "parent_hub": "Kochi",
+      "best_months": [
+        "Dec",
+        "Jan",
+        "Feb",
+        "Mar"
+      ]
+    },
+    {
+      "city_id": 58,
+      "name": "Bekal",
+      "state": "Kerala",
+      "lat": 12.38,
+      "lng": 75.04,
+      "type": "beach",
+      "parent_hub": "Mangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 59,
+      "name": "Athirappilly",
+      "state": "Kerala",
+      "lat": 10.28,
+      "lng": 76.56,
+      "type": "nature",
+      "parent_hub": "Kochi",
+      "best_months": [
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep"
+      ]
+    },
+    {
+      "city_id": 60,
+      "name": "Guruvayur",
+      "state": "Kerala",
+      "lat": 10.59,
+      "lng": 76.04,
+      "type": "pilgrimage",
+      "parent_hub": "Kochi",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 61,
+      "name": "Idukki",
+      "state": "Kerala",
+      "lat": 9.84,
+      "lng": 76.97,
+      "type": "hill_station",
+      "parent_hub": "Kochi",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 62,
+      "name": "Silent Valley",
+      "state": "Kerala",
+      "lat": 11.13,
+      "lng": 76.43,
+      "type": "wildlife",
+      "parent_hub": "Coimbatore",
+      "best_months": [
+        "Dec",
+        "Jan",
+        "Feb",
+        "Mar"
+      ]
+    },
+    {
+      "city_id": 63,
+      "name": "Marari",
+      "state": "Kerala",
+      "lat": 9.6,
+      "lng": 76.29,
+      "type": "beach",
+      "parent_hub": "Kochi",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 64,
+      "name": "Poovar",
+      "state": "Kerala",
+      "lat": 8.31,
+      "lng": 77.06,
+      "type": "backwater",
+      "parent_hub": "Trivandrum",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 65,
+      "name": "Agumbe",
+      "state": "Karnataka",
+      "lat": 13.5,
+      "lng": 75.09,
+      "type": "nature",
+      "parent_hub": "Mangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 66,
+      "name": "Belur",
+      "state": "Karnataka",
+      "lat": 13.16,
+      "lng": 75.85,
+      "type": "heritage",
+      "parent_hub": "Bangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 67,
+      "name": "Halebidu",
+      "state": "Karnataka",
+      "lat": 13.21,
+      "lng": 75.99,
+      "type": "heritage",
+      "parent_hub": "Bangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 68,
+      "name": "Kabini",
+      "state": "Karnataka",
+      "lat": 11.91,
+      "lng": 76.32,
+      "type": "wildlife",
+      "parent_hub": "Mysore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 69,
+      "name": "Bandipur",
+      "state": "Karnataka",
+      "lat": 11.66,
+      "lng": 76.62,
+      "type": "wildlife",
+      "parent_hub": "Mysore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 70,
+      "name": "Murudeshwar",
+      "state": "Karnataka",
+      "lat": 14.09,
+      "lng": 74.48,
+      "type": "beach",
+      "parent_hub": "Mangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 71,
+      "name": "Bijapur",
+      "state": "Karnataka",
+      "lat": 16.83,
+      "lng": 75.71,
+      "type": "heritage",
+      "parent_hub": "Hubli",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 72,
+      "name": "Shravanabelagola",
+      "state": "Karnataka",
+      "lat": 12.85,
+      "lng": 76.48,
+      "type": "heritage",
+      "parent_hub": "Bangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 73,
+      "name": "Sringeri",
+      "state": "Karnataka",
+      "lat": 13.42,
+      "lng": 75.25,
+      "type": "pilgrimage",
+      "parent_hub": "Mangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 74,
+      "name": "Shivanasamudra",
+      "state": "Karnataka",
+      "lat": 12.3,
+      "lng": 77.16,
+      "type": "nature",
+      "parent_hub": "Bangalore",
+      "best_months": [
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct"
+      ]
+    },
+    {
+      "city_id": 75,
+      "name": "Kurnool",
+      "state": "Andhra Pradesh",
+      "lat": 15.82,
+      "lng": 78.03,
+      "type": "heritage",
+      "parent_hub": "Hyderabad",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 76,
+      "name": "Horsley Hills",
+      "state": "Andhra Pradesh",
+      "lat": 13.64,
+      "lng": 78.4,
+      "type": "hill_station",
+      "parent_hub": "Bangalore",
+      "best_months": [
+        "Dec",
+        "Jan",
+        "Feb",
+        "Mar"
+      ]
+    },
+    {
+      "city_id": 77,
+      "name": "Anantapur",
+      "state": "Andhra Pradesh",
+      "lat": 14.68,
+      "lng": 77.6,
+      "type": "heritage",
+      "parent_hub": "Bangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 78,
+      "name": "Srisailam",
+      "state": "Andhra Pradesh",
+      "lat": 16.07,
+      "lng": 78.86,
+      "type": "pilgrimage",
+      "parent_hub": "Hyderabad",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 79,
+      "name": "Nellore",
+      "state": "Andhra Pradesh",
+      "lat": 14.44,
+      "lng": 79.98,
+      "type": "city",
+      "parent_hub": "Chennai",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 80,
+      "name": "Bhadrachalam",
+      "state": "Telangana",
+      "lat": 17.66,
+      "lng": 80.88,
+      "type": "pilgrimage",
+      "parent_hub": "Hyderabad",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 81,
+      "name": "Khammam",
+      "state": "Telangana",
+      "lat": 17.24,
+      "lng": 80.14,
+      "type": "city",
+      "parent_hub": "Hyderabad",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 82,
+      "name": "Adilabad",
+      "state": "Telangana",
+      "lat": 19.66,
+      "lng": 78.53,
+      "type": "nature",
+      "parent_hub": "Hyderabad",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 83,
+      "name": "Nizamabad",
+      "state": "Telangana",
+      "lat": 18.67,
+      "lng": 78.09,
+      "type": "city",
+      "parent_hub": "Hyderabad",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 84,
+      "name": "Sirpur",
+      "state": "Telangana",
+      "lat": 19.48,
+      "lng": 79.5,
+      "type": "wildlife",
+      "parent_hub": "Hyderabad",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 85,
+      "name": "Kuntala Falls",
+      "state": "Telangana",
+      "lat": 19.33,
+      "lng": 78.41,
+      "type": "nature",
+      "parent_hub": "Hyderabad",
+      "best_months": [
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct"
+      ]
+    },
+    {
+      "city_id": 86,
+      "name": "Honnemaradu",
+      "state": "Karnataka",
+      "lat": 14.17,
+      "lng": 74.88,
+      "type": "backwater",
+      "parent_hub": "Hubli",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 87,
+      "name": "Karkala",
+      "state": "Karnataka",
+      "lat": 13.21,
+      "lng": 74.99,
+      "type": "heritage",
+      "parent_hub": "Mangalore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 88,
+      "name": "Kemmangundi",
+      "state": "Karnataka",
+      "lat": 13.54,
+      "lng": 75.75,
+      "type": "hill_station",
+      "parent_hub": "Bangalore",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 89,
+      "name": "Bylakuppe",
+      "state": "Karnataka",
+      "lat": 12.45,
+      "lng": 75.96,
+      "type": "heritage",
+      "parent_hub": "Mysore",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 90,
+      "name": "Bannerghatta",
+      "state": "Karnataka",
+      "lat": 12.8,
+      "lng": 77.57,
+      "type": "wildlife",
+      "parent_hub": "Bangalore",
+      "best_months": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 91,
+      "name": "Nilambur",
+      "state": "Kerala",
+      "lat": 11.27,
+      "lng": 76.22,
+      "type": "nature",
+      "parent_hub": "Kozhikode",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 92,
+      "name": "Wadakkanchery",
+      "state": "Kerala",
+      "lat": 10.66,
+      "lng": 76.24,
+      "type": "nature",
+      "parent_hub": "Kochi",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 93,
+      "name": "Ponmudi",
+      "state": "Kerala",
+      "lat": 8.75,
+      "lng": 77.11,
+      "type": "hill_station",
+      "parent_hub": "Trivandrum",
+      "best_months": [
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb"
+      ]
+    },
+    {
+      "city_id": 94,
+      "name": "Kalpetta",
+      "state": "Kerala",
+      "lat": 11.6,
+      "lng": 76.08,
+      "type": "hill_station",
+      "parent_hub": "Kozhikode",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 95,
+      "name": "Vagamon",
+      "state": "Kerala",
+      "lat": 9.68,
+      "lng": 76.9,
+      "type": "hill_station",
+      "parent_hub": "Kochi",
+      "best_months": [
+        "Dec",
+        "Jan",
+        "Feb",
+        "Mar"
+      ]
+    },
+    {
+      "city_id": 96,
+      "name": "Megamalai",
+      "state": "Tamil Nadu",
+      "lat": 22.46,
+      "lng": 78.43,
+      "type": "hill_station",
+      "parent_hub": "Chennai",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 97,
+      "name": "Coonoor",
+      "state": "Tamil Nadu",
+      "lat": 11.35,
+      "lng": 76.79,
+      "type": "hill_station",
+      "parent_hub": "Coimbatore",
+      "best_months": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "Oct"
+      ]
+    },
+    {
+      "city_id": 98,
+      "name": "Megamalai",
+      "state": "Tamil Nadu",
+      "lat": 11.43,
+      "lng": 79.77,
+      "type": "nature",
+      "parent_hub": "Chennai",
+      "best_months": [
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 99,
+      "name": "Kanyakumari",
+      "state": "Tamil Nadu",
+      "lat": 8.08,
+      "lng": 77.53,
+      "type": "beach,social,relaxation",
+      "parent_hub": "Trivandrum",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    },
+    {
+      "city_id": 100,
+      "name": "Vellore",
+      "state": "Tamil Nadu",
+      "lat": 12.91,
+      "lng": 79.13,
+      "type": "heritage",
+      "parent_hub": "Chennai",
+      "best_months": [
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan"
+      ]
+    }
+  ]
+}

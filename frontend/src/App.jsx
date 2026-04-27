@@ -1,0 +1,1104 @@
+import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
+import {
+  Plane, MapPin, Calendar, Wallet, Users, Utensils,
+  Sun, Send, CloudRain, Star, Hotel, Train, Trash2, ChevronRight,
+  ChevronDown, ChevronUp, Download, Map as MapIcon, Filter, Route, Search,
+  Info, Clock, Compass, Sparkles, CheckCircle, Menu, History, X
+} from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import './App.css';
+import L from 'leaflet';
+
+// Fix Leaflet icon issue
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+let DefaultIcon = L.icon({
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41]
+});
+L.Marker.prototype.options.icon = DefaultIcon;
+
+const API_BASE = "http://localhost:8000";
+
+function ChangeView({ center, zoom }) {
+  const map = useMap();
+  useEffect(() => {
+    if (center) {
+      map.flyTo(center, zoom, {
+        animate: true,
+        duration: 1.5
+      });
+      map.invalidateSize();
+    }
+  }, [center, zoom, map]);
+  return null;
+}
+
+// High-End Tab Navigation Component
+const TabNav = ({ activeTab, onTabChange }) => {
+  const tabs = ['For You', 'Itinerary', 'Transport', 'Stays & Restaurants'];
+  return (
+    <div className="sub-nav-bar">
+      {tabs.map(tab => (
+        <button
+          key={tab}
+          className={`sub-nav-tab ${activeTab === tab ? 'active' : ''}`}
+          onClick={() => onTabChange(tab)}
+        >
+          {tab}
+        </button>
+      ))}
+    </div>
+  );
+};
+
+const TransportTimeline = ({ transport, origin, destination, numPeople, totalCost }) => {
+  if (!transport) return null;
+  return (
+    <div className="transport-grid-dashboard">
+      <div className="tg-card main-ticket">
+        <div className="tg-header">
+          <Train size={24} color="var(--primary)" />
+          <div style={{ marginLeft: '12px' }}>
+            <div className="tg-name">{transport.train_name}</div>
+            <div className="tg-number">#{transport.train_number}</div>
+          </div>
+        </div>
+        <div className="tg-timeline">
+          <div className="tg-point">
+            <div className="tg-time">{transport.departure_time}</div>
+            <div className="tg-station">{transport.from_station || origin}</div>
+          </div>
+          <div className="tg-line">
+            <div className="tg-dur">{transport.duration_hours || "3.5"} Hrs</div>
+            <div className="line-bar"></div>
+          </div>
+          <div className="tg-point">
+            <div className="tg-time">{transport.arrival_time || "N/A"}</div>
+            <div className="tg-station">{transport.to_station || destination}</div>
+          </div>
+        </div>
+      </div>
+      <div className="tg-side-col">
+        <div className="tg-card class-info">
+          <div className="tg-label">Seat Class</div>
+          <div className="tg-value">{transport.class}</div>
+          <div className="tg-classes">Available: {(transport.available_classes || ['Sleeper']).join(', ')}</div>
+        </div>
+        <div className="tg-card price-info">
+          <div className="tg-label">Est. Cost for {numPeople}</div>
+          <div className="tg-value">₹{totalCost?.toLocaleString()}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const WeatherEngine = ({ itinerary, days, destination, month, liveWeather }) => {
+  const [expandedDate, setExpandedDate] = useState(null);
+
+  if (!itinerary || !itinerary.weather_data) return null;
+  const tempType = itinerary.weather_data.temperature_type || 'pleasant';
+  const isRainy = itinerary.weather_data.rainy || false;
+
+  const baseTemp = tempType === 'cool' ? 20 : (tempType === 'hot' ? 34 : 26);
+
+  const forecast = Array.from({ length: Math.min(days, 7) }, (_, i) => {
+    const d = new Date(`${month} 10, ${new Date().getFullYear()}`);
+    d.setDate(d.getDate() + i);
+    return {
+      dateObj: d,
+      displayDate: `${d.getDate()} ${month}`,
+      dayName: d.toLocaleDateString('en-US', { weekday: 'short' }),
+      temp: baseTemp + Math.floor(Math.random() * 4) - 2,
+      isRainy: isRainy
+    };
+  });
+
+  const generateHourly = (base) => {
+    return [
+      { time: '10 AM', temp: base - 2, rain: isRainy },
+      { time: '12 PM', temp: base + 1, rain: isRainy },
+      { time: '3 PM', temp: base + 3, rain: isRainy },
+      { time: '6 PM', temp: base, rain: false },
+      { time: '9 PM', temp: base - 3, rain: false }
+    ];
+  };
+
+  return (
+    <div className="weather-multi-day-container">
+      <div className="weather-multi-header">
+        <span>Upcoming Forecast</span>
+        <span className="dest-span">{destination}</span>
+      </div>
+      {liveWeather && (
+        <div style={{ fontSize: '0.8rem', color: '#fbbf24', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+          Live: {liveWeather.temp}°C, {liveWeather.condition}
+        </div>
+      )}
+      <div className="weather-days-row">
+        {forecast.map((day, idx) => (
+          <div
+            key={idx}
+            className={`weather-day-card ${expandedDate === idx ? 'active' : ''}`}
+            onClick={() => setExpandedDate(expandedDate === idx ? null : idx)}
+          >
+            <div className="day-name">{day.dayName}</div>
+            <div className="date-str">{day.displayDate}</div>
+            <div className="day-icon">{day.isRainy ? <CloudRain size={20} color="#0ea5e9" /> : <Sun size={20} color="#fbbf24" />}</div>
+            <div className="day-temp">{day.temp}°C</div>
+          </div>
+        ))}
+      </div>
+
+      <AnimatePresence>
+        {expandedDate !== null && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="weather-hourly-dropdown"
+          >
+            <div className="hourly-title">Hourly Forecast</div>
+            <div className="hourly-row">
+              {generateHourly(forecast[expandedDate].temp).map((h, i) => (
+                <div key={i} className="hourly-item">
+                  <div className="h-time">{h.time}</div>
+                  <div className="h-icon">{h.rain ? <CloudRain size={16} color="#0ea5e9" /> : <Sun size={16} color="#fbbf24" />}</div>
+                  <div className="h-temp">{h.temp}°</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// Nested Hub Selector Component
+const NestedHubSelector = ({ label, allCities, value, onChange, states, selectedState, onStateChange }) => {
+  const hubs = React.useMemo(() => {
+    const hubMap = {};
+    allCities.filter(city => city.state === selectedState).forEach(city => {
+      const parent = city.parent_hub || city.name;
+      if (!hubMap[parent]) hubMap[parent] = [];
+      if (city.name !== parent) {
+        hubMap[parent].push(city);
+      }
+    });
+    return hubMap;
+  }, [allCities, selectedState]);
+
+  const [expandedHub, setExpandedHub] = useState(null);
+
+  const toggleHub = (hub, e) => {
+    e.stopPropagation();
+    setExpandedHub(expandedHub === hub ? null : hub);
+  };
+
+  return (
+    <div className="input-group-hierarchy">
+      <label>{label}</label>
+      <div className="state-selectors">
+        {states.map(s => (
+          <label key={s} className="checkbox-label">
+            <input
+              type="radio"
+              name={`state-${label}`}
+              checked={selectedState === s}
+              onChange={() => onStateChange(s)}
+            />
+            <span>{s}</span>
+          </label>
+        ))}
+      </div>
+      <div className="nested-hub-container">
+        {Object.keys(hubs).map(hub => (
+          <div key={hub} className="hub-item-container">
+            <div className={`hub-main-row ${value === hub ? 'selected' : ''}`} onClick={() => onChange(hub)}>
+              <div className="hub-name">
+                <MapPin size={14} /> {hub}
+              </div>
+              {hubs[hub].length > 0 && (
+                <div className="hub-dropdown-icon" onClick={(e) => toggleHub(hub, e)}>
+                  {expandedHub === hub ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </div>
+              )}
+            </div>
+            {expandedHub === hub && hubs[hub].length > 0 && (
+              <div className="hub-sub-list">
+                {hubs[hub].map(sub => (
+                  <div
+                    key={sub.city_id}
+                    className={`sub-city-row ${value === sub.name ? 'selected' : ''}`}
+                    onClick={() => onChange(sub.name)}
+                  >
+                    {sub.name}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Media Card Component (Rule 2)
+const MediaCard = ({ item, type }) => {
+  const defaultImages = {
+    stay: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80',
+    food: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80'
+  };
+
+  return (
+    <motion.div
+      whileHover={{ y: -5 }}
+      className="media-card"
+    >
+      <div className="card-image" style={{ backgroundImage: `url(${item.image_url || defaultImages[type]})` }}>
+        <div className="card-rating"><Star size={12} fill="currentColor" /> {item.rating || '4.5'}</div>
+      </div>
+      <div className="card-content">
+        <h4 className="card-name">{item.name}</h4>
+        <p className="card-area"><MapPin size={12} /> {item.area}</p>
+        {type === 'stay' && <p className="card-price">₹{item.price_per_night?.toLocaleString()} / night</p>}
+        {type === 'food' && <p className="card-cuisine">{item.cuisine || 'Local Specialty'}</p>}
+      </div>
+    </motion.div>
+  );
+};
+
+// High-End Tabular Itinerary & Budget Component
+const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
+  if (!itinerary || itinerary.status === 'gathering') return null;
+
+  const renderContent = () => {
+    switch (activeSubTab) {
+      case 'Itinerary':
+        return (
+          <div className="itinerary-table-wrapper">
+            <table className="itinerary-main-table">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Morning Slot</th>
+                  <th>Afternoon Slot</th>
+                  <th>Evening Slot</th>
+                  <th>Meal & Stay</th>
+                </tr>
+              </thead>
+              <tbody>
+                {itinerary.itinerary_days.map((day, idx) => (
+                  <tr key={idx}>
+                    <td className="day-cell">{day.day}</td>
+                    <td className="slot-cell">
+                      <div className="slot-title">{day.morning}</div>
+                      <div className="slot-area">{day.area}</div>
+                    </td>
+                    <td className="slot-cell">
+                      <div className="slot-title">{day.afternoon}</div>
+                    </td>
+                    <td className="slot-cell">
+                      <div className="slot-title">{day.evening}</div>
+                    </td>
+                    <td className="stay-cell">
+                      <div className="meal-name"><Utensils size={12} /> {day.meal}</div>
+                      <div className="hotel-name"><Hotel size={12} /> {day.stay}</div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+      case 'Transport':
+        return <TransportTimeline transport={itinerary.selected_transport} origin={itinerary.origin} destination={itinerary.destination} numPeople={itinerary.travellers} totalCost={itinerary.costs.transport} />;
+      case 'Stays & Restaurants':
+        return (
+          <div className="media-grid">
+            {itinerary.media_cards?.stays.map((hotel, i) => (
+              <MediaCard key={`stay-${i}`} item={hotel} type="stay" />
+            ))}
+            {itinerary.media_cards?.restaurants.map((food, i) => (
+              <MediaCard key={`food-${i}`} item={food} type="food" />
+            ))}
+          </div>
+        );
+      default:
+        const rooms = Math.ceil(itinerary.travellers / itinerary.selected_hotel.max_people);
+        const foodEntrySum = itinerary.costs.food + itinerary.costs.activities;
+        const remaining = itinerary.kpi?.remaining;
+
+        return (
+          <div className="for-you-dashboard">
+            <div className="dashboard-table-header">
+              <div className="col-cat">Category</div>
+              <div className="col-det">Detailed Plan</div>
+              <div className="col-cost">Cost</div>
+            </div>
+
+            {/* Transport Card */}
+            <div className="dashboard-card-row">
+              <div className="col-cat">
+                <div className="cat-label"><Train size={16} /> Transport</div>
+              </div>
+              <div className="col-det">
+                <div className="det-title">Board {itinerary.selected_transport.train_name} from {itinerary.selected_transport.from_station} — {itinerary.selected_transport.class}</div>
+                <div className="det-sub">₹{itinerary.selected_transport.total_estimated_cost} x {itinerary.travellers} x 2 (Round Trip)</div>
+              </div>
+              <div className="col-cost">₹{itinerary.costs.transport.toLocaleString()}</div>
+            </div>
+
+            {/* Stay Card */}
+            <div className="dashboard-card-row">
+              <div className="col-cat">
+                <div className="cat-label"><Hotel size={16} /> Hotel ({itinerary.selected_hotel.rating}★)</div>
+              </div>
+              <div className="col-det">
+                <div className="det-title">{itinerary.selected_hotel.name} in {itinerary.selected_hotel.area} — {rooms} Rooms for {itinerary.travellers} People</div>
+                <div className="det-sub">₹{itinerary.selected_hotel.price_per_night} x {rooms} rooms x {itinerary.days} nights</div>
+              </div>
+              <div className="col-cost">₹{itinerary.costs.hotel.toLocaleString()}</div>
+            </div>
+
+            {/* Dining & Activity Card */}
+            <div className="dashboard-card-row">
+              <div className="col-cat">
+                <div className="cat-label"><Utensils size={16} /> Food & Activity</div>
+              </div>
+              <div className="col-det">
+                <div className="det-title">Meals at {itinerary.media_cards?.restaurants?.[0]?.name || "Local Eatery"} + Entry Fees</div>
+                <div className="det-sub">₹{foodEntrySum.toLocaleString()} combined estimate</div>
+              </div>
+              <div className="col-cost">₹{foodEntrySum.toLocaleString()}</div>
+            </div>
+
+            {/* KPI Footer */}
+            <div className="kpi-footer-bar">
+              <div className="kpi-total-section">
+                <span className="kpi-label">TOTAL<br />Estimated Cost</span>
+                <span className="kpi-value">₹{itinerary.kpi?.spent?.toLocaleString()}</span>
+              </div>
+              <div className="kpi-status-section">
+                <div className="status-label">STATUS</div>
+                <div className={`status-badge ${remaining >= 0 ? 'safe' : 'adjusted'}`}>
+                  {remaining >= 0 ? "Budget Safe ✅" : "Adjusted to Fit ⚠️"}
+                </div>
+                <div className="kpi-remaining">Remaining: ₹{remaining?.toLocaleString()}</div>
+              </div>
+            </div>
+          </div>
+        );
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="professional-itinerary-container"
+    >
+      <div className="itinerary-header">
+        <div className="header-top">
+          <span className="plan-badge">BEST TRAVEL PLAN</span>
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <h2 className="dest-title">Journey to {itinerary?.destination || "Destination"}</h2>
+          </div>
+        </div>
+        <TabNav activeTab={activeSubTab} onTabChange={setActiveSubTab} />
+      </div>
+
+      <div className="tab-content-area">
+        {renderContent()}
+      </div>
+
+      <div className="budget-summary-card">
+        <div className="card-label">BUDGET SUMMARY</div>
+        <div className="budget-grid">
+          <div className="budget-item">
+            <span className="label">Transport ({itinerary.selected_transport.class})</span>
+            <span className="value">₹{itinerary.costs.transport.toLocaleString()}</span>
+          </div>
+          <div className="budget-item">
+            <span className="label">Hotel ({itinerary.selected_hotel.rating}★)</span>
+            <span className="value">₹{itinerary.costs.hotel.toLocaleString()}</span>
+          </div>
+          <div className="budget-item">
+            <span className="label">Local Food</span>
+            <span className="value">₹{itinerary.costs.food.toLocaleString()}</span>
+          </div>
+          <div className="budget-item">
+            <span className="label">Activities</span>
+            <span className="value">₹{itinerary.costs.activities.toLocaleString()}</span>
+          </div>
+          <div className="budget-total">
+            <div className="total-row">
+              <span className="label">Total Estimated</span>
+              <span className="value">₹{itinerary.costs.total.toLocaleString()}</span>
+            </div>
+            <div className="remaining-row">
+              <span className="label">Remaining Budget</span>
+              <span className="value highlight">₹{(itinerary.budget - itinerary.costs.total).toLocaleString()}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="itinerary-footer">
+        <Info size={14} />
+        <span>Prices are estimated based on current market data and availability.</span>
+      </div>
+    </motion.div>
+  );
+};
+
+function App() {
+  const [activeTab, setActiveTab] = useState('Filters');
+  const [activeSubTab, setActiveSubTab] = useState('For You');
+  const [messages, setMessages] = useState([
+    { role: 'assistant', content: "Hi there! I'm your professional travel assistant. I can help you plan trips across Tamil Nadu, Kerala, Karnataka, Andhra Pradesh, and Telangana. Where would you like to go?" }
+  ]);
+  const [input, setInput] = useState("");
+  const [formData, setFormData] = useState({
+    from_state: '',
+    from_hub: '',
+    to_state: '',
+    destination: '',
+    travel_month_mode: 'Choose',
+    travel_month: 'Choose a month',
+    days: '0',
+    budget: 0,
+    trip_type: '',
+    travellers: 0,
+    food_preference: 'Both',
+    travel_mood: ''
+  });
+
+  const [moodData, setMoodData] = useState({ travel_moods: [], city_mood_mapping: {} });
+  const [hubs, setHubs] = useState([]);
+  const [destCities, setDestCities] = useState([]);
+  const [states] = useState(['Tamil Nadu', 'Kerala', 'Karnataka', 'Telangana', 'Andhra Pradesh']);
+  const [itinerary, setItinerary] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [accordions, setAccordions] = useState({ accommodation: true, food: false });
+  const scrollRef = useRef(null);
+
+  const [mapCenter, setMapCenter] = useState([15.335, 76.462]); // Default to Hampi instead of Vellore
+
+  const [allCities, setAllCities] = useState([]);
+
+  // App State additions for History and Weather
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarView, setSidebarView] = useState('filters'); // 'filters' or 'history'
+  const [sessions, setSessions] = useState([]);
+  const [sessionId, setSessionId] = useState(null);
+  const [liveWeather, setLiveWeather] = useState(null);
+
+  useEffect(() => {
+    document.title = "TravelPlanner";
+    setSessionId(`sess_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
+  }, []);
+
+  useEffect(() => {
+    if (itinerary && itinerary.destination) {
+      axios.get(`${API_BASE}/weather?city=${itinerary.destination}`)
+        .then(res => setLiveWeather(res.data))
+        .catch(err => console.error("Weather fetch failed", err));
+    }
+  }, [itinerary]);
+
+  const loadHistory = async () => {
+    try {
+      const res = await axios.get(`${API_BASE}/sessions`);
+      setSessions(res.data);
+    } catch (err) { console.error(err); }
+  };
+
+  const toggleSidebar = () => {
+    if (sidebarCollapsed) {
+      setSidebarCollapsed(false);
+    } else {
+      setSidebarCollapsed(true);
+    }
+  };
+
+  const handleOpenHistory = async () => {
+    setSidebarView('history');
+    setSidebarCollapsed(false);
+    await loadHistory();
+  };
+
+  const handleOpenFilters = () => {
+    setSidebarView('filters');
+    setSidebarCollapsed(false);
+  };
+
+  const loadSession = async (id) => {
+    try {
+      const res = await axios.get(`${API_BASE}/sessions/${id}`);
+      setSessionId(id);
+      setMessages(res.data.messages || []);
+      if (res.data.plan_metadata && res.data.plan_metadata.status === 'done') {
+        setItinerary(res.data.plan_metadata);
+        if (res.data.plan_metadata.location && res.data.plan_metadata.location.coords) {
+          setMapCenter([...res.data.plan_metadata.location.coords]);
+        }
+        // Full Context Handoff
+        setActiveTab('Itinerary');
+        setActiveSubTab('For You');
+
+        // Restore formData to prevent coordinate leakage/mismatch
+        setFormData(prev => ({
+          ...prev,
+          destination: res.data.plan_metadata.destination || prev.destination,
+          days: res.data.plan_metadata.days || prev.days,
+          budget: res.data.plan_metadata.budget || prev.budget,
+          travel_month: res.data.plan_metadata.travel_month || prev.travel_month,
+          travellers: res.data.plan_metadata.travellers || prev.travellers
+        }));
+      }
+    } catch (err) { console.error(err); }
+  };
+
+  const handleDeleteSession = async (e, id) => {
+    e.stopPropagation();
+    if (!window.confirm("Are you sure you want to delete this journey?")) return;
+    try {
+      await axios.delete(`${API_BASE}/sessions/${id}`);
+      setSessions(prev => prev.filter(s => s.session_id !== id));
+      if (sessionId === id) {
+        setItinerary(null);
+        setMessages([{ role: 'assistant', content: "Session deleted. How can I help you start a new journey?" }]);
+      }
+    } catch (err) { console.error("Deletion failed", err); }
+  };
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages]);
+
+  // Fetch all cities for Nested Hub Logic
+  useEffect(() => {
+    const fetchAllCities = async () => {
+      try {
+        const res = await axios.get(`${API_BASE}/cities`);
+        setAllCities(res.data);
+      } catch (err) { console.error(err); }
+    };
+    const fetchMoods = async () => {
+      try {
+        const res = await axios.get(`${API_BASE}/moods`);
+        setMoodData(res.data);
+      } catch (err) { console.error(err); }
+    };
+    fetchAllCities();
+    fetchMoods();
+    loadHistory(); // Boot-Load History
+  }, []);
+
+  const filteredDestCities = React.useMemo(() => {
+    if (!formData.travel_mood || !moodData?.city_mood_mapping) return allCities;
+    const allowedCityIds = Object.keys(moodData.city_mood_mapping).filter(id =>
+      moodData.city_mood_mapping[id].includes(formData.travel_mood)
+    ).map(Number);
+    return allCities.filter(c => allowedCityIds.includes(c.city_id));
+  }, [allCities, formData.travel_mood, moodData]);
+
+  const toggleAccordion = (key) => {
+    setAccordions(prev => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const processResponse = async (data, currentMsgs = []) => {
+    setItinerary(data);
+    if (data.location && data.location.coords) {
+      setMapCenter(data.map_config?.center || data.location?.coords);
+    }
+
+    // Clean text of [MAP_CONFIG]
+    let cleanText = data.final_response || "";
+    cleanText = cleanText.replace(/\[MAP_CONFIG\][\s\S]*?\[\/MAP_CONFIG\]/g, '');
+
+    const assistantMsg = {
+      role: 'assistant',
+      content: cleanText,
+      itinerary: data.status === 'done' ? data : null
+    };
+
+    const updatedMsgs = [...currentMsgs, assistantMsg];
+    setMessages(updatedMsgs);
+
+    // PERSISTENCE SYNC: Save every interaction to backend
+    try {
+      await axios.post(`${API_BASE}/sessions`, {
+        session_id: sessionId,
+        title: data.destination ? `Journey to ${data.destination}` : "New Journey",
+        messages: updatedMsgs,
+        plan_metadata: data
+      });
+      await loadHistory();
+    } catch (err) { console.error("Session save failed", err); }
+
+    if (data.status === 'done') {
+      setActiveSubTab('For You');
+      setFormData(prev => ({
+        ...prev,
+        destination: data.destination || prev.destination,
+        days: data.days || prev.days,
+        budget: data.budget || prev.budget,
+        travel_month: data.travel_month || prev.travel_month,
+        trip_type: data.trip_type || prev.trip_type,
+        travellers: data.travellers || prev.travellers
+      }));
+    }
+  };
+
+  const handlePlanTrip = async (e) => {
+    if (e) e.preventDefault();
+
+    // Travel Month UX Guardrails
+    if (formData.travel_month_mode === 'Choose' && (formData.travel_month === 'Choose a month' || !formData.travel_month)) {
+      setMessages(prev => [...prev, { role: 'assistant', content: "Please select a specific month or choose 'Suggest by AI' to proceed with your itinerary." }]);
+      return;
+    }
+
+    // Strict Relational Lock: Ensure required fields are filled
+    if (!formData.destination || !formData.from_hub) {
+      const missing = !formData.from_hub ? "Starting City" : "Destination";
+      setMessages(prev => [...prev, { role: 'assistant', content: `Please select a ${missing} to proceed with the itinerary.` }]);
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const monthParam = formData.travel_month_mode === 'Suggest by AI' ? 'Suggest by AI' : formData.travel_month;
+      const userQuery = `Plan a ${formData.days} day trip to ${formData.destination} from ${formData.from_hub} in ${monthParam}`;
+      
+      const msgsWithUser = [...messages, { role: 'user', content: userQuery }];
+      setMessages(msgsWithUser);
+
+      const res = await axios.post(`${API_BASE}/plan`, {
+        query: userQuery,
+        ...formData,
+        origin: formData.from_hub,
+        travel_month: monthParam
+      });
+      processResponse(res.data, msgsWithUser);
+    } catch (err) {
+      console.error(err);
+      setMessages(prev => [...prev, { role: 'assistant', content: "I encountered a data mismatch while planning this route. Let me try an alternative approach." }]);
+    }
+    setLoading(false);
+  };
+
+  const handleChatSubmit = async (e) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+
+    const userMsg = input;
+    const newUserMessage = { role: 'user', content: userMsg };
+    const msgsWithUser = [...messages, newUserMessage];
+    setMessages(msgsWithUser);
+
+    setInput("");
+    setLoading(true);
+
+    try {
+      const res = await axios.post(`${API_BASE}/plan`, {
+        query: userMsg,
+        ...formData
+      });
+      processResponse(res.data, msgsWithUser);
+    } catch (err) {
+      console.error(err);
+      setMessages(prev => [...prev, { role: 'assistant', content: "I encountered a data mismatch while planning this route. Let me try an alternative approach." }]);
+    }
+    setLoading(false);
+  };
+
+  const weatherBgs = {
+    'Vellore': 'https://images.unsplash.com/photo-1590050752117-23a9d7fc2440?auto=format&fit=crop&w=800&q=80',
+    'Ooty': 'https://images.unsplash.com/photo-1542401886-65d6c60db275?auto=format&fit=crop&w=800&q=80',
+    'Munnar': 'https://images.unsplash.com/photo-1593693397690-362af9666fc2?auto=format&fit=crop&w=800&q=80',
+    'Kodaikanal': 'https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=800&q=80',
+    'Hampi': 'https://images.unsplash.com/photo-1590407767664-9a4d80500742?auto=format&fit=crop&w=800&q=80',
+    'Vizag': 'https://images.unsplash.com/photo-1594918731735-86675037d2f9?auto=format&fit=crop&w=800&q=80',
+    'Pondicherry': 'https://images.unsplash.com/photo-1582512165192-36c589004051?auto=format&fit=crop&w=800&q=80',
+    'Hyderabad': 'https://images.unsplash.com/photo-1605335834927-463289069d3e?auto=format&fit=crop&w=800&q=80'
+  };
+
+  return (
+    <div className={`app-container ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
+      {/* Column 1: Sidebar */}
+      <aside className="sidebar">
+        <div className="logo" style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+          {sidebarCollapsed ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center', width: '100%', padding: '1rem 0' }}>
+              <Menu className="logo-icon" size={28} style={{ cursor: 'pointer', marginBottom: '2rem' }} onClick={toggleSidebar} />
+              <Filter size={24} style={{ cursor: 'pointer', color: sidebarView === 'filters' ? 'var(--primary)' : 'var(--text-muted)' }} onClick={handleOpenFilters} />
+              <History size={24} style={{ cursor: 'pointer', color: sidebarView === 'history' ? 'var(--primary)' : 'var(--text-muted)' }} onClick={handleOpenHistory} />
+            </div>
+          ) : (
+            <>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <MapPin className="logo-icon" size={32} />
+                <span>Travel<span style={{ color: 'var(--primary)' }}>Planner</span></span>
+              </div>
+              <Menu size={24} style={{ cursor: 'pointer', color: 'var(--text-muted)' }} onClick={toggleSidebar} />
+            </>
+          )}
+        </div>
+
+        {!sidebarCollapsed && (
+          <div className="tabs">
+            <button className={`tab ${sidebarView === 'filters' ? 'active' : ''}`} onClick={handleOpenFilters}>
+              <Filter size={16} /> Filters
+            </button>
+            <button className={`tab ${sidebarView === 'history' ? 'active' : ''}`} onClick={handleOpenHistory}>
+              <History size={16} /> Chat logs
+            </button>
+          </div>
+        )}
+
+        {!sidebarCollapsed && (
+          <div className="sidebar-scrollable">
+            {sidebarView === 'filters' ? (
+              <div className="sidebar-content">
+                <div className="input-group">
+                  <label>SEARCH DESTINATION</label>
+                  <div className="search-input-wrapper">
+                    <Search size={18} className="search-icon" />
+                    <input placeholder="Enter your destination..." value={formData.destination} name="destination" onChange={handleInputChange} />
+                  </div>
+                </div>
+
+                <div className="accordion">
+                  <div className="accordion-header" onClick={() => toggleAccordion('accommodation')}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Hotel size={18} color="#6366f1" /> Accommodation</span>
+                    {accordions.accommodation ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                  </div>
+                  {accordions.accommodation && (
+                    <div className="accordion-content">
+                      <div className="input-group">
+                        <label>TRIP STYLE</label>
+                        <select name="trip_type" value={formData.trip_type} onChange={handleInputChange}>
+                          <option value="solo">Solo Adventure</option>
+                          <option value="couple">Romantic Couple</option>
+                          <option value="family">Family Gathering</option>
+                          <option value="friends">Friends Group</option>
+                        </select>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="accordion">
+                  <div className="accordion-header" onClick={() => toggleAccordion('food')}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Utensils size={18} color="#f43f5e" /> Food & Drink</span>
+                    {accordions.food ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                  </div>
+                  {accordions.food && (
+                    <div className="accordion-content">
+                      <div className="chip-group">
+                        {['Veg', 'Non-Veg', 'Both'].map(pref => (
+                          <button
+                            key={pref}
+                            className={`chip ${formData.food_preference === pref ? 'active' : ''}`}
+                            onClick={() => setFormData(prev => ({ ...prev, food_preference: pref }))}
+                          >
+                            {pref}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <NestedHubSelector
+                  label="DEPARTING FROM"
+                  allCities={allCities}
+                  value={formData.from_hub}
+                  onChange={(val) => setFormData(prev => ({ ...prev, from_hub: val }))}
+                  states={states}
+                  selectedState={formData.from_state}
+                  onStateChange={(s) => setFormData(prev => ({ ...prev, from_state: s }))}
+                />
+
+                <div className="input-group">
+                  <label>TRAVEL MOOD (OPTIONAL)</label>
+                  <select name="travel_mood" value={formData.travel_mood} onChange={handleInputChange}>
+                    <option value="">Choose a mood</option>
+                    {moodData.travel_moods.map(m => (
+                      <option key={m.mood_id} value={m.mood_id}>{m.name}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <NestedHubSelector
+                  label="SELECT DESTINATION"
+                  allCities={filteredDestCities}
+                  value={formData.destination}
+                  onChange={(val) => setFormData(prev => ({ ...prev, destination: val }))}
+                  states={states}
+                  selectedState={formData.to_state}
+                  onStateChange={(s) => setFormData(prev => ({ ...prev, to_state: s }))}
+                />
+
+                <div className="input-group">
+                  <label>TRAVEL MONTH</label>
+                  <select name="travel_month_mode" value={formData.travel_month_mode} onChange={handleInputChange}>
+                    <option value="Choose">Choose Month</option>
+                    <option value="Suggest by AI">Suggest by AI</option>
+                  </select>
+                  {formData.travel_month_mode === 'Choose' && (
+                    <select name="travel_month" value={formData.travel_month} onChange={handleInputChange} style={{ marginTop: '8px' }}>
+                      <option disabled value="Choose a month">Choose a month</option>
+                      {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map(m => (
+                        <option key={m} value={m}>{m}</option>
+                      ))}
+                    </select>
+                  )}
+                </div>
+
+                <div className="input-row-split">
+                  <div className="input-group">
+                    <label>DAYS</label>
+                    <input type="number" name="days" value={formData.days} onChange={handleInputChange} min="1" />
+                  </div>
+                  <div className="input-group">
+                    <label>PEOPLE</label>
+                    <input type="number" name="travellers" value={formData.travellers} onChange={handleInputChange} min="1" />
+                  </div>
+                </div>
+
+                <div className="input-group">
+                  <label>TOTAL BUDGET (₹ {formData.budget.toLocaleString()})</label>
+                  <input type="range" name="budget" min="5000" max="100000" step="1000" value={formData.budget} onChange={handleInputChange} />
+                </div>
+
+                {itinerary && itinerary.kpi && (
+                  <div className="kpi-dashboard">
+                    <div className="kpi-card">
+                      <div className="kpi-label">TOTAL</div>
+                      <div className="kpi-value">₹{itinerary.kpi.total_budget.toLocaleString()}</div>
+                    </div>
+                    <div className="kpi-card">
+                      <div className="kpi-label">SPENT</div>
+                      <div className="kpi-value highlight">₹{itinerary.kpi.spent.toLocaleString()}</div>
+                    </div>
+                    <div className="kpi-card">
+                      <div className="kpi-label">REMAINING</div>
+                      <div className={`kpi-value ${itinerary.kpi.remaining >= 0 ? 'positive' : 'negative'}`}>
+                        ₹{itinerary.kpi.remaining.toLocaleString()}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : sidebarView === 'history' ? (
+              <div className="sidebar-content history-list">
+                <h4 style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '1rem' }}>Previous Trips</h4>
+                {sessions.length === 0 && <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>No previous trips found.</div>}
+                {sessions.map(s => (
+                  <div key={s.session_id} className="history-item" onClick={() => loadSession(s.session_id)} style={{ position: 'relative' }}>
+                    <div className="history-content">
+                      <div className="history-title">{s.title}</div>
+                      <div className="history-date">
+                        {new Date(s.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}, {new Date(s.created_at).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })}
+                      </div>
+                    </div>
+                    <button 
+                      className="delete-history-btn" 
+                      onClick={(e) => handleDeleteSession(e, s.session_id)}
+                      title="Delete Journey"
+                    >
+                      <Trash2 size={16} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+          </div>
+        )}
+
+        {!sidebarCollapsed && sidebarView === 'filters' && (
+          <div className="sidebar-actions">
+            <button className="btn-secondary" onClick={() => window.print()}>
+              <Download size={18} /> Download PDF
+            </button>
+            <button className="btn-primary" onClick={handlePlanTrip} disabled={loading}>
+              {loading ? 'Optimizing Itinerary...' : 'Generate Itinerary'}
+            </button>
+          </div>
+        )}
+      </aside>
+
+      {/* Column 2: Chat & Results - REDESIGNED */}
+      <main className="chat-column">
+        <header className="chat-header-bar">
+          <div className="destination-title">
+            {itinerary?.destination ? `Planning for ${itinerary.destination}` : "Travel Assistant"}
+          </div>
+        </header>
+
+        <div className="chat-body" ref={scrollRef}>
+          <div className="message-list">
+            {messages.map((m, i) => (
+              <div key={i}>
+                <motion.div
+                  initial={{ opacity: 0, x: m.role === 'user' ? 20 : -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className={`chat-bubble-container ${m.role === 'user' ? 'user' : 'assistant'}`}
+                >
+                  <div className={`chat-bubble ${m.role === 'user' ? 'user' : 'assistant'}`}>
+                    <div className="bubble-text">{m.content}</div>
+                  </div>
+                </motion.div>
+                {m.itinerary && m.itinerary.status === 'done' && (
+                  <ItineraryTable
+                    itinerary={m.itinerary}
+                    activeSubTab={activeSubTab}
+                    setActiveSubTab={setActiveSubTab}
+                  />
+                )}
+              </div>
+            ))}
+            {loading && (
+              <div className="chat-bubble assistant">
+                <motion.div
+                  animate={{ opacity: [0.4, 1, 0.4] }}
+                  transition={{ repeat: Infinity, duration: 1.5 }}
+                >
+                  Analyzing travel data and local attractions...
+                </motion.div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="chat-footer">
+          <form className="chat-input-form" onSubmit={handleChatSubmit}>
+            <input placeholder="Type your travel request here..." value={input} onChange={(e) => setInput(e.target.value)} />
+            <button type="submit" disabled={loading}><Send size={24} /></button>
+          </form>
+        </div>
+      </main>
+
+      {/* Column 3: Live Map */}
+      <section className="map-view-column">
+        <div className="map-wrapper">
+          <MapContainer center={mapCenter} zoom={13} style={{ height: '100%', width: '100%' }}>
+            <TileLayer
+              url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+            />
+            <ChangeView center={mapCenter} zoom={13} />
+            {itinerary && itinerary.map_config && itinerary.map_config.markers && itinerary.map_config.markers.map((marker, i) => (
+              <Marker key={`marker-${i}`} position={marker.coords}>
+                <Popup>
+                  <div className="popup-box">
+                    <div className="popup-name" style={{ fontWeight: 'bold' }}>{marker.name}</div>
+                    <div className="popup-area" style={{ fontSize: '0.8rem', color: 'gray' }}>{marker.area}</div>
+                  </div>
+                </Popup>
+              </Marker>
+            ))}
+
+          </MapContainer>
+        </div>
+
+        {itinerary && itinerary.weather_data ? (
+          <WeatherEngine
+            itinerary={itinerary}
+            days={formData.days}
+            destination={formData.destination}
+            month={formData.travel_month_mode === 'Suggest by AI' ? itinerary.travel_month || 'Jan' : formData.travel_month}
+            liveWeather={liveWeather}
+          />
+        ) : (
+          <div className="weather-overlay-card">
+            <div className="weather-bg-image" style={{ backgroundImage: `url(${weatherBgs[formData.destination] || weatherBgs['Ooty']})` }}></div>
+            <div className="weather-info-box">
+              <div className="weather-label">LIVE SENSOR DATA</div>
+              <div className="weather-degrees">{itinerary?.weather_data?.avg_temp || '24'}°C</div>
+              <div className="weather-meta">
+                <Sun size={24} /> <span>{itinerary?.weather_data?.condition || 'Clear Sky'}</span>
+                <span className="sep">|</span>
+                <MapPin size={20} /> {formData.destination}
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+
+      {/* Hidden Print Structure */}
+      {itinerary && itinerary.status === 'done' && (
+        <div className="printable-pdf-content">
+          <h1>{itinerary.destination} Adventure</h1>
+          <p><strong>Date Generated:</strong> {new Date().toLocaleDateString()}</p>
+          <p><strong>Travel Mood:</strong> {formData.travel_mood ? moodData.travel_moods.find(m => m.mood_id === formData.travel_mood)?.name || formData.travel_mood : 'General'}</p>
+
+          <h2>Logistics</h2>
+          <table className="print-table">
+            <thead>
+              <tr><th>Type</th><th>Details</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Transport</strong></td>
+                <td>{itinerary.selected_transport.train_name} ({itinerary.selected_transport.train_number}) - Class: {itinerary.selected_transport.class} | Timing: {itinerary.selected_transport.departure_time} to {itinerary.selected_transport.arrival_time}</td>
+              </tr>
+              <tr>
+                <td><strong>Accommodation</strong></td>
+                <td>{itinerary.selected_hotel.name} ({itinerary.selected_hotel.rating}★) - {itinerary.selected_hotel.area} | Rooms: {Math.ceil(itinerary.travellers / itinerary.selected_hotel.max_people)}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Itinerary</h2>
+          <table className="print-table">
+            <thead>
+              <tr><th>Day</th><th>Morning</th><th>Afternoon</th><th>Evening</th><th>Meals & Stay</th></tr>
+            </thead>
+            <tbody>
+              {itinerary.itinerary_days.map((d, i) => (
+                <tr key={i}>
+                  <td>{d.day}</td>
+                  <td>{d.morning}</td>
+                  <td>{d.afternoon}</td>
+                  <td>{d.evening}</td>
+                  <td>{d.meal}<br />{d.stay}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <h2>Budget Summary</h2>
+          <table className="print-table" style={{ width: '50%' }}>
+            <tbody>
+              <tr><td><strong>Total Budget</strong></td><td>₹{itinerary.budget.toLocaleString()}</td></tr>
+              <tr><td><strong>Total Estimated Spent</strong></td><td>₹{itinerary.costs.total.toLocaleString()}</td></tr>
+              <tr><td><strong>Remaining</strong></td><td>₹{(itinerary.budget - itinerary.costs.total).toLocaleString()}</td></tr>
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;

@@ -1,0 +1,320 @@
+import streamlit as st
+import requests
+import json
+from datetime import datetime
+import os
+
+# --- PAGE CONFIG ---
+st.set_page_config(page_title="TravelPlanner AI", layout="wide", page_icon="✈️")
+
+# --- CUSTOM CSS ---
+st.markdown("""
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif;
+    }
+
+    .main {
+        background-color: #f8f9fa;
+    }
+
+    /* Sidebar Styling */
+    [data-testid="stSidebar"] {
+        background-color: #ffffff;
+        border-right: 1px solid #eee;
+        padding-top: 2rem;
+    }
+
+    .sidebar-logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1a73e8;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Card Styling */
+    .travel-card {
+        background: white;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        margin-bottom: 24px;
+        border: 1px solid #f0f0f0;
+    }
+
+    .header-card {
+        background: linear-gradient(135deg, #1a73e8 0%, #174ea6 100%);
+        color: white;
+        border-radius: 16px;
+        padding: 40px;
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .header-image {
+        position: absolute;
+        right: -50px;
+        top: -20px;
+        opacity: 0.2;
+        width: 300px;
+    }
+
+    .stat-card {
+        background: #f1f3f4;
+        border-radius: 12px;
+        padding: 16px;
+        text-align: center;
+    }
+
+    .stat-value {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #202124;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+        color: #5f6368;
+    }
+
+    /* Timeline Styling */
+    .timeline-item {
+        border-left: 2px solid #1a73e8;
+        padding-left: 20px;
+        margin-left: 10px;
+        padding-bottom: 30px;
+        position: relative;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -9px;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #1a73e8;
+        border: 3px solid white;
+    }
+
+    .budget-pill {
+        background: #e8f0fe;
+        color: #1a73e8;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    .btn-generate {
+        background: #1a73e8 !important;
+        color: white !important;
+        width: 100%;
+        border-radius: 8px !important;
+        padding: 12px !important;
+        font-weight: 600 !important;
+        border: none !important;
+    }
+
+    /* Chat Styling */
+    .chat-bubble {
+        padding: 12px 16px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        max-width: 80%;
+    }
+
+    .bot-bubble {
+        background: #f1f3f4;
+        color: #202124;
+        align-self: flex-start;
+    }
+
+    .user-bubble {
+        background: #1a73e8;
+        color: white;
+        align-self: flex-end;
+        margin-left: auto;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# --- SIDEBAR INPUTS ---
+with st.sidebar:
+    st.markdown('<div class="sidebar-logo">✈️ TravelPlanner AI</div>', unsafe_allow_html=True)
+    
+    st.markdown("### 🗺️ Plan Your Trip")
+    from_city = st.selectbox("From City", ["Chennai", "Bangalore", "Mumbai", "Delhi", "Coimbatore"])
+    destination = st.selectbox("Destination", ["Ooty", "Munnar", "Kodaikanal", "Pondicherry", "Mysore"])
+    
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    travel_month = st.selectbox("Travel Month", months)
+    
+    days = st.slider("Duration (Days)", 1, 10, 3)
+    budget = st.slider("Budget (₹)", 5000, 100000, 20000, step=1000)
+    
+    trip_type = st.selectbox("Trip Type", ["Solo", "Couple", "Family", "Group"])
+    travellers = st.number_input("Number of Travellers", min_value=1, value=1)
+    
+    food_pref = st.selectbox("Food Preference", ["Veg", "Non-Veg", "Local Special"])
+    weather_pref = st.selectbox("Weather Preference", ["Cool", "Pleasant", "Any"])
+
+    if st.button("✨ GENERATE ITINERARY", use_container_width=True):
+        st.session_state['generate_triggered'] = True
+
+# --- MAIN CONTENT ---
+st.markdown("## 👋 Hello! Let's plan your dream trip.")
+
+# Chat History
+if 'messages' not in st.session_state:
+    st.session_state.messages = []
+
+# Display Chat
+for msg in st.session_state.messages:
+    div_class = "user-bubble" if msg["role"] == "user" else "bot-bubble"
+    st.markdown(f'<div class="chat-bubble {div_class}">{msg["content"]}</div>', unsafe_allow_html=True)
+
+# API Call
+if st.session_state.get('generate_triggered'):
+    with st.spinner("Our AI is crafting your perfect plan..."):
+        payload = {
+            "query": f"Plan a {days} day trip to {destination} under ₹{budget}",
+            "origin": from_city,
+            "destination": destination,
+            "travel_month": travel_month,
+            "days": days,
+            "budget": budget,
+            "trip_type": trip_type.lower(),
+            "travellers": travellers,
+            "food_preference": food_pref,
+            "weather_preference": weather_pref
+        }
+        
+        try:
+            response = requests.post("http://localhost:8000/plan", json=payload)
+            if response.status_code == 200:
+                result = response.json()
+                st.session_state['plan_result'] = result
+                st.session_state.messages.append({"role": "bot", "content": result['final_response']})
+            else:
+                st.error("Error connecting to the planning agent.")
+        except Exception as e:
+            st.error(f"Failed to connect to backend: {e}")
+            
+    st.session_state['generate_triggered'] = False
+
+# Display Plan Results
+if 'plan_result' in st.session_state:
+    res = st.session_state['plan_result']
+    
+    # 1. Header Card
+    weather_info = res.get('weather_data', {})
+    st.markdown(f"""
+    <div class="header-card">
+        <h1 style='margin:0'>Detailed Plan: {destination}</h1>
+        <p style='font-size:1.2rem; opacity:0.9'>A {days}-day getaway from {from_city} | {travel_month}</p>
+        <div style='display:flex; gap:20px; margin-top:20px'>
+            <div class="stat-card" style='background: rgba(255,255,255,0.1); color:white'>
+                <div style='font-size:0.8rem; opacity:0.8'>Weather</div>
+                <div style='font-size:1.1rem; font-weight:700'>{weather_info.get('condition', 'Pleasant')}</div>
+            </div>
+            <div class="stat-card" style='background: rgba(255,255,255,0.1); color:white'>
+                <div style='font-size:0.8rem; opacity:0.8'>Temperature</div>
+                <div style='font-size:1.1rem; font-weight:700'>{weather_info.get('avg_temp', '--')}°C</div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    col1, col2 = st.columns([2, 1])
+
+    with col1:
+        st.markdown("### 📅 Trip Timeline")
+        
+        # Transport Outbound
+        trans = res.get('selected_transport', {})
+        st.markdown(f"""
+        <div class="timeline-item">
+            <div style='font-weight:700; color:#1a73e8'>Departure</div>
+            <div class="travel-card">
+                <b>🚆 {trans.get('train_name', 'Transport')}</b> ({trans.get('train_number', 'N/A')})<br>
+                <span style='color:#5f6368'>From: {from_city} • Price: ₹{trans.get('total_estimated_cost', 0)}</span>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Daily Itinerary
+        for day in res.get('itinerary_days', []):
+            activities_html = ""
+            for act in day['activities']:
+                activities_html += f"• {act['name']} ({act.get('type', 'General')})<br>"
+            
+            st.markdown(f"""
+            <div class="timeline-item">
+                <div style='font-weight:700'>Day {day['day']} - {day['area']}</div>
+                <div class="travel-card">
+                    {activities_html}
+                    <hr style='margin:10px 0'>
+                    <span style='color:#5f6368'>🍴 Meal Suggestion: {res['food_recommendations'][day['day'] % 3]['name']}</span>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+    with col2:
+        # Budget Summary Card
+        costs = res.get('costs', {})
+        total_spent = costs.get('total', 0)
+        remaining = budget - total_spent
+        rem_color = "#34a853" if remaining >= 0 else "#ea4335"
+
+        st.markdown(f"""
+        <div class="travel-card">
+            <h3>💰 Budget Summary</h3>
+            <div style='display:flex; justify-content:space-between; margin-bottom:8px'>
+                <span>Hotel</span> <b>₹{costs.get('hotel', 0)}</b>
+            </div>
+            <div style='display:flex; justify-content:space-between; margin-bottom:8px'>
+                <span>Transport</span> <b>₹{costs.get('transport', 0)}</b>
+            </div>
+            <div style='display:flex; justify-content:space-between; margin-bottom:8px'>
+                <span>Food</span> <b>₹{costs.get('food', 0)}</b>
+            </div>
+            <div style='display:flex; justify-content:space-between; margin-bottom:15px'>
+                <span>Activities</span> <b>₹{costs.get('activities', 0)}</b>
+            </div>
+            <hr>
+            <div style='display:flex; justify-content:space-between; margin-top:15px'>
+                <span style='font-weight:700'>Total Spent</span> <b style='color:#1a73e8; font-size:1.2rem'>₹{total_spent}</b>
+            </div>
+            <div style='display:flex; justify-content:space-between; margin-top:5px'>
+                <span style='font-weight:700'>Remaining</span> <b style='color:{rem_color}; font-size:1.2rem'>₹{remaining}</b>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Hotel Card
+        hotel = res.get('selected_hotel', {})
+        if hotel:
+            st.markdown(f"""
+            <div class="travel-card">
+                <h3>🏨 Selected Hotel</h3>
+                <div style='font-weight:700; font-size:1.1rem'>{hotel.get('name', 'N/A')}</div>
+                <div style='color:#566368; font-size:0.9rem'>⭐ {hotel.get('rating', '4.0')} Ratings • {hotel.get('area', 'Main City')}</div>
+                <div style='margin-top:10px'>
+                    <span class="budget-pill">₹{hotel.get('price_per_night', 0)} / Night</span>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+# Chat input at bottom
+if prompt := st.chat_input("Type your travel question here..."):
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    st.session_state['generate_triggered'] = True
+    st.rerun()

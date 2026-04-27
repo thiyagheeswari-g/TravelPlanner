@@ -1,0 +1,1204 @@
+{
+  "weather": [
+    {
+      "city_id": 1,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 1,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 2,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 2,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 3,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 3,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 4,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 4,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 5,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 5,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 6,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 6,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 7,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 7,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 8,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 8,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 9,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 9,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 10,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 10,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 11,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 11,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 12,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 12,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 13,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 13,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 14,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 14,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 15,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 15,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 16,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 16,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 17,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 17,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 18,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 18,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 19,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 19,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 20,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 20,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 21,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 21,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 22,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 22,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 23,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 23,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 24,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 24,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 25,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 25,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 26,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 26,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 27,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 27,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 28,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 28,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 29,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 29,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 30,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 30,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 31,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 31,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 32,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 32,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 33,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 33,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 34,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 34,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 35,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 35,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 36,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 36,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 37,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 37,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 38,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 38,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 39,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 39,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 40,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 40,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 41,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 41,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 42,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 42,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 43,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 43,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 44,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 44,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 45,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 45,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 46,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 46,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 47,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 47,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 48,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 48,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 49,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 49,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 50,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 50,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 51,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 51,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 52,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 52,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 53,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 53,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 54,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 54,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 55,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 55,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 56,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 56,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 57,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 57,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 58,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 58,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 59,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 59,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 60,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 60,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 61,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 61,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 62,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 62,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 63,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 63,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 64,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 64,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 65,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 65,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 66,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 66,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 67,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 67,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 68,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 68,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 69,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 69,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 70,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 70,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 71,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 71,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 72,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 72,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 73,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 73,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 74,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 74,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 75,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 75,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 76,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 76,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 77,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 77,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 78,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 78,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 79,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 79,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 80,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 80,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 81,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 81,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 82,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 82,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 83,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 83,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 84,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 84,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 85,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 85,
+      "month": "May",
+      "temperature_type": "hot",
+      "rainy": false
+    },
+    {
+      "city_id": 86,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 86,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 87,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 87,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 88,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 88,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 89,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 89,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 90,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 90,
+      "month": "Aug",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 91,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 91,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 92,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 92,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 93,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 93,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 94,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 94,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 95,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 95,
+      "month": "Jul",
+      "temperature_type": "cool",
+      "rainy": true
+    },
+    {
+      "city_id": 96,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 96,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 97,
+      "month": "Jan",
+      "temperature_type": "cool",
+      "rainy": false
+    },
+    {
+      "city_id": 97,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 98,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 98,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 99,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 99,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    },
+    {
+      "city_id": 100,
+      "month": "Jan",
+      "temperature_type": "pleasant",
+      "rainy": false
+    },
+    {
+      "city_id": 100,
+      "month": "Nov",
+      "temperature_type": "pleasant",
+      "rainy": true
+    }
+  ]
+}

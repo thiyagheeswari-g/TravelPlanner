@@ -1,0 +1,41 @@
+# Logs
+logs
+*.log
+*.pyc
+*.pyo
+*.pyd
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Python
+__pycache__/
+.env
+.venv
+venv/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Ensure these are tracked!
+!*.json
+!**/*.json
+!travel_planner.db
+!dataset/
+!dataset/*.json

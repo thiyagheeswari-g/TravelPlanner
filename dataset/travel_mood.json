@@ -1,0 +1,495 @@
+{
+  "travel_moods": [
+    {
+      "mood_id": "adventure",
+      "name": "Adventure Mood",
+      "theme": "Adrenaline/Thrill",
+      "associated_city_types": [
+        "hill_station",
+        "wildlife",
+        "nature"
+      ]
+    },
+    {
+      "mood_id": "nature",
+      "name": "Nature Mood",
+      "theme": "Awe/Serenity",
+      "associated_city_types": [
+        "nature",
+        "hill_station",
+        "backwater",
+        "wildlife"
+      ]
+    },
+    {
+      "mood_id": "cultural",
+      "name": "Cultural/Exploration Mood",
+      "theme": "Curiosity/Wonder",
+      "associated_city_types": [
+        "heritage",
+        "pilgrimage",
+        "city"
+      ]
+    },
+    {
+      "mood_id": "relaxation",
+      "name": "Relaxation Mood",
+      "theme": "Unwinding/Rejuvenation",
+      "associated_city_types": [
+        "beach",
+        "backwater",
+        "hill_station"
+      ]
+    },
+    {
+      "mood_id": "social",
+      "name": "Social/Connecting Mood",
+      "theme": "Belonging/Joy",
+      "associated_city_types": [
+        "metro",
+        "city",
+        "beach"
+      ]
+    },
+    {
+      "mood_id": "self_discovery",
+      "name": "Self-Discovery/Reflective Mood",
+      "theme": "Contemplation",
+      "associated_city_types": [
+        "pilgrimage",
+        "heritage",
+        "nature"
+      ]
+    }
+  ],
+  "city_mood_mapping": {
+    "1": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "2": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "3": [
+      "cultural",
+      "self_discovery"
+    ],
+    "4": [
+      "relaxation",
+      "social"
+    ],
+    "5": [
+      "cultural",
+      "self_discovery"
+    ],
+    "6": [
+      "cultural",
+      "self_discovery"
+    ],
+    "7": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "8": [
+      "relaxation",
+      "social"
+    ],
+    "9": [
+      "social"
+    ],
+    "10": [
+      "social"
+    ],
+    "11": [
+      "cultural",
+      "self_discovery"
+    ],
+    "12": [
+      "cultural",
+      "self_discovery"
+    ],
+    "13": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "14": [
+      "cultural",
+      "self_discovery"
+    ],
+    "15": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "16": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "17": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "18": [
+      "cultural",
+      "self_discovery"
+    ],
+    "19": [
+      "cultural",
+      "self_discovery"
+    ],
+    "20": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "21": [
+      "social"
+    ],
+    "22": [
+      "relaxation",
+      "social"
+    ],
+    "23": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "24": [
+      "relaxation",
+      "social"
+    ],
+    "25": [
+      "cultural",
+      "self_discovery"
+    ],
+    "26": [
+      "social"
+    ],
+    "27": [
+      "adventure",
+      "nature"
+    ],
+    "28": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "29": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "30": [
+      "nature",
+      "relaxation"
+    ],
+    "31": [
+      "adventure",
+      "nature"
+    ],
+    "32": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "33": [
+      "social"
+    ],
+    "34": [
+      "relaxation",
+      "social"
+    ],
+    "35": [
+      "social"
+    ],
+    "36": [
+      "relaxation",
+      "social"
+    ],
+    "37": [
+      "nature",
+      "relaxation"
+    ],
+    "38": [
+      "cultural",
+      "social"
+    ],
+    "39": [
+      "social"
+    ],
+    "40": [
+      "cultural",
+      "self_discovery"
+    ],
+    "41": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "42": [
+      "relaxation",
+      "social"
+    ],
+    "43": [
+      "cultural",
+      "self_discovery"
+    ],
+    "44": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "45": [
+      "cultural",
+      "social"
+    ],
+    "46": [
+      "cultural",
+      "self_discovery"
+    ],
+    "47": [
+      "cultural",
+      "self_discovery"
+    ],
+    "48": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "49": [
+      "cultural",
+      "social"
+    ],
+    "50": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "51": [
+      "cultural",
+      "self_discovery"
+    ],
+    "52": [
+      "relaxation",
+      "social"
+    ],
+    "53": [
+      "cultural",
+      "self_discovery"
+    ],
+    "54": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "55": [
+      "cultural",
+      "self_discovery"
+    ],
+    "56": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "57": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "58": [
+      "relaxation",
+      "social"
+    ],
+    "59": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "60": [
+      "cultural",
+      "self_discovery"
+    ],
+    "61": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "62": [
+      "adventure",
+      "nature"
+    ],
+    "63": [
+      "relaxation",
+      "social"
+    ],
+    "64": [
+      "nature",
+      "relaxation"
+    ],
+    "65": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "66": [
+      "cultural",
+      "self_discovery"
+    ],
+    "67": [
+      "cultural",
+      "self_discovery"
+    ],
+    "68": [
+      "adventure",
+      "nature"
+    ],
+    "69": [
+      "adventure",
+      "nature"
+    ],
+    "70": [
+      "relaxation",
+      "social"
+    ],
+    "71": [
+      "cultural",
+      "self_discovery"
+    ],
+    "72": [
+      "cultural",
+      "self_discovery"
+    ],
+    "73": [
+      "cultural",
+      "self_discovery"
+    ],
+    "74": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "75": [
+      "cultural",
+      "self_discovery"
+    ],
+    "76": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "77": [
+      "cultural",
+      "self_discovery"
+    ],
+    "78": [
+      "cultural",
+      "self_discovery"
+    ],
+    "79": [
+      "cultural",
+      "social"
+    ],
+    "80": [
+      "cultural",
+      "self_discovery"
+    ],
+    "81": [
+      "cultural",
+      "social"
+    ],
+    "82": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "83": [
+      "cultural",
+      "social"
+    ],
+    "84": [
+      "adventure",
+      "nature"
+    ],
+    "85": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "86": [
+      "nature",
+      "relaxation"
+    ],
+    "87": [
+      "cultural",
+      "self_discovery"
+    ],
+    "88": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "89": [
+      "cultural",
+      "self_discovery"
+    ],
+    "90": [
+      "adventure",
+      "nature"
+    ],
+    "91": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "92": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "93": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "94": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "95": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "96": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "97": [
+      "adventure",
+      "nature",
+      "relaxation"
+    ],
+    "98": [
+      "adventure",
+      "nature",
+      "self_discovery"
+    ],
+    "99": [
+      "relaxation",
+      "social"
+    ],
+    "100": [
+      "cultural",
+      "self_discovery"
+    ]
+  }
+}

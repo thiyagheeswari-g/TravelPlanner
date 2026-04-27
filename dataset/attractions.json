@@ -1,0 +1,914 @@
+{
+  "attractions": [
+    {
+      "att_id": 1,
+      "city_id": 1,
+      "name": "Ooty Botanical Gardens",
+      "cost": 50,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Charring Cross"
+    },
+    {
+      "att_id": 2,
+      "city_id": 2,
+      "name": "Kodaikanal Lake Boating",
+      "cost": 150,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Lake Road"
+    },
+    {
+      "att_id": 3,
+      "city_id": 3,
+      "name": "Matrimandir Viewing",
+      "cost": 100,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Auroville"
+    },
+    {
+      "att_id": 4,
+      "city_id": 4,
+      "name": "Ramanathaswamy Temple",
+      "cost": 250,
+      "duration": 3,
+      "outdoor": false,
+      "area": "Temple Precinct"
+    },
+    {
+      "att_id": 5,
+      "city_id": 5,
+      "name": "Meenakshi Amman Temple",
+      "cost": 100,
+      "duration": 3,
+      "outdoor": false,
+      "area": "West Tower"
+    },
+    {
+      "att_id": 6,
+      "city_id": 6,
+      "name": "Shore Temple Heritage",
+      "cost": 40,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Beach Road"
+    },
+    {
+      "att_id": 7,
+      "city_id": 7,
+      "name": "Yercaud Pagoda Point",
+      "cost": 20,
+      "duration": 1,
+      "outdoor": true,
+      "area": "Yercaud Hills"
+    },
+    {
+      "att_id": 8,
+      "city_id": 8,
+      "name": "Vivekananda Rock Memorial",
+      "cost": 75,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Kanyakumari Port"
+    },
+    {
+      "att_id": 9,
+      "city_id": 9,
+      "name": "Tea Museum Munnar",
+      "cost": 100,
+      "duration": 2,
+      "outdoor": false,
+      "area": "Nallathanni"
+    },
+    {
+      "att_id": 10,
+      "city_id": 10,
+      "name": "Marina Beach (Lighthouse)",
+      "cost": 50,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Mylapore"
+    },
+    {
+      "att_id": 11,
+      "city_id": 11,
+      "name": "Rockfort Temple View",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Trichy"
+    },
+    {
+      "att_id": 12,
+      "city_id": 12,
+      "name": "Brihadeeswarar Temple",
+      "cost": 50,
+      "duration": 2.5,
+      "outdoor": true,
+      "area": "Thanjavur"
+    },
+    {
+      "att_id": 13,
+      "city_id": 13,
+      "name": "Punganoor Lake Boat",
+      "cost": 100,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Yelagiri Hills"
+    },
+    {
+      "att_id": 14,
+      "city_id": 14,
+      "name": "Adi Kumbeswarar Temple",
+      "cost": 50,
+      "duration": 1.5,
+      "outdoor": false,
+      "area": "Kumbakonam"
+    },
+    {
+      "att_id": 15,
+      "city_id": 15,
+      "name": "Main Falls Courtallam",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Courtallam"
+    },
+    {
+      "att_id": 16,
+      "city_id": 16,
+      "name": "Sholayar Dam Access",
+      "cost": 30,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Valparai Hills"
+    },
+    {
+      "att_id": 17,
+      "city_id": 17,
+      "name": "Sims Park Entrance",
+      "cost": 30,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Coonoor Town"
+    },
+    {
+      "att_id": 18,
+      "city_id": 18,
+      "name": "Virupaksha Temple",
+      "cost": 25,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Hampi Bazaar"
+    },
+    {
+      "att_id": 19,
+      "city_id": 19,
+      "name": "Mysore Palace",
+      "cost": 100,
+      "duration": 3,
+      "outdoor": false,
+      "area": "Mysore Center"
+    },
+    {
+      "att_id": 20,
+      "city_id": 20,
+      "name": "Abbey Falls Shuttle",
+      "cost": 50,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Madikeri"
+    },
+    {
+      "att_id": 21,
+      "city_id": 21,
+      "name": "Lalbagh Flower Show",
+      "cost": 70,
+      "duration": 2.5,
+      "outdoor": true,
+      "area": "Bangalore South"
+    },
+    {
+      "att_id": 22,
+      "city_id": 22,
+      "name": "Mahabaleshwar Special Darshan",
+      "cost": 200,
+      "duration": 1.5,
+      "outdoor": false,
+      "area": "Gokarna"
+    },
+    {
+      "att_id": 23,
+      "city_id": 23,
+      "name": "Mullayanagiri Jeep Ride",
+      "cost": 500,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Chikmagalur"
+    },
+    {
+      "att_id": 24,
+      "city_id": 24,
+      "name": "Krishna Temple Precinct",
+      "cost": 50,
+      "duration": 2,
+      "outdoor": false,
+      "area": "Udupi Center"
+    },
+    {
+      "att_id": 25,
+      "city_id": 25,
+      "name": "Badami Caves Heritage",
+      "cost": 40,
+      "duration": 2.5,
+      "outdoor": true,
+      "area": "Badami Fort"
+    },
+    {
+      "att_id": 26,
+      "city_id": 26,
+      "name": "Panambur Beach (Parking)",
+      "cost": 30,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Mangalore"
+    },
+    {
+      "att_id": 27,
+      "city_id": 27,
+      "name": "Kali River Rafting",
+      "cost": 1200,
+      "duration": 4,
+      "outdoor": true,
+      "area": "Dandeli"
+    },
+    {
+      "att_id": 28,
+      "city_id": 28,
+      "name": "Jog Falls Entry",
+      "cost": 10,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Shimoga"
+    },
+    {
+      "att_id": 29,
+      "city_id": 29,
+      "name": "Isha Center Shuttle",
+      "cost": 50,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Velliangiri"
+    },
+    {
+      "att_id": 30,
+      "city_id": 30,
+      "name": "Lady's Seat Telescope",
+      "cost": 20,
+      "duration": 1,
+      "outdoor": true,
+      "area": "Yercaud Peak"
+    },
+    {
+      "att_id": 31,
+      "city_id": 31,
+      "name": "Thanjavur Palace Museum",
+      "cost": 50,
+      "duration": 2.5,
+      "outdoor": true,
+      "area": "Thanjavur"
+    },
+    {
+      "att_id": 32,
+      "city_id": 32,
+      "name": "Kanchi Temple Guide",
+      "cost": 100,
+      "duration": 2,
+      "outdoor": false,
+      "area": "Kanchipuram"
+    },
+    {
+      "att_id": 33,
+      "city_id": 33,
+      "name": "Padmanabhaswamy Darshan",
+      "cost": 150,
+      "duration": 2,
+      "outdoor": false,
+      "area": "Trivandrum"
+    },
+    {
+      "att_id": 34,
+      "city_id": 34,
+      "name": "Edakkal Caves Ticket",
+      "cost": 40,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Wayanad"
+    },
+    {
+      "att_id": 35,
+      "city_id": 35,
+      "name": "Varkala Cliff Access",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Varkala"
+    },
+    {
+      "att_id": 36,
+      "city_id": 36,
+      "name": "Vembanad Lake Boat",
+      "cost": 500,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Kumarakom"
+    },
+    {
+      "att_id": 37,
+      "city_id": 37,
+      "name": "Periyar Boating",
+      "cost": 250,
+      "duration": 2.5,
+      "outdoor": true,
+      "area": "Thekkady"
+    },
+    {
+      "att_id": 38,
+      "city_id": 38,
+      "name": "Museum Entry Bangalore",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Bangalore Central"
+    },
+    {
+      "att_id": 39,
+      "city_id": 39,
+      "name": "Gokarna Om Beach Cafe",
+      "cost": 100,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Gokarna"
+    },
+    {
+      "att_id": 40,
+      "city_id": 40,
+      "name": "Baba Budangiri Entry",
+      "cost": 30,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Chikmagalur"
+    },
+    {
+      "att_id": 41,
+      "city_id": 41,
+      "name": "St. Mary's Island Ferry",
+      "cost": 300,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Malpe"
+    },
+    {
+      "att_id": 42,
+      "city_id": 42,
+      "name": "Bhutanatha Temple Area",
+      "cost": 20,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Badami Lake"
+    },
+    {
+      "att_id": 43,
+      "city_id": 43,
+      "name": "Undavalli Caves Ticket",
+      "cost": 25,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Vijayawada"
+    },
+    {
+      "att_id": 44,
+      "city_id": 44,
+      "name": "Gandikota Fort Guide",
+      "cost": 200,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Pennar Gorge"
+    },
+    {
+      "att_id": 45,
+      "city_id": 45,
+      "name": "Lepakshi Temple Entry",
+      "cost": 50,
+      "duration": 1,
+      "outdoor": true,
+      "area": "Lepakshi"
+    },
+    {
+      "att_id": 46,
+      "city_id": 46,
+      "name": "Nirmal Craft Center",
+      "cost": 50,
+      "duration": 2,
+      "outdoor": false,
+      "area": "Nirmal Town"
+    },
+    {
+      "att_id": 47,
+      "city_id": 47,
+      "name": "Khammam Fort Entry",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Khammam"
+    },
+    {
+      "att_id": 48,
+      "city_id": 48,
+      "name": "Anamalai Tiger Safari",
+      "cost": 350,
+      "duration": 4,
+      "outdoor": true,
+      "area": "Pollachi"
+    },
+    {
+      "att_id": 49,
+      "city_id": 49,
+      "name": "Kodiveri Dam Entry",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Erode"
+    },
+    {
+      "att_id": 50,
+      "city_id": 50,
+      "name": "Kolli Hills Viewpoint",
+      "cost": 10,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Kolli Hills"
+    },
+    {
+      "att_id": 51,
+      "city_id": 51,
+      "name": "Nataraja Temple Darshan",
+      "cost": 100,
+      "duration": 2,
+      "outdoor": false,
+      "area": "Chidambaram"
+    },
+    {
+      "att_id": 52,
+      "city_id": 52,
+      "name": "Velankanni Museum",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": false,
+      "area": "Nagapattinam"
+    },
+    {
+      "att_id": 53,
+      "city_id": 53,
+      "name": "Palani Rope Car",
+      "cost": 100,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Palani"
+    },
+    {
+      "att_id": 54,
+      "city_id": 54,
+      "name": "Dhanushkodi Jeep",
+      "cost": 200,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Dhanushkodi"
+    },
+    {
+      "att_id": 55,
+      "city_id": 55,
+      "name": "Danish Fort Ticket",
+      "cost": 20,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Tranquebar"
+    },
+    {
+      "att_id": 56,
+      "city_id": 56,
+      "name": "Pichavaram Boat",
+      "cost": 250,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Pichavaram"
+    },
+    {
+      "att_id": 57,
+      "city_id": 57,
+      "name": "Vagamon Meadows Entry",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Vagamon"
+    },
+    {
+      "att_id": 58,
+      "city_id": 58,
+      "name": "Bekal Fort Ticket",
+      "cost": 25,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Bekal"
+    },
+    {
+      "att_id": 59,
+      "city_id": 59,
+      "name": "Athirappilly Falls",
+      "cost": 40,
+      "duration": 2.5,
+      "outdoor": true,
+      "area": "Thrissur"
+    },
+    {
+      "att_id": 60,
+      "city_id": 60,
+      "name": "Guruvayur Special Entry",
+      "cost": 300,
+      "duration": 3,
+      "outdoor": false,
+      "area": "Guruvayur"
+    },
+    {
+      "att_id": 61,
+      "city_id": 61,
+      "name": "Idukki Arch Dam Access",
+      "cost": 50,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Idukki"
+    },
+    {
+      "att_id": 62,
+      "city_id": 62,
+      "name": "Silent Valley Safari",
+      "cost": 500,
+      "duration": 5,
+      "outdoor": true,
+      "area": "Palakkad"
+    },
+    {
+      "att_id": 63,
+      "city_id": 63,
+      "name": "Marari Beach (Umbrella)",
+      "cost": 100,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Mararikulam"
+    },
+    {
+      "att_id": 64,
+      "city_id": 64,
+      "name": "Poovar Boat Ride",
+      "cost": 1200,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Poovar"
+    },
+    {
+      "att_id": 65,
+      "city_id": 65,
+      "name": "Agumbe Rain Forest Hub",
+      "cost": 100,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Agumbe"
+    },
+    {
+      "att_id": 66,
+      "city_id": 66,
+      "name": "Belur Heritage Guide",
+      "cost": 250,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Belur"
+    },
+    {
+      "att_id": 67,
+      "city_id": 67,
+      "name": "Halebidu Sculptures Guide",
+      "cost": 250,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Halebidu"
+    },
+    {
+      "att_id": 68,
+      "city_id": 68,
+      "name": "Kabini Jungle Safari",
+      "cost": 1500,
+      "duration": 4,
+      "outdoor": true,
+      "area": "Kabini"
+    },
+    {
+      "att_id": 69,
+      "city_id": 69,
+      "name": "Bandipur Forest Ride",
+      "cost": 800,
+      "duration": 4,
+      "outdoor": true,
+      "area": "Bandipur"
+    },
+    {
+      "att_id": 70,
+      "city_id": 70,
+      "name": "Murudeshwar Lift Ticket",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Murudeshwar"
+    },
+    {
+      "att_id": 71,
+      "city_id": 71,
+      "name": "Bijapur Museum",
+      "cost": 25,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Bijapur"
+    },
+    {
+      "att_id": 72,
+      "city_id": 72,
+      "name": "Shravanabelagola Guide",
+      "cost": 200,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Shravanabelagola"
+    },
+    {
+      "att_id": 73,
+      "city_id": 73,
+      "name": "Sringeri Temple Seva",
+      "cost": 100,
+      "duration": 2,
+      "outdoor": false,
+      "area": "Sringeri"
+    },
+    {
+      "att_id": 74,
+      "city_id": 74,
+      "name": "Shivanasamudra Entry",
+      "cost": 20,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Mandya"
+    },
+    {
+      "att_id": 75,
+      "city_id": 75,
+      "name": "Kurnool Fort Access",
+      "cost": 20,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Kurnool"
+    },
+    {
+      "att_id": 76,
+      "city_id": 76,
+      "name": "Horsley Hills Zoo",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Chittoor"
+    },
+    {
+      "att_id": 77,
+      "city_id": 77,
+      "name": "Bugga Ramalingeswara",
+      "cost": 50,
+      "duration": 1.5,
+      "outdoor": false,
+      "area": "Tadipatri"
+    },
+    {
+      "att_id": 78,
+      "city_id": 78,
+      "name": "Srisailam Ropeway",
+      "cost": 100,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Srisailam"
+    },
+    {
+      "att_id": 79,
+      "city_id": 79,
+      "name": "Pulicat Boat Hire",
+      "cost": 400,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Nellore"
+    },
+    {
+      "att_id": 80,
+      "city_id": 80,
+      "name": "Bhadrachalam Darshan",
+      "cost": 100,
+      "duration": 2.5,
+      "outdoor": false,
+      "area": "Bhadrachalam"
+    },
+    {
+      "att_id": 81,
+      "city_id": 81,
+      "name": "Khammam Quila Guide",
+      "cost": 150,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Khammam"
+    },
+    {
+      "att_id": 82,
+      "city_id": 82,
+      "name": "Kuntala Falls Parking",
+      "cost": 50,
+      "duration": 2.5,
+      "outdoor": true,
+      "area": "Adilabad"
+    },
+    {
+      "att_id": 83,
+      "city_id": 83,
+      "name": "Nizamabad Fort Access",
+      "cost": 20,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Nizamabad"
+    },
+    {
+      "att_id": 84,
+      "city_id": 84,
+      "name": "Sirpur Tiger Reserve",
+      "cost": 500,
+      "duration": 4,
+      "outdoor": true,
+      "area": "Sirpur"
+    },
+    {
+      "att_id": 85,
+      "city_id": 85,
+      "name": "Pochera Falls Access",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Adilabad"
+    },
+    {
+      "att_id": 86,
+      "city_id": 86,
+      "name": "Sharavathi Kayaking",
+      "cost": 350,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Honnemaradu"
+    },
+    {
+      "att_id": 87,
+      "city_id": 87,
+      "name": "Karkala Heritage Guide",
+      "cost": 150,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Karkala"
+    },
+    {
+      "att_id": 88,
+      "city_id": 88,
+      "name": "Z-Point Trek Fee",
+      "cost": 50,
+      "duration": 2.5,
+      "outdoor": true,
+      "area": "Kemmangundi"
+    },
+    {
+      "att_id": 89,
+      "city_id": 89,
+      "name": "Golden Temple (Donation)",
+      "cost": 50,
+      "duration": 2.5,
+      "outdoor": false,
+      "area": "Kushalnagar"
+    },
+    {
+      "att_id": 90,
+      "city_id": 90,
+      "name": "Bannerghatta Safari",
+      "cost": 400,
+      "duration": 4,
+      "outdoor": true,
+      "area": "Bangalore"
+    },
+    {
+      "att_id": 91,
+      "city_id": 91,
+      "name": "Nilambur Teak Museum",
+      "cost": 25,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Nilambur"
+    },
+    {
+      "att_id": 92,
+      "city_id": 92,
+      "name": "Wadakkanchery Park",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Thrissur"
+    },
+    {
+      "att_id": 93,
+      "city_id": 93,
+      "name": "Ponmudi Road Fee",
+      "cost": 50,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Thiruvananthapuram"
+    },
+    {
+      "att_id": 94,
+      "city_id": 94,
+      "name": "Pookode Lake Entry",
+      "cost": 30,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Kalpetta"
+    },
+    {
+      "att_id": 95,
+      "city_id": 95,
+      "name": "Vagamon Pine Entry",
+      "cost": 20,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Kottayam"
+    },
+    {
+      "att_id": 96,
+      "city_id": 96,
+      "name": "Vellore Temple Entry",
+      "cost": 50,
+      "duration": 3,
+      "outdoor": false,
+      "area": "Vellore"
+    },
+    {
+      "att_id": 97,
+      "city_id": 97,
+      "name": "Coonoor Tea Tour",
+      "cost": 150,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Coonoor"
+    },
+    {
+      "att_id": 98,
+      "city_id": 98,
+      "name": "Pichavaram Boat Ride",
+      "cost": 400,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Pichavaram"
+    },
+    {
+      "att_id": 99,
+      "city_id": 99,
+      "name": "Kanyakumari Ferry",
+      "cost": 75,
+      "duration": 2,
+      "outdoor": false,
+      "area": "Kanyakumari"
+    },
+    {
+      "att_id": 100,
+      "city_id": 100,
+      "name": "Jalakandeswarar Fort",
+      "cost": 20,
+      "duration": 2,
+      "outdoor": true,
+      "area": "Vellore Fort"
+    },
+    {
+      "att_id": 101,
+      "city_id": 100,
+      "name": "Vellore Golden Temple",
+      "cost": 50,
+      "duration": 3,
+      "outdoor": true,
+      "area": "Vellore"
+    }
+  ]
+
+}
