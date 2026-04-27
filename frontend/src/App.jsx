@@ -16,17 +16,22 @@ import L from 'leaflet';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
-let DefaultIcon = L.icon({
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
+const createIcon = (color) => new L.Icon({
+  iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${color}.png`,
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
   iconSize: [25, 41],
-  iconAnchor: [12, 41]
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
 });
-L.Marker.prototype.options.icon = DefaultIcon;
+
+const blueIcon = createIcon('blue');
+const yellowIcon = createIcon('yellow');
+const greenIcon = createIcon('green');
 
 const API_BASE = "http://localhost:8000";
 
-function ChangeView({ center, zoom }) {
+function ChangeView({ center, zoom, cityId }) {
   const map = useMap();
   useEffect(() => {
     if (center) {
@@ -36,7 +41,7 @@ function ChangeView({ center, zoom }) {
       });
       map.invalidateSize();
     }
-  }, [center, zoom, map]);
+  }, [cityId, map]); // Trigger on city change or map init
   return null;
 }
 
@@ -585,8 +590,8 @@ function App() {
       setMessages(res.data.messages || []);
       if (res.data.plan_metadata && res.data.plan_metadata.status === 'done') {
         setItinerary(res.data.plan_metadata);
-        if (res.data.plan_metadata.location && res.data.plan_metadata.location.coords) {
-          setMapCenter([...res.data.plan_metadata.location.coords]);
+        if (res.data.plan_metadata.selected_hotel && res.data.plan_metadata.selected_hotel.coords) {
+          setMapCenter([res.data.plan_metadata.selected_hotel.coords.lat, res.data.plan_metadata.selected_hotel.coords.lng]);
         }
         // Full Context Handoff
         setActiveTab('Itinerary');
@@ -665,10 +670,8 @@ function App() {
 
   const processResponse = async (data, currentMsgs = []) => {
     setItinerary(data);
-    if (data.map_config && data.map_config.center) {
-      setMapCenter([...data.map_config.center]);
-    } else if (data.location && data.location.coords) {
-      setMapCenter([...data.location.coords]);
+    if (data.selected_hotel && data.selected_hotel.coords) {
+      setMapCenter([data.selected_hotel.coords.lat, data.selected_hotel.coords.lng]);
     }
 
     // Clean text of [MAP_CONFIG]
@@ -704,7 +707,8 @@ function App() {
         budget: data.budget || prev.budget,
         travel_month: data.travel_month || prev.travel_month,
         trip_type: data.trip_type || prev.trip_type,
-        travellers: data.travellers || prev.travellers
+        travellers: data.travellers || prev.travellers,
+        budget_updated: data.budget_updated || false
       }));
     }
   };
@@ -943,12 +947,6 @@ function App() {
                       <div className="kpi-label">SPENT</div>
                       <div className="kpi-value highlight">₹{(itinerary.kpi.spent || 0).toLocaleString()}</div>
                     </div>
-                    <div className="kpi-card">
-                      <div className="kpi-label">REMAINING</div>
-                      <div className={`kpi-value ${itinerary.kpi.remaining >= 0 ? 'positive' : 'negative'}`}>
-                        ₹{(itinerary.kpi.remaining || 0).toLocaleString()}
-                      </div>
-                    </div>
                   </div>
                 )}
               </div>
@@ -1048,17 +1046,50 @@ function App() {
             <TileLayer
               url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             />
-            <ChangeView center={mapCenter} zoom={13} />
-            {itinerary && itinerary.map_config && itinerary.map_config.markers && itinerary.map_config.markers.map((marker, i) => (
-              <Marker key={`marker-${i}`} position={marker.coords}>
-                <Popup>
-                  <div className="popup-box">
-                    <div className="popup-name" style={{ fontWeight: 'bold' }}>{marker.name}</div>
-                    <div className="popup-area" style={{ fontSize: '0.8rem', color: 'gray' }}>{marker.area}</div>
-                  </div>
-                </Popup>
-              </Marker>
-            ))}
+            <ChangeView center={mapCenter} zoom={12} cityId={itinerary?.city_id} />
+
+            {itinerary && (
+              <>
+                {/* 1. HOTEL MARKER (BLUE) */}
+                {itinerary.selected_hotel && itinerary.selected_hotel.coords && (
+                  <Marker position={[itinerary.selected_hotel.coords.lat, itinerary.selected_hotel.coords.lng]} icon={blueIcon}>
+                    <Popup>
+                      <div className="popup-box">
+                        <div className="popup-type hotel">ACCOMMODATION</div>
+                        <div className="popup-name" style={{ fontWeight: 'bold' }}>{itinerary.selected_hotel.name}</div>
+                        <div className="popup-area">{itinerary.selected_hotel.area}</div>
+                      </div>
+                    </Popup>
+                  </Marker>
+                )}
+
+                {/* 2. ATTRACTION MARKERS (YELLOW) */}
+                {itinerary.itinerary_days.map((day, idx) => (
+                  <Marker key={`att-${idx}`} position={[day.coords.lat, day.coords.lng]} icon={yellowIcon}>
+                    <Popup>
+                      <div className="popup-box">
+                        <div className="popup-type sightseeing">SIGHTSEEING - DAY {day.day}</div>
+                        <div className="popup-name" style={{ fontWeight: 'bold' }}>{day.daily_activity}</div>
+                        <div className="popup-area">{day.activities[0]?.area}</div>
+                      </div>
+                    </Popup>
+                  </Marker>
+                ))}
+
+                {/* 3. RESTAURANT MARKERS (GREEN) */}
+                {itinerary.media_cards?.restaurants?.map((res, idx) => (
+                  <Marker key={`res-${idx}`} position={[res.coords.lat, res.coords.lng]} icon={greenIcon}>
+                    <Popup>
+                      <div className="popup-box">
+                        <div className="popup-type food">DINING RECOMMENDATION</div>
+                        <div className="popup-name" style={{ fontWeight: 'bold' }}>{res.name}</div>
+                        <div className="popup-area">{res.cuisine} | {res.area}</div>
+                      </div>
+                    </Popup>
+                  </Marker>
+                ))}
+              </>
+            )}
 
           </MapContainer>
         </div>

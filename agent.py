@@ -41,6 +41,7 @@ class PlanState(TypedDict):
     media_cards: Optional[Dict[str, Any]]
     city_id: Optional[int]
     explanation: str
+    budget_updated: bool
 
 class TravelAgent:
     def __init__(self, db: Optional[DataService] = None):
@@ -89,12 +90,12 @@ class TravelAgent:
         return "continue"
 
     def check_missing_node(self, state: PlanState) -> PlanState:
-        # 2. GREETING FIX: Bypass checks for simple greetings
+        # GREETING FIX: Bypass checks for simple greetings
         greetings = ["hi", "hello", "hey", "good morning", "good afternoon", "good evening"]
         q_clean = state['query'].lower().strip().replace("!", "").replace(".", "").replace("?", "")
         if q_clean in greetings:
             state['status'] = 'greeting'
-            state['final_response'] = "Hello! I'm Antigravity AI. Where are we heading today? I can help with transport, hotels, and a unique daily plan."
+            state['final_response'] = "Hello! I'm Antigravity AI. Ready to plan your adventure. Where would you like to go?"
             return state
 
         if not state.get('destination'):
@@ -115,7 +116,7 @@ class TravelAgent:
         text = str(text).lower().replace(",", "")
         match_k = re.search(r'(\d+)\s*k', text)
         if match_k: return float(match_k.group(1)) * 1000
-        match_pref = re.search(r'(?:budget|₹|rs\.?|rate)\s*:?\s*(\d+)', text)
+        match_pref = re.search(r'(?:under|budget|₹|rs\.?|rate)\s*:?\s*(\d+)', text)
         if match_pref: return float(match_pref.group(1))
         numbers = re.findall(r'\d+', text)
         for n in numbers:
@@ -204,15 +205,34 @@ class TravelAgent:
         a_c = sum(sum(act.get('cost', 50) for act in d['activities']) for d in state['itinerary_days']) * state['travellers']
         state['costs'] = {"transport": t_c, "hotel": h_c, "food": f_c, "activities": a_c, "total": t_c + h_c + f_c + a_c}
         
-        state = self.logic.maximize_budget(state)
+        # 2. BUDGET VALIDATOR & SELF-CORRECTION LOOP
+        state = self.logic.validate_and_correct(state)
+        
         state['status'] = 'done'
         return state
 
     def formatter_node(self, state: PlanState) -> PlanState:
         if state['status'] in ['gathering', 'greeting']: return state
-        state['final_response'] = f"I've planned your {state['days']}-day trip to {state['destination']}! Check the dashboard for the full plan."
+        
+        # 4. ACCURATE RESPONSE MAPPING
+        if state.get('budget_updated'):
+             state['final_response'] = f"I've updated your plan for {state['destination']} with your new budget of ₹{state['budget']}. Check the dashboard for the refreshed itinerary."
+        else:
+             state['final_response'] = f"I've planned your {state['days']}-day trip to {state['destination']} with the default budget of ₹{state['budget']}. Check the dashboard for the full plan."
+
         state['kpi'] = {"total_budget": state['budget'], "spent": state['costs']['total'], "remaining": state['budget'] - state['costs']['total']}
-        state['media_cards'] = {"stays": [state['selected_hotel']], "restaurants": self.db.get_food_places(state['city_id'])[:4]}
+        
+        city_data = self.db.get_city_by_id(state['city_id'])
+        c_lat = city_data.get('lat', 11.0)
+        c_lng = city_data.get('lng', 77.0)
+        
+        # Enrich restaurants with jittered coords nested in a 'coords' object
+        rests = self.db.get_food_places(state['city_id'])[:4]
+        for r in rests:
+            jittered = self.logic._jitter_coords(c_lat, c_lng, 0.01)
+            r['coords'] = {"lat": jittered['lat'], "lng": jittered['lng']}
+
+        state['media_cards'] = {"stays": [state['selected_hotel']], "restaurants": rests}
         return state
 
     def run(self, input_data: Dict[str, Any]):
@@ -220,25 +240,37 @@ class TravelAgent:
         history = input_data.get("chat_history") or []
         ext = self.extract_info(query, history)
         
+        # 1. THE "CONTEXT-AWARE" STATE LOGIC
         destination = ext.get('destination') or input_data.get('destination')
         origin = ext.get('origin') or input_data.get('origin')
         
-        # 4. BUDGET CONTEXT RESET RULE
-        # If destination changes, reset budget to ₹50k (Initial Input)
         prev_dest = input_data.get('destination')
-        if prev_dest and destination and prev_dest != destination:
-            budget = 50000.0
+        is_new_trip = prev_dest and destination and prev_dest != destination
+        
+        if is_new_trip:
+            # RESET ALL for new trip
+            days = int(ext.get('days') or 3)
+            budget = float(ext.get('budget') or 50000.0)
+            mood = ext.get('mood') or "Relaxation"
+            travellers = int(ext.get('travellers') or 2)
+            budget_updated = True if ext.get('budget') else False
         else:
-            budget = ext.get('budget') or input_data.get('budget') or 50000.0
+            # RETAIN AND MERGE
+            days = int(ext.get('days') or input_data.get('days') or 3)
+            budget = float(ext.get('budget') or input_data.get('budget') or 50000.0)
+            mood = ext.get('mood') or input_data.get('mood') or "Relaxation"
+            travellers = int(ext.get('travellers') or input_data.get('travellers') or 2)
+            budget_updated = True if ext.get('budget') else (True if input_data.get('budget_updated') else False)
 
         state: PlanState = {
             "query": query, "chat_history": history,
             "destination": destination,
             "origin": origin,
-            "days": int(ext.get('days') or input_data.get('days') or 3),
-            "budget": float(budget),
-            "travellers": int(ext.get('travellers') or input_data.get('travellers') or 2),
-            "mood": ext.get('mood') or input_data.get('mood') or "Relaxation",
+            "days": days,
+            "budget": budget,
+            "travellers": travellers,
+            "mood": mood,
+            "budget_updated": budget_updated,
             "travel_month": "May", "food_preference": "Both", "field_changes": [],
             "selected_hotel": None, "selected_transport": None, "available_transport": [], "transport_meta": None,
             "itinerary_days": [], "food_recommendations": []

@@ -2112,7 +2112,6 @@
       "name": "Soochipara Falls",
       "cost": 0,
       "duration": 1.5,
-      "duration": 1.5,
       "outdoor": true,
       "area": "Wayanad"
     },
@@ -9000,6 +8999,51 @@
       "duration": 2.0,
       "outdoor": true,
       "area": "Kavalur"
+    },
+    {
+      "att_id": 1001,
+      "city_id": 98,
+      "name": "Mettur Dam",
+      "cost": 50,
+      "duration": 2.5,
+      "outdoor": true,
+      "area": "Mettur"
+    },
+    {
+      "att_id": 1002,
+      "city_id": 98,
+      "name": "1008 Lingam Temple",
+      "cost": 50,
+      "duration": 1.5,
+      "outdoor": true,
+      "area": "Sankagiri Highway"
+    },
+    {
+      "att_id": 1003,
+      "city_id": 98,
+      "name": "Kottai Mariamman Temple",
+      "cost": 40,
+      "duration": 1.0,
+      "outdoor": true,
+      "area": "Salem City"
+    },
+    {
+      "att_id": 1004,
+      "city_id": 98,
+      "name": "Oothumalai Hill View Point",
+      "cost": 50,
+      "duration": 2.0,
+      "outdoor": true,
+      "area": "Seelanaickenpatti"
+    },
+    {
+      "att_id": 1005,
+      "city_id": 98,
+      "name": "Sugavaneshwarar Temple",
+      "cost": 40,
+      "duration": 1.0,
+      "outdoor": true,
+      "area": "Salem City"
     }
   ]
 }

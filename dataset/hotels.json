@@ -5999,6 +5999,46 @@
       "area": "Ida Scudder Road",
       "hotel_type": "luxury",
       "rating": 4.6
+    },
+    {
+      "hotel_id": 601,
+      "city_id": 98,
+      "name": "Radisson Salem",
+      "price_per_night": 6500,
+      "max_people": 2,
+      "area": "Bangalore Highway",
+      "hotel_type": "luxury",
+      "rating": 4.5
+    },
+    {
+      "hotel_id": 602,
+      "city_id": 98,
+      "name": "GRT Nature Trails Salem",
+      "price_per_night": 4500,
+      "max_people": 3,
+      "area": "Yercaud Road",
+      "hotel_type": "mid",
+      "rating": 4.2
+    },
+    {
+      "hotel_id": 603,
+      "city_id": 98,
+      "name": "Hotel CJ Pallazio",
+      "price_per_night": 3200,
+      "max_people": 3,
+      "area": "Seelanaickenpatti",
+      "hotel_type": "mid",
+      "rating": 4.0
+    },
+    {
+      "hotel_id": 604,
+      "city_id": 98,
+      "name": "Salem Castle Hotel",
+      "price_per_night": 1500,
+      "max_people": 4,
+      "area": "Salem City",
+      "hotel_type": "budget",
+      "rating": 3.8
     }
   ]
 }

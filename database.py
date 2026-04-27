@@ -171,41 +171,25 @@ class DataService:
         return results
 
     def get_coordinates(self, type: str, id: int) -> List[float]:
-        # Priority 1: Check in-memory JSON data (most accurate)
+        # Dynamic coordinate fetching from dataset (Rule: Use cities.json/attractions.json lat/lng)
         if type == 'city':
-            for city in self._cities:
-                if city['city_id'] == id:
-                    if 'lat' in city and 'lng' in city:
-                        return [float(city['lat']), float(city['lng'])]
+            city = self.get_city_by_id(id)
+            if city and 'lat' in city and 'lng' in city:
+                return [float(city['lat']), float(city['lng'])]
         elif type == 'attraction':
             for attr in self._attractions:
                 if attr.get('att_id') == id:
                     if 'lat' in attr and 'lng' in attr:
                         return [float(attr['lat']), float(attr['lng'])]
+            # Fallback to city center if attraction coords are missing
+            attr = next((a for a in self._attractions if a.get('att_id') == id), None)
+            if attr:
+                city = self.get_city_by_id(attr['city_id'])
+                if city and 'lat' in city and 'lng' in city:
+                    return [float(city['lat']), float(city['lng'])]
         
-        # Priority 2: Predefined mapping for demo / legacy support
-        city_coords = {
-            1: [11.4100, 76.7000],   # Ooty
-            29: [10.0889, 77.0595],  # Munnar
-            15: [10.2381, 77.4892],  # Kodaikanal
-            18: [15.3350, 76.4600],  # Hampi
-            100: [12.9165, 79.1325], # Vellore
-            50: [13.0827, 80.2707],  # Chennai
-            60: [12.9716, 77.5946],  # Bangalore
-            70: [17.3850, 78.4867],  # Hyderabad
-            80: [9.9312, 76.2673],   # Kochi
-            90: [11.9416, 79.8083],  # Pondicherry
-        }
-        
-        attr_coords = {
-            9: [10.0912, 77.0610],   # Tea Museum (Munnar)
-            18: [15.3350, 76.4600],  # Virupaksha Temple (Hampi)
-            100: [12.9165, 79.1325], # Jalakandeswarar Fort (Vellore)
-        }
-        
-        if type == 'city':
-            return city_coords.get(id, [12.9716, 77.5946])
-        return attr_coords.get(id, [12.9716, 77.5946])
+        # Global Fallback (Bangalore)
+        return [12.9716, 77.5946]
 
     def get_all_cities(self) -> List[Dict[str, Any]]:
         return self._cities

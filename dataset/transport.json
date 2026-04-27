@@ -6050,6 +6050,40 @@
       ]
     },
     {
+      "route_id": "MAS_MEG_01",
+      "city_id": 96,
+      "from_city": "Chennai",
+      "from_station": "MAS",
+      "to_city": "Megamalai",
+      "to_station": "MEG_BUS",
+      "distance_km": 520,
+      "distance_category": "long",
+      "area": "Megamalai Checkpost",
+      "options": [
+        {
+          "mode": "Train",
+          "provider": "Southern Railway",
+          "type": "Express",
+          "train_name": "Sapthagiri Exp",
+          "train_number": "16057",
+          "departure_time": "06:25",
+          "arrival_time": "09:40",
+          "cost": 450,
+          "class": "CC",
+          "area": "Chennai Central"
+        },
+        {
+          "mode": "Bus",
+          "provider": "SETC Luxury",
+          "type": "AC Sleeper",
+          "departure_time": "21:00",
+          "duration_hours": 10,
+          "cost": 850,
+          "area": "Koyambedu"
+        }
+      ]
+    },
+    {
       "route_id": "MAS_PAC_01",
       "city_id": 96,
       "from_city": "Chennai",

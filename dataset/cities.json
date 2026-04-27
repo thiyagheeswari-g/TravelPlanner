@@ -1477,16 +1477,18 @@
     },
     {
       "city_id": 98,
-      "name": "Megamalai",
+      "name": "Salem",
       "state": "Tamil Nadu",
-      "lat": 11.43,
-      "lng": 79.77,
-      "type": "nature",
-      "parent_hub": "Chennai",
+      "lat": 11.66,
+      "lng": 78.14,
+      "type": "city",
+      "parent_hub": "Salem",
       "best_months": [
+        "Oct",
         "Nov",
         "Dec",
-        "Jan"
+        "Jan",
+        "Feb"
       ]
     },
     {
