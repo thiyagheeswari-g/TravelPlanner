@@ -96,12 +96,24 @@ class TravelAgent:
         q_clean = state['query'].lower().strip().replace("!", "").replace(".", "").replace("?", "")
         if q_clean in greetings:
             state['status'] = 'greeting'
-            state['final_response'] = "Hello! I'm Antigravity AI. Ready to plan your adventure. Where would you like to go?"
+            state['final_response'] = "Hello! I'm Travel Planner AI. Ready to plan your adventure. Where would you like to go?"
             return state
 
         if not state.get('destination'):
             state['status'] = 'gathering'
             state['final_response'] = "I'd love to plan a trip for you! Which destination are you thinking of? (e.g., Ooty, Chennai)"
+            return state
+
+        # Fix City Lookup: Handle gracefully if city is not found
+        try:
+            city = self.db.get_city_by_name(state['destination'])
+            if not city:
+                state['status'] = 'gathering'
+                state['final_response'] = f"I'm sorry, I couldn't find travel data for '{state['destination']}'. Could you try a popular destination like Ooty or Chennai?"
+                return state
+        except Exception as e:
+            state['status'] = 'gathering'
+            state['final_response'] = f"I encountered an error looking up '{state['destination']}'. Please try another city."
             return state
             
         if not state.get('origin'):
@@ -220,7 +232,7 @@ class TravelAgent:
             state['selected_transport'] = {"mode": "Cab", "provider": "Private", "cost": cost, "type": "Private", "train_name": "N/A", "departure_time": "Flexible", **state['transport_meta']}
             state['available_transport'] = [state['selected_transport']]
 
-        h_sel = self.logic.select_hotel_best_fit(city['city_id'], state['travellers'], state['budget'], state['days'], state['selected_transport'].get('cost', 500))
+        h_sel = self.logic.select_hotel_best_fit(city['city_id'], state['travellers'], state['budget'], state['days'], state['selected_transport'].get('cost', 500), state['travel_month'])
         if not h_sel: h_sel = self.db.get_hotels(city['city_id'])[0]
         state['selected_hotel'] = h_sel
         
@@ -244,9 +256,29 @@ class TravelAgent:
         
         # 4. ACCURATE RESPONSE MAPPING
         rem = state['budget'] - state['costs']['total']
-        h_type = state['selected_hotel'].get('hotel_type', 'Standard')
-        t_mode = state['selected_transport'].get('mode', 'Transport')
+        h_price = state['selected_hotel'].get('price_per_night', 0)
+        h_type = "Luxury" if h_price > 4000 else ("Mid" if h_price >= 2000 else "Low")
+        t_mode = state['selected_transport'].get('mode', 'Bus')
+        if not t_mode or t_mode == 'Transport': t_mode = "Bus"
         
+        weather = self.db.get_weather(state['city_id'], state['travel_month'])
+        city_data = self.db.get_city_by_id(state['city_id'])
+        is_peak = state['travel_month'] in city_data.get('best_months', [])
+        season_name = "Peak Season" if is_peak else "Off-Season"
+
+        if weather and weather.get('rainy'):
+            w_type = "Rainy"
+            s_type = "Indoor"
+            state['weather_context'] = 'rainy'
+        elif weather and weather.get('temperature_type') == 'hot':
+            w_type = "Hot"
+            s_type = "Indoor"
+            state['weather_context'] = 'hot'
+        else:
+            w_type = "Pleasant"
+            s_type = "Outdoor"
+            state['weather_context'] = 'pleasant'
+            
         closing = f"This plan selected hotel to {h_type}, transport to {t_mode} to fit into the budget and the Remaining Balance is ₹{rem:,.0f} is saved for your personal use. Enjoy your trip!"
 
         if state.get('maximize_to_limit'):
@@ -293,15 +325,27 @@ class TravelAgent:
             travellers = int(ext.get('travellers') or input_data.get('travellers') or 2)
             budget_updated = True if ext.get('budget') else (True if input_data.get('budget_updated') else False)
 
-        travel_month_input = input_data.get('travel_month') or "Jan"
-        if travel_month_input == "Suggest by AI" and destination:
-            city_obj = self.db.get_city_by_name(destination)
-            if city_obj and city_obj.get("best_months"):
-                travel_month = city_obj["best_months"][0]
+        travel_month_input = input_data.get('travel_month')
+        if not travel_month_input or str(travel_month_input).strip() == "":
+            travel_month_input = "Jan"
+            
+        if travel_month_input == "Suggest by AI":
+            if destination:
+                city_obj = self.db.get_city_by_name(destination)
+                if city_obj and city_obj.get("best_months"):
+                    travel_month = city_obj["best_months"][0]
+                else:
+                    travel_month = "Jan"
             else:
                 travel_month = "Jan"
         else:
             travel_month = travel_month_input
+            
+        # NORMALIZE
+        if isinstance(travel_month, str) and len(travel_month) >= 3:
+            travel_month = travel_month.strip().capitalize()[:3]
+        else:
+            travel_month = "Jan"
 
         state: PlanState = {
             "query": query, "chat_history": history,

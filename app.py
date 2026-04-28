@@ -34,6 +34,11 @@ class TripRequest(BaseModel):
     travellers: Optional[int] = 2
     food_preference: Optional[str] = None
     weather_preference: Optional[str] = None
+    travel_mood: Optional[str] = None
+    from_state: Optional[str] = None
+    from_hub: Optional[str] = None
+    to_state: Optional[str] = None
+    travel_month_mode: Optional[str] = None
 
 @app.post("/plan")
 async def plan_trip(request: TripRequest):

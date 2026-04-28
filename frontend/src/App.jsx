@@ -4,7 +4,7 @@ import {
   Plane, MapPin, Calendar, Wallet, Users, Utensils,
   Send, Star, Hotel, Train, Trash2, ChevronRight,
   ChevronDown, ChevronUp, Download, Map as MapIcon, Filter, Route, Search,
-  Info, Clock, Compass, Sparkles, CheckCircle, CheckCircle2, Menu, History, X
+  Info, Clock, Compass, Sparkles, CheckCircle, CheckCircle2, Menu, History, X, Sun, CloudRain
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
@@ -227,7 +227,10 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
                   <tr key={idx}>
                     <td className="day-cell">
                       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
-                        <span style={{ fontSize: '0.9rem', fontWeight: '600' }}>Day {day.day}</span>
+                        {itinerary.weather_context === 'rainy' ? <CloudRain size={18} color="#3b82f6" /> : <Sun size={18} color="#f59e0b" />}
+                        <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--primary)' }}>
+                          {itinerary.travel_month ? `${itinerary.travel_month} ${String(day.day).padStart(2, '0')}` : `Day ${day.day}`}
+                        </span>
                       </div>
                     </td>
                     <td className="slot-cell">
@@ -618,7 +621,8 @@ function App() {
       });
       processResponse(res.data, msgsWithUser);
     } catch (err) {
-      console.error(err);
+      console.error(err.response?.data || err);
+      alert(`Error: ${err.response?.data?.detail || err.message}`);
       setMessages(prev => [...prev, { role: 'assistant', content: "I encountered a data mismatch while planning this route. Let me try an alternative approach." }]);
     }
     setLoading(false);
@@ -644,7 +648,8 @@ function App() {
       processResponse(res.data, msgsWithUser);
 
     } catch (err) {
-      console.error(err);
+      console.error(err.response?.data || err);
+      alert(`Error: ${err.response?.data?.detail || err.message}`);
       setMessages(prev => [...prev, { role: 'assistant', content: "I encountered a data mismatch while planning this route. Let me try an alternative approach." }]);
     }
     setLoading(false);

@@ -17,27 +17,36 @@ class TravelPlannerLogic:
         c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
         return max(500, round(R * c * 15))
 
-    def select_hotel_best_fit(self, city_id: int, travellers: int, total_budget: float, nights: int, transport_cost: float = 0) -> Optional[Dict[str, Any]]:
+    def select_hotel_best_fit(self, city_id: int, travellers: int, total_budget: float, nights: int, transport_cost: float = 0, travel_month: str = "Jan") -> Optional[Dict[str, Any]]:
+        if not travel_month: travel_month = "Jan"
+        if not city_id: return {"error": "Invalid city ID", "name": "Standard Hotel", "price_per_night": 2000, "rating": 3}
         # 5. BUFFER RESERVE: Reserve 10% of budget for emergencies
         usable_budget = total_budget * 0.9
         
-        hotels = self.db.get_hotels(city_id)
+        db_hotels = self.db.get_hotels(city_id)
         location_name = None
-        city_data = self.db.get_city_by_id(city_id)
+        city_data = self.db.get_city_by_id(city_id) or {}
         city_lat = city_data.get('lat', 11.0)
         city_lng = city_data.get('lng', 77.0)
         
-        if not hotels:
+        if not db_hotels:
             hub_name = city_data.get('parent_hub')
             if hub_name:
                 hub_city = self.db.get_city_by_name(hub_name)
                 if hub_city:
-                    hotels = self.db.get_hotels(hub_city['city_id'])
+                    db_hotels = self.db.get_hotels(hub_city['city_id'])
                     location_name = hub_city['name']
                     city_lat = hub_city.get('lat', city_lat)
                     city_lng = hub_city.get('lng', city_lng)
         
-        if not hotels: return None
+        if not db_hotels: 
+            return {"error": "No hotels found", "name": "Standard Hotel", "price_per_night": 2000, "rating": 3, "area": "City Center", "amenities": ["Wi-Fi"]}
+        
+        best_months = city_data.get('best_months', [])
+        multiplier = 1.2 if travel_month in best_months else 0.9
+        hotels = [dict(h) for h in db_hotels]
+        for h in hotels:
+            h['price_per_night'] = int(h.get('price_per_night', 0) * multiplier)
         
         rem = usable_budget - transport_cost - (400 * nights * travellers)
         max_p_n = (rem / nights) if rem > 0 else 1000
@@ -57,7 +66,9 @@ class TravelPlannerLogic:
         return sel
 
     def generate_itinerary(self, days: int, city_id: int, hotel: Dict[str, Any], num_rooms: int, num_travellers: int, mood: str = "Relaxation", travel_month: str = "Jan") -> List[Dict[str, Any]]:
-        city_data = self.db.get_city_by_id(city_id)
+        if not travel_month: travel_month = "Jan"
+        if not city_id: return [{"error": "Invalid city ID", "day": 1, "activities_list": "Fallback activities", "daily_activity": "Fallback activity", "activities": [], "stay": "Standard stay", "meal": "Standard meal", "restaurant": "Local Restaurant"}]
+        city_data = self.db.get_city_by_id(city_id) or {}
         city_lat = city_data.get('lat', 11.0)
         city_lng = city_data.get('lng', 77.0)
 
@@ -86,14 +97,18 @@ class TravelPlannerLogic:
         is_rainy = weather.get('rainy', False) if weather else False
         is_hot = weather.get('temperature_type', 'pleasant') == 'hot' if weather else False
 
-        if is_rainy or is_hot:
-            # Bad weather: prefer indoor activities
+        # 1. The Rainy/Outdoor Logic
+        if is_rainy:
+            filtered_pool = [x for x in pool if not x.get('outdoor', False)]
+            if len(filtered_pool) >= days:
+                pool = filtered_pool
+            else:
+                pool.sort(key=lambda x: x.get('outdoor', True))
+        elif is_hot:
             pool.sort(key=lambda x: x.get('outdoor', True))
         elif mood.lower() == 'adventure': 
-            # Adventure: strongly prefer outdoor
             pool.sort(key=lambda x: x.get('outdoor', False), reverse=True)
         else: 
-            # Good weather default: prefer outdoor activities
             pool.sort(key=lambda x: x.get('outdoor', False), reverse=True)
             
         itinerary = []
@@ -136,15 +151,24 @@ class TravelPlannerLogic:
         spent = state['costs']['total']
         city_id = state['city_id']
         
+        city_data = self.db.get_city_by_id(city_id)
+        travel_month = state.get('travel_month', 'Jan')
+        best_months = city_data.get('best_months', [])
+        multiplier = 1.2 if travel_month in best_months else 0.9
+        
         # DOWN-STEP LOOP (to fit under usable_budget)
         iteration = 0
-        while spent > usable_budget and iteration < 5:
+        max_iterations = 15
+        while spent > usable_budget and iteration < max_iterations:
             iteration += 1
             changed = False
             
             # 1. Downgrade Hotel
-            hotels = self.db.get_hotels(city_id)
-            if hotels:
+            db_hotels = self.db.get_hotels(city_id)
+            if db_hotels:
+                hotels = [dict(h) for h in db_hotels]
+                for h in hotels:
+                    h['price_per_night'] = int(h.get('price_per_night', 0) * multiplier)
                 cheaper = [h for h in hotels if h.get('price_per_night', 9999) < state['selected_hotel'].get('price_per_night', 9999)]
                 if cheaper:
                     cheaper.sort(key=lambda x: x.get('price_per_night', 9999), reverse=True)
@@ -180,13 +204,16 @@ class TravelPlannerLogic:
         target_min = usable_budget * 0.85
         target_max = usable_budget * 0.95
         
-        while spent < target_min and iteration < 10:
+        while spent < target_min and iteration < max_iterations:
             iteration += 1
             changed = False
             
             # 1. Upgrade Hotel
-            hotels = self.db.get_hotels(city_id)
-            if hotels:
+            db_hotels = self.db.get_hotels(city_id)
+            if db_hotels:
+                hotels = [dict(h) for h in db_hotels]
+                for h in hotels:
+                    h['price_per_night'] = int(h.get('price_per_night', 0) * multiplier)
                 better = [h for h in hotels if h.get('price_per_night', 0) > state['selected_hotel'].get('price_per_night', 0)]
                 if better:
                     better.sort(key=lambda x: x.get('price_per_night', 0))

@@ -118,6 +118,8 @@ class DataService:
             return []
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f)
+            if isinstance(data, list):
+                return data
             return data.get(key, [])
 
     def _load_json_full(self, filename: str) -> Dict[str, Any]:
@@ -209,7 +211,7 @@ class DataService:
         for w in self._weather:
             if w['city_id'] == city_id and (w['month'].lower() == month.lower() or w['month'].lower() == month.lower()[:3]):
                 return w
-        return None
+        return {"rainy": False, "temperature_type": "pleasant"}
 
     def get_all_weather(self, city_id: int) -> List[Dict[str, Any]]:
         return [w for w in self._weather if w['city_id'] == city_id]
