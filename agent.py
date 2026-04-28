@@ -21,8 +21,8 @@ class PlanState(TypedDict):
     travellers: int
     mood: str
     trip_style: str
-    travel_month: str
     food_preference: str
+    travel_month: str
     
     # Selected Items
     selected_hotel: Optional[Dict[str, Any]]
@@ -225,7 +225,7 @@ class TravelAgent:
         state['selected_hotel'] = h_sel
         
         rooms = (state['travellers'] + (h_sel.get('max_people', 2) or 2) - 1) // (h_sel.get('max_people', 2) or 2)
-        state['itinerary_days'] = self.logic.generate_itinerary(state['days'], city['city_id'], h_sel, rooms, state['travellers'], state['mood'])
+        state['itinerary_days'] = self.logic.generate_itinerary(state['days'], city['city_id'], h_sel, rooms, state['travellers'], state['mood'], state['travel_month'])
         
         t_c = (state['selected_transport'].get('cost', 500) * state['travellers']) * 2
         h_c = h_sel.get('price_per_night', 0) * rooms * state['days']
@@ -258,15 +258,7 @@ class TravelAgent:
 
         state['kpi'] = {"total_budget": state['budget'], "spent": state['costs']['total'], "remaining": state['budget'] - state['costs']['total']}
         
-        city_data = self.db.get_city_by_id(state['city_id'])
-        c_lat = city_data.get('lat', 11.0)
-        c_lng = city_data.get('lng', 77.0)
-        
-        # Enrich restaurants with jittered coords nested in a 'coords' object
         rests = self.db.get_food_places(state['city_id'])[:4]
-        for r in rests:
-            jittered = self.logic._jitter_coords(c_lat, c_lng, 0.01)
-            r['coords'] = {"lat": jittered['lat'], "lng": jittered['lng']}
 
         state['media_cards'] = {"stays": [state['selected_hotel']], "restaurants": rests}
         return state
@@ -301,6 +293,16 @@ class TravelAgent:
             travellers = int(ext.get('travellers') or input_data.get('travellers') or 2)
             budget_updated = True if ext.get('budget') else (True if input_data.get('budget_updated') else False)
 
+        travel_month_input = input_data.get('travel_month') or "Jan"
+        if travel_month_input == "Suggest by AI" and destination:
+            city_obj = self.db.get_city_by_name(destination)
+            if city_obj and city_obj.get("best_months"):
+                travel_month = city_obj["best_months"][0]
+            else:
+                travel_month = "Jan"
+        else:
+            travel_month = travel_month_input
+
         state: PlanState = {
             "query": query, "chat_history": history,
             "destination": destination,
@@ -310,8 +312,9 @@ class TravelAgent:
             "travellers": travellers,
             "mood": mood,
             "budget_updated": budget_updated,
+            "travel_month": travel_month,
             "maximize_to_limit": ext.get('maximize_to_limit') or input_data.get('maximize_to_limit', False),
-            "travel_month": "May", "food_preference": "Both", "field_changes": [],
+            "food_preference": "Both", "field_changes": [],
             "selected_hotel": None, "selected_transport": None, "available_transport": [], "transport_meta": None,
             "itinerary_days": [], "food_recommendations": []
         }

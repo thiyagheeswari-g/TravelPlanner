@@ -104,25 +104,6 @@ async def delete_session(session_id: str):
     db.delete_session(session_id)
     return {"status": "success"}
 
-@app.get("/weather")
-async def get_live_weather(city: str):
-    api_key = os.getenv("OPENWEATHER_API_KEY") # fallback key for testing
-    if not api_key:
-        return {"temp": 25, "condition": "Clear Sky", "icon": "01d"}
-    try:
-        url = f"http://api.openweathermap.org/data/2.5/weather?q={city},in&appid={api_key}&units=metric"
-        resp = requests.get(url)
-        data = resp.json()
-        if resp.status_code == 200:
-            return {
-                "temp": round(data["main"]["temp"]),
-                "condition": data["weather"][0]["main"],
-                "icon": data["weather"][0]["icon"]
-            }
-        return {"temp": 24, "condition": "Clear", "icon": "01d"}
-    except Exception:
-        return {"temp": 24, "condition": "Clear", "icon": "01d"}
-
 @app.get("/")
 async def root():
     return {"message": "TravelPlanner API is running"}

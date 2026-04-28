@@ -2,45 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import {
   Plane, MapPin, Calendar, Wallet, Users, Utensils,
-  Sun, Send, CloudRain, Star, Hotel, Train, Trash2, ChevronRight,
+  Send, Star, Hotel, Train, Trash2, ChevronRight,
   ChevronDown, ChevronUp, Download, Map as MapIcon, Filter, Route, Search,
   Info, Clock, Compass, Sparkles, CheckCircle, CheckCircle2, Menu, History, X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 import './App.css';
-import L from 'leaflet';
-
-// Fix Leaflet icon issue
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-
-const createIcon = (color) => new L.Icon({
-  iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${color}.png`,
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
-
-const blueIcon = createIcon('blue');
-const yellowIcon = createIcon('yellow');
-const greenIcon = createIcon('green');
 
 const API_BASE = "http://localhost:8000";
-
-function ChangeView({ center, zoom, cityId }) {
-  const map = useMap();
-  useEffect(() => {
-    if (center && center[0] && center[1]) {
-      map.flyTo(center, zoom, { animate: true, duration: 1.2 });
-      setTimeout(() => map.invalidateSize(), 300);
-    }
-  }, [center, map]); 
-  return null;
-}
 
 // High-End Tab Navigation Component
 const TabNav = ({ activeTab, onTabChange }) => {
@@ -137,88 +106,6 @@ const TransportLogisticsTable = ({ meta, options, selected }) => {
           </table>
         </div>
       </div>
-    </div>
-  );
-};
-
-const WeatherEngine = ({ itinerary, days, destination, month, liveWeather }) => {
-  const [expandedDate, setExpandedDate] = useState(null);
-
-  if (!itinerary || !itinerary.weather_data) return null;
-  const tempType = itinerary.weather_data.temperature_type || 'pleasant';
-  const isRainy = itinerary.weather_data.rainy || false;
-
-  const baseTemp = tempType === 'cool' ? 20 : (tempType === 'hot' ? 34 : 26);
-
-  const forecast = Array.from({ length: Math.min(days, 7) }, (_, i) => {
-    const d = new Date(`${month} 10, ${new Date().getFullYear()}`);
-    d.setDate(d.getDate() + i);
-    return {
-      dateObj: d,
-      displayDate: `${d.getDate()} ${month}`,
-      dayName: d.toLocaleDateString('en-US', { weekday: 'short' }),
-      temp: baseTemp + Math.floor(Math.random() * 4) - 2,
-      isRainy: isRainy
-    };
-  });
-
-  const generateHourly = (base) => {
-    return [
-      { time: '10 AM', temp: base - 2, rain: isRainy },
-      { time: '12 PM', temp: base + 1, rain: isRainy },
-      { time: '3 PM', temp: base + 3, rain: isRainy },
-      { time: '6 PM', temp: base, rain: false },
-      { time: '9 PM', temp: base - 3, rain: false }
-    ];
-  };
-
-  return (
-    <div className="weather-multi-day-container">
-      <div className="weather-multi-header">
-        <span>Upcoming Forecast</span>
-        <span className="dest-span">{destination}</span>
-      </div>
-      {liveWeather && (
-        <div style={{ fontSize: '0.8rem', color: '#fbbf24', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-          Live: {liveWeather.temp}°C, {liveWeather.condition}
-        </div>
-      )}
-      <div className="weather-days-row">
-        {forecast.map((day, idx) => (
-          <div
-            key={idx}
-            className={`weather-day-card ${expandedDate === idx ? 'active' : ''}`}
-            onClick={() => setExpandedDate(expandedDate === idx ? null : idx)}
-          >
-            <div className="day-name">{day.dayName}</div>
-            <div className="date-str">{day.displayDate}</div>
-            <div className="day-icon">{day.isRainy ? <CloudRain size={20} color="#0ea5e9" /> : <Sun size={20} color="#fbbf24" />}</div>
-            <div className="day-temp">{day.temp}°C</div>
-          </div>
-        ))}
-      </div>
-
-      <AnimatePresence>
-        {expandedDate !== null && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="weather-hourly-dropdown"
-          >
-            <div className="hourly-title">Hourly Forecast</div>
-            <div className="hourly-row">
-              {generateHourly(forecast[expandedDate].temp).map((h, i) => (
-                <div key={i} className="hourly-item">
-                  <div className="h-time">{h.time}</div>
-                  <div className="h-icon">{h.rain ? <CloudRain size={16} color="#0ea5e9" /> : <Sun size={16} color="#fbbf24" />}</div>
-                  <div className="h-temp">{h.temp}°</div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 };
@@ -338,7 +225,11 @@ const ItineraryTable = ({ itinerary, activeSubTab, setActiveSubTab }) => {
               <tbody>
                 {itinerary.itinerary_days.map((day, idx) => (
                   <tr key={idx}>
-                    <td className="day-cell">{day.day}</td>
+                    <td className="day-cell">
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+                        <span style={{ fontSize: '0.9rem', fontWeight: '600' }}>Day {day.day}</span>
+                      </div>
+                    </td>
                     <td className="slot-cell">
                       <div className="day-plan-text" style={{ fontSize: '0.95rem', fontWeight: '500', color: 'var(--text-main)' }}>
                         {day.daily_activity || day.activities_list}
@@ -530,7 +421,6 @@ function App() {
   const [accordions, setAccordions] = useState({ accommodation: true, food: false });
   const scrollRef = useRef(null);
 
-  const [mapCenter, setMapCenter] = useState([12.9716, 77.5946]); // Default to Bangalore (central to South India)
 
   const [allCities, setAllCities] = useState([]);
 
@@ -539,20 +429,12 @@ function App() {
   const [sidebarView, setSidebarView] = useState('filters'); // 'filters' or 'history'
   const [sessions, setSessions] = useState([]);
   const [sessionId, setSessionId] = useState(null);
-  const [liveWeather, setLiveWeather] = useState(null);
 
   useEffect(() => {
     document.title = "TravelPlanner";
     setSessionId(`sess_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
   }, []);
 
-  useEffect(() => {
-    if (itinerary && itinerary.destination) {
-      axios.get(`${API_BASE}/weather?city=${itinerary.destination}`)
-        .then(res => setLiveWeather(res.data))
-        .catch(err => console.error("Weather fetch failed", err));
-    }
-  }, [itinerary]);
 
   const loadHistory = async () => {
     try {
@@ -587,9 +469,7 @@ function App() {
       setMessages(res.data.messages || []);
       if (res.data.plan_metadata && res.data.plan_metadata.status === 'done') {
         setItinerary(res.data.plan_metadata);
-        if (res.data.plan_metadata.selected_hotel && res.data.plan_metadata.selected_hotel.coords) {
-          setMapCenter([res.data.plan_metadata.selected_hotel.coords.lat, res.data.plan_metadata.selected_hotel.coords.lng]);
-        }
+
         // Full Context Handoff
         setActiveTab('Itinerary');
         setActiveSubTab('For You');
@@ -667,10 +547,6 @@ function App() {
 
   const processResponse = async (data, currentMsgs = []) => {
     setItinerary(data);
-    if (data.selected_hotel && data.selected_hotel.coords) {
-      setMapCenter([data.selected_hotel.coords.lat, data.selected_hotel.coords.lng]);
-    }
-
     // Clean text of [MAP_CONFIG]
     let cleanText = data.final_response || "";
     cleanText = cleanText.replace(/\[MAP_CONFIG\][\s\S]*?\[\/MAP_CONFIG\]/g, '');
@@ -766,22 +642,12 @@ function App() {
         ...formData
       });
       processResponse(res.data, msgsWithUser);
+
     } catch (err) {
       console.error(err);
       setMessages(prev => [...prev, { role: 'assistant', content: "I encountered a data mismatch while planning this route. Let me try an alternative approach." }]);
     }
     setLoading(false);
-  };
-
-  const weatherBgs = {
-    'Vellore': 'https://images.unsplash.com/photo-1590050752117-23a9d7fc2440?auto=format&fit=crop&w=800&q=80',
-    'Ooty': 'https://images.unsplash.com/photo-1542401886-65d6c60db275?auto=format&fit=crop&w=800&q=80',
-    'Munnar': 'https://images.unsplash.com/photo-1593693397690-362af9666fc2?auto=format&fit=crop&w=800&q=80',
-    'Kodaikanal': 'https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=800&q=80',
-    'Hampi': 'https://images.unsplash.com/photo-1590407767664-9a4d80500742?auto=format&fit=crop&w=800&q=80',
-    'Vizag': 'https://images.unsplash.com/photo-1594918731735-86675037d2f9?auto=format&fit=crop&w=800&q=80',
-    'Pondicherry': 'https://images.unsplash.com/photo-1582512165192-36c589004051?auto=format&fit=crop&w=800&q=80',
-    'Hyderabad': 'https://images.unsplash.com/photo-1605335834927-463289069d3e?auto=format&fit=crop&w=800&q=80'
   };
 
   return (
@@ -839,7 +705,7 @@ function App() {
                       <div className="input-group">
                         <label>TRIP STYLE</label>
                         <select name="trip_type" value={formData.trip_type} onChange={handleInputChange}>
-                          <option value="solo">Select Trip Style</option>
+                          <option value="">Select Trip Style</option>
                           <option value="solo">Solo Adventure</option>
                           <option value="couple">Romantic Couple</option>
                           <option value="family">Family Gathering</option>
@@ -1036,93 +902,7 @@ function App() {
         </div>
       </main>
 
-      {/* Column 3: Live Map */}
-      <section className="map-view-column">
-        <div className="map-wrapper">
-          <MapContainer 
-            key={itinerary?.city_id || 'default-map'}
-            center={mapCenter} 
-            zoom={13} 
-            style={{ height: '100%', width: '100%' }}
-          >
-            <TileLayer
-              url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-            />
-            <ChangeView center={mapCenter} zoom={12} cityId={itinerary?.city_id} />
 
-            {itinerary && (
-              <>
-                {/* 1. HOTEL MARKER (BLUE) */}
-                {itinerary.selected_hotel && itinerary.selected_hotel.coords && (
-                  <Marker position={[itinerary.selected_hotel.coords.lat, itinerary.selected_hotel.coords.lng]} icon={blueIcon}>
-                    <Popup>
-                      <div className="popup-box">
-                        <div className="popup-type hotel">ACCOMMODATION</div>
-                        <div className="popup-name" style={{ fontWeight: 'bold' }}>{itinerary.selected_hotel.name}</div>
-                        <div className="popup-area">{itinerary.selected_hotel.area}</div>
-                      </div>
-                    </Popup>
-                  </Marker>
-                )}
-
-                {/* 2. ATTRACTION MARKERS (YELLOW) */}
-                {itinerary.itinerary_days.map((day, idx) => (
-                  day.coords && (
-                    <Marker key={`att-${idx}`} position={[day.coords.lat, day.coords.lng]} icon={yellowIcon}>
-                      <Popup>
-                        <div className="popup-box">
-                          <div className="popup-type sightseeing">SIGHTSEEING - DAY {day.day}</div>
-                          <div className="popup-name" style={{ fontWeight: 'bold' }}>{day.daily_activity}</div>
-                          <div className="popup-area">{day.activities[0]?.area}</div>
-                        </div>
-                      </Popup>
-                    </Marker>
-                  )
-                ))}
-
-                {/* 3. RESTAURANT MARKERS (GREEN) */}
-                {itinerary.media_cards?.restaurants?.map((res, idx) => (
-                  res.coords && (
-                    <Marker key={`res-${idx}`} position={[res.coords.lat, res.coords.lng]} icon={greenIcon}>
-                      <Popup>
-                        <div className="popup-box">
-                          <div className="popup-type food">DINING RECOMMENDATION</div>
-                          <div className="popup-name" style={{ fontWeight: 'bold' }}>{res.name}</div>
-                          <div className="popup-area">{res.cuisine} | {res.area}</div>
-                        </div>
-                      </Popup>
-                    </Marker>
-                  )
-                ))}
-              </>
-            )}
-
-          </MapContainer>
-        </div>
-
-        {itinerary && itinerary.weather_data ? (
-          <WeatherEngine
-            itinerary={itinerary}
-            days={formData.days}
-            destination={formData.destination}
-            month={formData.travel_month_mode === 'Suggest by AI' ? itinerary.travel_month || 'Jan' : formData.travel_month}
-            liveWeather={liveWeather}
-          />
-        ) : (
-          <div className="weather-overlay-card">
-            <div className="weather-bg-image" style={{ backgroundImage: `url(${weatherBgs[formData.destination] || weatherBgs['Ooty']})` }}></div>
-            <div className="weather-info-box">
-              <div className="weather-label">LIVE SENSOR DATA</div>
-              <div className="weather-degrees">{itinerary?.weather_data?.avg_temp || '24'}°C</div>
-              <div className="weather-meta">
-                <Sun size={24} /> <span>{itinerary?.weather_data?.condition || 'Clear Sky'}</span>
-                <span className="sep">|</span>
-                <MapPin size={20} /> {formData.destination}
-              </div>
-            </div>
-          </div>
-        )}
-      </section>
 
       {/* Hidden Print Structure - REDESIGNED AS PROFESSIONAL VOUCHER */}
       {itinerary && itinerary.status === 'done' && (

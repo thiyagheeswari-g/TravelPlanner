@@ -17,13 +17,6 @@ class TravelPlannerLogic:
         c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
         return max(500, round(R * c * 15))
 
-    def _jitter_coords(self, lat: float, lng: float, intensity: float = 0.01) -> Dict[str, float]:
-        """Creates a small offset to ensure markers don't overlap perfectly."""
-        return {
-            "lat": lat + (random.uniform(-intensity, intensity)),
-            "lng": lng + (random.uniform(-intensity, intensity))
-        }
-
     def select_hotel_best_fit(self, city_id: int, travellers: int, total_budget: float, nights: int, transport_cost: float = 0) -> Optional[Dict[str, Any]]:
         # 5. BUFFER RESERVE: Reserve 10% of budget for emergencies
         usable_budget = total_budget * 0.9
@@ -56,17 +49,14 @@ class TravelPlannerLogic:
         if not target: target = hotels
         sel = sorted(target, key=lambda x: x.get('price_per_night', 9999))[0]
         
-        # Enrich with coords (intensity 0.01 as requested)
-        jittered = self._jitter_coords(city_lat, city_lng, 0.01)
-        sel['coords'] = {"lat": jittered['lat'], "lng": jittered['lng']}
-        
+
         if location_name:
             sel = sel.copy()
             sel['display_location'] = location_name
             
         return sel
 
-    def generate_itinerary(self, days: int, city_id: int, hotel: Dict[str, Any], num_rooms: int, num_travellers: int, mood: str = "Relaxation") -> List[Dict[str, Any]]:
+    def generate_itinerary(self, days: int, city_id: int, hotel: Dict[str, Any], num_rooms: int, num_travellers: int, mood: str = "Relaxation", travel_month: str = "Jan") -> List[Dict[str, Any]]:
         city_data = self.db.get_city_by_id(city_id)
         city_lat = city_data.get('lat', 11.0)
         city_lng = city_data.get('lng', 77.0)
@@ -92,8 +82,19 @@ class TravelPlannerLogic:
         if not food_list:
             food_list = [{"name": "Local Restaurant", "cuisine": "Local", "area": "Nearby"}]
 
-        if mood.lower() == 'adventure': pool.sort(key=lambda x: x.get('outdoor', False), reverse=True)
-        else: pool.sort(key=lambda x: x.get('outdoor', True))
+        weather = self.db.get_weather(city_id, travel_month)
+        is_rainy = weather.get('rainy', False) if weather else False
+        is_hot = weather.get('temperature_type', 'pleasant') == 'hot' if weather else False
+
+        if is_rainy or is_hot:
+            # Bad weather: prefer indoor activities
+            pool.sort(key=lambda x: x.get('outdoor', True))
+        elif mood.lower() == 'adventure': 
+            # Adventure: strongly prefer outdoor
+            pool.sort(key=lambda x: x.get('outdoor', False), reverse=True)
+        else: 
+            # Good weather default: prefer outdoor activities
+            pool.sort(key=lambda x: x.get('outdoor', False), reverse=True)
             
         itinerary = []
         hotel_name = hotel['name']
@@ -103,12 +104,7 @@ class TravelPlannerLogic:
             # CLEAN FORMATTING: Remove suffixes like ": Sightseeing"
             highlight = spot['name'].split(':')[0].strip()
             
-            jittered = self._jitter_coords(city_lat, city_lng, 0.01)
-            spot['coords'] = {"lat": jittered['lat'], "lng": jittered['lng']}
-            
             res = food_list[i % len(food_list)]
-            res_jittered = self._jitter_coords(city_lat, city_lng, 0.01)
-            res['coords'] = {"lat": res_jittered['lat'], "lng": res_jittered['lng']}
 
             meal_desc = f"Lunch/Dinner at {res['name']} ({res['cuisine']}) in {res.get('area', 'Local Area')}."
             
@@ -121,7 +117,6 @@ class TravelPlannerLogic:
                 "activities_list": highlight,
                 "daily_activity": highlight,
                 "activities": [spot],
-                "coords": spot['coords'],
                 "stay": stay_desc,
                 "meal": meal_desc,
                 "restaurant": res
